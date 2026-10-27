@@ -49,13 +49,15 @@ Depende de E1. Objetivo: rebotes coherentes antes de golpes complejos.
 
 Depende de E2. Objetivo: devolver con intención.
 
-- [ ] P30 Definir acciones independientes del dispositivo de entrada.
-- [ ] P31 Implementar movimiento, límites y orientación.
-- [ ] P32 Añadir alcance, preparación y ventana de contacto del golpe base.
-- [ ] P33 Dirigir devolución con ayuda ajustable y un solo impacto por golpe.
-- [ ] P34 Probar 30 segundos de práctica contra lanzador y registrar sensaciones.
+- [x] P30 Definir acciones independientes del dispositivo de entrada.
+- [x] P31 Implementar movimiento, límites y orientación.
+- [x] P32 Añadir alcance, preparación y ventana de contacto del golpe base.
+- [x] P33 Dirigir devolución con ayuda ajustable y un solo impacto por golpe.
+- [ ] P34 Probar 30 segundos con el usuario y registrar sensaciones. Integración automática de 30 s aprobada en sesión 007; no reemplaza esa prueba humana.
 
-**Salida:** el jugador alcanza y devuelve pelotas; los fallos se entienden por posición/preparación. Una animación sola no demuestra esta etapa.
+**Avance sesión 007:** movimiento, mapa de acciones, preparación/alcance y devolución física implementados. Noventa trayectorias y diez contactos en 30 s de integración automática aprobados; dos contactos mediante eventos grabados. Guía PRACTICA.md.
+
+**Salida:** confirmar con el usuario control, alcance y comprensión de fallos (P34). No declarar diversión o comodidad validadas por el conductor automático de pruebas.
 
 ## E4 — Variedad y sensación de juego
 

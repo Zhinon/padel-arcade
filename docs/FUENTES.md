@@ -61,3 +61,12 @@ Las pérdidas de velocidad, desvíos y lanzamiento de globo son valores de dise�
 ## Fricción y reposo — sesión 006
 
 Parámetros de diseño ajustados por feedback, sin nuevas mediciones empíricas externas. Validación de rodadura contra distancia de parada v²/(2a). `previews/lob-lab.mp4` muestra ocho segundos hasta reposo; `fence-lab.mp4` se regeneró con dos lanzamientos de cuatro segundos. La captura F2 anterior permanece como histórica, identificada en la guía.
+
+
+## Práctica — sesión 007
+
+- [Input](https://docs.godotengine.org/en/stable/classes/class_input.html): mapa de acciones, teclado y mando.
+- [Node](https://docs.godotengine.org/en/stable/classes/class_node.html): prioridades de procesamiento, entrada y notificaciones de foco.
+- [CharacterBody3D](https://docs.godotengine.org/en/stable/classes/class_characterbody3d.html): cuerpo de jugador; el movimiento final usa barridos move_and_collide con delta explícito.
+- PlayerMotor, BasicShot, PracticeInput, panel y aro/objetivo son código y geometría creados en el proyecto. No se incorporaron modelos, fuentes, sonidos o animaciones externas.
+- `previews/practice.png`, `practice-640x360.png` y `practice.mp4`: capturas del motor con conductor sintético de prueba. El video no corresponde a un rival implementado.

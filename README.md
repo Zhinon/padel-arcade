@@ -2,20 +2,20 @@
 
 Juego de pádel 3D para PC, con jugabilidad arcade inspirada en Virtua Tennis y adaptación posterior a celular. Desarrollo individual asistido por Codex. Documentación en español.
 
-**Estado al 27/10/2026, sesión 006:** laboratorio de pelota con gravedad, colisiones y siete lanzamientos repetibles. Cámara aprobada y rejas corregidas. Fricción de piso y rodadura ajustadas; reja con dispersión reproducible y repetición apagada al abrir. Todavía sin giro, jugador controlable, golpes ni partido.
+**Estado al 27/10/2026, sesión 007:** primera práctica jugable. Un jugador controlable puede preparar y devolver una pelota con golpe base. Se conserva la física calibrada y el laboratorio anterior. Sin rival ni partido todavía.
 
-![Laboratorio de rebotes](docs/previews/lob-lab.png)
+![Práctica con jugador controlable](docs/previews/practice.png)
 
-En Linux: `./tools/run-godot.sh`. **F1–F7:** lanzamientos; **Espacio:** pausa; **R:** repetir; **N:** variar reja; **L:** repetición automática; **1/2/3:** cámaras; **G:** atenuar vidrio.
+En Linux: `./tools/run-godot.sh`. **WASD/flechas:** mover; **R:** recibir pelota; **Espacio:** mantener para preparar y soltar para golpear; **T:** cambiar zona; **P:** pausa; **F8:** laboratorio.
 
-[Guía y video del laboratorio](docs/LABORATORIO_PELOTA.md). [Vistas de cámara de E1](docs/CAMARA.md).
+[Guía y video de práctica](docs/PRACTICA.md). [Laboratorio de rebotes](docs/LABORATORIO_PELOTA.md).
 
 ## Por dónde seguir
 
 1. Leer [Estado y siguiente sesión](docs/ESTADO.md).
-2. Consultar el [Plan por etapas](docs/PLAN.md) y la [visión del juego](docs/JUEGO.md).
+2. Probar la [práctica](docs/PRACTICA.md) y revisar controles antes de añadir tiros avanzados.
 3. Seguir la [preparación del entorno](docs/ENTORNO.md) para abrir `game/project.godot`.
-4. Revisar los rebotes del laboratorio y continuar con movimiento y primer golpe (E3).
+4. Registrar la prueba humana de E3 y ajustar antes de avanzar a E4.
 
 ## Mapa del proyecto
 
@@ -23,6 +23,7 @@ En Linux: `./tools/run-godot.sh`. **F1–F7:** lanzamientos; **Espacio:** pausa;
 | --- | --- |
 | `game/` | Proyecto importable en Godot |
 | `docs/JUEGO.md` | Experiencia, controles propuestos y alcance |
+| `docs/PRACTICA.md` | Controles, primer golpe y validación de E3 |
 | `docs/LABORATORIO_PELOTA.md` | Controles, parámetros y evidencia de rebotes |
 | `docs/PLAN.md` | Etapas, tareas y condiciones para avanzar |
 | `docs/DECISIONES.md` | Acuerdos, propuestas y decisiones pendientes |

@@ -9,6 +9,7 @@ func _run() -> void:
 	await physics_frame
 	await process_frame
 	var lab = current_scene
+	lab.set_practice_mode(false)
 	lab.repeat_launch = false
 	var fence_demo := "--fence-demo" in OS.get_cmdline_user_args()
 	var lob_demo := "--lob-demo" in OS.get_cmdline_user_args()

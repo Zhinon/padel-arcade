@@ -2,7 +2,7 @@
 
 ## Estado actual
 
-Sesión 004: T00 y laboratorio físico T20–T23 comprobados con Godot 4.7.2. T10/T11 conservan comprobaciones de cámara y encuadre aprobado por el usuario en sesión 003. Golpes, parejas, reglas y partido continúan pendientes.
+Sesión 007: primer jugador y golpe base implementados y probados técnicamente (T30/T31 y trayectorias). P34 de comodidad/diversión sigue pendiente de usuario. E2 conserva sus regresiones aprobadas. Parejas, reglas y partido continúan pendientes.
 
 ## Escenarios mínimos
 
@@ -116,3 +116,22 @@ Los valores son una calibración de jugabilidad, no validación empírica de mat
 
 
 Videos de sesión 006 regenerados: F7 completo de ocho segundos, y reja con semillas 42/43 durante cuatro segundos por variante. Se inspeccionó el globo en vuelo y al final del video, detenido junto al fondo rival. Cámara conservada. Para iniciar el caso directamente: `./tools/run-godot.sh -- --scenario=7`.
+
+
+## Ejecución 27/10/2026 — sesión 007: jugador y primer golpe
+
+Motor 4.7.2.stable.official.ed1daf0bf; código posterior a 9d03459, anterior al commit de cierre. Física 120 Hz, mismos parámetros de E2.
+
+**Entrada y movimiento:** acciones de teclado y botón A sintético identificadas; adaptador recibe acción de movimiento. En un segundo, cardinal 4.68055 m y diagonal 4.68054 m (tolerancia 0.03 m). Límites propios comprobados en cuatro direcciones. La prueba inicial expuso dependencia del delta implícito de move_and_slide al llamarlo fuera del callback; se cambió el motor a barridos con delta explícito, que se usan igual en runtime y pruebas.
+
+**Golpe:** fuera de alcance no cambia pelota; ventana expirada no golpea una pelota que llega después; preparación de 0.025 s rechazada; pelota a 3 m rechazada. Contacto válido registra último golpeador y una sola strike, sin mover posición ni reiniciar reloj/RNG. No se permite segundo contacto del mismo jugador en la misma alimentación.
+
+**90 trayectorias físicas:** posiciones Z=0.7/5/9 m; alturas 0.3/0.9/1.8 m; direcciones lateral izquierda/centro/derecha y profundidad corta/larga; potencias 0.2/1. Ninguna tocó red y el primer piso fue rival, a menos de 0.4 m del destino (máximo observado ≈0.00018 m, válido solo para el modelo actual). No es validación de realismo de un tiro deportivo.
+
+**Integración:** conductor automático de 30 s, diez alimentaciones en tres zonas, diez contactos. Pausa congela jugador/pelota; reanudación funciona incluso al pausar antes del primer paso del lanzamiento. Pérdida de foco pausa y P reanuda. F8 aísla modos y vuelve con pelota esperando. Panel dentro de viewport en 720p/360p.
+
+**Eventos y captura:** grabación de seis segundos con Input.parse_input_event/Input.action_press, dos intentos y dos contactos. Se inspeccionaron captura 720p y captura compacta 640×360; el panel inicial reducido se compactó para dejar visible la cancha. Son eventos sintéticos, no un ensayo humano ni de mando físico.
+
+**Regresiones E2:** 13 casos de pelota, veinte semillas de calibración y recorrido completo aprobados. Se mantienen 2.00 m de retorno del globo y máximo 4.25 m de reja de esos fixtures. Comparación de caso de reja a 30/60/120 FPS programados coincide tras dos segundos; cámara aprobada de E1 conservada.
+
+**Informe:** previews/player-checks.json. Comando de reproducción en PRACTICA.md. Sigue pendiente P34 con el usuario. Sin giro, golpes avanzados, rivales ni partido.

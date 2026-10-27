@@ -5,6 +5,7 @@ extends CharacterBody3D
 signal contacted(event: Dictionary)
 signal stepped
 signal launched
+signal struck(event: Dictionary)
 
 @export var radius: float = 0.105 # Deliberately enlarged prototype radius, same as visual.
 @export var gravity_strength: float = 9.81
@@ -29,7 +30,8 @@ var elapsed: float = 0.0
 var grounded: bool = false
 var contacts: Array[Dictionary] = []
 var impact_limit_count: int = 0
-var last_hitter: int = -1 # No players striking yet.
+var last_hitter: int = -1
+var strikes: Array[Dictionary] = []
 
 func _ready() -> void:
 	collision_layer = 2
@@ -47,6 +49,8 @@ func launch(at: Vector3, initial_velocity: Vector3, seed_override: int = -1) -> 
 	elapsed = 0.0
 	grounded = false
 	contacts.clear()
+	strikes.clear()
+	last_hitter = -1
 	impact_limit_count = 0
 	active = true
 	launched.emit()
@@ -150,3 +154,15 @@ func _deflect_fence(reflected: Vector3, normal: Vector3, angles: Vector2) -> Vec
 	if inward < 0.1:
 		direction = (direction - normal * inward + normal * 0.1).normalized()
 	return direction * speed
+
+
+func strike(outgoing: Vector3, hitter: int) -> void:
+	# A hit changes momentum without resetting contact history, time or fence RNG.
+	var incoming := velocity
+	velocity = outgoing.limit_length(max_speed)
+	grounded = false
+	last_hitter = hitter
+	active = true
+	var event := {"time": elapsed, "position": position, "incoming": incoming, "outgoing": velocity, "hitter": hitter}
+	strikes.append(event)
+	struck.emit(event)

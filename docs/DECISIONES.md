@@ -61,3 +61,14 @@ Para cambiar una decisión: añadir fecha, contexto, alternativas relevantes, el
 - **D32:** rodadura con desaceleración constante 2.8 m/s² para llegar a reposo en tiempo finito; sustituye amortiguación exponencial anterior. Sin corte artificial por cantidad de piques o distancia.
 - **D33:** medir hasta reposo, no solo hasta el segundo pique. Objetivos de regresión limitados a lanzamientos de prueba: globo retorna menos de 4 m, reja menos de 5 m en veinte semillas; tiro bajo más rápido conserva más alcance pero no llega a red. No son límites insertados en simulación.
 - **D34:** repetición automática apagada al abrir; R relanza y L activa repetición opcional. Permite observar el final sin confundir un reinicio con conservación de movimiento.
+
+
+## 27/10/2026 — sesión 007: primer jugador y golpe
+
+- **D35, técnica inicial por validar con el usuario:** práctica de un jugador en mitad cercana; WASD/flechas, Espacio mantener/soltar, R alimentación manual, T tres zonas, P/Escape pausa. F8 conserva laboratorio. No hay repetición automática ni rival.
+- **D36:** acciones de entrada independientes de dispositivo con bindings teclado/mando. Mando solo comprobado sintéticamente; remapeo de interfaz pendiente. Pausa al perder foco.
+- **D37:** preparación mínima 0.10 s, completa 0.8 s, ventana de contacto 0.20 s, recuperación 0.35 s. Alcance inicial 1.25 m y altura 0.22–2.1 m; una vez por intento y por pelota recibida. Ajustar con la prueba humana.
+- **D38:** devolver mediante velocidad calculada para objetivo rival con margen de red; asistencia arcade declarada, sin teletransportar pelota ni alterar los coeficientes E2. Strike conserva reloj, posición, historial y RNG; launch inicia nueva pelota.
+- **D39:** jugador con cápsula y barridos explícitos con delta, límites a su mitad y velocidad diagonal normalizada. Todavía sin choque pelota/cuerpo ni colisiones entre personajes; esas reglas no se infieren del movimiento.
+- **D40:** panel nativo Godot con texto de controles/feedback y contador de contactos, compacto por debajo de 800 px. La búsqueda UX local no dio una guía específica de juego; se aplicaron criterios generales de legibilidad, contraste y feedback, no recomendaciones web de formularios como si fueran del motor.
+- **D41:** las pruebas automáticas y la grabación no sustituyen la validación humana de comodidad/diversión. P34 queda pendiente hasta que el usuario juegue esta versión.

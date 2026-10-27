@@ -27,6 +27,7 @@ func _run() -> void:
 	await physics_frame
 	await process_frame
 	lab = current_scene
+	lab.set_practice_mode(false)
 	lab.set_process(false)
 	lab.set_physics_process(false)
 	ball = lab.simulation

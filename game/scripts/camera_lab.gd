@@ -1,5 +1,5 @@
 extends Node3D
-## E2 physics lab; authored E1 trajectory is retained only for camera checks.
+## E3 practice session; E2 lab and E1 camera checks remain explicitly selectable.
 
 const PRESETS: Array[Vector3] = [Vector3(0, 10, 18), Vector3(0, 12, 21), Vector3(0, 9, 17)]
 const PRESET_NAMES: Array[String] = ["Referencia", "Más atrás", "Más cerca"]
@@ -7,6 +7,19 @@ const PRESET_NAMES: Array[String] = ["Referencia", "Más atrás", "Más cerca"]
 @export var camera_target := Vector3(0, 0.5, 0)
 @export var preview_duration: float = 4.0
 const BALL_SIM = preload("res://scripts/ball_simulation.gd")
+const PLAYER_MOTOR = preload("res://scripts/player_motor.gd")
+const PRACTICE_INPUT = preload("res://scripts/practice_input.gd")
+const BASIC_SHOT = preload("res://scripts/basic_shot.gd")
+const PRACTICE_HUD = preload("res://scripts/practice_hud.gd")
+var controlled_player: CharacterBody3D
+var input_adapter: Node
+var shot_controller: Node
+var hud: CanvasLayer
+var practice_mode: bool = false
+var resume_ball_active: bool = false
+var feed_lane: int = 0
+var aim_marker: MeshInstance3D
+const FEED_LANES: Array[float] = [-2.4, 0.0, 2.4]
 const SCENARIOS = preload("res://scripts/launch_scenarios.gd")
 var simulation: CharacterBody3D
 var scenarios: Array[Dictionary] = SCENARIOS.all()
@@ -51,15 +64,21 @@ func _ready() -> void:
 	trail_material.albedo_color = Color("a6c85a")
 	trail.material_override = trail_material
 	add_child(trail)
+	_setup_practice()
 	camera_preview = "--camera-preview" in OS.get_cmdline_user_args()
 	if camera_preview:
 		enable_camera_preview()
 	else:
 		var initial_scenario := 1
+		var explicit_lab := "--lab" in OS.get_cmdline_user_args()
 		for arg: String in OS.get_cmdline_user_args():
 			if arg.begins_with("--scenario="):
+				explicit_lab = true
 				initial_scenario = clampi(arg.trim_prefix("--scenario=").to_int() - 1, 0, scenarios.size() - 1)
-		launch_scenario(initial_scenario)
+		if explicit_lab:
+			launch_scenario(initial_scenario)
+		else:
+			set_practice_mode(true)
 	_update_title()
 
 func _sphere(label: String, radius: float, color: Color, parent: Node3D) -> MeshInstance3D:
@@ -84,10 +103,20 @@ func _mesh(label: String, shape: Mesh, color: Color, parent: Node3D) -> MeshInst
 func _build_players() -> void:
 	var positions: Array[Vector3] = [Vector3(-2.4, 0, 6.8), Vector3(2.2, 0, 7.6), Vector3(-2.2, 0, -6.3), Vector3(2.5, 0, -7.3)]
 	for i in range(positions.size()):
+		var actor: Node3D
+		if i == 0:
+			controlled_player = PLAYER_MOTOR.new()
+			actor = controlled_player
+		else:
+			actor = Node3D.new()
+		actor.name = "Player%d" % (i + 1)
+		add_child(actor)
+		actor.position = positions[i]
 		var player := Node3D.new()
-		player.name = "PlayerPlaceholder%d" % (i + 1)
-		add_child(player)
-		player.position = positions[i]
+		player.name = "Avatar"
+		actor.add_child(player)
+		if i == 0:
+			controlled_player.visual = player
 		var shirt := Color("ed8255") if i < 2 else Color("c8e4ef")
 		var torso := CapsuleMesh.new()
 		torso.radius = 0.24
@@ -108,6 +137,8 @@ func _build_players() -> void:
 		var racket := _sphere("Racket", 0.21, Color("d3e457"), player)
 		racket.scale = Vector3(0.75, 1.0, 0.12)
 		racket.position = Vector3(0.5, 0.85, -0.12)
+		if i == 0:
+			controlled_player.racket = racket
 
 func set_camera_preset(index: int) -> void:
 	preset_index = clampi(index, 0, PRESETS.size() - 1)
@@ -130,6 +161,9 @@ func _process(delta: float) -> void:
 		ball_shadow.visible = ball.position.y >= 0.0 and absf(ball.position.x) <= 5.0 and absf(ball.position.z) <= 10.0
 
 func _physics_process(_delta: float) -> void:
+	if practice_mode and aim_marker != null:
+		aim_marker.position = shot_controller.target_for_aim(input_adapter.movement()) if simulation.last_hitter != 0 and shot_controller.armed_time <= 0.0 else shot_controller.target
+		aim_marker.position.y = 0.025
 	if camera_preview or preview_paused:
 		return
 	if simulation.grounded and simulation.velocity.is_zero_approx() and not resting_notified:
@@ -151,12 +185,15 @@ func _physics_process(_delta: float) -> void:
 		launch_scenario(scenario_index)
 
 func enable_camera_preview() -> void:
+	set_practice_mode(false)
 	camera_preview = true
 	simulation.active = false
 	trail.visible = false
 	_update_preview()
 
 func launch_scenario(index: int) -> void:
+	if practice_mode:
+		set_practice_mode(false)
 	camera_preview = false
 	preview_paused = false
 	scenario_index = clampi(index, 0, scenarios.size() - 1)
@@ -191,6 +228,15 @@ func _update_preview() -> void:
 func _unhandled_key_input(event: InputEvent) -> void:
 	if not event is InputEventKey or not event.pressed or event.echo:
 		return
+	if event.physical_keycode == KEY_F8:
+		if practice_mode:
+			set_practice_mode(false)
+			launch_scenario(scenario_index)
+		else:
+			set_practice_mode(true)
+		return
+	if practice_mode and event.physical_keycode in [KEY_SPACE, KEY_R, KEY_P, KEY_ESCAPE, KEY_L, KEY_N]:
+		return # Gameplay adapter consumes action events, including release.
 	match event.physical_keycode:
 		KEY_1: set_camera_preset(0)
 		KEY_2: set_camera_preset(1)
@@ -215,7 +261,95 @@ func _unhandled_key_input(event: InputEvent) -> void:
 			_update_title()
 
 func _update_title(last_contact: String = "—") -> void:
-	if camera_preview:
+	if practice_mode:
+		DisplayServer.window_set_title("Pádel · Práctica · WASD/flechas mover · Espacio preparar/soltar · R pelota · T zona · P pausa · F8 laboratorio")
+	elif camera_preview:
 		DisplayServer.window_set_title("Pádel · Prueba visual de cámara · 1/2/3 vistas · G vidrio · Espacio pausa · R reinicio")
 	else:
 		DisplayServer.window_set_title("Pádel · F%d %s · contacto %s · semilla %d · F1–F7 pruebas · N variar reja · Espacio pausa · R relanzar · L repetir %s" % [scenario_index + 1, scenarios[scenario_index].name, last_contact, launch_seed, "sí" if repeat_launch else "no"])
+
+
+func _setup_practice() -> void:
+	process_physics_priority = 10
+	PRACTICE_INPUT.install_actions()
+	input_adapter = PRACTICE_INPUT.new()
+	input_adapter.name = "PracticeInput"
+	add_child(input_adapter)
+	controlled_player.input_adapter = input_adapter
+	shot_controller = BASIC_SHOT.new()
+	shot_controller.name = "BasicShot"
+	shot_controller.player = controlled_player
+	shot_controller.ball = simulation
+	add_child(shot_controller)
+	input_adapter.prepare_requested.connect(shot_controller.begin_prepare)
+	input_adapter.release_requested.connect(shot_controller.release_shot)
+	input_adapter.feed_requested.connect(feed_practice_ball)
+	input_adapter.next_lane_requested.connect(_next_feed_lane)
+	input_adapter.pause_requested.connect(func(): _set_practice_paused(not preview_paused))
+	input_adapter.focus_lost.connect(func(): _set_practice_paused(true))
+	hud = PRACTICE_HUD.new()
+	hud.name = "PracticeHUD"
+	hud.controller = shot_controller
+	add_child(hud)
+	shot_controller.feedback.connect(hud.show_feedback)
+	var mesh := TorusMesh.new()
+	mesh.inner_radius = 0.35
+	mesh.outer_radius = 0.4
+	aim_marker = _mesh("AimMarker", mesh, Color("ddff74"), self)
+	aim_marker.position.y = 0.025
+
+func set_practice_mode(enabled: bool) -> void:
+	practice_mode = enabled
+	preview_paused = false
+	camera_preview = false
+	repeat_launch = false
+	if shot_controller == null:
+		return
+	shot_controller.enabled = enabled
+	shot_controller.paused = false
+	shot_controller.reset_cycle()
+	input_adapter.enabled = enabled
+	input_adapter.paused = false
+	controlled_player.enabled = enabled
+	controlled_player.selection_ring.visible = enabled
+	hud.visible = enabled
+	hud.paused = false
+	aim_marker.visible = enabled
+	if enabled:
+		controlled_player.reset_position(Vector3(-2.4, 0, 6.8))
+		feed_lane = 0
+		simulation.launch(Vector3(FEED_LANES[feed_lane], 1.6, -5.8), Vector3.ZERO, launch_seed)
+		simulation.active = false
+		trail_points.clear()
+		trail.mesh = null
+		hud.show_feedback("R para recibir una pelota · el aro marca a tu jugador")
+	_update_title()
+
+func feed_practice_ball() -> void:
+	if not practice_mode or preview_paused:
+		return
+	simulation.launch(Vector3(FEED_LANES[feed_lane], 1.6, -5.8), Vector3(0, 4.2, 10), launch_seed)
+	shot_controller.reset_cycle()
+	resting_notified = false
+	trail_points.clear()
+	trail.mesh = null
+	hud.show_feedback("Pelota en camino · prepará el golpe y soltá cerca del contacto")
+
+func _next_feed_lane() -> void:
+	if not practice_mode or preview_paused:
+		return
+	feed_lane = (feed_lane + 1) % FEED_LANES.size()
+	feed_practice_ball()
+
+func _set_practice_paused(paused: bool) -> void:
+	if not practice_mode or preview_paused == paused:
+		return
+	if paused:
+		resume_ball_active = simulation.active
+	preview_paused = paused
+	input_adapter.paused = paused
+	controlled_player.enabled = not paused
+	shot_controller.paused = paused
+	shot_controller.reset_cycle()
+	simulation.active = false if paused else resume_ball_active
+	hud.paused = paused

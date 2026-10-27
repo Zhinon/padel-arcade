@@ -106,7 +106,7 @@ func _surface(label: String, at: Vector3, size: Vector3, kind: String) -> void:
 	body.name = label
 	body.position = at
 	body.collision_layer = 1
-	body.collision_mask = 2
+	body.collision_mask = 6
 	body.set_meta("surface", kind)
 	var shape := BoxShape3D.new()
 	shape.size = size

@@ -1,35 +1,34 @@
 # Estado y próxima sesión
 
-Actualizado: 27/10/2026, zona America/Argentina/Mendoza. Sesión 006.
+Actualizado: 27/10/2026, zona America/Argentina/Mendoza. Sesión 007.
 
 ## Dónde estamos
 
-**E2 implementada y comprobada como laboratorio inicial.** Cámara aprobada por el usuario y laterales corregidos en E1. Pelota con gravedad, colisiones y rebotes diferenciados, siete lanzamientos, pausa/reinicio, estela y marcas de impacto. Reja con desvíos por semilla; fricción tangencial en cada pique, rodadura con detención finita y pérdidas por superficie ajustadas tras segunda revisión del usuario. Figuras de jugadores todavía estáticas y sin colisión. Sin golpes, IA ni reglas de punto.
+**E3 implementada técnicamente; pendiente revisión humana P34.** El usuario aprobó la calibración de rebotes de E2 antes de avanzar. La escena abre en práctica: jugador naranja con aro, entrada por acciones, movimiento, preparación/soltar y golpe base con ayuda de dirección. Lanzador manual R, tres zonas con T y avisos en pantalla. Los otros personajes están estáticos.
 
-Godot portátil 4.7.2.stable.official.ed1daf0bf. Repositorio local `main`, sin remoto. P06 (equipo objetivo) continúa pendiente.
+Godot 4.7.2.stable.official.ed1daf0bf portátil. Git local `main`, sin remoto. P06 (equipo objetivo/mando) pendiente.
 
-## Verificación
+## Comprobado
 
-- Importación y ejecución con Godot, sin errores de scripts en las ejecuciones finales.
-- 13 escenarios físicos aprobados: caída, vidrio, reja, red, esquina, tiro rápido, junta vidrio/reja, reja alta de esquina, salida por arriba, reposo, comparación de transparencia y repetición.
-- Calibración de superficies: globo piso→vidrio→piso sin cruzar red antes del segundo pique; veinte semillas de reja, repetición estable y energía no creciente. Cero fallos.
-- Comparación en procesos separados a 30/60/120 FPS programados (ahora escenario de reja F3, semilla 42): posición, velocidad y secuencia de superficies coinciden tras dos segundos, tolerancia 0.00001 m/m·s⁻¹.
-- Pruebas existentes de cámara, pausa, reinicio y atenuación aprobadas. Se conserva un modo visual E1 solo para pruebas de encuadre.
-- Recorrido completo: F7 vuelve 2.00 m desde vidrio; F3 hasta 4.25 m desde reja en veinte semillas. Comparado con 9.75/9.78 m previos. Prueba analítica de distancia de rodadura aprobada.
-- Repetición automática apagada de inicio; videos completos de globo/reja en LABORATORIO_PELOTA.md.
+- Noventa trayectorias de devolución: red despejada y primer pique a menos de 0.4 m del objetivo.
+- Sin golpe remoto, preparación demasiado corta rechazada, altura limitada, una vez por intento y por pelota del jugador. Golpear preserva posición, reloj e historial; cambia velocidad/último golpeador.
+- Movimiento cardinal/diagonal equivalente, límites de cancha y preparación que reduce velocidad. Pausa/foco/F8 comprobados.
+- Integración automática de 30 s: diez contactos en tres zonas. Grabación de dos contactos mediante eventos de Godot. No es prueba humana.
+- Panel revisado en 720p y 360p; modo compacto en ventanas menores a 800 px.
+- Física E2 sin cambiar coeficientes: 13 regresiones, calibración, recorrido y comparación 30/60/120 FPS programados siguen aprobados.
 
-El entorno renderiza por CPU (Mesa llvmpipe): no hay medición válida de rendimiento del equipo objetivo. La pelota sigue ampliada a radio 0.105 m y los coeficientes son de prototipo. Hay dispersión de reja por semilla; todavía no hay giro, Magnus ni transferencia de efecto en rebotes. Accesos laterales pendientes.
+Todavía no hay rival, reglas de partido, giro ni tiros avanzados del jugador. La pala tiene animación procedural provisional. La pelota aún no interactúa con cuerpos de jugadores. Mando configurado pero no probado físicamente. Render local por CPU: sin afirmaciones de rendimiento del equipo objetivo.
 
-## Próxima tarea concreta
+## Próximo paso
 
-Probar la demo con el usuario para detectar ajustes evidentes de velocidad/rebote. Después **P30/P31: acciones de entrada y movimiento de un jugador**, seguido de alcance y primer golpe (P32/P33). No añadir rivales ni marcador antes de poder devolver una pelota.
-
-Antes de estimar rendimiento/exportación, resolver P06: sistema operativo, equipo y mando.
+**P34: probar práctica con el usuario.** Confirmar si moverse, preparar y soltar se sienten cómodos y si el alcance es claro. Ajustar antes de E4 (variedad de tiros, animación/sonido, efectos y rival de laboratorio).
 
 ## Abrir
 
-`./tools/run-godot.sh` desde la raíz. F1–F7 escenarios; Espacio pausa; R repite semilla; N nueva variante de reja; L repetición (apagada al abrir); 1/2/3 cámaras; G vidrio. Guía completa en LABORATORIO_PELOTA.md.
+`./tools/run-godot.sh`. R recibe; WASD/flechas mueve; mantener/soltar Espacio golpea; T cambia zona; P pausa; F8 laboratorio. Si al cambiar de ventana se pausa, P continúa. Guía PRACTICA.md.
 
-## Cierre de sesión
+El laboratorio anterior se inicia con `-- --lab` o `-- --scenario=7`. Coeficientes y límites en LABORATORIO_PELOTA.md.
 
-Actualizar plan, estado, pruebas y bitácora. Decisiones relevantes se conservan en DECISIONES.md; guardar un punto de recuperación en Git.
+## Cierre
+
+Actualizar plan, pruebas y bitácora, registrar decisiones y guardar un punto de recuperación en Git.

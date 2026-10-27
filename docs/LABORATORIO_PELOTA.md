@@ -1,13 +1,13 @@
 # Laboratorio de pelota — sesión 006
 
-La escena principal ahora usa gravedad y colisiones. La cámara y la geometría lateral aprobadas se conservan. Los jugadores todavía son figuras sin control ni colisión.
+Desde sesión 007 la escena abre en práctica E3 (PRACTICA.md). Este laboratorio de gravedad y colisiones sigue disponible con F8 o --lab. La cámara y la geometría lateral aprobadas se conservan. Los jugadores todavía son figuras sin control ni colisión.
 
 ## Abrir y probar
 
 Desde la raíz del proyecto en Linux:
 
 ```bash
-./tools/run-godot.sh
+./tools/run-godot.sh -- --lab
 # Abrir directamente el globo:
 ./tools/run-godot.sh -- --scenario=7
 ```

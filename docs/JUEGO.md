@@ -58,3 +58,8 @@ Online, pantalla dividida, carrera, torneos, editor de personajes, jugadores lic
 - 60 FPS en una PC de referencia todavía por identificar.
 - Una persona nueva puede iniciar intercambios con una explicación breve.
 - Priorizar coherencia y diversión antes que fidelidad visual.
+
+
+## Primera implementación de controles — sesión 007
+
+Se implementó la práctica E3 con WASD/flechas y Espacio mantener/soltar. Movimiento al soltar dirige el destino del golpe. R alimenta y T cambia zona. Son elecciones técnicas iniciales para probar con el usuario, no preferencias confirmadas. Globo/remate y efectos del jugador siguen pendientes. Ver PRACTICA.md.

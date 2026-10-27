@@ -91,3 +91,18 @@
 **Resultado:** globo 2.00 m de retorno y reja máximo 4.25 m, con detención real. 22 lanzamientos de recorrido y estimación analítica de rodadura aprobados; 13 regresiones físicas y calibración de veinte semillas aprobadas. Render programado 30/60/120 coincide. Criterio de F2 ajustado por tratarse de un drive más rápido; detalle en PRUEBAS.md.
 
 **Continuidad:** revisar sensación de esta versión antes de avanzar a movimiento/primer golpe. Giro sigue pendiente. Documentación, informes comparativos y videos de lanzamiento completo actualizados. Guardado en Git al cierre.
+
+
+## 27/10/2026 — Sesión 007: primera práctica jugable
+
+**Pedido:** avanzar tras aprobar la calibración de rebotes. Alcance: movimiento y primer golpe, antes de rivales/partido.
+
+**Implementación:** InputAdapter con acciones de teclado/mando, jugador con cápsula y barridos/límites de mitad cercana, preparación y ventana de golpe, cálculo de velocidad hacia objetivo rival con margen de red, registro de strike que conserva historial/reloj/RNG. R alimenta, T cambia zona, P pausa, F8 alterna laboratorio. La escena abre en práctica y espera R. Física E2 sin cambiar coeficientes.
+
+**Presentación:** aro del jugador, destino rival, movimiento procedural de pala y panel de controles/feedback. Se aplicaron criterios generales de UI/UX Pro Max; búsquedas no dieron una referencia específica Godot/juego. El panel se compactó en ventana pequeña tras inspección visual.
+
+**Correcciones durante implementación:** tipo Vector2 explícito para entrada; movimiento con delta explícito al detectar diferencia en prueba fuera del callback; pausa restaura estado previo aun antes del primer tick; práctica no hereda el atajo L de repetición del laboratorio. Se aislaron modos en los ejecutores anteriores.
+
+**Pruebas:** 90 trayectorias por red/aterrizaje, alcance/preparación/altura, una sola strike, movimiento diagonal, límites, pausa/foco/F8 e interfaz 720p/360p. Conductor de 30 s: diez contactos. Grabación de seis segundos con eventos de Godot: dos contactos. Regresiones de pelota/calibración/recorrido/FPS aprobadas, mismos 2.00/4.25 m de E2. Sin prueba de mando físico ni comodidad humana.
+
+**Continuidad:** P30–P33 completados técnicamente, P34 pendiente con usuario. Después ajustar control antes de E4. Sin giro, tiros avanzados del jugador, rival, reglas ni marcador. Documentación y evidencia guardadas; punto de recuperación Git al cierre.

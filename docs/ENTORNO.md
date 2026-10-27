@@ -1,6 +1,6 @@
 # Entorno y primeros pasos
 
-## Situación comprobada al 27/10/2026 — sesión 004
+## Situación comprobada al 27/10/2026 — sesión 007
 
 - Python y Git disponibles por línea de comandos.
 - Godot portátil descargado en `../../work/tools/godot/Godot_v4.7.2-stable_linux.x86_64` respecto de la raíz del proyecto. No se añadió al PATH ni se modificó la instalación del sistema.
@@ -16,7 +16,7 @@
 4. Esperar importación y abrir la escena principal. Ejecutar con F6 para la escena o F5 para el proyecto.
 5. Registrar la versión exacta y errores/resultado en ESTADO.md y BITACORA.md. Si se usa otra versión, registrar antes el cambio y verificar compatibilidad.
 
-La escena actual es el laboratorio de rebotes E2. Tiene gravedad, colisiones, siete escenarios y figuras estáticas; todavía sin golpes. Ver LABORATORIO_PELOTA.md para controles y parámetros.
+La escena abre ahora en práctica E3 con un jugador y golpe base (PRACTICA.md). F8 o `-- --lab` abren el laboratorio E2. La cámara y coeficientes de E2 se conservan.
 
 ## Comandos comprobados en este entorno
 
@@ -24,8 +24,10 @@ Desde la raíz del proyecto:
 
 ```bash
 ./tools/run-godot.sh
+./tools/run-godot.sh -- --lab
 ./tools/run-godot.sh --editor
 ./tools/run-godot.sh --headless --editor --quit
+./tools/run-godot.sh --headless --script res://tests/player_checks.gd
 ./tools/run-godot.sh --headless --script res://tests/ball_checks.gd
 ./tools/run-godot.sh --headless --script res://tests/camera_checks.gd
 ./tools/run-godot.sh --script res://tests/camera_checks.gd -- --capture

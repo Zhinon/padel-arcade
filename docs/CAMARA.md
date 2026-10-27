@@ -22,7 +22,7 @@ Posición (0,9,17), mismo objetivo y FOV.
 
 ## Probar
 
-Para reproducir el modo visual E1 en Linux: `./tools/run-godot.sh -- --camera-preview`. La ejecución normal abre el laboratorio físico E2.
+Para reproducir el modo visual E1 en Linux: `./tools/run-godot.sh -- --camera-preview`. La ejecución normal abre la práctica E3; F8 alterna con el laboratorio E2.
 
 - **1/2/3:** cambiar cámara.
 - **G:** alternar atenuación del cerramiento cercano.

@@ -1,6 +1,6 @@
 # Arquitectura inicial — propuesta
 
-Este documento describe responsabilidades previstas. Existe un laboratorio visual en `game/scenes/main.tscn`, con `scripts/court.gd` para geometría y `scripts/camera_lab.gd` para figuras, cámaras y trayectoria de prueba. `tests/camera_checks.gd` verifica encuadre y controles del laboratorio. En E2 se añadieron `scripts/ball_simulation.gd` (CharacterBody3D con integración y barridos), `scripts/launch_scenarios.gd` (condiciones iniciales) y superficies StaticBody3D etiquetadas en Court. Las responsabilidades de jugadores, reglas y partido de la tabla todavía no se implementaron. Crear carpetas y abstracciones cuando se necesiten.
+Este documento describe responsabilidades previstas. Existe un laboratorio visual en `game/scenes/main.tscn`, con `scripts/court.gd` para geometría y `scripts/camera_lab.gd` para figuras, cámaras y trayectoria de prueba. `tests/camera_checks.gd` verifica encuadre y controles del laboratorio. En E2 se añadieron `scripts/ball_simulation.gd` (CharacterBody3D con integración y barridos), `scripts/launch_scenarios.gd` (condiciones iniciales) y superficies StaticBody3D etiquetadas en Court. En E3 se incorporaron PracticeInput, PlayerMotor, BasicShot y PracticeHUD. Reglas, IA y partido de la tabla todavía no se implementaron. Crear carpetas y abstracciones cuando se necesiten.
 
 ## Responsabilidades
 
@@ -49,3 +49,15 @@ BallSimulation incorpora retención tangencial de vidrio/reja y RNG local para d
 ## Fricción — sesión 006
 
 BallSimulation resuelve ahora fricción tangencial de piso según impulso normal y desaceleración de rodadura de magnitud constante. La conservación/reducción de energía se comprueba por contacto y el reposo por distancia analítica. No hay condiciones que corten el viaje por cantidad de piques o por tipo de escenario. La repetición automática es un control del laboratorio, apagado de inicio.
+
+
+## Práctica y golpe base — sesión 007
+
+- PracticeInput traduce teclado/mando a acciones semánticas; no se leen teclas físicas en movimiento o resolución de golpe.
+- PlayerMotor usa cápsula y barridos move_and_collide con delta explícito. Superficie plana, sin saltos; resuelve deslizamiento por contacto y limita a la mitad cercana. Prioridad física -10, antes de la pelota (0).
+- BasicShot (prioridad 20) modela preparación, ventana, recuperación y alcance, después de mover la pelota. Objetivo rival y arco asistido se resuelven con gravedad/resistencia del modelo discreto actual.
+- BallSimulation.strike conserva posición, reloj, historial y RNG; registra golpeador. launch limpia historial y habilita otra pelota. Contactos pasivos y golpes son eventos distintos.
+- PracticeHUD muestra instrucciones/estado sin intervenir en simulación. Root coordina alimentación, pausa, foco y alternancia E2/E3.
+- Capa de colisión: cancha 1, pelota 2, jugador 4. Jugador consulta cancha; pelota consulta cancha, no cuerpos. Evita introducir reglas de cuerpo antes de implementarlas.
+
+No existe IA de jugador en runtime. El conductor que realiza contactos de prueba y mueve el actor automáticamente está únicamente en tests/.
