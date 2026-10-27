@@ -1,41 +1,33 @@
-[gd_scene load_steps=5 format=3]
+[gd_scene load_steps=4 format=3]
 
-[sub_resource type="StandardMaterial3D" id="Material_floor"]
-albedo_color = Color(0.05, 0.35, 0.58, 1)
-roughness = 0.9
+[ext_resource type="Script" path="res://scripts/court.gd" id="1_court"]
+[ext_resource type="Script" path="res://scripts/camera_lab.gd" id="2_lab"]
 
-[sub_resource type="BoxMesh" id="Mesh_floor"]
-material = SubResource("Material_floor")
-size = Vector3(10, 0.1, 20)
+[sub_resource type="Environment" id="Environment_lab"]
+background_mode = 1
+background_color = Color(0.055, 0.085, 0.1, 1)
+ambient_light_source = 3
+ambient_light_color = Color(0.75, 0.85, 0.92, 1)
+ambient_light_energy = 0.4
+reflected_light_source = 2
+tonemap_mode = 0
 
-[sub_resource type="StandardMaterial3D" id="Material_net"]
-albedo_color = Color(0.85, 0.88, 0.9, 1)
+[node name="CameraLab" type="Node3D"]
+script = ExtResource("2_lab")
 
-[sub_resource type="BoxMesh" id="Mesh_net_marker"]
-material = SubResource("Material_net")
-size = Vector3(10, 0.04, 0.04)
+[node name="Court" type="Node3D" parent="."]
+script = ExtResource("1_court")
 
-[node name="Main" type="Node3D"]
-
-[node name="CourtPlaceholder" type="Node3D" parent="."]
-
-[node name="Floor" type="MeshInstance3D" parent="CourtPlaceholder"]
-position = Vector3(0, -0.05, 0)
-mesh = SubResource("Mesh_floor")
-
-[node name="NetMarker" type="MeshInstance3D" parent="CourtPlaceholder"]
-position = Vector3(0, 0.9, 0)
-mesh = SubResource("Mesh_net_marker")
-
-[node name="CameraRig" type="Node3D" parent="."]
-
-[node name="Camera3D" type="Camera3D" parent="CameraRig"]
-position = Vector3(0, 18, 24)
-rotation = Vector3(-0.6435011, 0, 0)
+[node name="Camera3D" type="Camera3D" parent="."]
 current = true
-fov = 55.0
+near = 0.1
 far = 100.0
 
 [node name="Sun" type="DirectionalLight3D" parent="."]
-rotation = Vector3(-0.85, -0.4, 0)
-light_energy = 1.2
+rotation = Vector3(-0.95, -0.5, 0)
+light_color = Color(1, 0.95, 0.86, 1)
+light_energy = 0.65
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_lab")

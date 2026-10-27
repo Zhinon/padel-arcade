@@ -1,12 +1,12 @@
 # Entorno y primeros pasos
 
-## Situación comprobada al 27/10/2026
+## Situación comprobada al 27/10/2026 — sesión 002
 
 - Python y Git disponibles por línea de comandos.
-- `godot` y `godot4` no encontrados en PATH. Esto no descarta una instalación en otra ubicación.
+- Godot portátil descargado en `../../work/tools/godot/Godot_v4.7.2-stable_linux.x86_64` respecto de la raíz del proyecto. No se añadió al PATH ni se modificó la instalación del sistema.
 - Carpeta del proyecto: `outputs/padel-arcade` dentro de este chat.
 - Versión objetivo: **Godot 4.7.2 estable, edición estándar**, con GDScript; versión consultada en el archivo oficial. No se necesita edición .NET.
-- El proyecto aún no fue importado, ejecutado ni exportado con el motor.
+- Motor verificado: `4.7.2.stable.official.ed1daf0bf`. Proyecto importado y ejecutado; exportación de build aún pendiente.
 
 ## Preparación
 
@@ -16,9 +16,25 @@
 4. Esperar importación y abrir la escena principal. Ejecutar con F6 para la escena o F5 para el proyecto.
 5. Registrar la versión exacta y errores/resultado en ESTADO.md y BITACORA.md. Si se usa otra versión, registrar antes el cambio y verificar compatibilidad.
 
-Se espera una escena estática con piso azul, marcador central de red y cámara elevada. No tiene pelota, jugadores, controles ni colisiones. La escena es una base técnica, no la cancha terminada.
+La escena actual es un laboratorio visual de cancha/cámara, con cuatro figuras y una pelota animada por trayectoria. Sin colisiones ni golpes. Ver CAMARA.md para controles y capturas.
 
-## Comandos cuando exista ejecutable
+## Comandos comprobados en este entorno
+
+Desde la raíz del proyecto:
+
+```bash
+./tools/run-godot.sh
+./tools/run-godot.sh --editor
+./tools/run-godot.sh --headless --editor --quit
+./tools/run-godot.sh --headless --script res://tests/camera_checks.gd
+./tools/run-godot.sh --script res://tests/camera_checks.gd -- --capture
+```
+
+El script guarda datos/cache en `.local/`, excluido de Git, para evitar escrituras fuera del proyecto. El ejecutable portátil tiene marcador `_sc_` para sus datos de editor. Para otro ejecutable usar `PADEL_GODOT_BIN=/ruta/a/godot ./tools/run-godot.sh`. En Windows/macOS se puede importar directamente con el editor oficial; este lanzador es para Bash/Linux.
+
+El render gráfico funcionó con Mesa llvmpipe (CPU). Hubo avisos de driver iris/VSync; no se observan errores de scripts. No inferir rendimiento del equipo objetivo a partir de este entorno.
+
+## Comandos equivalentes con Godot en PATH
 
 Ejecutar desde la raíz `padel-arcade`; sustituir `godot` por la ruta real del ejecutable si hace falta:
 

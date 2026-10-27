@@ -1,6 +1,6 @@
 # Arquitectura inicial — propuesta
 
-Este documento describe responsabilidades previstas. Solo existe la escena técnica `game/scenes/main.tscn`; los sistemas siguientes aún no están implementados. Crear carpetas y abstracciones cuando se necesiten.
+Este documento describe responsabilidades previstas. Existe un laboratorio visual en `game/scenes/main.tscn`, con `scripts/court.gd` para geometría y `scripts/camera_lab.gd` para figuras, cámaras y trayectoria de prueba. `tests/camera_checks.gd` verifica encuadre y controles del laboratorio. Los sistemas de gameplay siguientes aún no están implementados. Crear carpetas y abstracciones cuando se necesiten.
 
 ## Responsabilidades
 

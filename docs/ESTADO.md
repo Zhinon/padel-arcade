@@ -1,35 +1,33 @@
 # Estado y próxima sesión
 
-Actualizado: 27/10/2026, zona America/Argentina/Mendoza.
+Actualizado: 27/10/2026, zona America/Argentina/Mendoza. Sesión 002.
 
 ## Dónde estamos
 
-Etapa activa: **E0 — preparación**. Plan, decisiones, pruebas y skills redactados. Proyecto Godot preparado con escena estática de piso, referencia de red, luz y cámara. No hay pelota, jugadores, física, entradas ni marcador.
+Etapa activa: **E1 — revisión de cancha y cámara**. P05 y P10–P14 completados como prototipo visual. P15 pendiente de revisión del usuario. P06 (equipo objetivo) sigue pendiente.
 
-## Verificación
+- Godot portátil **4.7.2.stable.official.ed1daf0bf** descargado y ejecutado.
+- Cancha visual con piso, líneas, red y cerramientos simplificados; no tiene accesos ni colisiones todavía.
+- Cuatro figuras provisionales y pelota de lectura ampliada con trayectoria programada, sin física.
+- Tres cámaras y transparencia del cerramiento cercano con controles de laboratorio.
+- Repositorio local `main`, sin remoto; cambios de sesión guardados al cierre.
 
-- Godot no encontrado en PATH; importación y ejecución pendientes.
-- Skills: ambas instaladas en carpeta personal, formato validado y copias comprobadas por SHA-256. Disponibles para descubrimiento a partir del siguiente turno.
-- Git: repositorio local en `main`, con commit inicial de recuperación y sin remoto.
+## Verificación y límites
 
-- Revisión estática: enlaces locales válidos, referencias de escena coherentes e imagen copiada sin cambios. No reemplaza importar en Godot.
+Importación sin errores de scripts. Pruebas geométricas en 1280×720 y 640×360 para las tres cámaras: 0 puntos fuera de cuadro. Pausa, reinicio y variación de alpha comprobados. Se generaron seis capturas con el render real y se inspeccionaron las vistas principal, lejana y reducida.
+
+El entorno usa render por CPU (Mesa llvmpipe) con avisos de driver/VSync; no sirve para afirmar rendimiento en la PC del usuario. No hay gameplay ni prueba reglamentaria. En 640×360 la pelota llega a unos 2.4–2.9 píxeles de diámetro; legibilidad móvil pendiente.
 
 ## Próxima tarea concreta
 
-**P05: localizar/instalar Godot 4.7.2 estándar, importar `game/project.godot`, ejecutar y registrar resultado.**
+**P15: comparar las vistas de docs/CAMARA.md con el usuario.** La vista 1 es referencia; la 2 muestra más entorno. Ajustar altura/distancia si hace falta. Después avanzar al experimento P20 de trayectoria/colisión y laboratorio de rebotes.
 
-Después: P06 para identificar equipo y primer SO de exportación; P10–P15 para construir cancha y validar cámara con el usuario. La escena inicial no equivale a E1 terminada.
+Antes de estimar rendimiento/exportación, resolver P06: SO objetivo, equipo y mando. No asumir que el equipo del chat es el del jugador.
 
-## Preguntas que resolveremos cuando correspondan
+## Cómo abrir la demo
 
-- Qué equipo y sistema operativo usará para jugar, y si tiene mando.
-- Horas semanales disponibles, antes de estimar calendario.
-- Estilo visual en E1, ayudas en E3/E4 y cambio de jugador en E5.
-- Formato del partido en E6 y teléfono de prueba antes de E8.
+Desde la raíz: `./tools/run-godot.sh`. Controles: 1/2/3 cámaras; G cerramiento; Espacio pausa; R reinicio. No es todavía un juego controlable.
 
 ## Rutina de cierre
 
-1. Marcar tareas con evidencia en PLAN.md.
-2. Registrar cambios, pruebas y limitaciones en BITACORA.md.
-3. Actualizar este archivo con el siguiente paso exacto.
-4. Añadir decisiones relevantes y crear un punto de recuperación cuando corresponda.
+Actualizar PLAN.md, este estado y BITACORA.md. Registrar decisiones relevantes, pruebas reales y un punto de recuperación en Git.

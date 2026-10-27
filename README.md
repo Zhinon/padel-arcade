@@ -2,7 +2,11 @@
 
 Juego de pádel 3D para PC, con jugabilidad arcade inspirada en Virtua Tennis y adaptación posterior a celular. Desarrollo individual asistido por Codex. Documentación en español.
 
-**Estado al 27/10/2026:** planificación y estructura inicial creadas. Hay una escena técnica de arranque, sin gameplay. No se encontró Godot en el PATH del entorno: la importación y ejecución siguen pendientes.
+**Estado al 27/10/2026, sesión 002:** laboratorio de cancha y cámara ejecutado con Godot 4.7.2. Cancha provisional, cuatro figuras, tres cámaras y trayectoria visual de globo. Pruebas de encuadre aprobadas; revisión del usuario pendiente. Todavía no hay física ni golpes.
+
+![Cámara de referencia](docs/previews/camera-1-1280x720.png)
+
+En Linux, ejecutar `./tools/run-godot.sh` desde esta carpeta. **1/2/3:** cambiar cámara; **G:** atenuar cerramiento cercano; **Espacio:** pausar trayectoria; **R:** reiniciar. [Comparar las cámaras](docs/CAMARA.md).
 
 ## Por dónde seguir
 

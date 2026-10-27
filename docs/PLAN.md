@@ -11,7 +11,7 @@ Actualizado: 27/10/2026. Sin fechas comprometidas. Identificadores estables para
 - [x] P02 Crear dos skills propias y validar su formato.
 - [x] P03 Instalar skills personales y verificar las copias (hashes coincidentes y formato validado).
 - [x] P04 Preparar proyecto Godot y escena técnica mínima, sin gameplay.
-- [ ] P05 Instalar/localizar Godot de la versión fijada, importar y ejecutar.
+- [x] P05 Descargar Godot portátil 4.7.2, importar y ejecutar con captura renderizada.
 - [ ] P06 Registrar SO objetivo de primera build, CPU/GPU/RAM y teclado/mando disponibles.
 - [x] P07 Crear repositorio local y primer punto de recuperación en `main`, sin remoto.
 
@@ -21,14 +21,16 @@ Actualizado: 27/10/2026. Sin fechas comprometidas. Identificadores estables para
 
 Depende de P05. Objetivo: ver claramente dónde se juega.
 
-- [ ] P10 Construir cancha provisional a escala, con líneas, red, vidrio y reja distinguibles; consultar FIP.
-- [ ] P11 Colocar cuatro figuras y pelota provisionales.
-- [ ] P12 Ajustar altura/distancia/FOV para incluir fondo cercano y cancha rival.
-- [ ] P13 Atenuar cerramientos que tapen la acción.
-- [ ] P14 Probar globos y posiciones extremas; guardar capturas y parámetros.
+- [x] P10 Construir cancha provisional a escala, con líneas, red, vidrio y reja distinguibles; consultar FIP.
+- [x] P11 Colocar cuatro figuras y pelota provisionales.
+- [x] P12 Ajustar altura/distancia/FOV para incluir fondo cercano y cancha rival.
+- [x] P13 Atenuar cerramientos que tapen la acción.
+- [x] P14 Probar globos y posiciones extremas; guardar capturas y parámetros.
 - [ ] P15 Revisar encuadre y estilo con el usuario.
 
-**Salida:** cancha legible en 16:9 y pelota identificable en fondos y globos, sin oclusiones críticas. La escena inicial actual todavía no cumple esta etapa.
+**Avance sesión 002:** P10 es un blockout visual: dimensiones principales, líneas, red y cerramiento simplificado; aún sin accesos ni colisiones. P12 es un encuadre inicial, no elección aprobada. P14 incluye 101 muestras de trayectoria por cámara y capturas en dos resoluciones. Ver CAMARA.md y PRUEBAS.md.
+
+**Salida:** revisión humana de legibilidad y elección del encuadre en P15. No declarar E1 cerrada solo porque pasan las comprobaciones geométricas.
 
 ## E2 — Laboratorio de pelota
 

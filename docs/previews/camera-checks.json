@@ -1,0 +1,50 @@
+{
+	"ball_visual_radius_m": 0.105,
+	"checks": [
+		{
+			"min_ball_diameter_px": 5.47,
+			"outside_points": 0,
+			"preset": 1,
+			"resolution": "(1280, 720)",
+			"viewport": "(1280.0, 720.0)"
+		},
+		{
+			"min_ball_diameter_px": 4.87,
+			"outside_points": 0,
+			"preset": 2,
+			"resolution": "(1280, 720)",
+			"viewport": "(1280.0, 720.0)"
+		},
+		{
+			"min_ball_diameter_px": 5.73,
+			"outside_points": 0,
+			"preset": 3,
+			"resolution": "(1280, 720)",
+			"viewport": "(1280.0, 720.0)"
+		},
+		{
+			"min_ball_diameter_px": 2.74,
+			"outside_points": 0,
+			"preset": 1,
+			"resolution": "(640, 360)",
+			"viewport": "(640.0, 360.0)"
+		},
+		{
+			"min_ball_diameter_px": 2.43,
+			"outside_points": 0,
+			"preset": 2,
+			"resolution": "(640, 360)",
+			"viewport": "(640.0, 360.0)"
+		},
+		{
+			"min_ball_diameter_px": 2.87,
+			"outside_points": 0,
+			"preset": 3,
+			"resolution": "(640, 360)",
+			"viewport": "(640.0, 360.0)"
+		}
+	],
+	"engine": "4.7.2-stable (official)",
+	"failures": [],
+	"note": "Geometry checks only; ball is enlarged for readability, not a regulation model. No occlusion or human readability assertion."
+}

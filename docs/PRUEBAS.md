@@ -2,7 +2,7 @@
 
 ## Estado actual
 
-Solo se pueden comprobar los archivos preparados y el formato de las skills. Importación, ejecución, cámara y gameplay requieren Godot y siguen pendientes. Los casos siguientes son el plan de validación, no resultados aprobados.
+Sesión 002: importación y ejecución verificadas con Godot 4.7.2. T00 aprobado; T10/T11 tienen evidencia geométrica y capturas, con revisión humana del usuario pendiente. El resto de casos sigue planificado, sin pruebas de gameplay ejecutadas.
 
 ## Escenarios mínimos
 
@@ -38,3 +38,18 @@ Gravedad de fallos: impide jugar, altera reglas, dificulta control/lectura o det
 ## Prueba de diversión
 
 En E4 jugar sesiones breves y anotar: ¿se entiende por qué se falló?, ¿se puede dirigir el tiro?, ¿hay decisiones útiles?, ¿la cámara deja seguir la pelota?, ¿dan ganas de repetir? Requiere evaluación humana; no se demuestra con un test automático.
+
+
+## Ejecución 27/10/2026 — sesión 002
+
+Motor: 4.7.2.stable.official.ed1daf0bf. Escena: main.tscn, código de sesión 002, anterior al commit de cierre. Render: Compatibility sobre Mesa llvmpipe, sin medición válida de rendimiento objetivo.
+
+- Importación: completada sin errores de scripts. El primer intento encontró directorios de usuario de solo lectura; resuelto guardando datos en `.local/` y usando modo portátil.
+- T00: escena ejecutada con render y capturas PNG.
+- T10/T11, componente geométrico: ocho extremos de cerramiento y 101 muestras de trayectoria por cámara y resolución; tres presets, 1280×720 y 640×360. Cero puntos fuera de cuadro. Margen de 6 px para la trayectoria.
+- Diámetro visual mínimo de pelota: 5.47/4.87/5.73 px para cámaras 1/2/3 a 720p; 2.74/2.43/2.87 px a 360p. El radio visual está ampliado a 0.105 m; no es una pelota reglamentaria ni una decisión final.
+- Control del laboratorio: alpha disminuye al atenuar cerramiento; Espacio cambia pausa; R vuelve a origen de trayectoria. Aprobados mediante ejecución de eventos del script.
+- Evidencia: seis PNG y `previews/camera-checks.json`; vistas 1, 2 y ventana reducida inspeccionadas. No equivalen a una validación de oclusiones para todas las posiciones posibles.
+- Pendiente: revisión del usuario y seguimiento cómodo en movimiento. Pruebas físicas y de reglas no ejecutadas.
+
+Reproducir con los comandos de ENTORNO.md. Los JSON y capturas se sobrescriben al regenerarlos; registrar nuevas condiciones en la bitácora.

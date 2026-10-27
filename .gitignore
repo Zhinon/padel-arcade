@@ -8,3 +8,6 @@ builds/
 *.log
 .DS_Store
 Thumbs.db
+
+# Portable tool data managed by run-godot.sh
+.local/
