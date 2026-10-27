@@ -56,3 +56,8 @@ Fuente: PDF FIP oficial citado arriba, The Court → Sides, variante 2 de crista
 Las pérdidas de velocidad, desvíos y lanzamiento de globo son valores de diseño ajustados tras observación del usuario. No se usaron coeficientes empíricos de una investigación como si fueran valores medidos del prototipo. Se conservó la variante geométrica de cancha ya documentada.
 
 `previews/fence-lab.mp4` muestra el mismo lanzamiento contra reja con semilla 42 y después 43; `ball-lab.mp4` se regeneró con el vidrio calibrado. Capturas del motor con avance fijo, sin simulación de giro ni medición de rendimiento.
+
+
+## Fricción y reposo — sesión 006
+
+Parámetros de diseño ajustados por feedback, sin nuevas mediciones empíricas externas. Validación de rodadura contra distancia de parada v²/(2a). `previews/lob-lab.mp4` muestra ocho segundos hasta reposo; `fence-lab.mp4` se regeneró con dos lanzamientos de cuatro segundos. La captura F2 anterior permanece como histórica, identificada en la guía.

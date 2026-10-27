@@ -44,3 +44,8 @@ Las acciones de juego no referencian teclas directamente. Física y reglas no de
 ## Ajuste de superficies, sesión 005
 
 BallSimulation incorpora retención tangencial de vidrio/reja y RNG local para dispersión de reja. Se reinicia en launch con semilla explícita; se consume solamente al impactar reja. Cámara y ritmo de render no seleccionan números aleatorios. El registro de impacto añade semilla y ángulos de desvío. Este comportamiento no incorpora velocidad angular ni modelo de efecto.
+
+
+## Fricción — sesión 006
+
+BallSimulation resuelve ahora fricción tangencial de piso según impulso normal y desaceleración de rodadura de magnitud constante. La conservación/reducción de energía se comprueba por contacto y el reposo por distancia analítica. No hay condiciones que corten el viaje por cantidad de piques o por tipo de escenario. La repetición automática es un control del laboratorio, apagado de inicio.

@@ -53,3 +53,11 @@ Para cambiar una decisión: añadir fecha, contexto, alternativas relevantes, el
 - **D28, sustituye “reja sin dispersión” de D25:** desvíos angulares acotados por impacto con RNG local reiniciado por semilla. Semilla inicial 42, R repite y N cambia. Respuesta conserva energía de la reflexión ya amortiguada y no se dirige a través de la superficie. Se preserva repetibilidad para depuración.
 - **D29:** corregir F7 porque antes tocaba vidrio antes que piso. Nuevo lanzamiento (1,9.8,-7.6) m/s: piso→vidrio→piso del lado rival antes de cualquier posible vuelta por red. No hay una regla artificial que impida retornos físicamente posibles.
 - **D30, pendiente:** no confundir dispersión de reja con giro. Topspin/slice/lateral requieren velocidad angular, interacción con vuelo y fricción de contactos; se planifican en P44, sin implementación en esta sesión.
+
+
+## 27/10/2026 — sesión 006: pérdida de recorrido
+
+- **D31, ajuste de D27:** el recorrido completo seguía siendo excesivo. Incorporar impulso tangencial de fricción en piso μ=0.18, sin invertir movimiento, además de retención 0.94. Restitución piso 0.68, vidrio 0.62 y reja 0.36; retención vidrio 0.82 y reja 0.65. Valores de prototipo.
+- **D32:** rodadura con desaceleración constante 2.8 m/s² para llegar a reposo en tiempo finito; sustituye amortiguación exponencial anterior. Sin corte artificial por cantidad de piques o distancia.
+- **D33:** medir hasta reposo, no solo hasta el segundo pique. Objetivos de regresión limitados a lanzamientos de prueba: globo retorna menos de 4 m, reja menos de 5 m en veinte semillas; tiro bajo más rápido conserva más alcance pero no llega a red. No son límites insertados en simulación.
+- **D34:** repetición automática apagada al abrir; R relanza y L activa repetición opcional. Permite observar el final sin confundir un reinicio con conservación de movimiento.

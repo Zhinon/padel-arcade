@@ -78,3 +78,16 @@
 **Pruebas:** 13 regresiones físicas aprobadas; nuevo globo piso→vidrio→piso con segundo pique en lado rival; veinte semillas de reja con variación en ambos sentidos, repetibilidad y pérdida de energía; entrada N comprobada. Caso de reja a 30/60/120 FPS programados coincide tras dos segundos. Resultados en PRUEBAS.md. Cámara y jugadores no modificados.
 
 **Continuación:** seguir calibrando con juego observado y después movimiento/primer golpe; los efectos se diseñarán por separado. Documentación y punto de recuperación de sesión guardados al cierre.
+
+
+## 27/10/2026 — Sesión 006: fricción y reposo
+
+**Pedido:** la pelota seguía picando/rodando demasiado después de reja o vidrio; el globo terminaba llegando a red.
+
+**Diagnóstico medido:** hasta reposo, retorno de globo 9.75 m y máximo de reja 9.78 m en veinte semillas, pese a que el primer ajuste de segundo pique pasaba. Faltaba disipar suficiente movimiento tangencial en los contactos con piso.
+
+**Cambio:** fricción tangencial por impulso en cada pique, rodadura con desaceleración constante, restituciones piso/vidrio/reja y retenciones revisadas. No se cambió el lanzamiento del globo ni se insertaron topes de distancia. Repetición apagada al abrir y título “detenida”.
+
+**Resultado:** globo 2.00 m de retorno y reja máximo 4.25 m, con detención real. 22 lanzamientos de recorrido y estimación analítica de rodadura aprobados; 13 regresiones físicas y calibración de veinte semillas aprobadas. Render programado 30/60/120 coincide. Criterio de F2 ajustado por tratarse de un drive más rápido; detalle en PRUEBAS.md.
+
+**Continuidad:** revisar sensación de esta versión antes de avanzar a movimiento/primer golpe. Giro sigue pendiente. Documentación, informes comparativos y videos de lanzamiento completo actualizados. Guardado en Git al cierre.

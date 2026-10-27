@@ -13,7 +13,8 @@ var scenarios: Array[Dictionary] = SCENARIOS.all()
 var scenario_index: int = 1
 var launch_seed: int = 42
 var camera_preview: bool = false
-var repeat_launch: bool = true
+var repeat_launch: bool = false
+var resting_notified: bool = false
 var trail: MeshInstance3D
 var trail_points: Array[Vector3] = []
 var contact_markers: Array[MeshInstance3D] = []
@@ -54,7 +55,11 @@ func _ready() -> void:
 	if camera_preview:
 		enable_camera_preview()
 	else:
-		launch_scenario(1)
+		var initial_scenario := 1
+		for arg: String in OS.get_cmdline_user_args():
+			if arg.begins_with("--scenario="):
+				initial_scenario = clampi(arg.trim_prefix("--scenario=").to_int() - 1, 0, scenarios.size() - 1)
+		launch_scenario(initial_scenario)
 	_update_title()
 
 func _sphere(label: String, radius: float, color: Color, parent: Node3D) -> MeshInstance3D:
@@ -127,6 +132,9 @@ func _process(delta: float) -> void:
 func _physics_process(_delta: float) -> void:
 	if camera_preview or preview_paused:
 		return
+	if simulation.grounded and simulation.velocity.is_zero_approx() and not resting_notified:
+		_update_title("detenida")
+		resting_notified = true
 	trail_tick += 1
 	if trail_tick % 4 == 0:
 		trail_points.append(simulation.position)
@@ -153,6 +161,7 @@ func launch_scenario(index: int) -> void:
 	preview_paused = false
 	scenario_index = clampi(index, 0, scenarios.size() - 1)
 	var scenario := scenarios[scenario_index]
+	resting_notified = false
 	simulation.launch(scenario.position, scenario.velocity, launch_seed)
 	trail_points.clear()
 	trail.mesh = null

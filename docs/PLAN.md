@@ -41,7 +41,7 @@ Depende de E1. Objetivo: rebotes coherentes antes de golpes complejos.
 - [x] P22 Resolver esquinas, impactos rápidos y eventos repetidos.
 - [x] P23 Añadir lanzador de escenarios, reinicio y visualización de contactos/trayectorias.
 - [x] P24 Ejecutar casos físicos a 30/60/120 FPS de render, cuando el equipo permita.
-- [x] P25 Calibrar tras revisión del usuario: globo normal, amortiguación del vidrio y dispersión reproducible de reja (sesión 005).
+- [x] P25 Calibrar tras revisión del usuario: globo, vidrio y reja; incorporar fricción en cada pique y verificar recorrido completo hasta reposo (sesiones 005/006).
 
 **Salida técnica, sesión 004:** 13 escenarios aprobados, incluido tiro de 60 m/s, esquina, reposo y salida por encima de reja. Un lanzamiento canónico a dos segundos coincide en procesos separados a 30/60/120 FPS programados (física 120 Hz). Tolerancias y límites en LABORATORIO_PELOTA.md y PRUEBAS.md. La calibración de sensación de juego se revisa con el usuario y seguirá en E3/E4; no se afirma cobertura de todos los tiros posibles.
 

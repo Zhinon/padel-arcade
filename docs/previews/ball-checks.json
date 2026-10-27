@@ -9,7 +9,7 @@
 					"incoming": "(0.0, -7.484875, 0.0)",
 					"last_hitter": -1,
 					"normal": "(0.0, 1.0, 0.0)",
-					"outgoing": "(0.0, 5.463959, 0.0)",
+					"outgoing": "(0.0, 5.089715, 0.0)",
 					"position": "(0.0, 0.0, 5.0)",
 					"sequence": 1,
 					"side": 1,
@@ -22,8 +22,8 @@
 			"max_z": 5.0,
 			"minimum_y": 0.115815319120884,
 			"name": "vertical_drop",
-			"position": "(0.0, 1.110411, 5.0)",
-			"velocity": "(0.0, 3.218029, 0.0)"
+			"position": "(0.0, 1.024002, 5.0)",
+			"velocity": "(0.0, 2.847137, 0.0)"
 		},
 		{
 			"contacts": [
@@ -34,7 +34,7 @@
 					"incoming": "(0.0, -1.304301, -14.92022)",
 					"last_hitter": -1,
 					"normal": "(0.0, 0.0, 1.0)",
-					"outgoing": "(0.0, -1.173871, 10.14575)",
+					"outgoing": "(0.0, -1.069527, 9.250536)",
 					"position": "(0.0, 2.416197, -10.0)",
 					"sequence": 1,
 					"side": -1,
@@ -45,10 +45,10 @@
 			"impact_limit_count": 0,
 			"max_x": 0.0,
 			"max_z": 9.87000846862793,
-			"minimum_y": 2.20039391517639,
+			"minimum_y": 2.21323466300964,
 			"name": "back_glass",
-			"position": "(0.0, 2.200394, -8.64575)",
-			"velocity": "(0.0, -2.31005, 10.09852)"
+			"position": "(0.0, 2.213235, -8.755918)",
+			"velocity": "(0.0, -2.206192, 9.207471)"
 		},
 		{
 			"contacts": [
@@ -59,7 +59,7 @@
 					"incoming": "(39.80052, -1.222986, 0.0)",
 					"last_hitter": -1,
 					"normal": "(-1.0, 0.0, 0.0)",
-					"outgoing": "(-18.30653, 0.623466, -5.51909)",
+					"outgoing": "(-13.73369, 0.424964, -4.139318)",
 					"position": "(5.0, 1.921191, -2.0)",
 					"sequence": 1,
 					"side": -1,
@@ -68,12 +68,12 @@
 				}
 			],
 			"impact_limit_count": 0,
-			"max_x": 4.85219383239746,
-			"max_z": 2.42599821090698,
-			"minimum_y": 1.92267155647278,
+			"max_x": 4.86276292800903,
+			"max_z": 2.31949853897095,
+			"minimum_y": 1.9222127199173,
 			"name": "side_fence",
-			"position": "(3.481489, 1.938735, -2.425998)",
-			"velocity": "(-18.2517, -0.112926, -5.502559)"
+			"position": "(3.83445, 1.923413, -2.319499)",
+			"velocity": "(-13.69256, -0.310834, -4.126919)"
 		},
 		{
 			"contacts": [
@@ -98,7 +98,7 @@
 					"incoming": "(0.0, -2.039468, 1.659409)",
 					"last_hitter": -1,
 					"normal": "(0.0, 1.0, 0.0)",
-					"outgoing": "(0.0, 1.488812, 1.559844)",
+					"outgoing": "(0.0, 1.386838, 0.980113)",
 					"position": "(0.0, 0.0, 0.163906)",
 					"sequence": 2,
 					"side": 1,
@@ -109,10 +109,10 @@
 			"impact_limit_count": 0,
 			"max_x": 0.0,
 			"max_z": 3.88337230682373,
-			"minimum_y": 0.107939280569553,
+			"minimum_y": 0.107761688530445,
 			"name": "net",
-			"position": "(0.0, 0.199243, 0.309242)",
-			"velocity": "(0.0, 0.585909, 1.554136)"
+			"position": "(0.0, 0.189737, 0.255196)",
+			"velocity": "(0.0, 0.484309, 0.976526)"
 		},
 		{
 			"contacts": [
@@ -123,7 +123,7 @@
 					"incoming": "(9.943499, -0.391239, 9.943499)",
 					"last_hitter": -1,
 					"normal": "(0.0, 0.0, -1.0)",
-					"outgoing": "(8.949148, -0.352115, -6.761579)",
+					"outgoing": "(8.153668, -0.320816, -6.164969)",
 					"position": "(4.895108, 1.837913, 10.0)",
 					"sequence": 1,
 					"side": 1,
@@ -134,24 +134,24 @@
 					"collider": "@StaticBody3D@409",
 					"fence_deflection_degrees": "(0.0, 0.0)",
 					"fence_seed": 42,
-					"incoming": "(8.949148, -0.352115, -6.761579)",
+					"incoming": "(8.153668, -0.320816, -6.164969)",
 					"last_hitter": -1,
 					"normal": "(-1.0, 0.0, 0.0)",
-					"outgoing": "(-6.085421, -0.316904, -6.085421)",
-					"position": "(5.0, 1.837918, 9.894166)",
+					"outgoing": "(-5.055274, -0.263069, -5.055274)",
+					"position": "(5.0, 1.837918, 9.894156)",
 					"sequence": 2,
 					"side": 1,
 					"surface": "glass",
-					"time": 0.139909520334669
+					"time": 0.139914765553906
 				}
 			],
 			"impact_limit_count": 0,
-			"max_x": 4.88402652740479,
-			"max_z": 9.88350868225098,
-			"minimum_y": 1.74122130870819,
+			"max_x": 4.88587999343872,
+			"max_z": 9.88533210754395,
+			"minimum_y": 1.74713516235352,
 			"name": "glass_corner",
-			"position": "(4.226308, 1.741221, 9.22579)",
-			"velocity": "(-6.05911, -1.375808, -6.05911)"
+			"position": "(4.339501, 1.747135, 9.338953)",
+			"velocity": "(-5.033418, -1.322206, -5.033418)"
 		},
 		{
 			"contacts": [
@@ -162,7 +162,7 @@
 					"incoming": "(59.80035, -0.816003, 0.0)",
 					"last_hitter": -1,
 					"normal": "(-1.0, 0.0, 0.0)",
-					"outgoing": "(-27.43129, 1.771116, -8.292441)",
+					"outgoing": "(-20.576, 1.29989, -6.219332)",
 					"position": "(5.0, 1.463883, -4.0)",
 					"sequence": 1,
 					"side": -1,
@@ -173,52 +173,38 @@
 					"collider": "SideGlassCollider",
 					"fence_deflection_degrees": "(0.0, 0.0)",
 					"fence_seed": 42,
-					"incoming": "(-27.04094, -1.743685, -8.174441)",
+					"incoming": "(-20.18205, -3.420178, -6.100255)",
 					"last_hitter": -1,
 					"normal": "(1.0, 0.0, 0.0)",
-					"outgoing": "(18.38784, -1.569316, -7.356997)",
-					"position": "(-5.0, 1.456594, -6.958748)",
+					"outgoing": "(12.51287, -2.804546, -5.00221)",
+					"position": "(-5.0, 0.946236, -6.958474)",
 					"sequence": 2,
 					"side": -1,
 					"surface": "glass",
-					"time": 0.44104817701341
+					"time": 0.561979166448655
 				},
 				{
 					"collider": "FloorCollider",
 					"fence_deflection_degrees": "(0.0, 0.0)",
 					"fence_seed": 42,
-					"incoming": "(18.10204, -5.356598, -7.242645)",
+					"incoming": "(12.4049, -4.896309, -4.959048)",
 					"last_hitter": -1,
 					"normal": "(0.0, 1.0, 0.0)",
-					"outgoing": "(17.01591, 3.910316, -6.808086)",
-					"position": "(2.183367, 0.0, -9.789868)",
+					"outgoing": "(10.36825, 3.32949, -4.144864)",
+					"position": "(-2.175342, 0.0, -8.045337)",
 					"sequence": 3,
 					"side": -1,
 					"surface": "floor",
-					"time": 0.828938802048788
-				},
-				{
-					"collider": "EndGlassCollider",
-					"fence_deflection_degrees": "(0.0, 0.0)",
-					"fence_seed": 42,
-					"incoming": "(17.00457, 3.744293, -6.80355)",
-					"last_hitter": -1,
-					"normal": "(0.0, -0.0, 1.0)",
-					"outgoing": "(15.30412, 3.369862, 4.626415)",
-					"position": "(2.446357, 0.164845, -10.0)",
-					"sequence": 4,
-					"side": -1,
-					"surface": "glass",
-					"time": 0.84440104131793
+					"time": 0.780208332613326
 				}
 			],
 			"impact_limit_count": 0,
-			"max_x": 4.88227081298828,
-			"max_z": 9.87626647949219,
-			"minimum_y": 0.122591182589531,
+			"max_x": 4.85851621627808,
+			"max_z": 8.95215606689453,
+			"minimum_y": 0.115804687142372,
 			"name": "fast_shot_60mps",
-			"position": "(4.819854, 0.571238, -9.176998)",
-			"velocity": "(15.21257, 1.882856, 4.598742)"
+			"position": "(0.09303, 0.595582, -8.952156)",
+			"velocity": "(10.27878, 1.184798, -4.1091)"
 		},
 		{
 			"contacts": [
@@ -229,7 +215,7 @@
 					"incoming": "(0.0, -0.326728, -59.92006)",
 					"last_hitter": -1,
 					"normal": "(0.0, 0.0, 1.0)",
-					"outgoing": "(0.0, -0.294055, 40.74564)",
+					"outgoing": "(0.0, -0.267917, 37.15044)",
 					"position": "(0.0, 2.993745, -10.0)",
 					"sequence": 1,
 					"side": -1,
@@ -239,11 +225,11 @@
 			],
 			"impact_limit_count": 0,
 			"max_x": 0.0,
-			"max_z": 9.82282066345215,
-			"minimum_y": 2.69144606590271,
+			"max_z": 9.82908153533936,
+			"minimum_y": 2.69713044166565,
 			"name": "fence_glass_seam",
-			"position": "(0.0, 2.691446, -1.034204)",
-			"velocity": "(0.0, -2.407482, 40.39407)"
+			"position": "(0.0, 2.69713, -1.815932)",
+			"velocity": "(0.0, -2.381569, 36.82988)"
 		},
 		{
 			"contacts": [
@@ -254,7 +240,7 @@
 					"incoming": "(29.94006, -0.489928, 0.0)",
 					"last_hitter": -1,
 					"normal": "(-1.0, 0.0, 0.0)",
-					"outgoing": "(-13.73986, 0.820269, -4.151752)",
+					"outgoing": "(-10.30642, 0.598122, -3.113815)",
 					"position": "(5.0, 3.587381, 9.0)",
 					"sequence": 1,
 					"side": 1,
@@ -263,12 +249,12 @@
 				}
 			],
 			"impact_limit_count": 0,
-			"max_x": 4.8473334312439,
+			"max_x": 4.85918045043945,
 			"max_z": 9.0,
-			"minimum_y": 3.58978915214539,
+			"minimum_y": 3.58946061134338,
 			"name": "upper_corner_fence",
-			"position": "(3.47632, 3.619021, 8.571398)",
-			"velocity": "(-13.68501, -0.161883, -4.135178)"
+			"position": "(3.830768, 3.596088, 8.678548)",
+			"velocity": "(-10.26528, -0.383143, -3.101385)"
 		},
 		{
 			"contacts": [],
@@ -289,7 +275,7 @@
 					"incoming": "(0.0, -4.133324, 0.0)",
 					"last_hitter": -1,
 					"normal": "(0.0, 1.0, 0.0)",
-					"outgoing": "(0.0, 3.017326, 0.0)",
+					"outgoing": "(0.0, 2.81066, 0.0)",
 					"position": "(0.0, 0.0, 5.0)",
 					"sequence": 1,
 					"side": 1,
@@ -300,93 +286,79 @@
 					"collider": "FloorCollider",
 					"fence_deflection_degrees": "(0.0, 0.0)",
 					"fence_seed": 42,
-					"incoming": "(0.0, -2.949953, 0.0)",
+					"incoming": "(0.0, -2.747886, 0.0)",
 					"last_hitter": -1,
 					"normal": "(0.0, 1.0, 0.0)",
-					"outgoing": "(0.0, 2.153466, 0.0)",
+					"outgoing": "(0.0, 1.868562, 0.0)",
 					"position": "(0.0, 0.0, 5.0)",
 					"sequence": 2,
 					"side": 1,
 					"surface": "floor",
-					"time": 1.03020833325441
+					"time": 0.988378906114959
 				},
 				{
 					"collider": "FloorCollider",
 					"fence_deflection_degrees": "(0.0, 0.0)",
 					"fence_seed": 42,
-					"incoming": "(0.0, -2.097208, 0.0)",
+					"incoming": "(0.0, -1.891066, 0.0)",
 					"last_hitter": -1,
 					"normal": "(0.0, 1.0, 0.0)",
-					"outgoing": "(0.0, 1.530962, 0.0)",
+					"outgoing": "(0.0, 1.285925, 0.0)",
 					"position": "(0.0, 0.0, 5.0)",
 					"sequence": 3,
 					"side": 1,
 					"surface": "floor",
-					"time": 1.4660481769966
+					"time": 1.36684570312692
 				},
 				{
 					"collider": "FloorCollider",
 					"fence_deflection_degrees": "(0.0, 0.0)",
 					"fence_seed": 42,
-					"incoming": "(0.0, -1.493477, 0.0)",
+					"incoming": "(0.0, -1.329383, 0.0)",
 					"last_hitter": -1,
 					"normal": "(0.0, 1.0, 0.0)",
-					"outgoing": "(0.0, 1.090238, 0.0)",
+					"outgoing": "(0.0, 0.90398, 0.0)",
 					"position": "(0.0, 0.0, 5.0)",
 					"sequence": 4,
 					"side": 1,
 					"surface": "floor",
-					"time": 1.77057291666666
+					"time": 1.63668619786193
 				},
 				{
 					"collider": "FloorCollider",
 					"fence_deflection_degrees": "(0.0, 0.0)",
 					"fence_seed": 42,
-					"incoming": "(0.0, -1.116511, 0.0)",
+					"incoming": "(0.0, -0.894247, 0.0)",
 					"last_hitter": -1,
 					"normal": "(0.0, 1.0, 0.0)",
-					"outgoing": "(0.0, 0.815053, 0.0)",
+					"outgoing": "(0.0, 0.608088, 0.0)",
 					"position": "(0.0, 0.0, 5.0)",
 					"sequence": 5,
 					"side": 1,
 					"surface": "floor",
-					"time": 1.99331054686685
+					"time": 1.82265625011391
 				},
 				{
 					"collider": "FloorCollider",
 					"fence_deflection_degrees": "(0.0, 0.0)",
 					"fence_seed": 42,
-					"incoming": "(0.0, -0.819653, 0.0)",
-					"last_hitter": -1,
-					"normal": "(0.0, 1.0, 0.0)",
-					"outgoing": "(0.0, 0.598347, 0.0)",
-					"position": "(0.0, 0.0, 5.0)",
-					"sequence": 6,
-					"side": 1,
-					"surface": "floor",
-					"time": 2.16458333347536
-				},
-				{
-					"collider": "FloorCollider",
-					"fence_deflection_degrees": "(0.0, 0.0)",
-					"fence_seed": 42,
-					"incoming": "(0.0, -0.546082, 0.0)",
+					"incoming": "(0.0, -0.61793, 0.0)",
 					"last_hitter": -1,
 					"normal": "(0.0, 1.0, 0.0)",
 					"outgoing": "(0.0, 0.0, 0.0)",
 					"position": "(0.0, 0.0, 5.0)",
-					"sequence": 7,
+					"sequence": 6,
 					"side": 1,
 					"surface": "floor",
-					"time": 2.28276367156188
+					"time": 1.94326171878532
 				}
 			],
 			"impact_limit_count": 0,
 			"max_x": 0.0,
 			"max_z": 5.0,
-			"minimum_y": 0.105314940214157,
+			"minimum_y": 0.105322510004044,
 			"name": "settle_on_floor",
-			"position": "(0.0, 0.105315, 5.0)",
+			"position": "(0.0, 0.105323, 5.0)",
 			"velocity": "(0.0, 0.0, 0.0)"
 		},
 		{
@@ -398,7 +370,7 @@
 					"incoming": "(0.0, -1.304301, 14.92022)",
 					"last_hitter": -1,
 					"normal": "(0.0, 0.0, -1.0)",
-					"outgoing": "(0.0, -1.173871, -10.14575)",
+					"outgoing": "(0.0, -1.069527, -9.250536)",
 					"position": "(0.0, 2.416197, 10.0)",
 					"sequence": 1,
 					"side": 1,
@@ -409,10 +381,10 @@
 			"impact_limit_count": 0,
 			"max_x": 0.0,
 			"max_z": 9.87000846862793,
-			"minimum_y": 2.20039391517639,
+			"minimum_y": 2.21323466300964,
 			"name": "ghost_glass",
-			"position": "(0.0, 2.200394, 8.64575)",
-			"velocity": "(0.0, -2.31005, -10.09852)"
+			"position": "(0.0, 2.213235, 8.755918)",
+			"velocity": "(0.0, -2.206192, -9.207471)"
 		},
 		{
 			"contacts": [
@@ -423,7 +395,7 @@
 					"incoming": "(0.0, -1.304301, 14.92022)",
 					"last_hitter": -1,
 					"normal": "(0.0, 0.0, -1.0)",
-					"outgoing": "(0.0, -1.173871, -10.14575)",
+					"outgoing": "(0.0, -1.069527, -9.250536)",
 					"position": "(0.0, 2.416197, 10.0)",
 					"sequence": 1,
 					"side": 1,
@@ -434,10 +406,10 @@
 			"impact_limit_count": 0,
 			"max_x": 0.0,
 			"max_z": 9.87000846862793,
-			"minimum_y": 2.20039391517639,
+			"minimum_y": 2.21323466300964,
 			"name": "opaque_glass",
-			"position": "(0.0, 2.200394, 8.64575)",
-			"velocity": "(0.0, -2.31005, -10.09852)"
+			"position": "(0.0, 2.213235, 8.755918)",
+			"velocity": "(0.0, -2.206192, -9.207471)"
 		},
 		{
 			"contacts": [
@@ -448,7 +420,7 @@
 					"incoming": "(0.0, -1.304301, 14.92022)",
 					"last_hitter": -1,
 					"normal": "(0.0, 0.0, -1.0)",
-					"outgoing": "(0.0, -1.173871, -10.14575)",
+					"outgoing": "(0.0, -1.069527, -9.250536)",
 					"position": "(0.0, 2.416197, 10.0)",
 					"sequence": 1,
 					"side": 1,
@@ -459,10 +431,10 @@
 			"impact_limit_count": 0,
 			"max_x": 0.0,
 			"max_z": 9.87000846862793,
-			"minimum_y": 2.20039391517639,
+			"minimum_y": 2.21323466300964,
 			"name": "repeat_glass",
-			"position": "(0.0, 2.200394, 8.64575)",
-			"velocity": "(0.0, -2.31005, -10.09852)"
+			"position": "(0.0, 2.213235, 8.755918)",
+			"velocity": "(0.0, -2.206192, -9.207471)"
 		}
 	],
 	"engine": "4.7.2-stable (official)",

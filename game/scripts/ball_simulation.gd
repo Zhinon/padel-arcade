@@ -10,18 +10,19 @@ signal launched
 @export var gravity_strength: float = 9.81
 @export var air_drag: float = 0.04
 @export var max_speed: float = 60.0
-@export var floor_bounce: float = 0.73
-@export var glass_bounce: float = 0.68
-@export var glass_retention: float = 0.90
-@export var fence_bounce: float = 0.48
-@export var fence_retention: float = 0.82
+@export var floor_bounce: float = 0.68
+@export var glass_bounce: float = 0.62
+@export var glass_retention: float = 0.82
+@export var fence_bounce: float = 0.36
+@export var fence_retention: float = 0.65
 @export var fence_yaw_degrees: float = 22.0
 @export var fence_pitch_degrees: float = 16.0
 @export var fence_seed: int = 42
 var fence_rng := RandomNumberGenerator.new()
 @export var net_bounce: float = 0.12
 @export var floor_retention: float = 0.94
-@export var rolling_drag: float = 1.8
+@export var floor_impact_friction: float = 0.18
+@export var rolling_deceleration: float = 2.8
 @export var max_impacts_per_step: int = 8
 var active: bool = true
 var elapsed: float = 0.0
@@ -58,9 +59,8 @@ func step(delta: float) -> void:
 	if grounded and (absf(position.x) > 5.0 or absf(position.z) > 10.0):
 		grounded = false
 	if grounded:
-		velocity *= exp(-rolling_drag * delta)
-		if velocity.length() < 0.03:
-			velocity = Vector3.ZERO
+		# Dry rolling resistance reaches an actual finite stop.
+		velocity = velocity.move_toward(Vector3.ZERO, rolling_deceleration * delta)
 	else:
 		velocity.y -= gravity_strength * delta
 		velocity *= exp(-air_drag * delta)
@@ -83,6 +83,10 @@ func step(delta: float) -> void:
 		if approach > 0.001:
 			var restitution := _restitution(surface)
 			var tangent := incoming - incoming.dot(normal) * normal
+			if surface == "floor":
+				# Coulomb-style tangential impulse, capped so it cannot reverse motion.
+				var friction_impulse := floor_impact_friction * (1.0 + restitution) * approach
+				tangent = tangent.move_toward(Vector3.ZERO, friction_impulse)
 			var retention := floor_retention if surface == "floor" else 0.98
 			if surface == "glass":
 				retention = glass_retention

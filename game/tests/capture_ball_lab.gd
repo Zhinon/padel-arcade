@@ -11,12 +11,14 @@ func _run() -> void:
 	var lab = current_scene
 	lab.repeat_launch = false
 	var fence_demo := "--fence-demo" in OS.get_cmdline_user_args()
-	var prefix := "fence-lab" if fence_demo else "ball-lab"
-	lab.launch_scenario(2 if fence_demo else 1)
+	var lob_demo := "--lob-demo" in OS.get_cmdline_user_args()
+	var prefix := "lob-lab" if lob_demo else ("fence-lab" if fence_demo else "ball-lab")
+	var frame_count := 240 if lob_demo or fence_demo else 120
+	lab.launch_scenario(6 if lob_demo else (2 if fence_demo else 1))
 	var folder := ProjectSettings.globalize_path("res://../../../work/" + prefix + "-frames")
 	DirAccess.make_dir_recursive_absolute(folder)
-	for frame in range(120):
-		if fence_demo and frame == 60:
+	for frame in range(frame_count):
+		if fence_demo and frame == 120:
 			lab.launch_seed = 43
 			lab.launch_scenario(2)
 		await RenderingServer.frame_post_draw
@@ -26,7 +28,7 @@ func _run() -> void:
 			push_error("Could not save recording frame")
 			quit(1)
 			return
-		if frame == 45:
+		if frame == (105 if lob_demo else 45):
 			image.save_png(ProjectSettings.globalize_path("res://../docs/previews/" + prefix + ".png"))
-	print("Saved 120 rendered frames")
+	print("Saved %d rendered frames" % frame_count)
 	quit()

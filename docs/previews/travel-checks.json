@@ -1,0 +1,414 @@
+{
+	"baseline": false,
+	"cases": [
+		{
+			"contact_surfaces": [
+				"floor",
+				"glass",
+				"floor",
+				"floor",
+				"floor",
+				"floor",
+				"floor",
+				"floor"
+			],
+			"first_wall_found": true,
+			"horizontal_path_after_wall_m": 8.09580910777004,
+			"position": "(2.886422, 0.105295, -1.858368)",
+			"return_from_wall_m": 8.01799297332764,
+			"scenario": 2,
+			"seed": 42,
+			"stopped_at_s": 3.58333333333332
+		},
+		{
+			"contact_surfaces": [
+				"floor",
+				"glass",
+				"floor",
+				"floor",
+				"floor",
+				"floor",
+				"floor",
+				"floor",
+				"floor"
+			],
+			"first_wall_found": true,
+			"horizontal_path_after_wall_m": 2.03056943276897,
+			"position": "(2.572494, 0.105313, -7.886443)",
+			"return_from_wall_m": 1.99611234664917,
+			"scenario": 7,
+			"seed": 42,
+			"stopped_at_s": 6.2000000000001
+		},
+		{
+			"contact_surfaces": [
+				"fence",
+				"floor",
+				"floor",
+				"floor",
+				"floor",
+				"floor",
+				"floor"
+			],
+			"first_wall_found": true,
+			"horizontal_path_after_wall_m": 2.66366307076532,
+			"position": "(2.38738, 0.105301, -2.653804)",
+			"return_from_wall_m": 2.50370287895203,
+			"scenario": 3,
+			"seed": 0,
+			"stopped_at_s": 2.64999999999999
+		},
+		{
+			"contact_surfaces": [
+				"fence",
+				"floor",
+				"floor",
+				"floor",
+				"floor",
+				"floor",
+				"floor"
+			],
+			"first_wall_found": true,
+			"horizontal_path_after_wall_m": 2.99226160187391,
+			"position": "(2.002637, 0.105314, -2.404246)",
+			"return_from_wall_m": 2.88820457458496,
+			"scenario": 3,
+			"seed": 1,
+			"stopped_at_s": 2.66666666666666
+		},
+		{
+			"contact_surfaces": [
+				"fence",
+				"floor",
+				"floor",
+				"floor",
+				"floor",
+				"floor",
+				"floor"
+			],
+			"first_wall_found": true,
+			"horizontal_path_after_wall_m": 3.53481032210402,
+			"position": "(1.473109, 0.105321, -1.464939)",
+			"return_from_wall_m": 3.41751384735107,
+			"scenario": 3,
+			"seed": 2,
+			"stopped_at_s": 2.64999999999999
+		},
+		{
+			"contact_surfaces": [
+				"fence",
+				"floor",
+				"floor",
+				"floor",
+				"floor",
+				"floor",
+				"floor"
+			],
+			"first_wall_found": true,
+			"horizontal_path_after_wall_m": 3.91448131832294,
+			"position": "(1.051529, 0.104537, -2.00144)",
+			"return_from_wall_m": 3.83891201019287,
+			"scenario": 3,
+			"seed": 3,
+			"stopped_at_s": 2.64166666666666
+		},
+		{
+			"contact_surfaces": [
+				"fence",
+				"floor",
+				"floor",
+				"floor",
+				"floor",
+				"floor",
+				"floor"
+			],
+			"first_wall_found": true,
+			"horizontal_path_after_wall_m": 3.02593546980825,
+			"position": "(2.095639, 0.105306, -1.056778)",
+			"return_from_wall_m": 2.79533743858337,
+			"scenario": 3,
+			"seed": 4,
+			"stopped_at_s": 2.70833333333333
+		},
+		{
+			"contact_surfaces": [
+				"fence",
+				"floor",
+				"floor",
+				"floor",
+				"floor",
+				"floor",
+				"floor"
+			],
+			"first_wall_found": true,
+			"horizontal_path_after_wall_m": 4.12517027847935,
+			"position": "(0.844669, 0.105292, -1.821148)",
+			"return_from_wall_m": 4.04571437835693,
+			"scenario": 3,
+			"seed": 5,
+			"stopped_at_s": 2.58333333333333
+		},
+		{
+			"contact_surfaces": [
+				"fence",
+				"floor",
+				"floor",
+				"floor",
+				"floor",
+				"floor",
+				"floor"
+			],
+			"first_wall_found": true,
+			"horizontal_path_after_wall_m": 4.31569711210614,
+			"position": "(0.831165, 0.105318, -0.774168)",
+			"return_from_wall_m": 4.05933904647827,
+			"scenario": 3,
+			"seed": 6,
+			"stopped_at_s": 2.69999999999999
+		},
+		{
+			"contact_surfaces": [
+				"fence",
+				"floor",
+				"floor",
+				"floor",
+				"floor",
+				"floor",
+				"floor"
+			],
+			"first_wall_found": true,
+			"horizontal_path_after_wall_m": 3.89672242943197,
+			"position": "(1.074195, 0.105297, -2.193411)",
+			"return_from_wall_m": 3.81625556945801,
+			"scenario": 3,
+			"seed": 7,
+			"stopped_at_s": 2.64999999999999
+		},
+		{
+			"contact_surfaces": [
+				"fence",
+				"floor",
+				"floor",
+				"floor",
+				"floor",
+				"floor",
+				"floor"
+			],
+			"first_wall_found": true,
+			"horizontal_path_after_wall_m": 3.73055677651428,
+			"position": "(1.241742, 0.1053, -2.212122)",
+			"return_from_wall_m": 3.64876890182495,
+			"scenario": 3,
+			"seed": 8,
+			"stopped_at_s": 2.64166666666666
+		},
+		{
+			"contact_surfaces": [
+				"fence",
+				"floor",
+				"floor",
+				"floor",
+				"floor",
+				"floor",
+				"floor",
+				"floor"
+			],
+			"first_wall_found": true,
+			"horizontal_path_after_wall_m": 2.60204812447773,
+			"position": "(2.513591, 0.10531, -1.146745)",
+			"return_from_wall_m": 2.37761497497559,
+			"scenario": 3,
+			"seed": 9,
+			"stopped_at_s": 2.87499999999999
+		},
+		{
+			"contact_surfaces": [
+				"fence",
+				"floor",
+				"floor",
+				"floor",
+				"floor",
+				"floor",
+				"floor"
+			],
+			"first_wall_found": true,
+			"horizontal_path_after_wall_m": 4.34656706009991,
+			"position": "(0.642989, 0.105266, -1.550035)",
+			"return_from_wall_m": 4.24736213684082,
+			"scenario": 3,
+			"seed": 10,
+			"stopped_at_s": 2.69166666666666
+		},
+		{
+			"contact_surfaces": [
+				"fence",
+				"floor",
+				"floor",
+				"floor",
+				"floor",
+				"floor",
+				"floor"
+			],
+			"first_wall_found": true,
+			"horizontal_path_after_wall_m": 3.3094149089884,
+			"position": "(1.762915, 0.105291, -1.179411)",
+			"return_from_wall_m": 3.1278760433197,
+			"scenario": 3,
+			"seed": 11,
+			"stopped_at_s": 2.71666666666666
+		},
+		{
+			"contact_surfaces": [
+				"fence",
+				"floor",
+				"floor",
+				"floor",
+				"floor",
+				"floor",
+				"floor"
+			],
+			"first_wall_found": true,
+			"horizontal_path_after_wall_m": 3.31891193718184,
+			"position": "(1.805828, 0.105301, -0.999252)",
+			"return_from_wall_m": 3.08501863479614,
+			"scenario": 3,
+			"seed": 12,
+			"stopped_at_s": 2.64999999999999
+		},
+		{
+			"contact_surfaces": [
+				"fence",
+				"floor",
+				"floor",
+				"floor",
+				"floor",
+				"floor",
+				"floor"
+			],
+			"first_wall_found": true,
+			"horizontal_path_after_wall_m": 3.20041029789718,
+			"position": "(1.954038, 0.105315, -3.067131)",
+			"return_from_wall_m": 2.93689489364624,
+			"scenario": 3,
+			"seed": 13,
+			"stopped_at_s": 2.69166666666666
+		},
+		{
+			"contact_surfaces": [
+				"fence",
+				"floor",
+				"floor",
+				"floor",
+				"floor",
+				"floor",
+				"floor"
+			],
+			"first_wall_found": true,
+			"horizontal_path_after_wall_m": 3.66826078190934,
+			"position": "(1.547727, 0.105309, -0.683813)",
+			"return_from_wall_m": 3.34306812286377,
+			"scenario": 3,
+			"seed": 14,
+			"stopped_at_s": 2.71666666666666
+		},
+		{
+			"contact_surfaces": [
+				"fence",
+				"floor",
+				"floor",
+				"floor",
+				"floor",
+				"floor",
+				"floor",
+				"floor"
+			],
+			"first_wall_found": true,
+			"horizontal_path_after_wall_m": 2.54145357385278,
+			"position": "(2.429052, 0.105299, -2.127277)",
+			"return_from_wall_m": 2.46199679374695,
+			"scenario": 3,
+			"seed": 15,
+			"stopped_at_s": 2.88333333333333
+		},
+		{
+			"contact_surfaces": [
+				"fence",
+				"floor",
+				"floor",
+				"floor",
+				"floor",
+				"floor",
+				"floor"
+			],
+			"first_wall_found": true,
+			"horizontal_path_after_wall_m": 2.9156069685705,
+			"position": "(2.051645, 0.105311, -1.95026)",
+			"return_from_wall_m": 2.83919930458069,
+			"scenario": 3,
+			"seed": 16,
+			"stopped_at_s": 2.69999999999999
+		},
+		{
+			"contact_surfaces": [
+				"fence",
+				"floor",
+				"floor",
+				"floor",
+				"floor",
+				"floor",
+				"floor",
+				"floor"
+			],
+			"first_wall_found": true,
+			"horizontal_path_after_wall_m": 2.7962450904015,
+			"position": "(2.238446, 0.105307, -2.603319)",
+			"return_from_wall_m": 2.65254378318787,
+			"scenario": 3,
+			"seed": 17,
+			"stopped_at_s": 2.84166666666666
+		},
+		{
+			"contact_surfaces": [
+				"fence",
+				"floor",
+				"floor",
+				"floor",
+				"floor",
+				"floor",
+				"floor"
+			],
+			"first_wall_found": true,
+			"horizontal_path_after_wall_m": 3.61947888194118,
+			"position": "(1.363517, 0.105307, -1.655601)",
+			"return_from_wall_m": 3.52704691886902,
+			"scenario": 3,
+			"seed": 18,
+			"stopped_at_s": 2.65833333333333
+		},
+		{
+			"contact_surfaces": [
+				"fence",
+				"floor",
+				"floor",
+				"floor",
+				"floor",
+				"floor",
+				"floor",
+				"floor"
+			],
+			"first_wall_found": true,
+			"horizontal_path_after_wall_m": 3.09056452116056,
+			"position": "(2.111732, 0.105298, -0.831593)",
+			"return_from_wall_m": 2.77930808067322,
+			"scenario": 3,
+			"seed": 19,
+			"stopped_at_s": 2.87499999999999
+		}
+	],
+	"engine": "4.7.2-stable (official)",
+	"failures": [],
+	"max_ordinary_fence_path_m": 4.34656706009991,
+	"max_ordinary_fence_return_m": 4.24736213684082,
+	"note": "Calibration thresholds apply to these ordinary launches, not a universal cap on ball travel.",
+	"ordinary_lob_return_m": 1.99611234664917
+}

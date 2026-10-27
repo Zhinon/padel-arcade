@@ -2,128 +2,128 @@
 	"engine": "4.7.2-stable (official)",
 	"failures": [],
 	"fence_heading_range_degrees": [
-		-19.9129050658115,
-		22.7233151332385
+		-19.9475211794798,
+		22.777449877035
 	],
 	"fence_variants": [
 		{
 			"deflection_degrees": "(-13.10004, -11.9885)",
-			"heading_degrees": -14.5448177039223,
-			"outgoing": "(-4.530219, -2.982204, -1.175376)",
+			"heading_degrees": -14.6169883095988,
+			"outgoing": "(-3.380144, -2.319162, -0.881532)",
 			"seed": 0
 		},
 		{
 			"deflection_degrees": "(-7.4994, -7.148965)",
-			"heading_degrees": -7.9355036721776,
-			"outgoing": "(-4.855557, -2.600653, -0.676831)",
+			"heading_degrees": -7.9581508782884,
+			"outgoing": "(-3.631171, -2.034183, -0.507623)",
 			"seed": 1
 		},
 		{
 			"deflection_degrees": "(8.926823, 0.619753)",
-			"heading_degrees": 8.89083415984136,
-			"outgoing": "(-5.144079, -1.920635, 0.804698)",
+			"heading_degrees": 8.88876447300907,
+			"outgoing": "(-3.858972, -1.52482, 0.603524)",
 			"seed": 2
 		},
 		{
 			"deflection_degrees": "(-0.02239, 6.877604)",
-			"heading_degrees": -0.0215616013192558,
-			"outgoing": "(-5.385145, -1.340949, -0.002027)",
+			"heading_degrees": -0.0215078168679753,
+			"outgoing": "(-4.048959, -1.089453, -0.00152)",
 			"seed": 3
 		},
 		{
 			"deflection_degrees": "(17.60779, -6.933066)",
-			"heading_degrees": 18.5745598715175,
-			"outgoing": "(-4.668175, -2.558366, 1.568707)",
+			"heading_degrees": 18.6250046234065,
+			"outgoing": "(-3.490949, -2.002506, 1.17653)",
 			"seed": 4
 		},
 		{
 			"deflection_degrees": "(2.674145, 10.72166)",
-			"heading_degrees": 2.53849330163227,
-			"outgoing": "(-5.45738, -0.977956, 0.241948)",
+			"heading_degrees": 2.52881090962517,
+			"outgoing": "(-4.108727, -0.816343, 0.181461)",
 			"seed": 5
 		},
 		{
 			"deflection_degrees": "(17.99374, 15.41369)",
-			"heading_degrees": 16.8778911656574,
-			"outgoing": "(-5.280018, -0.594178, 1.601967)",
+			"heading_degrees": 16.7882404982501,
+			"outgoing": "(-3.982432, -0.526948, 1.201475)",
 			"seed": 6
 		},
 		{
 			"deflection_degrees": "(-3.013693, 6.62624)",
-			"heading_degrees": -2.90536353127781,
-			"outgoing": "(-5.372087, -1.365389, -0.272642)",
+			"heading_degrees": -2.89837392184421,
+			"outgoing": "(-4.038798, -1.107827, -0.204482)",
 			"seed": 7
 		},
 		{
 			"deflection_degrees": "(-3.402983, 3.693205)",
-			"heading_degrees": -3.32822887123397,
-			"outgoing": "(-5.293216, -1.63861, -0.307822)",
+			"heading_degrees": -3.32369031132268,
+			"outgoing": "(-3.975345, -1.313131, -0.230866)",
 			"seed": 8
 		},
 		{
 			"deflection_degrees": "(17.43865, -13.26451)",
-			"heading_degrees": 19.6099327912385,
-			"outgoing": "(-4.362052, -3.058624, 1.554109)",
+			"heading_degrees": 19.7176562388281,
+			"outgoing": "(-3.252186, -2.376066, 1.165582)",
 			"seed": 9
 		},
 		{
 			"deflection_degrees": "(6.471579, 15.39931)",
-			"heading_degrees": 6.07433835174257,
-			"outgoing": "(-5.492541, -0.536927, 0.584495)",
+			"heading_degrees": 6.0417323712442,
+			"outgoing": "(-4.141804, -0.484015, 0.438371)",
 			"seed": 10
 		},
 		{
 			"deflection_degrees": "(14.37128, -2.891119)",
-			"heading_degrees": 14.668024059571,
-			"outgoing": "(-4.917474, -2.227027, 1.287142)",
+			"heading_degrees": 14.6842318772234,
+			"outgoing": "(-3.683851, -1.754511, 0.965357)",
 			"seed": 11
 		},
 		{
 			"deflection_degrees": "(17.58074, -2.837794)",
-			"heading_degrees": 17.9342230917623,
-			"outgoing": "(-4.839701, -2.218492, 1.566374)",
+			"heading_degrees": 17.9535538506207,
+			"outgoing": "(-3.6256, -1.748114, 1.17478)",
 			"seed": 12
 		},
 		{
 			"deflection_degrees": "(-19.26682, -4.537691)",
-			"heading_degrees": -19.9129050658115,
-			"outgoing": "(-4.723683, -2.357267, -1.711153)",
+			"heading_degrees": -19.9475211794798,
+			"outgoing": "(-3.536089, -1.852034, -1.283365)",
 			"seed": 13
 		},
 		{
 			"deflection_degrees": "(21.84555, 2.700411)",
-			"heading_degrees": 21.4903355005377,
-			"outgoing": "(-4.901185, -1.747192, 1.929673)",
+			"heading_degrees": 21.4692411269265,
+			"outgoing": "(-3.679863, -1.394649, 1.447255)",
 			"seed": 14
 		},
 		{
 			"deflection_degrees": "(-2.59848, -13.42782)",
-			"heading_degrees": -2.93862909022975,
-			"outgoing": "(-4.579963, -3.125156, -0.235107)",
+			"heading_degrees": -2.95545258059866,
+			"outgoing": "(-3.415385, -2.42591, -0.17633)",
 			"seed": 15
 		},
 		{
 			"deflection_degrees": "(0.935341, -8.124002)",
-			"heading_degrees": 0.999170100214021,
-			"outgoing": "(-4.853828, -2.689074, 0.084654)",
+			"heading_degrees": 1.00245187583049,
+			"outgoing": "(-3.628451, -2.100307, 0.06349)",
 			"seed": 16
 		},
 		{
 			"deflection_degrees": "(-11.71741, -10.03471)",
-			"heading_degrees": -12.746192118979,
-			"outgoing": "(-4.655738, -2.830705, -1.053161)",
+			"heading_degrees": -12.7982980536686,
+			"outgoing": "(-3.477106, -2.206087, -0.789871)",
 			"seed": 17
 		},
 		{
 			"deflection_degrees": "(5.643307, 1.928684)",
-			"heading_degrees": 5.57505646621155,
-			"outgoing": "(-5.224269, -1.801359, 0.509948)",
+			"heading_degrees": 5.57104521439452,
+			"outgoing": "(-3.921041, -1.43532, 0.382461)",
 			"seed": 18
 		},
 		{
 			"deflection_degrees": "(21.69535, -6.182477)",
-			"heading_degrees": 22.7233151332385,
-			"outgoing": "(-4.57762, -2.483597, 1.917049)",
+			"heading_degrees": 22.777449877035,
+			"outgoing": "(-3.424131, -1.946556, 1.437787)",
 			"seed": 19
 		}
 	],
@@ -136,7 +136,7 @@
 				"incoming": "(0.0, -1.304301, -14.92022)",
 				"last_hitter": -1,
 				"normal": "(0.0, 0.0, 1.0)",
-				"outgoing": "(0.0, -1.173871, 10.14575)",
+				"outgoing": "(0.0, -1.069527, 9.250536)",
 				"position": "(0.0, 2.416197, -10.0)",
 				"sequence": 1,
 				"side": -1,
@@ -144,8 +144,8 @@
 				"time": 0.126643880248169
 			}
 		],
-		"position": "(0.0, 2.200394, -8.64575)",
-		"velocity": "(0.0, -2.31005, 10.09852)"
+		"position": "(0.0, 2.213235, -8.755918)",
+		"velocity": "(0.0, -2.206192, 9.207471)"
 	},
 	"lob_contacts": [
 		{
@@ -155,7 +155,7 @@
 			"incoming": "(0.919438, -10.74575, -6.987727)",
 			"last_hitter": -1,
 			"normal": "(0.0, 1.0, 0.0)",
-			"outgoing": "(0.864272, 7.844401, -6.568463)",
+			"outgoing": "(0.465792, 7.307113, -3.540022)",
 			"position": "(2.006572, 0.0, -8.249947)",
 			"sequence": 1,
 			"side": -1,
@@ -166,59 +166,45 @@
 			"collider": "EndGlassCollider",
 			"fence_deflection_degrees": "(0.0, 0.0)",
 			"fence_seed": 42,
-			"incoming": "(0.855673, 5.326485, -6.503112)",
+			"incoming": "(0.457179, 2.637212, -3.47456)",
 			"last_hitter": -1,
 			"normal": "(0.0, 0.0, 1.0)",
-			"outgoing": "(0.770105, 4.793837, 4.422116)",
-			"position": "(2.223057, 1.770054, -10.0)",
+			"outgoing": "(0.374887, 2.162514, 2.154227)",
+			"position": "(2.223026, 2.44644, -10.0)",
 			"sequence": 2,
 			"side": -1,
 			"surface": "glass",
-			"time": 2.34370117245366
+			"time": 2.56103515708609
 		},
 		{
 			"collider": "FloorCollider",
 			"fence_deflection_degrees": "(0.0, 0.0)",
 			"fence_seed": 42,
-			"incoming": "(0.73255, -7.398949, 4.206472)",
+			"incoming": "(0.360909, -7.061252, 2.07391)",
 			"last_hitter": -1,
 			"normal": "(0.0, 1.0, 0.0)",
-			"outgoing": "(0.688597, 5.401233, 3.954084)",
-			"position": "(3.161988, 0.0, -4.502924)",
+			"outgoing": "(0.0, 4.801651, 0.0)",
+			"position": "(2.572505, 0.0, -7.886375)",
 			"sequence": 3,
 			"side": -1,
 			"surface": "floor",
-			"time": 3.59355468756813
+			"time": 3.51103515651858
 		},
 		{
 			"collider": "FloorCollider",
 			"fence_deflection_degrees": "(0.0, 0.0)",
 			"fence_seed": 42,
-			"incoming": "(0.659178, -5.306591, 3.785152)",
+			"incoming": "(0.0, -4.76108, 0.0)",
 			"last_hitter": -1,
 			"normal": "(0.0, 1.0, 0.0)",
-			"outgoing": "(0.619627, 3.873811, 3.558043)",
-			"position": "(3.901765, 0.0, -0.254946)",
+			"outgoing": "(0.0, 3.237534, 0.0)",
+			"position": "(2.572494, 0.0, -7.886443)",
 			"sequence": 4,
 			"side": -1,
 			"surface": "floor",
-			"time": 4.69158528653276
-		},
-		{
-			"collider": "@StaticBody3D@450",
-			"fence_deflection_degrees": "(0.0, 0.0)",
-			"fence_seed": 42,
-			"incoming": "(0.618595, 3.45902, 3.552118)",
-			"last_hitter": -1,
-			"normal": "(0.0, 0.0, -1.0)",
-			"outgoing": "(0.402087, 2.248363, -0.426254)",
-			"position": "(3.925687, 0.245999, -0.0125)",
-			"sequence": 5,
-			"side": -1,
-			"surface": "net",
-			"time": 4.73020833324016
+			"time": 4.48681640626224
 		}
 	],
-	"lob_max_z_before_second_bounce": -4.4776439666748,
+	"lob_max_z_before_second_bounce": -7.8864426612854,
 	"note": "Design calibration, not measured material values; spin is not implemented."
 }

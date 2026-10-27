@@ -1,4 +1,4 @@
-# Laboratorio de pelota — sesión 005
+# Laboratorio de pelota — sesión 006
 
 La escena principal ahora usa gravedad y colisiones. La cámara y la geometría lateral aprobadas se conservan. Los jugadores todavía son figuras sin control ni colisión.
 
@@ -8,6 +8,8 @@ Desde la raíz del proyecto en Linux:
 
 ```bash
 ./tools/run-godot.sh
+# Abrir directamente el globo:
+./tools/run-godot.sh -- --scenario=7
 ```
 
 | Tecla | Acción |
@@ -22,7 +24,7 @@ Desde la raíz del proyecto en Linux:
 | Espacio | Pausar/reanudar la física |
 | R | Repetir el lanzamiento seleccionado con la misma semilla de reja |
 | N | Nueva semilla y relanzamiento: probar otra respuesta de la reja |
-| L | Activar/desactivar repetición automática cada seis segundos; también relanza si cae fuera |
+| L | Activar/desactivar repetición automática; apagada de inicio para observar hasta reposo |
 | 1/2/3 | Cambiar cámara |
 | G | Atenuar el cerramiento cercano; la colisión no cambia |
 
@@ -30,9 +32,11 @@ El título de la ventana muestra escenario y último contacto. La estela dibuja 
 
 ![Laboratorio físico](previews/ball-lab.png)
 
-[Video de cuatro segundos del lanzamiento F2](previews/ball-lab.mp4).
+[Globo completo hasta detenerse, calibración sesión 006](previews/lob-lab.mp4).
 
-[Comparación de reja con semillas 42 y 43, dos segundos por variante](previews/fence-lab.mp4).
+[Video histórico F2, calibración sesión 005](previews/ball-lab.mp4).
+
+[Comparación de reja con semillas 42 y 43, cuatro segundos por variante](previews/fence-lab.mp4).
 
 ## Modelo elegido (P20)
 
@@ -55,9 +59,11 @@ No se implementa todavía efecto de giro, deformación de pelota ni viento. La r
 | Gravedad | 9.81 m/s² |
 | Radio físico y visual provisional | 0.105 m, ampliado para lectura; no reglamentario |
 | Velocidad máxima de lanzamiento/simulación | 60 m/s |
-| Restitución normal piso / vidrio / reja / red | 0.73 / 0.68 / 0.48 / 0.12 |
+| Restitución normal piso / vidrio / reja / red | 0.68 / 0.62 / 0.36 / 0.12 |
 | Retención tangencial piso | 0.94 |
-| Retención tangencial vidrio / reja | 0.90 / 0.82 |
+| Retención tangencial vidrio / reja | 0.82 / 0.65 |
+| Fricción tangencial en cada pique | Impulso limitado μ=0.18 × impulso normal |
+| Desaceleración de rodadura | 2.8 m/s²; detención en tiempo finito |
 | Desvío de reja por impacto | Ángulos muestreados en ±22° lateral / ±16° vertical |
 | Semilla de reja inicial | 42; N cambia variante y R la repite |
 | Retención tangencial red | 0.65 |
@@ -75,6 +81,7 @@ Cada contacto incluye secuencia, tiempo aproximado dentro del paso, superficie, 
 ```bash
 ./tools/run-godot.sh --headless --script res://tests/ball_checks.gd
 ./tools/run-godot.sh --headless --script res://tests/surface_calibration_checks.gd
+./tools/run-godot.sh --headless --script res://tests/travel_checks.gd
 ./tools/run-godot.sh --headless --fixed-fps 30 --script res://tests/frame_rate_checks.gd -- --fps=30
 ./tools/run-godot.sh --headless --fixed-fps 60 --script res://tests/frame_rate_checks.gd -- --fps=60
 ./tools/run-godot.sh --headless --fixed-fps 120 --script res://tests/frame_rate_checks.gd -- --fps=120
@@ -96,3 +103,24 @@ Vidrio: restitución normal 0.82→0.68 y retención tangencial 0.98→0.90. Rej
 La variación de reja conserva la velocidad de la respuesta ya amortiguada y mantiene salida hacia el interior del cerramiento. La misma semilla y el mismo lanzamiento reproducen la secuencia; N permite variar. No se aplica azar por frame. En veinte semillas se observaron desvíos horizontales aproximadamente entre -19.9° y +22.7° para el tiro frontal ensayado. Pruebas y resultados en `previews/surface-calibration.json`.
 
 **Efecto pendiente:** la pelota no tiene velocidad angular, fuerza de Magnus ni intercambio entre giro y velocidad en el contacto. No se simulan topspin, slice ni efecto lateral. La irregularidad de reja es una propiedad de superficie y no reemplaza ese sistema.
+
+
+## Recorrido hasta reposo — sesión 006
+
+La revisión anterior observaba la secuencia de los primeros piques, pero no limitaba la deriva posterior: midiendo el lanzamiento completo hasta detenerse, F7 volvía 9.75 m desde el primer impacto con vidrio, y F3 llegaba a 9.78 m desde reja en alguna de veinte semillas. Reducir solo el rebote de pared no había resuelto la conservación de movimiento horizontal en cada pique.
+
+Ahora cada contacto con piso resta un impulso tangencial proporcional al impulso normal (μ=0.18), limitado para no invertir la velocidad. Se mantiene la retención 0.94 después de ese impulso. En rodadura se aplica desaceleración constante de 2.8 m/s², en lugar de amortiguación exponencial y un umbral mínimo. No se fija distancia máxima ni se teletransporta o congela la pelota después de cierta cantidad de piques.
+
+Además se ajustaron restituciones de piso/vidrio/reja a 0.68/0.62/0.36 y retenciones de vidrio/reja a 0.82/0.65. Son parámetros de prototipo, no valores empíricos de una cancha real.
+
+| Métrica del lanzamiento completo | Antes, commit 20e7267 | Sesión 006 |
+| --- | --- | --- |
+| F7: máximo retorno desde vidrio | 9.75 m | 2.00 m |
+| F3: máximo retorno desde reja, 20 semillas | 9.78 m | 4.25 m |
+| F3: máximo camino horizontal tras reja | 11.84 m | 4.35 m |
+
+Se mide desplazamiento hacia el interior desde el primer impacto hasta reposo. Las cifras describen estos escenarios, no un límite universal: un tiro potente puede recorrer más que un globo normal. El F2, un tiro bajo más rápido, vuelve aproximadamente 8.02 m y queda antes de la red.
+
+Para comprobar rodadura se lanzó una pelota ya apoyada a 3 m/s y se comparó la distancia con v²/(2a), tolerancia 0.03 m. Se verificó reposo sin deriva ni contactos adicionales. La repetición automática está apagada al abrir; R/F1–F7 relanzan, y L permite repetir si se desea. El título muestra “detenida” al terminar.
+
+Informes: `previews/travel-checks.json` y `travel-comparison.json`. Los videos históricos anteriores no representan esta nueva fricción; los de globo/reja sesión 006 muestran el final de cada lanzamiento.

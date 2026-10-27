@@ -1,0 +1,15 @@
+{
+  "baseline_commit": "20e7267",
+  "after": {
+    "ordinary_lob_return_m": 1.99611234664917,
+    "max_ordinary_fence_return_m": 4.24736213684082,
+    "max_ordinary_fence_path_m": 4.34656706009991
+  },
+  "note": "Maximum displacement back into court after first glass/fence impact, measured until rest; these launch fixtures only.",
+  "before": {
+    "ordinary_lob_return_m": 9.74762916564941,
+    "max_ordinary_fence_return_m": 9.78444385528564,
+    "max_ordinary_fence_path_m": 11.841480390809
+  },
+  "calibration_session": "006"
+}

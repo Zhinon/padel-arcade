@@ -100,3 +100,19 @@ Evidencia numérica: `previews/surface-calibration.json`, `ball-checks.json` y `
 
 
 Capturas de sesión 005: importación y prueba de cámara sin errores de scripts; video F2 regenerado con calibración actual y comparación visual de reja (semillas 42/43). La Z máxima registrada hasta el paso del segundo pique del globo es -4.478 m; el contacto del segundo piso ocurre en Z≈-4.503 m.
+
+
+## Ejecución 27/10/2026 — sesión 006: recorrido completo
+
+Reproducido con física anterior (20e7267): F7 retorna 9.7476 m desde primer vidrio; veinte semillas F3 llegan a 9.7844 m desde reja y hasta 11.8415 m de camino horizontal. Esto muestra por qué el criterio previo de “segundo pique en lado rival” era insuficiente para el feedback del usuario.
+
+Con fricción tangencial por impacto, desaceleración de rodadura y nuevos coeficientes: F7 retorna 1.9961 m; F3 máximo 4.2474 m, camino máximo 4.3466 m. Todos se detienen antes de 12 s. F2 (tiro bajo más rápido) retorna 8.0180 m y se detiene antes de la red; no se exige alcance de globo a ese tiro.
+
+`travel_checks.gd`: 22 lanzamientos (F2, F7, veinte semillas F3), umbrales por caso, detención y prueba independiente v²/(2a) de rodadura a 3 m/s con tolerancia 0.03 m. Se verificó que después de reposo no hay deriva ni contactos nuevos. Cero fallos finales. El umbral inicial exploratorio de 7 m para F2 se revisó a 9 m porque es un tiro más rápido; F7/F3 tienen criterios separados y el modelo no incorpora estos límites.
+
+Regresiones: 13 casos base y calibración de superficies aprobados; veinte semillas conservan desvío en ambos sentidos y energía no creciente. Comparación de reja a 30/60/120 FPS programados coincide a dos segundos; importación y cámara sin errores de scripts. Informes actualizados, más travel-checks.json y travel-comparison.json.
+
+Los valores son una calibración de jugabilidad, no validación empírica de materiales. Continúa sin giro.
+
+
+Videos de sesión 006 regenerados: F7 completo de ocho segundos, y reja con semillas 42/43 durante cuatro segundos por variante. Se inspeccionó el globo en vuelo y al final del video, detenido junto al fondo rival. Cámara conservada. Para iniciar el caso directamente: `./tools/run-godot.sh -- --scenario=7`.
