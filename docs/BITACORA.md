@@ -48,3 +48,20 @@
 **Verificación:** Godot importó sin errores de scripts; seis capturas regeneradas; cámara principal inspeccionada. Comprobaciones existentes de cámara, pausa, reinicio y alpha aprobadas, sin puntos fuera de cuadro. Primer render bloqueado por socket gráfico; repetido con permiso local concedido.
 
 **Continuidad:** P15 aprobado, próxima tarea P20. Persisten límites del blockout: sin accesos ni colisiones, malla visual simplificada y pelota sin física. Guardado en Git al cierre.
+
+
+## 27/10/2026 — Sesión 004: laboratorio de rebotes
+
+**Pedido:** avanzar al siguiente paso acordado: gravedad, colisiones y lanzamientos repetibles.
+
+**Implementación:** colliders independientes y etiquetados para piso, vidrio, reja y red; CharacterBody3D con integración controlada y barridos move_and_collide; parámetros por superficie, reposo y registro ordenado de impactos. Física a 120 Hz. Siete escenarios F1–F7, reinicio/pausa/repetición, estela y marcas de contacto. El modo de trayectoria visual anterior se conserva únicamente para regresión de cámara.
+
+**Decisiones:** se evaluaron responsabilidades de cuerpo rígido, cuerpo controlado y detección analítica sin implementar tres alternativas. Elegido cuerpo controlado para relanzamientos y eventos explícitos. Radio ampliado 0.105 m y valores de rebote son provisionales. Máximo 60 m/s y ocho impactos por paso; sin giro ni azar de reja.
+
+**Validación:** importación sin errores de scripts; 13 escenarios físicos y controles aprobados; comprobación a 30/60/120 FPS programados en procesos separados, misma posición/velocidad/contactos tras 2 s. Cámara conservada y pruebas previas aprobadas. Video de cuatro segundos capturado con render real; entorno Mesa llvmpipe, sin afirmaciones de rendimiento. Resultados y tolerancias en PRUEBAS.md.
+
+**Corrección de pruebas:** primer intento del ejecutor FPS accedía a escena sin terminar carga; se corrigió la sincronización y se repitieron los tres procesos exitosamente. Permiso de conexión gráfica local concedido para captura.
+
+**Documentación:** guía LABORATORIO_PELOTA.md y estado/plan/decisiones/arquitectura/entorno/fuentes/pruebas actualizados. E2 completada como laboratorio inicial, con calibración jugable todavía pendiente.
+
+**Continuación:** revisar sensación de rebotes con el usuario y luego movimiento/primer golpe (P30–P33). Todavía sin jugador controlable, rivales, reglas ni marcador. Guardar punto de recuperación de sesión en Git.

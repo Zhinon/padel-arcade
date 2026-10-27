@@ -37,3 +37,11 @@ Para cambiar una decisión: añadir fecha, contexto, alternativas relevantes, el
 
 - **D19, aprobada por el usuario:** el encuadre actual sirve; conservar posiciones, FOV y objetivo de cámara. Sustituye el estado pendiente de la sesión 002.
 - **D22, técnica aplicada:** corregir perfil lateral con variante de cristal FIP: vidrio de 3 m a lo largo de 4 m desde cada fondo; reja superior hasta 4 m en los primeros 2 m; altura total de 3 m en el resto del lateral. Motivo: el usuario detectó altura uniforme incorrecta. No adoptar la variante alternativa de pared escalonada. Accesos y colisiones siguen pendientes.
+
+
+## 27/10/2026 — sesión 004: simulación inicial
+
+- **D12, resuelta / D23:** CharacterBody3D con integración propia de gravedad y respuesta, usando move_and_collide de Godot para barrido. Alternativas y razones en LABORATORIO_PELOTA.md. No se implementaron dos motores completos.
+- **D24:** paso físico 120 Hz, velocidad máxima 60 m/s y ocho impactos por paso como límite conservador registrado. Eventos ordenados con superficie/lado/último golpeador; sin reglas ni golpes todavía.
+- **D25:** conservar radio físico/visual ampliado de 0.105 m durante laboratorio. Coeficientes distintos por superficie son ajustes iniciales, no datos medidos ni reglamentarios. Reja como panel sólido sin dispersión aleatoria; sin giro. Revisar antes de calibrar juego final.
+- **D26:** abrir por defecto el laboratorio físico; conservar el modo de cámara E1 únicamente con `--camera-preview` para regresiones. Cámara y laterales aceptados sin cambios.

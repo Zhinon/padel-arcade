@@ -1,11 +1,12 @@
 extends Node3D
-## Court blockout: visual geometry only; collision and gameplay follow in E2.
+## Visual blockout and independent, tagged collision surfaces for the E2 lab.
 
 var near_enclosure: Array[MeshInstance3D] = []
 var ghost_near_wall: bool = true
 
 func _ready() -> void:
 	_build()
+	_build_collisions()
 
 func _material(color: Color) -> StandardMaterial3D:
 	var material := StandardMaterial3D.new()
@@ -98,3 +99,35 @@ func set_near_wall_ghost(enabled: bool) -> void:
 		material.albedo_color = color
 		material.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA if color.a < 1.0 else BaseMaterial3D.TRANSPARENCY_DISABLED
 		instance.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF if enabled else GeometryInstance3D.SHADOW_CASTING_SETTING_ON
+
+
+func _surface(label: String, at: Vector3, size: Vector3, kind: String) -> void:
+	var body := StaticBody3D.new()
+	body.name = label
+	body.position = at
+	body.collision_layer = 1
+	body.collision_mask = 2
+	body.set_meta("surface", kind)
+	var shape := BoxShape3D.new()
+	shape.size = size
+	var collision := CollisionShape3D.new()
+	collision.shape = shape
+	body.add_child(collision)
+	add_child(body)
+
+func _build_collisions() -> void:
+	# Inner surfaces line up with floor boundaries x=±5, z=±10.
+	_surface("FloorCollider", Vector3(0, -0.1, 0), Vector3(10, 0.2, 20), "floor")
+	for side: float in [-1.0, 1.0]:
+		_surface("EndGlassCollider", Vector3(0, 1.5, side * 10.06), Vector3(10.24, 3, 0.12), "glass")
+		_surface("EndFenceCollider", Vector3(0, 3.5, side * 10.06), Vector3(10.24, 1, 0.12), "fence")
+		for end: float in [-1.0, 1.0]:
+			_surface("SideGlassCollider", Vector3(side * 5.06, 1.5, end * 8), Vector3(0.12, 3, 4), "glass")
+			_surface("CornerFenceCollider", Vector3(side * 5.06, 3.5, end * 9), Vector3(0.12, 1, 2), "fence")
+		_surface("MiddleFenceCollider", Vector3(side * 5.06, 1.5, 0), Vector3(0.12, 3, 12), "fence")
+		_surface("NetPostCollider", Vector3(side * 5, 0.5, 0), Vector3(0.1, 1, 0.1), "net")
+	# Short panels follow the top cord rather than one uniform-height wall.
+	for i in range(20):
+		var x := -4.75 + i * 0.5
+		var height := 0.88 + 0.04 * absf(x) / 5.0
+		_surface("NetCollider", Vector3(x, height * 0.5, 0), Vector3(0.5, height, 0.025), "net")

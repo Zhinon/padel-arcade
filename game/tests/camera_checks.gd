@@ -12,6 +12,7 @@ func _run() -> void:
 	await process_frame
 	await process_frame
 	var lab = current_scene
+	lab.enable_camera_preview()
 	lab.preview_paused = true
 	var capture := "--capture" in OS.get_cmdline_user_args()
 	for resolution: Vector2i in [Vector2i(1280, 720), Vector2i(640, 360)]:

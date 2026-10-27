@@ -1,0 +1,426 @@
+{
+	"cases": [
+		{
+			"contacts": [
+				{
+					"collider": "FloorCollider",
+					"incoming": "(0.0, -7.484875, 0.0)",
+					"last_hitter": -1,
+					"normal": "(0.0, 1.0, 0.0)",
+					"outgoing": "(0.0, 5.463959, 0.0)",
+					"position": "(0.0, 0.0, 5.0)",
+					"sequence": 1,
+					"side": 1,
+					"surface": "floor",
+					"time": 0.768066406193619
+				}
+			],
+			"impact_limit_count": 0,
+			"max_x": 0.0,
+			"max_z": 5.0,
+			"minimum_y": 0.115815319120884,
+			"name": "vertical_drop",
+			"position": "(0.0, 1.110411, 5.0)",
+			"velocity": "(0.0, 3.218029, 0.0)"
+		},
+		{
+			"contacts": [
+				{
+					"collider": "EndGlassCollider",
+					"incoming": "(0.0, -1.304301, -14.92022)",
+					"last_hitter": -1,
+					"normal": "(0.0, 0.0, 1.0)",
+					"outgoing": "(0.0, -1.278215, 12.23458)",
+					"position": "(0.0, 2.416197, -10.0)",
+					"sequence": 1,
+					"side": -1,
+					"surface": "glass",
+					"time": 0.126643880248169
+				}
+			],
+			"impact_limit_count": 0,
+			"max_x": 0.0,
+			"max_z": 9.87000846862793,
+			"minimum_y": 2.18755221366882,
+			"name": "back_glass",
+			"position": "(0.0, 2.187552, -8.388686)",
+			"velocity": "(0.0, -2.413908, 12.17762)"
+		},
+		{
+			"contacts": [
+				{
+					"collider": "@StaticBody3D@413",
+					"incoming": "(39.80052, -1.222986, 0.0)",
+					"last_hitter": -1,
+					"normal": "(-1.0, 0.0, 0.0)",
+					"outgoing": "(-21.89029, -1.198526, 0.0)",
+					"position": "(5.0, 1.921191, -2.0)",
+					"sequence": 1,
+					"side": -1,
+					"surface": "fence",
+					"time": 0.12268880197516
+				}
+			],
+			"impact_limit_count": 0,
+			"max_x": 4.84391117095947,
+			"max_z": 2.0,
+			"minimum_y": 1.79810190200806,
+			"name": "side_fence",
+			"position": "(3.204873, 1.798102, -2.0)",
+			"velocity": "(-21.82472, -1.929462, 0.0)"
+		},
+		{
+			"contacts": [
+				{
+					"collider": "@StaticBody3D@434",
+					"incoming": "(0.0, -2.763349, -13.84224)",
+					"last_hitter": -1,
+					"normal": "(0.0, 0.0, 1.0)",
+					"outgoing": "(0.0, -1.796177, 1.661069)",
+					"position": "(0.0, 0.158416, 0.0125)",
+					"sequence": 1,
+					"side": 1,
+					"surface": "net",
+					"time": 0.278906250065979
+				},
+				{
+					"collider": "FloorCollider",
+					"incoming": "(0.0, -2.039468, 1.659409)",
+					"last_hitter": -1,
+					"normal": "(0.0, 1.0, 0.0)",
+					"outgoing": "(0.0, 1.488812, 1.559844)",
+					"position": "(0.0, 0.0, 0.163906)",
+					"sequence": 2,
+					"side": 1,
+					"surface": "floor",
+					"time": 0.306591796208083
+				}
+			],
+			"impact_limit_count": 0,
+			"max_x": 0.0,
+			"max_z": 3.88337230682373,
+			"minimum_y": 0.107939280569553,
+			"name": "net",
+			"position": "(0.0, 0.199243, 0.309242)",
+			"velocity": "(0.0, 0.585909, 1.554136)"
+		},
+		{
+			"contacts": [
+				{
+					"collider": "@StaticBody3D@401",
+					"incoming": "(9.943499, -0.391239, 9.943499)",
+					"last_hitter": -1,
+					"normal": "(0.0, 0.0, -1.0)",
+					"outgoing": "(9.744629, -0.383415, -8.153668)",
+					"position": "(4.895108, 1.837913, 10.0)",
+					"sequence": 1,
+					"side": 1,
+					"surface": "glass",
+					"time": 0.139876300653762
+				},
+				{
+					"collider": "@StaticBody3D@409",
+					"incoming": "(9.744629, -0.383415, -8.153668)",
+					"last_hitter": -1,
+					"normal": "(-1.0, 0.0, 0.0)",
+					"outgoing": "(-7.990596, -0.375746, -7.990595)",
+					"position": "(5.0, 1.837919, 9.894156)",
+					"sequence": 2,
+					"side": 1,
+					"surface": "glass",
+					"time": 0.139904275127292
+				}
+			],
+			"impact_limit_count": 0,
+			"max_x": 4.88061285018921,
+			"max_z": 9.8801155090332,
+			"minimum_y": 1.73475706577301,
+			"name": "glass_corner",
+			"position": "(4.016982, 1.734757, 9.016484)",
+			"velocity": "(-7.956048, -1.434396, -7.956047)"
+		},
+		{
+			"contacts": [
+				{
+					"collider": "@StaticBody3D@413",
+					"incoming": "(59.80035, -0.816003, 0.0)",
+					"last_hitter": -1,
+					"normal": "(-1.0, 0.0, 0.0)",
+					"outgoing": "(-32.89019, -0.799683, 0.0)",
+					"position": "(5.0, 1.463883, -4.0)",
+					"sequence": 1,
+					"side": -1,
+					"surface": "fence",
+					"time": 0.0816894529215853
+				},
+				{
+					"collider": "MiddleFenceCollider",
+					"incoming": "(-32.4979, -3.71507, 0.0)",
+					"last_hitter": -1,
+					"normal": "(1.0, 0.0, 0.0)",
+					"outgoing": "(17.87384, -3.640769, 0.0)",
+					"position": "(-5.0, 0.780718, -4.0)",
+					"sequence": 2,
+					"side": -1,
+					"surface": "fence",
+					"time": 0.381054687592536
+				},
+				{
+					"collider": "FloorCollider",
+					"incoming": "(17.76101, -5.165867, 0.0)",
+					"last_hitter": -1,
+					"normal": "(0.0, 1.0, 0.0)",
+					"outgoing": "(16.69535, 3.771083, 0.0)",
+					"position": "(-2.156612, 0.0, -4.0)",
+					"sequence": 3,
+					"side": -1,
+					"surface": "floor",
+					"time": 0.534635416817717
+				},
+				{
+					"collider": "@StaticBody3D@413",
+					"incoming": "(16.41395, -0.425802, 0.0)",
+					"last_hitter": -1,
+					"normal": "(-1.0, 0.0, 0.0)",
+					"outgoing": "(-9.027674, -0.417286, 0.0)",
+					"position": "(5.0, 0.825331, -4.0)",
+					"sequence": 4,
+					"side": -1,
+					"surface": "fence",
+					"time": 0.96061197953535
+				}
+			],
+			"impact_limit_count": 0,
+			"max_x": 4.85751295089722,
+			"max_z": 4.0,
+			"minimum_y": 0.111918032169342,
+			"name": "fast_shot_60mps",
+			"position": "(4.539383, 0.802112, -4.0)",
+			"velocity": "(-9.015645, -0.743458, 0.0)"
+		},
+		{
+			"contacts": [
+				{
+					"collider": "EndGlassCollider",
+					"incoming": "(0.0, -0.326728, -59.92006)",
+					"last_hitter": -1,
+					"normal": "(0.0, 0.0, 1.0)",
+					"outgoing": "(0.0, -0.320193, 49.13445)",
+					"position": "(0.0, 2.993745, -10.0)",
+					"sequence": 1,
+					"side": -1,
+					"surface": "glass",
+					"time": 0.0315917967846591
+				}
+			],
+			"impact_limit_count": 0,
+			"max_x": 0.0,
+			"max_z": 9.80821132659912,
+			"minimum_y": 2.6857635974884,
+			"name": "fence_glass_seam",
+			"position": "(0.0, 2.685764, 0.789824)",
+			"velocity": "(0.0, -2.433394, 48.71049)"
+		},
+		{
+			"contacts": [
+				{
+					"collider": "@StaticBody3D@411",
+					"incoming": "(29.94006, -0.489928, 0.0)",
+					"last_hitter": -1,
+					"normal": "(-1.0, 0.0, 0.0)",
+					"outgoing": "(-16.46704, -0.48013, 0.0)",
+					"position": "(5.0, 3.587381, 9.0)",
+					"sequence": 1,
+					"side": 1,
+					"surface": "fence",
+					"time": 0.0465494798470244
+				}
+			],
+			"impact_limit_count": 0,
+			"max_x": 4.83792304992676,
+			"max_z": 9.0,
+			"minimum_y": 3.48477625846863,
+			"name": "upper_corner_fence",
+			"position": "(3.194782, 3.484776, 9.0)",
+			"velocity": "(-16.40131, -1.457091, 0.0)"
+		},
+		{
+			"contacts": [],
+			"impact_limit_count": 0,
+			"max_x": 7.96676015853882,
+			"max_z": 2.0,
+			"minimum_y": 4.53264141082764,
+			"name": "above_fence_escape",
+			"position": "(7.96676, 5.092891, -2.0)",
+			"velocity": "(39.6813, 2.014284, 0.0)"
+		},
+		{
+			"contacts": [
+				{
+					"collider": "FloorCollider",
+					"incoming": "(0.0, -4.133324, 0.0)",
+					"last_hitter": -1,
+					"normal": "(0.0, 1.0, 0.0)",
+					"outgoing": "(0.0, 3.017326, 0.0)",
+					"position": "(0.0, 0.0, 5.0)",
+					"sequence": 1,
+					"side": 1,
+					"surface": "floor",
+					"time": 0.424235026110319
+				},
+				{
+					"collider": "FloorCollider",
+					"incoming": "(0.0, -2.949953, 0.0)",
+					"last_hitter": -1,
+					"normal": "(0.0, 1.0, 0.0)",
+					"outgoing": "(0.0, 2.153466, 0.0)",
+					"position": "(0.0, 0.0, 5.0)",
+					"sequence": 2,
+					"side": 1,
+					"surface": "floor",
+					"time": 1.03020833325441
+				},
+				{
+					"collider": "FloorCollider",
+					"incoming": "(0.0, -2.097208, 0.0)",
+					"last_hitter": -1,
+					"normal": "(0.0, 1.0, 0.0)",
+					"outgoing": "(0.0, 1.530962, 0.0)",
+					"position": "(0.0, 0.0, 5.0)",
+					"sequence": 3,
+					"side": 1,
+					"surface": "floor",
+					"time": 1.4660481769966
+				},
+				{
+					"collider": "FloorCollider",
+					"incoming": "(0.0, -1.493477, 0.0)",
+					"last_hitter": -1,
+					"normal": "(0.0, 1.0, 0.0)",
+					"outgoing": "(0.0, 1.090238, 0.0)",
+					"position": "(0.0, 0.0, 5.0)",
+					"sequence": 4,
+					"side": 1,
+					"surface": "floor",
+					"time": 1.77057291666666
+				},
+				{
+					"collider": "FloorCollider",
+					"incoming": "(0.0, -1.116511, 0.0)",
+					"last_hitter": -1,
+					"normal": "(0.0, 1.0, 0.0)",
+					"outgoing": "(0.0, 0.815053, 0.0)",
+					"position": "(0.0, 0.0, 5.0)",
+					"sequence": 5,
+					"side": 1,
+					"surface": "floor",
+					"time": 1.99331054686685
+				},
+				{
+					"collider": "FloorCollider",
+					"incoming": "(0.0, -0.819653, 0.0)",
+					"last_hitter": -1,
+					"normal": "(0.0, 1.0, 0.0)",
+					"outgoing": "(0.0, 0.598347, 0.0)",
+					"position": "(0.0, 0.0, 5.0)",
+					"sequence": 6,
+					"side": 1,
+					"surface": "floor",
+					"time": 2.16458333347536
+				},
+				{
+					"collider": "FloorCollider",
+					"incoming": "(0.0, -0.546082, 0.0)",
+					"last_hitter": -1,
+					"normal": "(0.0, 1.0, 0.0)",
+					"outgoing": "(0.0, 0.0, 0.0)",
+					"position": "(0.0, 0.0, 5.0)",
+					"sequence": 7,
+					"side": 1,
+					"surface": "floor",
+					"time": 2.28276367156188
+				}
+			],
+			"impact_limit_count": 0,
+			"max_x": 0.0,
+			"max_z": 5.0,
+			"minimum_y": 0.105314940214157,
+			"name": "settle_on_floor",
+			"position": "(0.0, 0.105315, 5.0)",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"contacts": [
+				{
+					"collider": "@StaticBody3D@401",
+					"incoming": "(0.0, -1.304301, 14.92022)",
+					"last_hitter": -1,
+					"normal": "(0.0, 0.0, -1.0)",
+					"outgoing": "(0.0, -1.278215, -12.23458)",
+					"position": "(0.0, 2.416197, 10.0)",
+					"sequence": 1,
+					"side": 1,
+					"surface": "glass",
+					"time": 0.126643880248169
+				}
+			],
+			"impact_limit_count": 0,
+			"max_x": 0.0,
+			"max_z": 9.87000846862793,
+			"minimum_y": 2.18755221366882,
+			"name": "ghost_glass",
+			"position": "(0.0, 2.187552, 8.388686)",
+			"velocity": "(0.0, -2.413908, -12.17762)"
+		},
+		{
+			"contacts": [
+				{
+					"collider": "@StaticBody3D@401",
+					"incoming": "(0.0, -1.304301, 14.92022)",
+					"last_hitter": -1,
+					"normal": "(0.0, 0.0, -1.0)",
+					"outgoing": "(0.0, -1.278215, -12.23458)",
+					"position": "(0.0, 2.416197, 10.0)",
+					"sequence": 1,
+					"side": 1,
+					"surface": "glass",
+					"time": 0.126643880248169
+				}
+			],
+			"impact_limit_count": 0,
+			"max_x": 0.0,
+			"max_z": 9.87000846862793,
+			"minimum_y": 2.18755221366882,
+			"name": "opaque_glass",
+			"position": "(0.0, 2.187552, 8.388686)",
+			"velocity": "(0.0, -2.413908, -12.17762)"
+		},
+		{
+			"contacts": [
+				{
+					"collider": "@StaticBody3D@401",
+					"incoming": "(0.0, -1.304301, 14.92022)",
+					"last_hitter": -1,
+					"normal": "(0.0, 0.0, -1.0)",
+					"outgoing": "(0.0, -1.278215, -12.23458)",
+					"position": "(0.0, 2.416197, 10.0)",
+					"sequence": 1,
+					"side": 1,
+					"surface": "glass",
+					"time": 0.126643880248169
+				}
+			],
+			"impact_limit_count": 0,
+			"max_x": 0.0,
+			"max_z": 9.87000846862793,
+			"minimum_y": 2.18755221366882,
+			"name": "repeat_glass",
+			"position": "(0.0, 2.187552, 8.388686)",
+			"velocity": "(0.0, -2.413908, -12.17762)"
+		}
+	],
+	"engine": "4.7.2-stable (official)",
+	"failures": [],
+	"prototype_radius_m": 0.105,
+	"step_seconds": 0.00833333333333333
+}

@@ -2,7 +2,7 @@
 
 ## Estado actual
 
-Sesión 002: importación y ejecución verificadas con Godot 4.7.2. T00 aprobado; T10/T11 tienen evidencia geométrica y capturas, con revisión humana del usuario pendiente. El resto de casos sigue planificado, sin pruebas de gameplay ejecutadas.
+Sesión 004: T00 y laboratorio físico T20–T23 comprobados con Godot 4.7.2. T10/T11 conservan comprobaciones de cámara y encuadre aprobado por el usuario en sesión 003. Golpes, parejas, reglas y partido continúan pendientes.
 
 ## Escenarios mínimos
 
@@ -62,3 +62,25 @@ Cambio: perfil lateral de rejas alto en los 2 m de cada extremo, con nivel centr
 Importación completada sin errores de scripts; seis capturas regeneradas y vista principal inspeccionada: escalones de esquina visibles. Reejecutado camera_checks.gd en 720p/360p: cero puntos fuera de cuadro y lista de fallos vacía. No se añadieron pruebas de física porque no cambió ni existe aún ese sistema.
 
 El primer intento de captura de esta sesión fue bloqueado por acceso al socket gráfico; tras conceder permiso de conexión local se repitió con éxito. Persisten los avisos de driver/Mesa ya conocidos.
+
+
+## Ejecución 27/10/2026 — sesión 004: E2
+
+Motor 4.7.2.stable.official.ed1daf0bf; revisión de trabajo de sesión 004, posterior a 15f9c20 y anterior al commit de cierre. Escena main.tscn; física 120 Hz, radio provisional 0.105 m, parámetros de LABORATORIO_PELOTA.md. Datos iniciales de todos los casos en tests/ball_checks.gd; sin azar.
+
+**13 escenarios físicos:** caída vertical, vidrio de fondo, reja lateral, red, esquina de vidrio, tiro de 60 m/s, junta vidrio/reja, reja alta de esquina, salida por encima de reja, reposo durante 15 s, vidrio atenuado, vidrio opaco y relanzamiento repetido. Cero fallos. También se ejecutaron entradas Espacio/R/F4: pausa sin avance físico, reanudación, restablecimiento de estado y selección de escenario correctos.
+
+- Caída vertical: un impacto en el primer segundo, a t≈0.768 s; dentro de 0.025 s del cálculo balístico independiente. Restitución vertical dentro de 0.001 del parámetro.
+- Vidrio/reja: clasificación y cambio de dirección correctos. Red: bloquea tiro bajo y conserva pelota del lado de lanzamiento.
+- Esquina: se invierten ambas componentes horizontales sin exceder presupuesto de impactos.
+- Tiro rápido: no atraviesa cerramientos. La pelota por encima de la reja sí puede salir; no hay techo invisible.
+- Sin penetración mayor de 0.002 m en los escenarios contenidos, contactos ordenados y energía saliente no superior a entrante por impacto (tolerancia 0.001 m/s).
+- Reposo: sin nuevos contactos durante 240 pasos adicionales después de asentarse. Atenuación del vidrio y repetición no cambian posición final por más de 0.00001 m.
+
+**Render programado:** tres procesos del motor con --fixed-fps 30/60/120, caso canónico de F2 durante 2 s. Se observaron 61/121/241 frames contando inicialización, con física a 120 Hz. tools/compare-fps.py confirmó posición, velocidad, tiempos y secuencia de contactos coincidentes dentro de 0.00001. JSON en previews/ball-fps-*.json y ball-fps-comparison.json. No es prueba de rendimiento real ni determinismo entre equipos.
+
+**Regresión visual:** camera_checks.gd aprobado con su modo E1 aislado. Video de 120 frames a 30 FPS (4 s), PNG de laboratorio y revisión visual de la captura. Marcas de impacto/estela sin autoridad física. Mismo encuadre y geometría lateral.
+
+**Limitaciones:** radio ampliado, restituciones de diseño, sin giro ni dispersión irregular de reja. Jugadores sin colisión. Accesos sin modelar. El test no cubre todas las posibles posiciones/velocidades ni reemplaza probar la sensación de juego.
+
+**Incidencias corregidas:** el primer ejecutor de comparación de FPS intentaba leer la pelota antes de completar la carga de escena; se detuvo y corrigió la espera de inicialización. Las ejecuciones finales completaron sin errores de scripts. Los avisos Mesa/VSync conocidos no se usan como evidencia de rendimiento.

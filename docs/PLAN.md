@@ -36,13 +36,13 @@ Depende de P05. Objetivo: ver claramente dónde se juega.
 
 Depende de E1. Objetivo: rebotes coherentes antes de golpes complejos.
 
-- [ ] P20 Elegir y registrar modelo de trayectoria/colisión con una prueba pequeña.
-- [ ] P21 Implementar gravedad y contactos con piso, vidrio, reja y red; parámetros ajustables.
-- [ ] P22 Resolver esquinas, impactos rápidos y eventos repetidos.
-- [ ] P23 Añadir lanzador de escenarios, reinicio y visualización de contactos/trayectorias.
-- [ ] P24 Ejecutar casos físicos a 30/60/120 FPS de render, cuando el equipo permita.
+- [x] P20 Elegir y registrar modelo de trayectoria/colisión con una prueba pequeña.
+- [x] P21 Implementar gravedad y contactos con piso, vidrio, reja y red; parámetros ajustables.
+- [x] P22 Resolver esquinas, impactos rápidos y eventos repetidos.
+- [x] P23 Añadir lanzador de escenarios, reinicio y visualización de contactos/trayectorias.
+- [x] P24 Ejecutar casos físicos a 30/60/120 FPS de render, cuando el equipo permita.
 
-**Salida:** sin atravesar cerramientos en el rango de velocidades admitido; resultados repetibles dentro de tolerancias documentadas.
+**Salida técnica, sesión 004:** 13 escenarios aprobados, incluido tiro de 60 m/s, esquina, reposo y salida por encima de reja. Un lanzamiento canónico a dos segundos coincide en procesos separados a 30/60/120 FPS programados (física 120 Hz). Tolerancias y límites en LABORATORIO_PELOTA.md y PRUEBAS.md. La calibración de sensación de juego se revisa con el usuario y seguirá en E3/E4; no se afirma cobertura de todos los tiros posibles.
 
 ## E3 — Movimiento y primer golpe
 

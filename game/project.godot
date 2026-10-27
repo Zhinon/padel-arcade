@@ -1,4 +1,4 @@
-; Initial project scaffold. Not yet imported or executed in Godot.
+; Pádel Arcade — prototipo en desarrollo.
 config_version=5
 
 [application]
@@ -15,3 +15,6 @@ window/stretch/mode="canvas_items"
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
 environment/defaults/default_clear_color=Color(0.07, 0.09, 0.12, 1)
+
+[physics]
+common/physics_ticks_per_second=120

@@ -1,33 +1,33 @@
 # Estado y próxima sesión
 
-Actualizado: 27/10/2026, zona America/Argentina/Mendoza. Sesión 003.
+Actualizado: 27/10/2026, zona America/Argentina/Mendoza. Sesión 004.
 
 ## Dónde estamos
 
-Etapa siguiente: **E2 — laboratorio de pelota**. Encuadre de E1 aprobado por el usuario. Laterales corregidos y renderizados con perfil de rejas 4/3/4 m. P06 (equipo objetivo) sigue pendiente.
+**E2 implementada y comprobada como laboratorio inicial.** Cámara aprobada por el usuario y laterales corregidos en E1. Pelota con gravedad, colisiones y rebotes diferenciados, siete lanzamientos, pausa/reinicio, estela y marcas de impacto. Figuras de jugadores todavía estáticas y sin colisión. Sin golpes, IA ni reglas de punto.
 
-- Godot portátil **4.7.2.stable.official.ed1daf0bf** descargado y ejecutado.
-- Cancha visual con piso, líneas, red y perfil lateral de la variante de cristal FIP (extremos altos de 2 m de longitud); todavía sin accesos ni colisiones.
-- Cuatro figuras provisionales y pelota de lectura ampliada con trayectoria programada, sin física.
-- Tres cámaras y transparencia del cerramiento cercano con controles de laboratorio.
-- Repositorio local `main`, sin remoto; cambios de sesión guardados al cierre.
+Godot portátil 4.7.2.stable.official.ed1daf0bf. Repositorio local `main`, sin remoto. P06 (equipo objetivo) continúa pendiente.
 
-## Verificación y límites
+## Verificación
 
-Importación sin errores de scripts. Pruebas geométricas en 1280×720 y 640×360 para las tres cámaras: 0 puntos fuera de cuadro. Pausa, reinicio y variación de alpha comprobados. Se generaron seis capturas con el render real y se inspeccionaron las vistas principal, lejana y reducida.
+- Importación y ejecución con Godot, sin errores de scripts en las ejecuciones finales.
+- 13 escenarios físicos aprobados: caída, vidrio, reja, red, esquina, tiro rápido, junta vidrio/reja, reja alta de esquina, salida por arriba, reposo, comparación de transparencia y repetición.
+- Comparación en procesos separados a 30/60/120 FPS programados: posición, velocidad y secuencia de superficies coinciden tras dos segundos, tolerancia 0.00001 m/m·s⁻¹.
+- Pruebas existentes de cámara, pausa, reinicio y atenuación aprobadas. Se conserva un modo visual E1 solo para pruebas de encuadre.
+- Captura de cuatro segundos del laboratorio; revisar LABORATORIO_PELOTA.md.
 
-El entorno usa render por CPU (Mesa llvmpipe) con avisos de driver/VSync; no sirve para afirmar rendimiento en la PC del usuario. No hay gameplay ni prueba reglamentaria. En 640×360 la pelota llega a unos 2.4–2.9 píxeles de diámetro; legibilidad móvil pendiente.
+El entorno renderiza por CPU (Mesa llvmpipe): no hay medición válida de rendimiento del equipo objetivo. La pelota sigue ampliada a radio 0.105 m y los coeficientes son de prototipo. No hay giro ni dispersión de reja; accesos laterales pendientes.
 
 ## Próxima tarea concreta
 
-**P20: comparar un modelo pequeño de trayectoria/colisión y definir el laboratorio de rebotes.** Conservar el encuadre aceptado. El cambio de rejas de sesión 003 está aplicado y sus capturas actualizadas.
+Probar la demo con el usuario para detectar ajustes evidentes de velocidad/rebote. Después **P30/P31: acciones de entrada y movimiento de un jugador**, seguido de alcance y primer golpe (P32/P33). No añadir rivales ni marcador antes de poder devolver una pelota.
 
-Antes de estimar rendimiento/exportación, resolver P06: SO objetivo, equipo y mando. No asumir que el equipo del chat es el del jugador.
+Antes de estimar rendimiento/exportación, resolver P06: sistema operativo, equipo y mando.
 
-## Cómo abrir la demo
+## Abrir
 
-Desde la raíz: `./tools/run-godot.sh`. Controles: 1/2/3 cámaras; G cerramiento; Espacio pausa; R reinicio. No es todavía un juego controlable.
+`./tools/run-godot.sh` desde la raíz. F1–F7 escenarios; Espacio pausa; R relanza; L repetición; 1/2/3 cámaras; G vidrio. Guía completa en LABORATORIO_PELOTA.md.
 
-## Rutina de cierre
+## Cierre de sesión
 
-Actualizar PLAN.md, este estado y BITACORA.md. Registrar decisiones relevantes, pruebas reales y un punto de recuperación en Git.
+Actualizar plan, estado, pruebas y bitácora. Decisiones relevantes se conservan en DECISIONES.md; guardar un punto de recuperación en Git.

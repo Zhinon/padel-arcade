@@ -1,0 +1,27 @@
+{
+  "tolerance": 1e-05,
+  "checks": [
+    {
+      "render_fps": 30,
+      "position_error_m": 0.0,
+      "velocity_error_mps": 0.0,
+      "matching_contacts": true,
+      "passed": true
+    },
+    {
+      "render_fps": 60,
+      "position_error_m": 0.0,
+      "velocity_error_mps": 0.0,
+      "matching_contacts": true,
+      "passed": true
+    },
+    {
+      "render_fps": 120,
+      "position_error_m": 0.0,
+      "velocity_error_mps": 0.0,
+      "matching_contacts": true,
+      "passed": true
+    }
+  ],
+  "passed": true
+}

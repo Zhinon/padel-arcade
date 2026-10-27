@@ -1,6 +1,6 @@
-# Laboratorio de cámara — sesión 002
+# Referencia de cámara — E1, sesiones 002/003
 
-Prototipo visual para elegir encuadre. No es todavía un juego: los jugadores no se mueven y la pelota sigue una trayectoria programada, sin rebotes físicos.
+Estas capturas corresponden al laboratorio visual E1. Desde sesión 004 la escena normal usa física; ver LABORATORIO_PELOTA.md. El modo de trayectoria programada se conserva para comprobar encuadre.
 
 ## Vista 1 — referencia inicial
 
@@ -22,7 +22,7 @@ Posición (0,9,17), mismo objetivo y FOV.
 
 ## Probar
 
-Desde la raíz del proyecto en Linux: `./tools/run-godot.sh`.
+Para reproducir el modo visual E1 en Linux: `./tools/run-godot.sh -- --camera-preview`. La ejecución normal abre el laboratorio físico E2.
 
 - **1/2/3:** cambiar cámara.
 - **G:** alternar atenuación del cerramiento cercano.
@@ -35,4 +35,4 @@ La ventana indica estos controles en su título. No hay controles de jugador tod
 
 Se comprobó el encuadre en 1280×720 y 640×360 para las tres vistas, con extremos del cerramiento y 101 muestras de trayectoria. Es una comprobación geométrica, no una garantía de legibilidad ni de ausencia de toda oclusión. La pelota tiene un radio visual ampliado de 0.105 m para esta prueba. En 360p su diámetro llega a unos 2.4–2.9 píxeles: la adaptación móvil necesita trabajo específico.
 
-El arte, las figuras y los cerramientos son provisionales. Las rejas laterales se corrigieron en sesión 003: extremos de 4 m y tramo central de 3 m, siguiendo la variante de cristal FIP. El lateral no tiene accesos y no existen colisiones. El siguiente paso tras revisar el encuadre es desarrollar el laboratorio de rebotes.
+El arte, las figuras y los cerramientos son provisionales. Las rejas laterales se corrigieron en sesión 003: extremos de 4 m y tramo central de 3 m, siguiendo la variante de cristal FIP. Los accesos laterales siguen pendientes. Las colisiones físicas se incorporaron en E2 y no están representadas por estas capturas históricas.

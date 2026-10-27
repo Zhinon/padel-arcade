@@ -41,3 +41,11 @@ Al incorporar assets registrar autor, enlace original, licencia, atribución req
 ## Revisión de laterales — sesión 003
 
 Fuente: PDF FIP oficial citado arriba, The Court → Sides, variante 2 de cristal. Se implementaron las extensiones de reja de esquina y su transición al tramo central. Las dimensiones generales no implican homologación completa: accesos, espesor/tejido de malla y colisiones siguen siendo provisionales.
+
+
+## Simulación — sesión 004
+
+- [PhysicsBody3D.move_and_collide](https://docs.godotengine.org/en/stable/classes/class_physicsbody3d.html): desplazamiento con detección de colisión.
+- [KinematicCollision3D](https://docs.godotengine.org/en/stable/classes/class_kinematiccollision3d.html): normales, posiciones y recorrido de contacto.
+- Código de simulación, lanzador, estela y marcas desarrollado dentro del proyecto, sin assets externos. Restitución y radio ampliado son parámetros de diseño provisionales.
+- `previews/ball-lab.png` y `previews/ball-lab.mp4`: captura del motor con avance temporal fijo; no constituyen medición de FPS del equipo objetivo.

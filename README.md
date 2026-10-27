@@ -2,18 +2,20 @@
 
 Juego de pádel 3D para PC, con jugabilidad arcade inspirada en Virtua Tennis y adaptación posterior a celular. Desarrollo individual asistido por Codex. Documentación en español.
 
-**Estado al 27/10/2026, sesión 003:** laboratorio de cancha y cámara ejecutado con Godot 4.7.2. Cancha provisional, cuatro figuras, tres cámaras y trayectoria visual de globo. Encuadre aprobado por el usuario; perfil lateral de rejas corregido con extremos más altos. Todavía no hay física ni golpes.
+**Estado al 27/10/2026, sesión 004:** laboratorio de pelota con gravedad, colisiones y siete lanzamientos repetibles. Cámara aprobada y rejas corregidas. Todavía no hay jugador controlable, golpes ni partido.
 
-![Cámara de referencia](docs/previews/camera-1-1280x720.png)
+![Laboratorio de rebotes](docs/previews/ball-lab.png)
 
-En Linux, ejecutar `./tools/run-godot.sh` desde esta carpeta. **1/2/3:** cambiar cámara; **G:** atenuar cerramiento cercano; **Espacio:** pausar trayectoria; **R:** reiniciar. [Comparar las cámaras](docs/CAMARA.md).
+En Linux: `./tools/run-godot.sh`. **F1–F7:** lanzamientos; **Espacio:** pausa; **R:** relanzar; **L:** repetición automática; **1/2/3:** cámaras; **G:** atenuar vidrio.
+
+[Guía y video del laboratorio](docs/LABORATORIO_PELOTA.md). [Vistas de cámara de E1](docs/CAMARA.md).
 
 ## Por dónde seguir
 
 1. Leer [Estado y siguiente sesión](docs/ESTADO.md).
 2. Consultar el [Plan por etapas](docs/PLAN.md) y la [visión del juego](docs/JUEGO.md).
 3. Seguir la [preparación del entorno](docs/ENTORNO.md) para abrir `game/project.godot`.
-4. Completar cancha y cámara antes de implementar golpes.
+4. Revisar los rebotes del laboratorio y continuar con movimiento y primer golpe (E3).
 
 ## Mapa del proyecto
 
@@ -21,6 +23,7 @@ En Linux, ejecutar `./tools/run-godot.sh` desde esta carpeta. **1/2/3:** cambiar
 | --- | --- |
 | `game/` | Proyecto importable en Godot |
 | `docs/JUEGO.md` | Experiencia, controles propuestos y alcance |
+| `docs/LABORATORIO_PELOTA.md` | Controles, parámetros y evidencia de rebotes |
 | `docs/PLAN.md` | Etapas, tareas y condiciones para avanzar |
 | `docs/DECISIONES.md` | Acuerdos, propuestas y decisiones pendientes |
 | `docs/ESTADO.md` | Punto exacto de continuidad y próxima tarea |
