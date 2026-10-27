@@ -1,46 +1,24 @@
-# Registro de decisiones
+# Bitácora de desarrollo
 
-Fecha inicial: 27/10/2026. Acordado refleja la conversación; decisión técnica inicial es reversible; propuesta todavía debe validarse.
+## 27/10/2026 — Sesión 001: arranque
 
-| ID | Estado | Elección y motivo | Revisión |
-| --- | --- | --- | --- |
-| D01 | Acordado | PC primero, celular después | E8 |
-| D02 | Acordado | Cámara como foto, algo más atrás para ver pared cercana | E1 |
-| D03 | Acordado | Experiencia inspirada en Virtua Tennis, deporte pádel | E4 |
-| D04 | Acordado | Una persona, aprendiendo el motor | Cada estimación |
-| D05 | Acordado | Comenzar con Godot | Ante limitación concreta |
-| D06 | Verificada | GDScript tipado y Godot estándar 4.7.2, ejecutado en modo portátil en sesión 002 | Al actualizar motor |
-| D07 | Técnica inicial | Renderer Compatibility como punto de partida sencillo | E1 y prueba móvil; medir |
-| D08 | Propuesta | Humano + compañero IA contra dos rivales IA | Antes de E5 |
-| D09 | Técnica inicial | Separar pelota, reglas, entradas y presentación | E2–E3 |
-| D10 | Propuesta | Arte estilizado y cerramiento cercano atenuable | E1 |
-| D11 | Técnica inicial | Dos skills propias versionadas; visuales existentes según tarea | Primeras sesiones |
-| D12 | Pendiente | Modelo de simulación y tolerancias | P20 |
-| D13 | Pendiente | Teclas, potencia, ayudas de contacto | E3–E4 |
-| D14 | Pendiente | Jugador fijo o cambio automático/manual | E5 |
-| D15 | Pendiente | Formato del partido, puntuación y reglas omitidas | P60 |
-| D16 | Pendiente | SO de primera build, PC de referencia y teléfono | P06/P80 |
-| D17 | Técnica inicial | “Pádel Arcade” es solo nombre de trabajo | Antes de publicar |
+**Pedido:** instalar skills necesarias, crear carpeta/proyecto y documentar plan, decisiones y avances.
 
-Para cambiar una decisión: añadir fecha, contexto, alternativas relevantes, elección, consecuencias y tareas afectadas. Conservar la anterior como sustituida. No convertir propuestas técnicas en preferencias confirmadas del usuario.
+**Preparado:** nombre provisional Pádel Arcade; documentos de visión, etapas, decisiones, arquitectura, pruebas, entorno, skills y fuentes; instrucciones de continuidad; dos skills propias; proyecto Godot mínimo con escena estática y referencia visual aportada fuera del runtime.
 
+**Acuerdos recuperados:** PC antes que móvil; cámara de la foto algo más atrás; referencia Virtua Tennis; desarrollo individual; comenzar con Godot.
 
-## 27/10/2026 — decisiones de prototipo
+**Comprobación inicial:** Python y Git disponibles; Godot no encontrado en PATH. El directorio del chat no es un repositorio Git utilizable.
 
-- **D18, técnica inicial:** mantener Godot y sus datos dentro del espacio del chat. Motivo: entorno con directorios personales restringidos. No modificar instalación del sistema. Impacto: usar tools/run-godot.sh.
-- **D19, propuesta visual:** cámaras 1/2/3 a (0,10,18), (0,12,21), (0,9,17), FOV vertical 52°, objetivo (0,0.5,0). Referencia inicial: vista 1, todavía sin elección del usuario. Impacto: P12/P15.
-- **D20, simplificación explícita:** figuras y cancha son blockout; cerramiento lateral simplificado sin puertas, sin colisiones. La pelota recorre una curva programada y tiene radio visual 0.105 m para facilitar lectura. No interpretar como física, reglamento o arte final. Impacto: P10/P11 y futuro P20.
-- **D21, técnica inicial:** atenuación cercana mediante alpha de materiales y desactivación de sombra de esas piezas, para evitar oclusión visual con Compatibility. Conserva la indicación de pared; el futuro collider debe ser independiente. Impacto: P13/E2.
+**Skills:** creadas con Skill Creator, validadas e instaladas en la carpeta personal; hashes SHA-256 coincidentes con las fuentes. La validación se ejecutó con `/usr/bin/python3` porque el Python por defecto no incluye PyYAML. El entorno requirió permiso sobre la carpeta padre para poder crear los destinos. No se descargaron skills de terceros.
 
+**Control de versiones:** repositorio local inicializado en `main`, sin remoto. Primer punto de recuperación: commit `Iniciar proyecto de padel y documentar plan de desarrollo`.
 
-## Incorporaciones de sesión 002
+**Verificación de archivos:** enlaces Markdown locales resueltos, referencias internas y ruta principal de escena coherentes, imagen idéntica al adjunto por SHA-256 y skills válidas. Revisión estática, sin motor.
 
-- Archivo oficial Linux estándar descargado desde el enlace de distribución de Godot 4.7.2 citado arriba; versión confirmada ejecutando el binario. Herramienta local, no asset del juego.
-- [Camera3D](https://docs.godotengine.org/en/stable/classes/class_camera3d.html) y [Viewport](https://docs.godotengine.org/en/stable/classes/class_viewport.html): proyección, encuadre y captura.
-- FIP, secciones The Court/Net: geometría interior y referencias principales de líneas/red. El blockout lateral no reproduce todavía todas las variantes de cerramiento y accesos.
-- `scripts/court.gd` y `scripts/camera_lab.gd`: geometría, personajes provisionales y colores creados en el proyecto, sin assets externos.
-- `docs/previews/*.png`: capturas de la escena renderizada con Godot, no concept art ni fotografías.
+**Límite:** no se ejecutó gameplay ni importación del motor. La escena no tiene física ni controles.
 
+**Continuación:** P05 y después E1. MVP, estilo, formato de partido y detalles de control siguen siendo propuestas para validar, no características implementadas.
 
 ## 27/10/2026 — Sesión 002: cancha y laboratorio de cámara
 

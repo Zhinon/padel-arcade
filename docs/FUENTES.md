@@ -1,37 +1,33 @@
-# Registro de decisiones
+# Fuentes y assets
 
-Fecha inicial: 27/10/2026. Acordado refleja la conversación; decisión técnica inicial es reversible; propuesta todavía debe validarse.
+Consultadas el 27/10/2026. Revisar la documentación de la versión fijada antes de implementar API concretas.
 
-| ID | Estado | Elección y motivo | Revisión |
-| --- | --- | --- | --- |
-| D01 | Acordado | PC primero, celular después | E8 |
-| D02 | Acordado | Cámara como foto, algo más atrás para ver pared cercana | E1 |
-| D03 | Acordado | Experiencia inspirada en Virtua Tennis, deporte pádel | E4 |
-| D04 | Acordado | Una persona, aprendiendo el motor | Cada estimación |
-| D05 | Acordado | Comenzar con Godot | Ante limitación concreta |
-| D06 | Verificada | GDScript tipado y Godot estándar 4.7.2, ejecutado en modo portátil en sesión 002 | Al actualizar motor |
-| D07 | Técnica inicial | Renderer Compatibility como punto de partida sencillo | E1 y prueba móvil; medir |
-| D08 | Propuesta | Humano + compañero IA contra dos rivales IA | Antes de E5 |
-| D09 | Técnica inicial | Separar pelota, reglas, entradas y presentación | E2–E3 |
-| D10 | Propuesta | Arte estilizado y cerramiento cercano atenuable | E1 |
-| D11 | Técnica inicial | Dos skills propias versionadas; visuales existentes según tarea | Primeras sesiones |
-| D12 | Pendiente | Modelo de simulación y tolerancias | P20 |
-| D13 | Pendiente | Teclas, potencia, ayudas de contacto | E3–E4 |
-| D14 | Pendiente | Jugador fijo o cambio automático/manual | E5 |
-| D15 | Pendiente | Formato del partido, puntuación y reglas omitidas | P60 |
-| D16 | Pendiente | SO de primera build, PC de referencia y teléfono | P06/P80 |
-| D17 | Técnica inicial | “Pádel Arcade” es solo nombre de trabajo | Antes de publicar |
+## Motor y flujo de trabajo
 
-Para cambiar una decisión: añadir fecha, contexto, alternativas relevantes, elección, consecuencias y tareas afectadas. Conservar la anterior como sustituida. No convertir propuestas técnicas en preferencias confirmadas del usuario.
+- [Godot 4.7.2 estable](https://godotengine.org/download/archive/4.7.2-stable/): versión objetivo inicial.
+- [Características de Godot](https://godotengine.org/features/): 3D y plataformas.
+- [Licencia de Godot](https://godotengine.org/license/): MIT; revisar atribuciones al distribuir.
+- [GDScript y lenguajes](https://docs.godotengine.org/en/stable/getting_started/step_by_step/scripting_languages.html): lenguaje de inicio.
+- [Estilo GDScript](https://docs.godotengine.org/en/stable/tutorials/scripting/gdscript/gdscript_styleguide.html).
+- [Control de versiones](https://docs.godotengine.org/en/stable/tutorials/best_practices/version_control_systems.html).
 
+## Deporte
 
-## 27/10/2026 — decisiones de prototipo
+- [Documentos oficiales de FIP](https://www.padelfip.com/documents/).
+- [Rules of Padel, PDF oficial](https://www.padelfip.com/wp-content/uploads/2025/12/FIP_Rules-of-Padel.pdf): referencia inicial para geometría y futura interpretación de reglas. El piso provisional usa las dimensiones interiores 10×20 m. El reglamento completo aún debe revisarse al implementar P60–P64.
 
-- **D18, técnica inicial:** mantener Godot y sus datos dentro del espacio del chat. Motivo: entorno con directorios personales restringidos. No modificar instalación del sistema. Impacto: usar tools/run-godot.sh.
-- **D19, propuesta visual:** cámaras 1/2/3 a (0,10,18), (0,12,21), (0,9,17), FOV vertical 52°, objetivo (0,0.5,0). Referencia inicial: vista 1, todavía sin elección del usuario. Impacto: P12/P15.
-- **D20, simplificación explícita:** figuras y cancha son blockout; cerramiento lateral simplificado sin puertas, sin colisiones. La pelota recorre una curva programada y tiene radio visual 0.105 m para facilitar lectura. No interpretar como física, reglamento o arte final. Impacto: P10/P11 y futuro P20.
-- **D21, técnica inicial:** atenuación cercana mediante alpha de materiales y desactivación de sombra de esas piezas, para evitar oclusión visual con Compatibility. Conserva la indicación de pared; el futuro collider debe ser independiente. Impacto: P13/E2.
+No se declara conformidad reglamentaria del prototipo. Registrar por separado cada simplificación arcade y las variantes adoptadas.
 
+## Registro de assets
+
+| Archivo/elemento | Procedencia | Uso y permisos |
+| --- | --- | --- |
+| `references/camera-reference.png` | Imagen adjunta por el usuario en este chat | Referencia interna de cámara; autor/licencia de publicación no establecidos; no se incluye en el runtime |
+| Piso y red provisionales de `main.tscn` | Geometría creada en el proyecto | Marcadores de escala; no son assets definitivos |
+
+Virtua Tennis es una referencia declarada por el usuario de ritmo y controles. No se copiaron código, personajes, sonidos, interfaces ni assets de ese juego.
+
+Al incorporar assets registrar autor, enlace original, licencia, atribución requerida y modificaciones. Antes de distribuir revisar qué archivos del paquete se incluyen; la foto debe quedar fuera del juego y de material promocional.
 
 ## Incorporaciones de sesión 002
 
