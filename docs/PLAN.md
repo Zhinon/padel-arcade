@@ -1,0 +1,134 @@
+# Plan de desarrollo
+
+Actualizado: 27/10/2026. Sin fechas comprometidas. Identificadores estables para citar en bitácora.
+
+`[x]` completado con evidencia; `[ ]` pendiente. Una tarea preparada pero sin verificar sigue pendiente.
+
+## E0 — Preparación y continuidad
+
+- [x] P00 Crear carpeta, índice e instrucciones de continuidad.
+- [x] P01 Registrar acuerdos, propuesta de MVP y exclusiones.
+- [x] P02 Crear dos skills propias y validar su formato.
+- [x] P03 Instalar skills personales y verificar las copias (hashes coincidentes y formato validado).
+- [x] P04 Preparar proyecto Godot y escena técnica mínima, sin gameplay.
+- [ ] P05 Instalar/localizar Godot de la versión fijada, importar y ejecutar.
+- [ ] P06 Registrar SO objetivo de primera build, CPU/GPU/RAM y teclado/mando disponibles.
+- [x] P07 Crear repositorio local y primer punto de recuperación en `main`, sin remoto.
+
+**Salida:** proyecto abre sin errores, skills disponibles y punto de recuperación. La preparación de archivos no cierra E0.
+
+## E1 — Cancha y cámara
+
+Depende de P05. Objetivo: ver claramente dónde se juega.
+
+- [ ] P10 Construir cancha provisional a escala, con líneas, red, vidrio y reja distinguibles; consultar FIP.
+- [ ] P11 Colocar cuatro figuras y pelota provisionales.
+- [ ] P12 Ajustar altura/distancia/FOV para incluir fondo cercano y cancha rival.
+- [ ] P13 Atenuar cerramientos que tapen la acción.
+- [ ] P14 Probar globos y posiciones extremas; guardar capturas y parámetros.
+- [ ] P15 Revisar encuadre y estilo con el usuario.
+
+**Salida:** cancha legible en 16:9 y pelota identificable en fondos y globos, sin oclusiones críticas. La escena inicial actual todavía no cumple esta etapa.
+
+## E2 — Laboratorio de pelota
+
+Depende de E1. Objetivo: rebotes coherentes antes de golpes complejos.
+
+- [ ] P20 Elegir y registrar modelo de trayectoria/colisión con una prueba pequeña.
+- [ ] P21 Implementar gravedad y contactos con piso, vidrio, reja y red; parámetros ajustables.
+- [ ] P22 Resolver esquinas, impactos rápidos y eventos repetidos.
+- [ ] P23 Añadir lanzador de escenarios, reinicio y visualización de contactos/trayectorias.
+- [ ] P24 Ejecutar casos físicos a 30/60/120 FPS de render, cuando el equipo permita.
+
+**Salida:** sin atravesar cerramientos en el rango de velocidades admitido; resultados repetibles dentro de tolerancias documentadas.
+
+## E3 — Movimiento y primer golpe
+
+Depende de E2. Objetivo: devolver con intención.
+
+- [ ] P30 Definir acciones independientes del dispositivo de entrada.
+- [ ] P31 Implementar movimiento, límites y orientación.
+- [ ] P32 Añadir alcance, preparación y ventana de contacto del golpe base.
+- [ ] P33 Dirigir devolución con ayuda ajustable y un solo impacto por golpe.
+- [ ] P34 Probar 30 segundos de práctica contra lanzador y registrar sensaciones.
+
+**Salida:** el jugador alcanza y devuelve pelotas; los fallos se entienden por posición/preparación. Una animación sola no demuestra esta etapa.
+
+## E4 — Variedad y sensación de juego
+
+Depende de E3. Objetivo: elegir un tiro cambia el intercambio.
+
+- [ ] P40 Añadir globo, remate contextual y volea con resultados distintos.
+- [ ] P41 Ajustar tiempos, potencia, precisión y asistencia.
+- [ ] P42 Integrar animaciones y sonido provisionales sin cambiar autoridad del contacto.
+- [ ] P43 Añadir rival simple de laboratorio y revisar diversión con el usuario.
+
+**Salida:** intercambio de 30 segundos con decisiones de tiro que el usuario quiera repetir. Si no es divertido, iterar aquí.
+
+## E5 — Parejas e IA
+
+Depende de E4. Objetivo: 2 contra 2 con responsabilidades claras.
+
+- [ ] P50 Incorporar compañero y dos rivales; asignar receptor.
+- [ ] P51 Predecir llegada y elegir posición/tiro con reacción limitada.
+- [ ] P52 Añadir cobertura, recuperación y prevención de cruces frecuentes.
+- [ ] P53 Decidir jugador fijo o cambio de jugador con el usuario.
+- [ ] P54 Probar pelotas al medio, globos y rebotes de fondo.
+
+**Salida:** intercambio de parejas sin persecución colectiva ni bloqueos recurrentes.
+
+## E6 — Reglas y partido
+
+Depende de E5. Reglas puras pueden adelantarse cuando E2 tenga eventos estables.
+
+- [ ] P60 Fijar puntuación, formato corto y simplificaciones.
+- [ ] P61 Modelar saque, recepción, intercambio, fin de punto y siguiente punto.
+- [ ] P62 Resolver secuencias piso/pared/reja y red según servicio o intercambio.
+- [ ] P63 Añadir marcador y condiciones de victoria.
+- [ ] P64 Probar doble falta, segundo pique, fuera, repetición de saque y cambios de lado según variante elegida.
+- [ ] P65 Completar partido y revancha sin reiniciar programa.
+
+**Salida:** partido corto de principio a fin con resultados reglamentarios explicables y probados.
+
+## E7 — Primera versión para PC
+
+Depende de E6. Objetivo: build que pueda probar otra persona.
+
+- [ ] P70 Crear inicio, pausa, reinicio, resultado y ajustes esenciales.
+- [ ] P71 Integrar arte/audio coherentes con procedencia registrada.
+- [ ] P72 Medir rendimiento en PC de referencia y optimizar según evidencia.
+- [ ] P73 Revisar texto, legibilidad, feedback y teclado/mando.
+- [ ] P74 Exportar al SO elegido y probar fuera del editor.
+- [ ] P75 Probar con otra persona, corregir fallos que impidan jugar y generar build identificable.
+
+**Salida:** MVP local con partido completo, instrucciones y limitaciones conocidas. Publicación en tienda es una decisión posterior.
+
+## E8 — Adaptación móvil
+
+Depende de validar el MVP de PC, salvo la prueba temprana P81.
+
+- [ ] P80 Elegir Android/iOS y dispositivo mínimo real.
+- [ ] P81 Si hay teléfono disponible, probar exportación de cancha durante E2–E4 para detectar riesgos temprano.
+- [ ] P82 Diseñar controles táctiles, áreas seguras y tamaños.
+- [ ] P83 Ajustar cámara, tamaño aparente de pelota y ayudas.
+- [ ] P84 Medir rendimiento/consumo y ajustar transparencias, sombras y shaders en dispositivo.
+- [ ] P85 Probar interrupciones, pausa/reanudación y partidos completos.
+- [ ] P86 Generar build móvil y decidir distribución por separado.
+
+**Salida:** partido cómodo en dispositivo objetivo con rendimiento medido. Exportar no equivale a adaptar.
+
+## Riesgos y respuesta
+
+| Riesgo | Etapa | Respuesta |
+| --- | --- | --- |
+| Pelota diminuta por cámara lejana | E1 | Comparar encuadres antes de producir arte |
+| Pelota atraviesa pared | E2 | Barridos/subpasos y velocidad límite |
+| Golpe visual contradice contacto | E3–E4 | Una autoridad de contacto |
+| Compañero interfiere | E5 | Asignación de receptor y cobertura |
+| Animaciones consumen demasiado trabajo | E4 | Pocas acciones y assets provisionales |
+| Alcance excesivo para una persona | Todas | Mantener exclusiones y cerrar etapas |
+| Móvil obliga a rehacer | E3/P81 | Entradas separadas y prueba temprana |
+
+## Calendario
+
+Tras P05/P06 y una primera iteración de E1 registrar horas reales y disponibilidad semanal. Estimar de una a dos etapas por vez con margen para aprender. Todavía no hay base para prometer fecha del juego completo.

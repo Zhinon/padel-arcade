@@ -1,0 +1,10 @@
+# Godot generated cache and editor state
+game/.godot/
+game/.android/
+game/export_credentials.cfg
+
+# Local exports and workstation files
+builds/
+*.log
+.DS_Store
+Thumbs.db

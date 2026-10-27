@@ -1,0 +1,3 @@
+interface:
+  display_name: "Desarrollo de pádel con Godot"
+  short_description: "Construir y depurar el juego de pádel en Godot"
