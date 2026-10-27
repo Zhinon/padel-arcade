@@ -35,3 +35,16 @@
 **Límites:** sin colisiones, golpes, IA ni reglas. Trayectoria programada y pelota visual ampliada; lateral sin puertas. Falta validación humana de cámara y legibilidad móvil. No se inició E2 antes de revisar el encuadre.
 
 **Continuación:** revisar vistas 1/2/3 con el usuario y después P20. Punto de recuperación de esta sesión guardado en Git al cierre.
+
+
+## 27/10/2026 — Sesión 003: perfil lateral de rejas
+
+**Pedido:** el usuario aprobó el encuadre y observó que los laterales tenían altura uniforme incorrecta.
+
+**Revisión:** consulta del reglamento FIP, The Court → Sides, variante de cristal: extremo de 2 m hasta 4 m de altura; resto del lateral a 3 m. Mantener vidrio de 3 m en los 4 m desde cada fondo.
+
+**Cambio:** añadir reja sobre vidrio en las cuatro esquinas, postes altos y travesaños separados por altura; reutilizar generación de malla para centro y esquinas. Mantener cámaras, personajes, trayectoria y atenuación cercana.
+
+**Verificación:** Godot importó sin errores de scripts; seis capturas regeneradas; cámara principal inspeccionada. Comprobaciones existentes de cámara, pausa, reinicio y alpha aprobadas, sin puntos fuera de cuadro. Primer render bloqueado por socket gráfico; repetido con permiso local concedido.
+
+**Continuidad:** P15 aprobado, próxima tarea P20. Persisten límites del blockout: sin accesos ni colisiones, malla visual simplificada y pelota sin física. Guardado en Git al cierre.

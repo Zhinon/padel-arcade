@@ -36,3 +36,8 @@ Al incorporar assets registrar autor, enlace original, licencia, atribución req
 - FIP, secciones The Court/Net: geometría interior y referencias principales de líneas/red. El blockout lateral no reproduce todavía todas las variantes de cerramiento y accesos.
 - `scripts/court.gd` y `scripts/camera_lab.gd`: geometría, personajes provisionales y colores creados en el proyecto, sin assets externos.
 - `docs/previews/*.png`: capturas de la escena renderizada con Godot, no concept art ni fotografías.
+
+
+## Revisión de laterales — sesión 003
+
+Fuente: PDF FIP oficial citado arriba, The Court → Sides, variante 2 de cristal. Se implementaron las extensiones de reja de esquina y su transición al tramo central. Las dimensiones generales no implican homologación completa: accesos, espesor/tejido de malla y colisiones siguen siendo provisionales.

@@ -26,11 +26,11 @@ Depende de P05. Objetivo: ver claramente dónde se juega.
 - [x] P12 Ajustar altura/distancia/FOV para incluir fondo cercano y cancha rival.
 - [x] P13 Atenuar cerramientos que tapen la acción.
 - [x] P14 Probar globos y posiciones extremas; guardar capturas y parámetros.
-- [ ] P15 Revisar encuadre y estilo con el usuario.
+- [x] P15 Revisar encuadre con el usuario: aprobado en sesión 003; arte sigue provisional. Corregidos laterales a pedido del usuario.
 
 **Avance sesión 002:** P10 es un blockout visual: dimensiones principales, líneas, red y cerramiento simplificado; aún sin accesos ni colisiones. P12 es un encuadre inicial, no elección aprobada. P14 incluye 101 muestras de trayectoria por cámara y capturas en dos resoluciones. Ver CAMARA.md y PRUEBAS.md.
 
-**Salida:** revisión humana de legibilidad y elección del encuadre en P15. No declarar E1 cerrada solo porque pasan las comprobaciones geométricas.
+**Salida:** encuadre aprobado por el usuario en sesión 003. Rejas laterales corregidas con la variante de cristal FIP y capturas regeneradas. E1 permite continuar hacia el laboratorio E2; arte y accesos siguen pendientes.
 
 ## E2 — Laboratorio de pelota
 

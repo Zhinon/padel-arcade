@@ -52,17 +52,19 @@ func _build() -> void:
 			_box("EndFenceRow", Vector3(0, y, wall_z), Vector3(10, 0.012, 0.012), Color("56666c"), near_wall)
 	for sign_x: float in [-1.0, 1.0]:
 		var side_x := sign_x * 5.06
+		# FIP crystal variant: 3 m glass for 4 m at each end.
+		# Only the terminal 2 m rise to 4 m with mesh above the glass.
 		for sign_z: float in [-1.0, 1.0]:
-			# Simplified side panels; access openings remain a later blockout refinement.
 			_box("SideGlass", Vector3(side_x, 1.5, sign_z * 8), Vector3(0.06, 3, 4), Color(0.5, 0.78, 0.82, 0.08), sign_z > 0.0)
+			var corner_center := sign_z * 9.0
+			_side_fence(side_x, corner_center - 1.0, corner_center + 1.0, 3.0, 4.0, sign_z > 0.0)
+			_box("SideCornerTopRail", Vector3(side_x, 4, corner_center), Vector3(0.055, 0.055, 2), Color("34454d"), sign_z > 0.0)
 		for z: float in [-10.0, -8.0, -6.0, -4.0, -2.0, 0.0, 2.0, 4.0, 6.0, 8.0, 10.0]:
-			_box("SidePost", Vector3(side_x, 1.5, z), Vector3(0.065, 3, 0.065), Color("34454d"), z >= 6.0)
-		for y: float in [0.12, 3.0]:
-			_box("SideRail", Vector3(side_x, y, 0), Vector3(0.055, 0.055, 20), Color("34454d"))
-		for i in range(49):
-			_box("SideFence", Vector3(side_x, 1.5, -6.0 + i * 0.25), Vector3(0.012, 3, 0.012), Color("56666c"))
-		for i in range(1, 12):
-			_box("SideFenceRow", Vector3(side_x, i * 0.25, 0), Vector3(0.012, 0.012, 12), Color("56666c"))
+			var height := 4.0 if absf(z) >= 8.0 else 3.0
+			_box("SidePost", Vector3(side_x, height * 0.5, z), Vector3(0.065, height, 0.065), Color("34454d"), z >= 6.0)
+		_box("SideBottomRail", Vector3(side_x, 0.12, 0), Vector3(0.055, 0.055, 20), Color("34454d"))
+		_box("SideMiddleTopRail", Vector3(side_x, 3, 0), Vector3(0.055, 0.055, 16), Color("34454d"))
+		_side_fence(side_x, -6.0, 6.0, 0.0, 3.0)
 	for x: float in [-5.0, 5.0]:
 		_box("NetPost", Vector3(x, 0.5, 0), Vector3(0.1, 1.0, 0.1), Color("e7efec"))
 	# Top edge follows the 0.88 m center / 0.92 m end reference with short segments.
@@ -74,6 +76,15 @@ func _build() -> void:
 	for i in range(1, 9):
 		_box("NetHorizontal", Vector3(0, i * 0.1, 0), Vector3(10, 0.012, 0.012), Color("182b32"))
 	set_near_wall_ghost(true)
+
+func _side_fence(side_x: float, start_z: float, end_z: float, bottom: float, top: float, near_wall: bool = false) -> void:
+	var length := end_z - start_z
+	var height := top - bottom
+	var center_z := (start_z + end_z) * 0.5
+	for i in range(roundi(length / 0.25) + 1):
+		_box("SideFence", Vector3(side_x, (bottom + top) * 0.5, start_z + i * 0.25), Vector3(0.012, height, 0.012), Color("56666c"), near_wall)
+	for i in range(1, roundi(height / 0.25)):
+		_box("SideFenceRow", Vector3(side_x, bottom + i * 0.25, center_z), Vector3(0.012, 0.012, length), Color("56666c"), near_wall)
 
 func set_near_wall_ghost(enabled: bool) -> void:
 	ghost_near_wall = enabled

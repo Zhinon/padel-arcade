@@ -53,3 +53,12 @@ Motor: 4.7.2.stable.official.ed1daf0bf. Escena: main.tscn, código de sesión 00
 - Pendiente: revisión del usuario y seguimiento cómodo en movimiento. Pruebas físicas y de reglas no ejecutadas.
 
 Reproducir con los comandos de ENTORNO.md. Los JSON y capturas se sobrescriben al regenerarlos; registrar nuevas condiciones en la bitácora.
+
+
+## Ejecución 27/10/2026 — sesión 003
+
+Cambio: perfil lateral de rejas alto en los 2 m de cada extremo, con nivel central de 3 m, según variante de cristal FIP. Cámara sin cambios.
+
+Importación completada sin errores de scripts; seis capturas regeneradas y vista principal inspeccionada: escalones de esquina visibles. Reejecutado camera_checks.gd en 720p/360p: cero puntos fuera de cuadro y lista de fallos vacía. No se añadieron pruebas de física porque no cambió ni existe aún ese sistema.
+
+El primer intento de captura de esta sesión fue bloqueado por acceso al socket gráfico; tras conceder permiso de conexión local se repitió con éxito. Persisten los avisos de driver/Mesa ya conocidos.

@@ -1,13 +1,13 @@
 # Estado y próxima sesión
 
-Actualizado: 27/10/2026, zona America/Argentina/Mendoza. Sesión 002.
+Actualizado: 27/10/2026, zona America/Argentina/Mendoza. Sesión 003.
 
 ## Dónde estamos
 
-Etapa activa: **E1 — revisión de cancha y cámara**. P05 y P10–P14 completados como prototipo visual. P15 pendiente de revisión del usuario. P06 (equipo objetivo) sigue pendiente.
+Etapa siguiente: **E2 — laboratorio de pelota**. Encuadre de E1 aprobado por el usuario. Laterales corregidos y renderizados con perfil de rejas 4/3/4 m. P06 (equipo objetivo) sigue pendiente.
 
 - Godot portátil **4.7.2.stable.official.ed1daf0bf** descargado y ejecutado.
-- Cancha visual con piso, líneas, red y cerramientos simplificados; no tiene accesos ni colisiones todavía.
+- Cancha visual con piso, líneas, red y perfil lateral de la variante de cristal FIP (extremos altos de 2 m de longitud); todavía sin accesos ni colisiones.
 - Cuatro figuras provisionales y pelota de lectura ampliada con trayectoria programada, sin física.
 - Tres cámaras y transparencia del cerramiento cercano con controles de laboratorio.
 - Repositorio local `main`, sin remoto; cambios de sesión guardados al cierre.
@@ -20,7 +20,7 @@ El entorno usa render por CPU (Mesa llvmpipe) con avisos de driver/VSync; no sir
 
 ## Próxima tarea concreta
 
-**P15: comparar las vistas de docs/CAMARA.md con el usuario.** La vista 1 es referencia; la 2 muestra más entorno. Ajustar altura/distancia si hace falta. Después avanzar al experimento P20 de trayectoria/colisión y laboratorio de rebotes.
+**P20: comparar un modelo pequeño de trayectoria/colisión y definir el laboratorio de rebotes.** Conservar el encuadre aceptado. El cambio de rejas de sesión 003 está aplicado y sus capturas actualizadas.
 
 Antes de estimar rendimiento/exportación, resolver P06: SO objetivo, equipo y mando. No asumir que el equipo del chat es el del jugador.
 
