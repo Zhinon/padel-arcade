@@ -45,3 +45,11 @@ Para cambiar una decisión: añadir fecha, contexto, alternativas relevantes, el
 - **D24:** paso físico 120 Hz, velocidad máxima 60 m/s y ocho impactos por paso como límite conservador registrado. Eventos ordenados con superficie/lado/último golpeador; sin reglas ni golpes todavía.
 - **D25:** conservar radio físico/visual ampliado de 0.105 m durante laboratorio. Coeficientes distintos por superficie son ajustes iniciales, no datos medidos ni reglamentarios. Reja como panel sólido sin dispersión aleatoria; sin giro. Revisar antes de calibrar juego final.
 - **D26:** abrir por defecto el laboratorio físico; conservar el modo de cámara E1 únicamente con `--camera-preview` para regresiones. Cámara y laterales aceptados sin cambios.
+
+
+## 27/10/2026 — sesión 005: feedback de rebotes
+
+- **D27, ajuste de D25:** vidrio con restitución normal 0.68 y retención tangencial 0.90; reja 0.48/0.82 más dispersión. Valores de diseño provisionales, sin pretensión de medición real.
+- **D28, sustituye “reja sin dispersión” de D25:** desvíos angulares acotados por impacto con RNG local reiniciado por semilla. Semilla inicial 42, R repite y N cambia. Respuesta conserva energía de la reflexión ya amortiguada y no se dirige a través de la superficie. Se preserva repetibilidad para depuración.
+- **D29:** corregir F7 porque antes tocaba vidrio antes que piso. Nuevo lanzamiento (1,9.8,-7.6) m/s: piso→vidrio→piso del lado rival antes de cualquier posible vuelta por red. No hay una regla artificial que impida retornos físicamente posibles.
+- **D30, pendiente:** no confundir dispersión de reja con giro. Topspin/slice/lateral requieren velocidad angular, interacción con vuelo y fricción de contactos; se planifican en P44, sin implementación en esta sesión.

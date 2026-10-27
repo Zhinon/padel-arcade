@@ -39,3 +39,8 @@ Evaluadas las responsabilidades de RigidBody3D, CharacterBody3D con barrido y de
 ## Preparación móvil
 
 Las acciones de juego no referencian teclas directamente. Física y reglas no dependen de resolución. UI y cámara tienen parámetros independientes. Perfil de rendimiento y controles táctiles se validan en dispositivo; no quedan resueltos por estas decisiones.
+
+
+## Ajuste de superficies, sesión 005
+
+BallSimulation incorpora retención tangencial de vidrio/reja y RNG local para dispersión de reja. Se reinicia en launch con semilla explícita; se consume solamente al impactar reja. Cámara y ritmo de render no seleccionan números aleatorios. El registro de impacto añade semilla y ángulos de desvío. Este comportamiento no incorpora velocidad angular ni modelo de efecto.

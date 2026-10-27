@@ -65,3 +65,16 @@
 **Documentación:** guía LABORATORIO_PELOTA.md y estado/plan/decisiones/arquitectura/entorno/fuentes/pruebas actualizados. E2 completada como laboratorio inicial, con calibración jugable todavía pendiente.
 
 **Continuación:** revisar sensación de rebotes con el usuario y luego movimiento/primer golpe (P30–P33). Todavía sin jugador controlable, rivales, reglas ni marcador. Guardar punto de recuperación de sesión en Git.
+
+
+## 27/10/2026 — Sesión 005: calibración por feedback
+
+**Pedido:** globo con vuelta excesiva, reja demasiado parecida al vidrio, mayor amortiguación del blindex y confirmar ausencia de giro.
+
+**Diagnóstico:** F7 anterior chocaba primero con vidrio, no con piso. Se reprodujo el orden y se anotaron tiempos antes de modificar. Vidrio retenía demasiada velocidad para la sensación buscada y la reja era una reflexión sin dispersión.
+
+**Cambio:** F7 ajustado, vidrio 0.68/0.90, reja 0.48/0.82 con desvíos laterales/verticales por semilla. R repite; N varía. Sin creación de energía ni salida de la perturbación a través de la reja. No se implementó giro y quedó explicitado como pendiente P44.
+
+**Pruebas:** 13 regresiones físicas aprobadas; nuevo globo piso→vidrio→piso con segundo pique en lado rival; veinte semillas de reja con variación en ambos sentidos, repetibilidad y pérdida de energía; entrada N comprobada. Caso de reja a 30/60/120 FPS programados coincide tras dos segundos. Resultados en PRUEBAS.md. Cámara y jugadores no modificados.
+
+**Continuación:** seguir calibrando con juego observado y después movimiento/primer golpe; los efectos se diseñarán por separado. Documentación y punto de recuperación de sesión guardados al cierre.

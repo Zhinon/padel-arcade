@@ -1,0 +1,224 @@
+{
+	"engine": "4.7.2-stable (official)",
+	"failures": [],
+	"fence_heading_range_degrees": [
+		-19.9129050658115,
+		22.7233151332385
+	],
+	"fence_variants": [
+		{
+			"deflection_degrees": "(-13.10004, -11.9885)",
+			"heading_degrees": -14.5448177039223,
+			"outgoing": "(-4.530219, -2.982204, -1.175376)",
+			"seed": 0
+		},
+		{
+			"deflection_degrees": "(-7.4994, -7.148965)",
+			"heading_degrees": -7.9355036721776,
+			"outgoing": "(-4.855557, -2.600653, -0.676831)",
+			"seed": 1
+		},
+		{
+			"deflection_degrees": "(8.926823, 0.619753)",
+			"heading_degrees": 8.89083415984136,
+			"outgoing": "(-5.144079, -1.920635, 0.804698)",
+			"seed": 2
+		},
+		{
+			"deflection_degrees": "(-0.02239, 6.877604)",
+			"heading_degrees": -0.0215616013192558,
+			"outgoing": "(-5.385145, -1.340949, -0.002027)",
+			"seed": 3
+		},
+		{
+			"deflection_degrees": "(17.60779, -6.933066)",
+			"heading_degrees": 18.5745598715175,
+			"outgoing": "(-4.668175, -2.558366, 1.568707)",
+			"seed": 4
+		},
+		{
+			"deflection_degrees": "(2.674145, 10.72166)",
+			"heading_degrees": 2.53849330163227,
+			"outgoing": "(-5.45738, -0.977956, 0.241948)",
+			"seed": 5
+		},
+		{
+			"deflection_degrees": "(17.99374, 15.41369)",
+			"heading_degrees": 16.8778911656574,
+			"outgoing": "(-5.280018, -0.594178, 1.601967)",
+			"seed": 6
+		},
+		{
+			"deflection_degrees": "(-3.013693, 6.62624)",
+			"heading_degrees": -2.90536353127781,
+			"outgoing": "(-5.372087, -1.365389, -0.272642)",
+			"seed": 7
+		},
+		{
+			"deflection_degrees": "(-3.402983, 3.693205)",
+			"heading_degrees": -3.32822887123397,
+			"outgoing": "(-5.293216, -1.63861, -0.307822)",
+			"seed": 8
+		},
+		{
+			"deflection_degrees": "(17.43865, -13.26451)",
+			"heading_degrees": 19.6099327912385,
+			"outgoing": "(-4.362052, -3.058624, 1.554109)",
+			"seed": 9
+		},
+		{
+			"deflection_degrees": "(6.471579, 15.39931)",
+			"heading_degrees": 6.07433835174257,
+			"outgoing": "(-5.492541, -0.536927, 0.584495)",
+			"seed": 10
+		},
+		{
+			"deflection_degrees": "(14.37128, -2.891119)",
+			"heading_degrees": 14.668024059571,
+			"outgoing": "(-4.917474, -2.227027, 1.287142)",
+			"seed": 11
+		},
+		{
+			"deflection_degrees": "(17.58074, -2.837794)",
+			"heading_degrees": 17.9342230917623,
+			"outgoing": "(-4.839701, -2.218492, 1.566374)",
+			"seed": 12
+		},
+		{
+			"deflection_degrees": "(-19.26682, -4.537691)",
+			"heading_degrees": -19.9129050658115,
+			"outgoing": "(-4.723683, -2.357267, -1.711153)",
+			"seed": 13
+		},
+		{
+			"deflection_degrees": "(21.84555, 2.700411)",
+			"heading_degrees": 21.4903355005377,
+			"outgoing": "(-4.901185, -1.747192, 1.929673)",
+			"seed": 14
+		},
+		{
+			"deflection_degrees": "(-2.59848, -13.42782)",
+			"heading_degrees": -2.93862909022975,
+			"outgoing": "(-4.579963, -3.125156, -0.235107)",
+			"seed": 15
+		},
+		{
+			"deflection_degrees": "(0.935341, -8.124002)",
+			"heading_degrees": 0.999170100214021,
+			"outgoing": "(-4.853828, -2.689074, 0.084654)",
+			"seed": 16
+		},
+		{
+			"deflection_degrees": "(-11.71741, -10.03471)",
+			"heading_degrees": -12.746192118979,
+			"outgoing": "(-4.655738, -2.830705, -1.053161)",
+			"seed": 17
+		},
+		{
+			"deflection_degrees": "(5.643307, 1.928684)",
+			"heading_degrees": 5.57505646621155,
+			"outgoing": "(-5.224269, -1.801359, 0.509948)",
+			"seed": 18
+		},
+		{
+			"deflection_degrees": "(21.69535, -6.182477)",
+			"heading_degrees": 22.7233151332385,
+			"outgoing": "(-4.57762, -2.483597, 1.917049)",
+			"seed": 19
+		}
+	],
+	"glass": {
+		"contacts": [
+			{
+				"collider": "EndGlassCollider",
+				"fence_deflection_degrees": "(0.0, 0.0)",
+				"fence_seed": 42,
+				"incoming": "(0.0, -1.304301, -14.92022)",
+				"last_hitter": -1,
+				"normal": "(0.0, 0.0, 1.0)",
+				"outgoing": "(0.0, -1.173871, 10.14575)",
+				"position": "(0.0, 2.416197, -10.0)",
+				"sequence": 1,
+				"side": -1,
+				"surface": "glass",
+				"time": 0.126643880248169
+			}
+		],
+		"position": "(0.0, 2.200394, -8.64575)",
+		"velocity": "(0.0, -2.31005, 10.09852)"
+	},
+	"lob_contacts": [
+		{
+			"collider": "FloorCollider",
+			"fence_deflection_degrees": "(0.0, 0.0)",
+			"fence_seed": 42,
+			"incoming": "(0.919438, -10.74575, -6.987727)",
+			"last_hitter": -1,
+			"normal": "(0.0, 1.0, 0.0)",
+			"outgoing": "(0.864272, 7.844401, -6.568463)",
+			"position": "(2.006572, 0.0, -8.249947)",
+			"sequence": 1,
+			"side": -1,
+			"surface": "floor",
+			"time": 2.09201660153475
+		},
+		{
+			"collider": "EndGlassCollider",
+			"fence_deflection_degrees": "(0.0, 0.0)",
+			"fence_seed": 42,
+			"incoming": "(0.855673, 5.326485, -6.503112)",
+			"last_hitter": -1,
+			"normal": "(0.0, 0.0, 1.0)",
+			"outgoing": "(0.770105, 4.793837, 4.422116)",
+			"position": "(2.223057, 1.770054, -10.0)",
+			"sequence": 2,
+			"side": -1,
+			"surface": "glass",
+			"time": 2.34370117245366
+		},
+		{
+			"collider": "FloorCollider",
+			"fence_deflection_degrees": "(0.0, 0.0)",
+			"fence_seed": 42,
+			"incoming": "(0.73255, -7.398949, 4.206472)",
+			"last_hitter": -1,
+			"normal": "(0.0, 1.0, 0.0)",
+			"outgoing": "(0.688597, 5.401233, 3.954084)",
+			"position": "(3.161988, 0.0, -4.502924)",
+			"sequence": 3,
+			"side": -1,
+			"surface": "floor",
+			"time": 3.59355468756813
+		},
+		{
+			"collider": "FloorCollider",
+			"fence_deflection_degrees": "(0.0, 0.0)",
+			"fence_seed": 42,
+			"incoming": "(0.659178, -5.306591, 3.785152)",
+			"last_hitter": -1,
+			"normal": "(0.0, 1.0, 0.0)",
+			"outgoing": "(0.619627, 3.873811, 3.558043)",
+			"position": "(3.901765, 0.0, -0.254946)",
+			"sequence": 4,
+			"side": -1,
+			"surface": "floor",
+			"time": 4.69158528653276
+		},
+		{
+			"collider": "@StaticBody3D@450",
+			"fence_deflection_degrees": "(0.0, 0.0)",
+			"fence_seed": 42,
+			"incoming": "(0.618595, 3.45902, 3.552118)",
+			"last_hitter": -1,
+			"normal": "(0.0, 0.0, -1.0)",
+			"outgoing": "(0.402087, 2.248363, -0.426254)",
+			"position": "(3.925687, 0.245999, -0.0125)",
+			"sequence": 5,
+			"side": -1,
+			"surface": "net",
+			"time": 4.73020833324016
+		}
+	],
+	"lob_max_z_before_second_bounce": -4.4776439666748,
+	"note": "Design calibration, not measured material values; spin is not implemented."
+}

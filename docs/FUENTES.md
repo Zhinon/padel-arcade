@@ -49,3 +49,10 @@ Fuente: PDF FIP oficial citado arriba, The Court → Sides, variante 2 de crista
 - [KinematicCollision3D](https://docs.godotengine.org/en/stable/classes/class_kinematiccollision3d.html): normales, posiciones y recorrido de contacto.
 - Código de simulación, lanzador, estela y marcas desarrollado dentro del proyecto, sin assets externos. Restitución y radio ampliado son parámetros de diseño provisionales.
 - `previews/ball-lab.png` y `previews/ball-lab.mp4`: captura del motor con avance temporal fijo; no constituyen medición de FPS del equipo objetivo.
+
+
+## Calibración — sesión 005
+
+Las pérdidas de velocidad, desvíos y lanzamiento de globo son valores de diseño ajustados tras observación del usuario. No se usaron coeficientes empíricos de una investigación como si fueran valores medidos del prototipo. Se conservó la variante geométrica de cancha ya documentada.
+
+`previews/fence-lab.mp4` muestra el mismo lanzamiento contra reja con semilla 42 y después 43; `ball-lab.mp4` se regeneró con el vidrio calibrado. Capturas del motor con avance fijo, sin simulación de giro ni medición de rendimiento.

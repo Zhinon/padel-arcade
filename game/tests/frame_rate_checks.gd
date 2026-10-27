@@ -22,7 +22,7 @@ func _run() -> void:
 	ball = lab.simulation
 	ball.set_physics_process(false)
 	await physics_frame
-	ball.launch(Vector3(1, 1.6, 4), Vector3(1, 2, -13))
+	ball.launch(Vector3(0, 1.4, -2), Vector3(11, 2, 0), 42)
 	ball.stepped.connect(_sample)
 	ball.set_physics_process(true)
 
@@ -33,7 +33,7 @@ func _sample() -> void:
 	var events: Array[Dictionary] = []
 	for event: Dictionary in ball.contacts:
 		events.append({"time": event.time, "surface": event.surface, "position": [event.position.x, event.position.y, event.position.z]})
-	var report := {"render_schedule_fps": render_fps, "observed_render_frames": render_frames, "physics_ticks_per_second": Engine.physics_ticks_per_second, "elapsed": ball.elapsed, "position": [ball.position.x, ball.position.y, ball.position.z], "velocity": [ball.velocity.x, ball.velocity.y, ball.velocity.z], "events": events}
+	var report := {"scenario": "fence_seed_42", "render_schedule_fps": render_fps, "observed_render_frames": render_frames, "physics_ticks_per_second": Engine.physics_ticks_per_second, "elapsed": ball.elapsed, "position": [ball.position.x, ball.position.y, ball.position.z], "velocity": [ball.velocity.x, ball.velocity.y, ball.velocity.z], "events": events}
 	var file := FileAccess.open("res://../docs/previews/ball-fps-%d.json" % render_fps, FileAccess.WRITE)
 	file.store_string(JSON.stringify(report, "\t"))
 	file.close()

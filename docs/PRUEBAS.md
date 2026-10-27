@@ -84,3 +84,19 @@ Motor 4.7.2.stable.official.ed1daf0bf; revisión de trabajo de sesión 004, post
 **Limitaciones:** radio ampliado, restituciones de diseño, sin giro ni dispersión irregular de reja. Jugadores sin colisión. Accesos sin modelar. El test no cubre todas las posibles posiciones/velocidades ni reemplaza probar la sensación de juego.
 
 **Incidencias corregidas:** el primer ejecutor de comparación de FPS intentaba leer la pelota antes de completar la carga de escena; se detuvo y corrigió la espera de inicialización. Las ejecuciones finales completaron sin errores de scripts. Los avisos Mesa/VSync conocidos no se usan como evidencia de rendimiento.
+
+
+## Ejecución 27/10/2026 — sesión 005: calibración de superficies
+
+Se reprodujo el F7 anterior: vidrio antes de piso, con velocidad de retorno que lo llevaba de vuelta al otro lado. Se corrigieron condiciones iniciales y amortiguación sin imponer límites artificiales al alcance.
+
+- Pruebas físicas existentes: 13 casos, cero fallos con nuevos parámetros.
+- `surface_calibration_checks.gd`: vidrio amortigua también componente tangencial; nuevo F7 cumple piso→vidrio→piso y no cruza Z=0 entre pared y segundo pique. En ese intervalo su Z máxima es aproximadamente -4.50 m.
+- Reja: veinte semillas de tiro frontal, salidas dentro del semiespacio interior, energía no creciente y variación horizontal en ambos sentidos (aprox. -19.9° a +22.7°). Misma semilla repite dentro de 0.00001 m/m·s⁻¹; semillas 42 y 43 producen posiciones distintas en más de 0.01 m; N cambia semilla y relanza. Cero fallos.
+- Comparación FPS actualizada al caso de reja F3/semilla 42: tres procesos a 30/60/120 FPS programados, resultados idénticos a 2 s dentro de tolerancia 0.00001. El informe reemplaza la captura numérica del caso F2 previo, conservado en historial Git.
+- Los parámetros no son una validación de realismo deportivo. No se probaron efectos porque no hay giro implementado. La reja continúa como superficie sólida equivalente con perturbación de respuesta, no una simulación geométrica de alambres.
+
+Evidencia numérica: `previews/surface-calibration.json`, `ball-checks.json` y `ball-fps-*.json`.
+
+
+Capturas de sesión 005: importación y prueba de cámara sin errores de scripts; video F2 regenerado con calibración actual y comparación visual de reja (semillas 42/43). La Z máxima registrada hasta el paso del segundo pique del globo es -4.478 m; el contacto del segundo piso ocurre en Z≈-4.503 m.

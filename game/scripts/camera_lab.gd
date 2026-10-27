@@ -11,6 +11,7 @@ const SCENARIOS = preload("res://scripts/launch_scenarios.gd")
 var simulation: CharacterBody3D
 var scenarios: Array[Dictionary] = SCENARIOS.all()
 var scenario_index: int = 1
+var launch_seed: int = 42
 var camera_preview: bool = false
 var repeat_launch: bool = true
 var trail: MeshInstance3D
@@ -152,7 +153,7 @@ func launch_scenario(index: int) -> void:
 	preview_paused = false
 	scenario_index = clampi(index, 0, scenarios.size() - 1)
 	var scenario := scenarios[scenario_index]
-	simulation.launch(scenario.position, scenario.velocity)
+	simulation.launch(scenario.position, scenario.velocity, launch_seed)
 	trail_points.clear()
 	trail.mesh = null
 	trail.visible = true
@@ -197,6 +198,9 @@ func _unhandled_key_input(event: InputEvent) -> void:
 				launch_scenario(scenario_index)
 		KEY_F1, KEY_F2, KEY_F3, KEY_F4, KEY_F5, KEY_F6, KEY_F7:
 			launch_scenario(event.physical_keycode - KEY_F1)
+		KEY_N:
+			launch_seed += 1
+			launch_scenario(scenario_index)
 		KEY_L:
 			repeat_launch = not repeat_launch
 			_update_title()
@@ -205,4 +209,4 @@ func _update_title(last_contact: String = "—") -> void:
 	if camera_preview:
 		DisplayServer.window_set_title("Pádel · Prueba visual de cámara · 1/2/3 vistas · G vidrio · Espacio pausa · R reinicio")
 	else:
-		DisplayServer.window_set_title("Pádel · F%d %s · contacto %s · F1–F7 pruebas · Espacio pausa · R relanzar · L repetir %s" % [scenario_index + 1, scenarios[scenario_index].name, last_contact, "sí" if repeat_launch else "no"])
+		DisplayServer.window_set_title("Pádel · F%d %s · contacto %s · semilla %d · F1–F7 pruebas · N variar reja · Espacio pausa · R relanzar · L repetir %s" % [scenario_index + 1, scenarios[scenario_index].name, last_contact, launch_seed, "sí" if repeat_launch else "no"])

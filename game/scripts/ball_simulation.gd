@@ -11,8 +11,14 @@ signal launched
 @export var air_drag: float = 0.04
 @export var max_speed: float = 60.0
 @export var floor_bounce: float = 0.73
-@export var glass_bounce: float = 0.82
-@export var fence_bounce: float = 0.55
+@export var glass_bounce: float = 0.68
+@export var glass_retention: float = 0.90
+@export var fence_bounce: float = 0.48
+@export var fence_retention: float = 0.82
+@export var fence_yaw_degrees: float = 22.0
+@export var fence_pitch_degrees: float = 16.0
+@export var fence_seed: int = 42
+var fence_rng := RandomNumberGenerator.new()
 @export var net_bounce: float = 0.12
 @export var floor_retention: float = 0.94
 @export var rolling_drag: float = 1.8
@@ -33,7 +39,8 @@ func _ready() -> void:
 	collider.shape = shape
 	add_child(collider)
 
-func launch(at: Vector3, initial_velocity: Vector3) -> void:
+func launch(at: Vector3, initial_velocity: Vector3, seed_override: int = -1) -> void:
+	fence_rng.seed = fence_seed if seed_override < 0 else seed_override
 	position = at
 	velocity = initial_velocity.limit_length(max_speed)
 	elapsed = 0.0
@@ -77,9 +84,17 @@ func step(delta: float) -> void:
 			var restitution := _restitution(surface)
 			var tangent := incoming - incoming.dot(normal) * normal
 			var retention := floor_retention if surface == "floor" else 0.98
-			if surface == "net":
+			if surface == "glass":
+				retention = glass_retention
+			elif surface == "fence":
+				retention = fence_retention
+			elif surface == "net":
 				retention = 0.65
 			velocity = tangent * retention + normal * approach * restitution
+			var deflection := Vector2.ZERO
+			if surface == "fence":
+				deflection = Vector2(fence_rng.randf_range(-fence_yaw_degrees, fence_yaw_degrees), fence_rng.randf_range(-fence_pitch_degrees, fence_pitch_degrees))
+				velocity = _deflect_fence(velocity, normal, deflection)
 			# Below this speed, settle instead of emitting endless floor micro-bounces.
 			if surface == "floor" and approach < 0.8 and normal.y > 0.9:
 				velocity.y = 0.0
@@ -95,6 +110,8 @@ func step(delta: float) -> void:
 				"outgoing": velocity,
 				"side": -1 if collision.get_position().z < 0.0 else 1,
 				"last_hitter": last_hitter,
+				"fence_deflection_degrees": deflection,
+				"fence_seed": fence_rng.seed,
 			}
 			contacts.append(event)
 			contacted.emit(event)
@@ -114,3 +131,18 @@ func _restitution(surface: String) -> float:
 		"fence": return fence_bounce
 		"net": return net_bounce
 	return 0.0
+
+
+func _deflect_fence(reflected: Vector3, normal: Vector3, angles: Vector2) -> Vector3:
+	# Rotate the damped reflection, without creating energy or pointing through mesh.
+	var speed := reflected.length()
+	if speed < 0.00001:
+		return reflected
+	var direction := reflected.normalized().rotated(Vector3.UP, deg_to_rad(angles.x))
+	var pitch_axis := normal.cross(Vector3.UP).normalized()
+	if not pitch_axis.is_zero_approx():
+		direction = direction.rotated(pitch_axis, deg_to_rad(angles.y))
+	var inward := direction.dot(normal)
+	if inward < 0.1:
+		direction = (direction - normal * inward + normal * 0.1).normalized()
+	return direction * speed
