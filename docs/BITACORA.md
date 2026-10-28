@@ -115,3 +115,10 @@
 **Resultado:** viable; identificadas diferencias con el prototipo (soltar frente a contacto automático, movilidad preparando y calidad dependiente de contexto). Propuesta de liberar para fijar potencia, sin disparar; pendiente de definir con cancelación/caducidad. Riesgo de profundidad revisado contra reglas FIP 12–13 para evitar trasladar líneas de tenis al pádel.
 
 **Registro:** REVISION_CONTROLES_ARCADE.md, tareas P35/P36 y estado actualizados. Sin modificaciones de código ni ejecución de pruebas del motor. Próxima porción: definir semántica de control y validar plantado/apuntado/contacto automático antes de ampliar tipos de tiro.
+
+
+## 28/10/2026 — Sesión 009: confirmación de mecánicas
+
+**Usuario:** acepta soltar para fijar potencia; define tiro perfecto llegando a tiempo y soltando cerca del 90%. Precisa que el riesgo al 100% es tocar directo el cerramiento rival de fondo o lateral sin pique. Confirma devolución tardía alcanzable con poca potencia y menos dirección.
+
+**Registro:** D43–D45, revisión de controles, plan y estado actualizados para distinguir acuerdos de propuestas. Cancelación/caducidad y calibración siguen pendientes. Sin cambios de código ni pruebas del motor en esta sesión documental.

@@ -1,6 +1,6 @@
 # Estado y próxima sesión
 
-Actualizado: 28/10/2026, zona America/Argentina/Mendoza. Sesión 008 (revisión de diseño).
+Actualizado: 28/10/2026, zona America/Argentina/Mendoza. Sesión 009 (acuerdos de control).
 
 ## Dónde estamos
 
@@ -21,7 +21,7 @@ Todavía no hay rival, reglas de partido, giro ni tiros avanzados del jugador. L
 
 ## Próximo paso
 
-**Revisar E3 con la referencia de control aportada por el usuario.** Propuesta documentada en REVISION_CONTROLES_ARCADE.md: preparación que planta al jugador, apuntado y contacto automático. Resolver selección de potencia/cancelación antes de implementar; luego P34 de sensación humana. El ejecutable sigue siendo sesión 007: soltar ejecuta el intento. E4 queda después de validar este núcleo.
+**Revisar E3 con la referencia de control aportada por el usuario.** Acuerdos D43–D45 documentados en REVISION_CONTROLES_ARCADE.md: soltar fija carga, contacto automático, tiro ideal cerca del 90%, riesgo al 100% de cerramiento directo y defensa tardía débil con menos dirección. Definir cancelación/caducidad e implementar por partes; luego P34 de sensación humana. El ejecutable sigue siendo sesión 007: soltar ejecuta el intento. E4 queda después de validar este núcleo.
 
 ## Abrir
 

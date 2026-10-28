@@ -53,7 +53,7 @@ Depende de E2. Objetivo: devolver con intención.
 - [x] P31 Implementar movimiento, límites y orientación.
 - [x] P32 Añadir alcance, preparación y ventana de contacto del golpe base.
 - [x] P33 Dirigir devolución con ayuda ajustable y un solo impacto por golpe.
-- [ ] P35 Revisar control según documento del usuario: definir potencia/liberación/cancelación, plantado, apuntado y contacto automático. Ver REVISION_CONTROLES_ARCADE.md; detalles propuestos pendientes de acuerdo.
+- [ ] P35 Revisar control según documento del usuario: potencia/liberación aprobadas en D43–D45 (ideal cerca del 90%, riesgo al 100%, defensa débil). Definir cancelación/caducidad y revisar plantado, apuntado y contacto automático. Ver REVISION_CONTROLES_ARCADE.md.
 - [ ] P36 Implementar y verificar contraste preparado/emergencia, calidad de contacto y recuperación antes de ampliar tiros. No modificar física aceptada sin evidencia.
 - [ ] P34 Probar 30 segundos con el usuario y registrar sensaciones. Integración automática de 30 s aprobada en sesión 007; no reemplaza esa prueba humana.
 

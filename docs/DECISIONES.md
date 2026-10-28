@@ -78,3 +78,10 @@ Para cambiar una decisión: añadir fecha, contexto, alternativas relevantes, el
 
 - **D42, dirección propuesta por el usuario:** priorizar anticipación, posición y preparación con contacto automático, usando Virtua Tennis 1/2 como referencia de sensación. Requiere revisar D35/D37; la versión ejecutable todavía conserva esos controles.
 - **Pendiente de definir:** soltar para fijar potencia sin ejecutar, cancelación y caducidad. Es una recomendación de esta revisión, no un acuerdo cerrado. Riesgo de tiro adaptado a paredes de pádel; detalle en REVISION_CONTROLES_ARCADE.md.
+
+
+## 28/10/2026 — sesión 009: acuerdos de preparación y riesgo
+
+- **D43, confirmado por el usuario:** mantener carga y soltar fija la potencia; el contacto se ejecuta automáticamente al llegar la pelota. Tiro perfecto: llegar a tiempo, buena posición, cargar cerca del 90% y soltar. Una carga correcta por sí sola no sustituye posición/equilibrio. Sustituye la propuesta pendiente de liberación de sesión 008; cancelación/caducidad quedan por definir.
+- **D44, confirmado por el usuario:** sobrecarga al 100% implica riesgo de tiro directo al cerramiento rival sin pique: pared de fondo o lateral según dirección, ocasionando pérdida del punto. No se acordó que todo 100% sea fallo obligatorio; trayectoria y calidad determinan el resultado, sin sorteo arbitrario.
+- **D45, confirmado por el usuario:** llegada tardía pero alcanzable permite defensa mala, de poca potencia y menor control direccional. Fallar se reserva a contacto imposible. Compresión de dirección hacia el centro es propuesta técnica por probar, no detalle aprobado todavía.
