@@ -255,3 +255,12 @@
 ## 28/10/2026 — Sesión 022: sensación de plano/globo aceptada
 
 Usuario indica «lo sentí bien». Registrada aceptación cualitativa, sin inferir duración, dispositivo o casos específicos. Plan y continuidad pasan al remate contextual pendiente en P40, después volea. No cambios de código ni nuevas pruebas del motor; calibración restante sigue abierta.
+
+
+## 28/10/2026 — Sesión 023: smash con botón de plano
+
+**Pedido:** implementar smash. Ventana contextual alta y descendente, menor alcance y calidad propia; misma preparación/fijación. Trayectoria ofensiva por velocidad horizontal 13–26 m/s, defensa suave si exigido, sobrecarga a red/cerramiento. H/RB añade globo recibido para probar; R normal conservado.
+
+**Presentación:** postura alta, pala arriba y apoyo libre; contacto exacto y seguimiento por waypoint sobre/lateral a cabeza. Primera versión rozaba cabeza y falló geometría; corregida sin cambiar tolerancia. Contacto inicialmente demasiado alto, ajustado a espera breve de altura cómoda; H ahora contacta a 2.447 m/calidad 0.976.
+
+**Verificación:** 54 trayectorias, tres H reales, límites, defensa, sobrecarga y E sin smash; geometría torso/cabeza y preservación de física. Plano/control 90/diez, globo 54/tres, chiquita 54/24/tres y segundo pique, tres impactos/audio, cinco abanicazos y 18 poses anteriores aprobados. Importación sin errores, capturas juego/cercanas revisadas y video de cinco segundos. Documentación y punto Git. Evaluación humana pendiente; sin rival, salto, spin o x3/x4 garantizado.

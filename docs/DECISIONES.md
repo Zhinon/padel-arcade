@@ -170,3 +170,11 @@ Para cambiar una decisión: añadir fecha, contexto, alternativas relevantes, el
 ## 28/10/2026 — sesión 022: aceptación de plano/globo
 
 - **D75, feedback del usuario:** «lo sentí bien» tras incorporar botones separados. Se acepta cualitativamente la sensación actual de plano/globo como base. No implica prueba exhaustiva, duración medida, mando físico aprobado o validación específica de todos los casos/segundo pique. Próximo trabajo de P40: remate contextual y volea, conservando control aceptado.
+
+
+## 28/10/2026 — sesión 023: smash contextual
+
+- **D76, autorización:** usuario pide avanzar con smash tras aceptar plano/globo. Remate contextual con Espacio/A, E/B conserva globo.
+- **D77, provisional:** ventana 2.15–2.65 m, pelota bajando/casi apex, alcance 0.75 m y delante del jugador. Altura ideal 2.4 m, espera de contacto hasta 0.09 s para comodidad. Sin salto ni reposicionar automáticamente. Calidad se adapta a ventana alta, no penaliza por estar lejos de altura ideal de plano.
+- **D78:** smash preparado tiene trayectoria propia (13–26 m/s horizontales nominales según potencia efectiva), con integrador existente. Exigido devuelve suave y menos dirigido. Poca carga sobre cabeza no activa chiquita. Sobrecarga conserva riesgo red/cerramiento según dirección. No reglas/puntos ni garantía de x3/x4, retorno o ganador.
+- **D79:** H/RB lanza globo de práctica por zona; R conserva lanzamiento normal. Presentación overhead separada, sin cambios en poses aprobadas de plano/revés. Acompañamiento pasa por encima/al costado de cabeza. Nuevos parámetros siguen abiertos a calibración humana.

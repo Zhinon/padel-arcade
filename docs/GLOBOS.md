@@ -19,7 +19,7 @@ La carga elige altura y profundidad, no simplemente velocidad horizontal. Parám
 
 Caso cómodo sintético con pelota (0,0.9,6.15): carga 25% alcanza 3.65 m y pica a 5.00 m de red rival; ~90% alcanza 5.25 m y pica a 7.58 m. La ayuda no garantiza todos los contactos posibles cerca de red o en condiciones extremas. Defensa tardía tiene menor carga efectiva, menor dirección y destino más corto. Sobrecarga >94% extiende destino y puede llegar directo al cerramiento; conserva arco alto, sin reutilizar aplanamiento de riesgo de red del plano.
 
-Presentación reutiliza poses provisionales derecha/revés y sonidos de clases normal/excelente/defensa. No hay rival que responda ni remate/volea nuevos. Giro de pelota pendiente. Cámara, física pasiva y segundo pique de chiquita conservados.
+Presentación reutiliza poses provisionales derecha/revés y sonidos de clases normal/excelente/defensa. No hay rival que responda ni volea contextual. Desde sesión 023, el botón de plano permite smash contextual; ver SMASH.md. Giro de pelota pendiente. Cámara, física pasiva y segundo pique de chiquita conservados.
 
 ## Verificación
 

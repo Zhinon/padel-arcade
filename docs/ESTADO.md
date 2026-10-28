@@ -1,6 +1,6 @@
 # Estado y próxima sesión
 
-Actualizado: 28/10/2026, zona America/Argentina/Mendoza. Sesión 022.
+Actualizado: 28/10/2026, zona America/Argentina/Mendoza. Sesión 023.
 
 ## Dónde estamos
 
@@ -20,7 +20,7 @@ Godot 4.7.2.stable.official.ed1daf0bf portátil. Git local main, sin remoto. P06
 
 ## Límites
 
-Animación geométrica provisional sin esqueleto ni biomecánica final; no hay rival, arbitraje, puntos o giro; primera chiquita disponible, globo/remate/volea pendientes. Otros personajes estáticos; pelota sin colisión con cuerpos. Sonidos sintéticos sin muestras externas; no equivalen a grabaciones de pádel. Mando solo probado sintéticamente. No se repitieron recorridos/FPS pasivos porque no se cambió esa física.
+Animación geométrica provisional sin esqueleto ni biomecánica final; no hay rival, arbitraje, puntos o giro; chiquita, globo y smash contextual disponibles; volea contextual pendiente. Otros personajes estáticos; pelota sin colisión con cuerpos. Sonidos sintéticos sin muestras externas; no equivalen a grabaciones de pádel. Mando solo probado sintéticamente. No se repitieron recorridos/FPS pasivos porque no se cambió esa física.
 
 ## Corrección de red — sesión 013
 
@@ -74,13 +74,19 @@ Espacio/A prepara plano, E/B prepara globo. Ambos cargan/fijan al soltar y golpe
 
 Globo tiene arco/profundidad propios, con calidad y sobrecarga al cerramiento. Ejemplo 25%: apex 3.65 m/profundidad 5 m; ~90%: 5.25 m/7.58 m. Cámara/física pasiva sin cambios, poses/sonidos provisionales compartidos. 54 trayectorias/tres feeds y controles probados; regresiones de plano, chiquita, impacto y abanicazo aprobadas. Captura nativa y HUD pequeño revisados. GLOBOS.md contiene parámetros, límites y evidencia; El usuario aprobó cualitativamente la sensación de plano/globo («lo sentí bien»), sesión 022. No se midieron duración ni casos concretos; mando físico pendiente.
 
+## Smash contextual — sesión 023
+
+Espacio/A remata pelota alta descendente entre 2.15–2.65 m, delante y dentro de alcance horizontal 0.75 m. Espera breve por altura ideal 2.4 m. E/B conserva globo. Preparación y calidad determinan ataque o devolución suave. Trayectoria ofensiva nominal 13–26 m/s horizontales, sobrecarga conserva riesgos. H/RB recibe globo para practicar; R pelota normal.
+
+Presentación propia con pala alta y seguimiento sobre/al costado de cabeza. 54 casos, tres H reales, límites/defensa/riesgos y geometría torso/cabeza aprobados; plano, globo, chiquita, impacto, abanicazo y 18 poses previas mantienen pruebas. Capturas revisadas y video de cinco segundos; SMASH.md detalla parámetros y límites. Sin salto ni giro ni rival; smash todavía requiere valoración humana.
+
 ## Próximo paso
 
-**Continuar P40: remate contextual y después volea.** Sensación de plano/globo aceptada cualitativamente por el usuario. Conservar esta base; detalles de remate y sus pruebas se definirán al implementarlo. P41 sigue abierto para calibración restante, incluido segundo pique específico; rival activo pendiente.
+**Probar smash con el usuario (P41):** H en posición inicial, preparar Espacio y fijar ~90%; revisar alcance, claridad de postura y potencia. Después P40 volea contextual. Conservar plano/globo aceptados; segundo pique específico y rival siguen pendientes.
 
 ## Abrir
 
-`./tools/run-godot.sh`. R recibe; WASD/flechas mueve o apunta preparando; Espacio plano y E globo, mantener carga/soltar fija; repetir botón elegido tras fijar cancela; T cambia zona; P pausa/continúa; M audio; F8 laboratorio. Guía PRACTICA.md.
+`./tools/run-godot.sh`. R recibe; WASD/flechas mueve o apunta preparando; Espacio plano y E globo, mantener carga/soltar fija; repetir botón elegido tras fijar cancela; H recibe globo para smash; T cambia zona; P pausa/continúa; M audio; F8 laboratorio. Guía PRACTICA.md.
 
 ## Cierre
 

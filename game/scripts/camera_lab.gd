@@ -339,6 +339,7 @@ func _setup_practice() -> void:
 	input_adapter.prepare_requested.connect(shot_controller.begin_prepare)
 	input_adapter.release_requested.connect(shot_controller.release_shot)
 	input_adapter.feed_requested.connect(feed_practice_ball)
+	input_adapter.smash_feed_requested.connect(feed_smash_ball)
 	input_adapter.next_lane_requested.connect(_next_feed_lane)
 	input_adapter.pause_requested.connect(func(): _set_practice_paused(not preview_paused))
 	input_adapter.focus_lost.connect(func(): _set_practice_paused(true))
@@ -390,15 +391,25 @@ func set_practice_mode(enabled: bool) -> void:
 	_update_title()
 
 func feed_practice_ball() -> void:
+	_feed_practice(false)
+
+func feed_smash_ball() -> void:
+	_feed_practice(true)
+
+func _feed_practice(overhead: bool) -> void:
 	if not practice_mode or preview_paused:
 		return
-	simulation.launch(Vector3(FEED_LANES[feed_lane], 1.6, -5.8), Vector3(0, 4.2, 10), launch_seed)
+	var start := Vector3(FEED_LANES[feed_lane], 1.6, -5.8)
+	var speed := Vector3(0, 4.2, 10)
+	if overhead:
+		speed = shot_controller.solve_lob_velocity(start, Vector3(start.x, simulation.radius, 9.0), 0.55)
+	simulation.launch(start, speed, launch_seed)
 	shot_controller.reset_cycle()
 	impact_feedback.reset_presentation()
 	resting_notified = false
 	trail_points.clear()
 	trail.mesh = null
-	hud.show_feedback("Pelota en camino · llegá, cargá y soltá cerca del 90%")
+	hud.show_feedback("Globo en camino · ubicáte debajo y prepará con Espacio" if overhead else "Pelota en camino · llegá, cargá y soltá cerca del 90%")
 
 func _next_feed_lane() -> void:
 	if not practice_mode or preview_paused:

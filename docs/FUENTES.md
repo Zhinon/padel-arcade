@@ -100,3 +100,8 @@ Referencias de técnica consultadas el 28/10/2026: [Use the Chiquita!](https://t
 ## Globo — sesión 021
 
 Trayectoria, geometría de prueba y capturas lob.png/lob-controls-640x360.png/lob.mp4 generadas con código del proyecto y Godot. Video sin audio; presentación reutiliza sonidos sintéticos ya registrados. Sin modelos, videos de terceros o animaciones externas nuevas.
+
+
+## Smash — sesión 023
+
+Posturas altas, trayectoria, H de práctica y capturas smash-*.png/mp4 creados en el proyecto. Video con entradas sintéticas, sin audio; reutiliza sonidos propios cuando se juega. Sin assets, modelos o animaciones externos nuevos. Parámetros son calibración arcade; no mediciones biomecánicas/deportivas reales.

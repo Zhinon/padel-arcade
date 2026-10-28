@@ -100,3 +100,10 @@ BallSimulation mantiene responsabilidad del rebote. En piso calcula pendiente ap
 BasicShot.ShotType distingue FLAT/LOB. PracticeInput emite prepare_requested(kind) y release_requested(aim,kind), con acciones padel_shot/padel_lob separadas del dispositivo. Begin_prepare acepta tipo (por defecto plano para consumidores previos); release filtra botón anterior. Cambio de tipo preparando conserva stance/preparation_elapsed/stable_time, reinicia carga y pasa PREPARING. Reset vuelve a FLAT.
 
 Globo usa solve_lob_velocity: búsqueda de duración para apex solicitado, _velocity_for_duration conserva integrador físico existente. Destino y sobrecarga propios; contacto/reach/recuperación y autoridad de pelota compartidos. Hit.shot_type usa flat/lob/chiquita/defense; defensive sigue booleano incluso para lob. No mezclar categoría con lado de golpe (derecha/revés) en presentación. HUD lee tipo para instrucciones/cancelación. No nuevo motor, colisión o sistema de animación.
+
+
+## Smash — sesión 023
+
+BasicShot mantiene FLAT/LOB como intenciones de botón. is_smash_preparation comunica preparación alta; is_smash_context restringe altura, posición delante y descenso para contacto. contact_reason usa alcance alto menor, contact_quality usa referencia alta y step espera breve altura cómoda. Resultado añade smash, hit.shot_type=smash. Resuelve vuelo propio si preparado, reutiliza devolución suave si defensivo y comparte _apply_net_risk con plano sin cambiar cálculo anterior.
+
+ImpactFeedback.overhead_stroke y lado visual overhead separan preparación/codos/acompañamiento de derecha/revés. El brazo libre sube y la pala pasa por waypoint alto antes de bajar; reset/miss limpian flag. Físicas y contacto siguen siendo autoridad de BasicShot/BallSimulation. PracticeInput emite smash_feed_requested para H/RB; CameraLab._feed_practice factoriza limpieza y elige normal o globo con solver existente. No nuevo rival ni cambio de cámara de juego.

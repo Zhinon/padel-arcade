@@ -236,3 +236,14 @@ Godot 4.7.2.stable.official.ed1daf0bf, 120 Hz, escena main. lob_checks.gd envía
 Verificado E/B en mapa; cambio plano→globo durante carga y globo→plano fijado, carga reinicia sin perder preparación, soltar botón anterior no fija el nuevo. Cancelación mismo botón, autoimpacto manteniendo, un strike por intento, pérdida de foco/pausa/R/laboratorio comprobados. Globo tardío limita dirección y profundidad; 100% puede contactar vidrio antes del piso. Comparación cómoda: 25% apex 3.649 m y profundidad 5.00 m; ~90% apex 5.247 m y profundidad 7.583 m.
 
 Regresiones: player_checks 90/diez, chiquita_checks 54/24/tres feeds con segundo pique, impact_checks tres clases/audio y missed_swing_checks cinco gestos, aprobadas. Importación sin errores de scripts. Captura nativa lob.png/mp4 y HUD pequeño revisados; sin prueba humana/mando físico o rival real. Física pasiva sin cambios, no se repiten escenarios/FPS ya validados en sesión 020.
+
+
+## Sesión 023 — smash contextual y pose alta
+
+Godot 4.7.2.stable.official.ed1daf0bf, 120 Hz, main. smash_checks.gd: 54 casos de carga ~90%, jugador (0,0,z), z=2/5/8.5; pelota relativa (±0.35,h,-0.35), h=2.2/2.4/2.6; velocidad inicial antes de contacto (0,-4,0); tres direcciones (-0.6,-0.8), cero y (0.6,0.8). Preparación con eventos de Espacio, fijación, espera y contacto automático. Pelota estática durante preparación/espera del ejecutor; vuelo posterior barrido real. Primer contacto piso rival, error <0.25 m y salida descendente. Caso H real en tres zonas sin teletransporte: altura contacto 2.447 m, calidad 0.976 y velocidad horizontal 24.40 m/s; piso a 5.5 m de red rival.
+
+Comparación tarde conserva devolución pero baja velocidad/dirección; bolas a altura 3.1 m, detrás 0.4 m, lateral 1.5 m o subiendo no producen smash imposible. E conserva globo. 100% abajo toca red y arriba cerramiento antes del piso. RB mapeado a globo recibido, sin mando físico real.
+
+Pose exacta al contacto (<0.0001 m), recorrido de cuatro segmentos de brazo muestreado contra torso y cabeza; tolerancia conservadora anterior 0.008 m, mínimo actual ~0.0031 m. Primer seguimiento cruzaba cabeza (~0.074 m de penetración), corregido con waypoint alto/lateral sin relajar expectativa. Retorno al reposo y conservación de cuerpo/velocidad verificados. Capturas cercanas y juego revisadas; cámara cercana solo de ejecutor. Video de cinco segundos muestra H→preparación→smash con entradas sintéticas, sin audio.
+
+Regresiones aprobadas: jugador 90 trayectorias/diez devoluciones, globo 54/tres feeds, chiquita 54/24/tres feeds/segundo pique, impacto tres clases/audio, cinco abanicazos y 18 poses previas. Importación sin errores de scripts. No cambia física pasiva: sin repetir recorridos/FPS de sesión 020. Sensación humana del smash, mando físico y juego contra rival pendientes.

@@ -41,6 +41,7 @@ var presented_misses: int = 0
 var contact_local := Vector3.ZERO
 var follow_side: float = 1.0
 var last_kind: String = "normal"
+var overhead_stroke: bool = false
 var presented_hits: int = 0
 var sound_requests: int = 0
 
@@ -79,13 +80,16 @@ func present_hit(event: Dictionary) -> void:
 	if not enabled or paused:
 		return
 	miss_animation = false
+	overhead_stroke = event.get("shot_type", "") == "smash"
 	last_kind = "perfect" if event.perfect else ("defense" if event.defensive else "normal")
 	presented_hits += 1
 	elapsed = 0.0
 	pending_contact = true
 	_select_side(event.position)
+	if overhead_stroke: shot_side = "overhead"
 	follow_side = 1.0 if shot_side == "forehand" else -1.0
 	contact_yaw = _contact_yaw(event.position)
+	if overhead_stroke: contact_yaw = -0.25
 	stance_yaw = contact_yaw
 	_apply_body(stance_yaw, 0.06 if last_kind == "defense" else -0.06)
 	contact_local = player.visual.to_local(event.position)
@@ -108,6 +112,8 @@ func present_miss(event: Dictionary) -> void:
 	if not enabled or paused:
 		return
 	presented_misses += 1
+	overhead_stroke = false
+	if shot_side == "overhead": shot_side = "forehand"
 	if event.ball_available:
 		_select_side(event.ball_position)
 	follow_side = 1.0 if shot_side == "forehand" else -1.0
@@ -158,18 +164,31 @@ func step(delta: float) -> void:
 		var across := Vector3(-follow_side * (0.62 if last_kind == "perfect" else 0.46), 0.38, -0.55)
 		if shot_side == "forehand":
 			across = Vector3(-0.42, 0.52 if last_kind != "defense" else 0.18, -0.50)
+		if overhead_stroke and not miss_animation:
+			across = Vector3(0.5, 0.18, -0.55)
 		var follow: Vector3 = player.visual.to_local(torso.to_global(across))
 		var desired := contact_local.lerp(follow, smoothstep(0.0, 0.55, t))
+		if overhead_stroke and not miss_animation:
+			# Pass above and to the right of the head before lowering the racket.
+			var waypoint: Vector3 = player.visual.to_local(torso.to_global(Vector3(0.55, 0.95, -0.45)))
+			desired = contact_local.lerp(waypoint, smoothstep(0.0, 0.25, t))
+			desired = desired.lerp(follow, smoothstep(0.25, 0.55, t))
 		desired = desired.lerp(racket_rest.origin, smoothstep(0.6, 1.0, t))
 		player.racket.position = _outside_torso(desired, 0.46)
 		player.racket.rotation = Vector3(0, follow_side * sin(t * PI) * 0.8, 0)
 		if not miss_animation:
 			player.selection_ring.material_override.albedo_color = _color()
 	elif player.preparing:
-		_select_side(controller.ball.position)
+		var overhead: bool = controller.is_smash_preparation()
+		if overhead:
+			shot_side = "overhead"
+		else:
+			if shot_side == "overhead": shot_side = "forehand"
+			_select_side(controller.ball.position)
 		var distance: float = Vector2(controller.ball.position.x - player.position.x, controller.ball.position.z - player.position.z).length()
 		var arrival := clampf((2.0 - distance) / 1.2, 0.0, 1.0)
 		var prepared_yaw := _desired_yaw(controller.ball.position)
+		if overhead: prepared_yaw = -0.75
 		if shot_side == "forehand":
 			prepared_yaw = lerp_angle(prepared_yaw, _contact_yaw(controller.ball.position), smoothstep(0.0, 1.0, arrival))
 		stance_yaw = lerp_angle(stance_yaw, prepared_yaw, minf(delta * stance_turn_speed, 1.0))
@@ -179,12 +198,15 @@ func step(delta: float) -> void:
 		var windup_torso := Vector3(side * 0.50, 0.02 + charge * 0.12, -0.48)
 		if shot_side == "forehand":
 			windup_torso = Vector3(0.56, 0.04 + charge * 0.12, 0.12)
+		if overhead:
+			windup_torso = Vector3(0.42, 0.95 + charge * 0.12, 0.10)
 		var windup: Vector3 = player.visual.to_local(torso.to_global(windup_torso))
-		if controller.ball.position.y >= controller.minimum_height and controller.ball.position.y <= controller.maximum_height:
+		if controller.ball.position.y >= controller.minimum_height and controller.ball.position.y <= (controller.smash_max_height if overhead else controller.maximum_height):
 			var approaching: Vector3 = player.visual.to_local(controller.ball.position + controller.ball.velocity * 0.025)
 			windup = windup.lerp(approaching, arrival)
 		player.racket.position = _outside_torso(player.racket.position.lerp(windup, minf(delta * 20.0, 1.0)), 0.46)
 		player.racket.rotation = Vector3(0, -side * 0.6, side * 0.12)
+		if overhead: player.racket.rotation = Vector3(-0.45, 0, 0.1)
 	else:
 		stance_yaw = 0.0
 		_apply_body(0.0, 0.0)
@@ -266,15 +288,20 @@ func _update_arm() -> void:
 	var hand_local := torso.to_local(player.visual.to_global(hand))
 	# The right elbow stays outside the right/front edge, including on backhand.
 	var elbow_local := Vector3(maxf(0.36, (hand_local.x + 0.3) * 0.5), clampf((hand_local.y + 0.28) * 0.5 - 0.08, -0.25, 0.28), minf(-elbow_clearance, hand_local.z * 0.55))
+	var overhead: bool = (player.preparing and controller.is_smash_preparation()) or (_stroke_active() and overhead_stroke and not miss_animation)
+	if overhead:
+		elbow_local = Vector3(maxf(0.40, (hand_local.x + 0.3) * 0.5 + 0.12), clampf((hand_local.y + 0.28) * 0.5 + 0.18, 0.35, 0.85), 0.10)
 	if shot_side == "forehand" and (player.preparing or _stroke_active()):
 		var natural_elbow := _forehand_elbow(Vector3(0.3, 0.28, 0), hand_local)
 		var across_body := 1.0 - smoothstep(0.05, 0.35, hand_local.x)
 		elbow_local = natural_elbow.lerp(elbow_local, across_body)
 	var shoulder: Vector3 = player.visual.to_local(torso.to_global(Vector3(0.3, 0.28, 0)))
 	var support := Vector3(-0.45, -0.10, -0.24)
+	if overhead: support = Vector3(-0.4, 0.65, -0.22)
 	if shot_side == "backhand" and (player.preparing or _stroke_active()):
 		support = hand_local + Vector3(-0.07, 0.04, -0.04)
 	var off_elbow_local := Vector3(minf(-0.36, support.x - 0.12), clampf((support.y + 0.28) * 0.5 - 0.08, -0.25, 0.28), minf(-elbow_clearance, support.z * 0.55))
+	if overhead: off_elbow_local = Vector3(-0.45, 0.32, -0.32)
 	if shot_side == "forehand" and (player.preparing or _stroke_active()):
 		var mirrored_hand := Vector3(-support.x, support.y, support.z)
 		off_elbow_local = _forehand_elbow(Vector3(0.3, 0.28, 0), mirrored_hand) * Vector3(-1, 1, 1)
@@ -309,6 +336,7 @@ func set_muted(value: bool) -> void:
 func reset_presentation() -> void:
 	elapsed = 1.0
 	miss_animation = false
+	overhead_stroke = false
 	pending_contact = false
 	flash.visible = false
 	audio.stop()

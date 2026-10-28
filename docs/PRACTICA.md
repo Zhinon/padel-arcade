@@ -1,4 +1,4 @@
-# Práctica de preparación y contacto automático — sesión 021
+# Práctica de preparación y contacto automático — sesión 023
 
 Un jugador se mueve y devuelve pelotas de un lanzador. Se mantiene la cámara aprobada y la física calibrada de E2. Los otros tres personajes siguen estáticos; no hay rival, marcador ni partido.
 
@@ -29,8 +29,10 @@ Si aparece PAUSA al cambiar de ventana, pulsá **P** para continuar.
 | Moverse | WASD / flechas | Stick izquierdo |
 | Plano: cargar / fijar | Mantener / soltar Espacio | A |
 | Globo: cargar / fijar | Mantener / soltar E | B |
+| Smash contextual | Espacio con pelota alta alcanzable | A |
 | Cancelar preparación fijada | Repetir Espacio (plano) o E (globo) | Repetir A o B del golpe elegido |
 | Recibir pelota | R | X |
+| Recibir globo para rematar | H | RB |
 | Cambiar zona y recibir | T | Y |
 | Silenciar / reactivar impactos | M | Sin asignación todavía |
 | Pausar / continuar | P o Escape | Start |
@@ -71,7 +73,7 @@ El cuerpo del jugador colisiona con la cancha. La pelota no rebota contra los cu
 
 El golpe base calcula una velocidad de salida para aterrizar cerca del aro rival usando el mismo paso de gravedad y resistencia de E2. Ajusta duración si hace falta para intentar pasar la red con margen (altura de centro de pelota al cruzar: al menos 1.3 m en la predicción). Esto es asistencia arcade explícita.
 
-La pelota sigue recorriendo la trayectoria mediante física y colisiones. Si hay un impacto intermedio, ya no se garantiza el destino previsto. El globo del jugador está disponible con E; remate/volea contextual y giro de pelota siguen pendientes. Los lanzamientos F1–F7 siguen siendo pruebas del laboratorio.
+La pelota sigue recorriendo la trayectoria mediante física y colisiones. Si hay un impacto intermedio, ya no se garantiza el destino previsto. Globo con E y smash contextual con Espacio están disponibles; volea contextual y giro de pelota siguen pendientes. Los lanzamientos F1–F7 siguen siendo pruebas del laboratorio.
 
 ## Presentación del impacto
 
@@ -146,3 +148,10 @@ Segundo pique revisado (sesión 020): misma carga/controles, con mayor pérdida 
 Recibí con R, llegá antes y mantené E. Soltá cerca del 90% y elegí dirección mientras esperás el contacto automático. Más carga da un globo más alto y profundo; abajo acorta, arriba profundiza. Compará con 25–30% para uno más corto/bajo. Llegada tardía pierde profundidad y colocación. Al 100% existe riesgo de cerramiento directo.
 
 Volver a pulsar E cancela globo fijado. Pulsar Espacio cambia a plano y reinicia carga; soltar E después no fija el plano. Al cambiar de plano a globo sucede lo mismo. [Diseño y pruebas](GLOBOS.md) y [demostración](previews/lob.mp4). Reiniciá el juego para cargar controles nuevos.
+
+
+## Probar el smash
+
+Pulsá **H** para recibir un globo por tu zona. Llegá antes y prepará con **Espacio**, soltando cerca del **90%**. La pelota alta y alcanzable se remata automáticamente con pala arriba. No necesitás otro botón; E sigue preparando globo. Para empezar, probalo en la posición inicial del jugador.
+
+Tarde o mal ubicado, el remate pierde potencia/dirección o queda fuera de alcance. Al 100%, dirección corta puede ir a red y profunda al cerramiento. H es entrenamiento, no un botón para ejecutar remate: R conserva pelota normal. [Guía completa](SMASH.md) y [video de cinco segundos](previews/smash.mp4). Reiniciar juego para cargar versión nueva.

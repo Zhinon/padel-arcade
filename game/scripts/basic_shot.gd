@@ -15,6 +15,12 @@ var shot_kind: ShotType = ShotType.FLAT
 @export var minimum_height: float = 0.22
 @export var maximum_height: float = 2.1
 @export var ideal_contact_height: float = 0.9
+@export var smash_min_height: float = 2.15
+@export var smash_max_height: float = 2.65
+@export var smash_ideal_height: float = 2.4
+@export var smash_reach: float = 0.75
+@export var smash_low_speed: float = 13.0
+@export var smash_high_speed: float = 26.0
 @export var full_preparation: float = 0.8
 @export var perfect_charge: float = 0.9
 @export var perfect_tolerance: float = 0.04
@@ -115,8 +121,16 @@ func cancel_prepare() -> void:
 func target_for_aim(direction: Vector2) -> Vector3:
 	if shot_kind == ShotType.LOB:
 		return _lob_target(direction, shot_charge)
-	var depth := lerpf(-5.5 + direction.y * 1.8, -touch_depth, touch_weight(direction, shot_charge))
+	var depth := -5.5 + direction.y * 1.8
+	if not is_smash_preparation():
+		depth = lerpf(depth, -touch_depth, touch_weight(direction, shot_charge))
 	return Vector3(clampf(player.position.x + direction.x * 4.0, -3.8, 3.8), ball.radius, depth)
+
+func is_smash_preparation() -> bool:
+	return shot_kind == ShotType.FLAT and ball.active and ball.last_hitter != 0 and ball.position.y >= smash_min_height and ball.position.z >= 0.25 and ball.position.z <= player.position.z + 0.1
+
+func is_smash_context() -> bool:
+	return is_smash_preparation() and ball.position.y <= smash_max_height and ball.velocity.y <= 0.5
 
 func touch_weight(direction: Vector2, charge: float) -> float:
 	# Blend continuously into a short shot; charge is intent, not contact quality.
@@ -153,7 +167,10 @@ func step(delta: float) -> void:
 			contact_wait += delta
 			var distance := Vector2(ball.position.x - player.position.x, ball.position.z - player.position.z).length()
 			# Wait briefly for a comfortable contact, but retain late defensive reach.
-			if distance <= ideal_contact_distance + 0.12 or ball.position.z >= player.position.z - 0.1 or contact_wait >= 0.06:
+			var ready := distance <= ideal_contact_distance + 0.12 or ball.position.z >= player.position.z - 0.1 or contact_wait >= 0.06
+			if is_smash_context():
+				ready = ball.position.y <= smash_ideal_height + 0.08 or ball.position.z >= player.position.z - 0.12 or contact_wait >= 0.09
+			if ready:
 				_execute_contact()
 		elif contact_wait > 0.0:
 			_finish_miss("No llegaste al contacto · ajustá tu posición")
@@ -167,6 +184,9 @@ func contact_quality() -> float:
 	var distance := Vector2(ball.position.x - player.position.x, ball.position.z - player.position.z).length()
 	var position_quality := clampf(1.0 - absf(distance - ideal_contact_distance) / reach, 0.0, 1.0)
 	var height_quality := clampf(1.0 - absf(ball.position.y - ideal_contact_height) / 1.3, 0.0, 1.0)
+	if is_smash_context():
+		position_quality = clampf(1.0 - absf(distance - 0.4) / smash_reach, 0.0, 1.0)
+		height_quality = clampf(1.0 - absf(ball.position.y - smash_ideal_height) / 0.65, 0.0, 1.0)
 	var balance := clampf(stable_time / stabilization_time, 0.0, 1.0)
 	var preparation := clampf(preparation_elapsed / (full_preparation * 0.65), 0.0, 1.0)
 	return clampf(position_quality * 0.3 + height_quality * 0.2 + balance * 0.2 + preparation * 0.3, 0.0, 1.0)
@@ -191,7 +211,7 @@ func result_for_contact() -> Dictionary:
 	var short_aim := maxf(0.0, aim.y)
 	goal.z -= overload_depth * risk * lerpf(0.6, 1.0, maxf(0.0, -aim.y)) * (1.0 if shot_kind == ShotType.LOB else (1.0 - short_aim))
 	goal.x += aim.x * overload_width * risk
-	return {"quality": contact_quality_value, "power": power, "target": goal, "defensive": defensive, "overload": overload, "net_risk": 0.0 if shot_kind == ShotType.LOB else risk * short_aim, "touch": 0.0 if shot_kind == ShotType.LOB else touch_weight(aim, shot_charge)}
+	return {"quality": contact_quality_value, "power": power, "target": goal, "defensive": defensive, "overload": overload, "net_risk": 0.0 if shot_kind == ShotType.LOB else risk * short_aim, "touch": 0.0 if shot_kind == ShotType.LOB or is_smash_context() else touch_weight(aim, shot_charge), "smash": is_smash_context()}
 
 func _execute_contact() -> void:
 	state = State.STRIKING
@@ -202,6 +222,8 @@ func _execute_contact() -> void:
 	var outgoing: Vector3
 	if shot_kind == ShotType.LOB:
 		outgoing = solve_lob_velocity(ball.position, target, effective_power)
+	elif result.smash and not result.defensive:
+		outgoing = solve_smash_velocity(ball.position, target, effective_power, result.net_risk)
 	else:
 		outgoing = solve_velocity(ball.position, target, effective_power, result.net_risk, result.touch, quality)
 	ball.strike(outgoing, 0)
@@ -218,6 +240,9 @@ func _execute_contact() -> void:
 	if shot_kind == ShotType.LOB:
 		message = "Globo exigido · corto y con menos dirección" if result.defensive else ("¡Globo bien preparado!" if perfect else "Globo · recuperá posición")
 		if result.overload > 0.0: message = "Globo sobrecargado · riesgo de cerramiento directo"
+	elif result.smash:
+		message = "Remate exigido · devolución suave" if result.defensive else ("¡Smash bien preparado!" if perfect else "Smash · recuperá posición")
+		if result.overload > 0.0: message = "Smash sobrecargado · menos margen"
 	elif touch_shot:
 		message = "¡Chiquita bien colocada!" if perfect else "Chiquita · suave a los pies"
 	elif perfect:
@@ -227,7 +252,7 @@ func _execute_contact() -> void:
 	elif result.defensive:
 		message = "Defensa exigida · poca potencia y dirección"
 	feedback.emit(message)
-	hit.emit({"position": ball.position, "velocity": outgoing, "target": target, "charge": shot_charge, "quality": quality, "effective_power": effective_power, "defensive": result.defensive, "perfect": perfect, "net_risk": result.net_risk, "touch": result.touch, "shot_type": "lob" if shot_kind == ShotType.LOB else ("chiquita" if touch_shot else ("defense" if result.defensive else "flat"))})
+	hit.emit({"position": ball.position, "velocity": outgoing, "target": target, "charge": shot_charge, "quality": quality, "effective_power": effective_power, "defensive": result.defensive, "perfect": perfect, "net_risk": result.net_risk, "touch": result.touch, "shot_type": "smash" if result.smash else ("lob" if shot_kind == ShotType.LOB else ("chiquita" if touch_shot else ("defense" if result.defensive else "flat")))})
 
 func _finish_miss(message: String) -> void:
 	misses += 1
@@ -246,13 +271,15 @@ func contact_reason() -> String:
 		return "R para recibir una pelota"
 	if ball.position.y < minimum_height:
 		return "Pelota demasiado baja"
-	if ball.position.y > maximum_height:
+	var overhead := is_smash_context()
+	if ball.position.y > (smash_max_height if overhead else maximum_height):
 		return "Pelota demasiado alta para el golpe base"
 	if ball.position.z < 0.25 or ball.position.z > player.position.z + 0.7:
 		return "La pelota quedó detrás · ajustá tu posición"
-	var center := player.position + Vector3(0, ideal_contact_height, -0.1)
+	var contact_reach := smash_reach if overhead else reach
+	var center := player.position + Vector3(0, smash_ideal_height if overhead else ideal_contact_height, -0.1)
 	var closest := Geometry3D.get_closest_point_to_segment(center, previous_ball_position, ball.position)
-	if Vector2(closest.x - player.position.x, closest.z - player.position.z).length() > reach or Vector2(ball.position.x - player.position.x, ball.position.z - player.position.z).length() > reach + 0.15:
+	if Vector2(closest.x - player.position.x, closest.z - player.position.z).length() > contact_reach or Vector2(ball.position.x - player.position.x, ball.position.z - player.position.z).length() > contact_reach + 0.15:
 		return "Fuera de alcance · acercate a la pelota"
 	return ""
 
@@ -291,6 +318,9 @@ func solve_velocity(at: Vector3, goal: Vector3, power: float, net_risk: float = 
 			var desired_height := touch_net_height - weakness * touch_net_penalty
 			soft_velocity.y -= maxf(0.0, normal_height - desired_height) / response
 		outgoing = outgoing.lerp(soft_velocity, touch)
+	return _apply_net_risk(at, outgoing, duration, net_risk)
+
+func _apply_net_risk(at: Vector3, outgoing: Vector3, duration: float, net_risk: float) -> Vector3:
 	if net_risk > 0.0:
 		# Apply after the safe-arc assistance, so it cannot erase the risk.
 		var normal_height := _net_height(at, outgoing, duration)
@@ -299,6 +329,11 @@ func solve_velocity(at: Vector3, goal: Vector3, power: float, net_risk: float = 
 			var height_loss := maxf(0.0, normal_height - overload_net_clearance) * clampf(net_risk * overload_net_risk_strength, 0.0, 1.0)
 			outgoing.y -= height_loss / vertical_response
 	return outgoing
+
+func solve_smash_velocity(at: Vector3, goal: Vector3, power: float, net_risk: float) -> Vector3:
+	var distance := Vector2(goal.x - at.x, goal.z - at.z).length()
+	var duration := maxf(0.18, distance / lerpf(smash_low_speed, smash_high_speed, clampf(power, 0.0, 1.0)))
+	return _apply_net_risk(at, _velocity_for_duration(at, goal, duration), duration, net_risk)
 
 func solve_lob_velocity(at: Vector3, goal: Vector3, power: float) -> Vector3:
 	var apex := maxf(at.y + 0.15, lerpf(lob_min_apex, lob_max_apex, clampf(power, 0.0, 1.0)))
