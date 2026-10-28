@@ -76,3 +76,10 @@ Solo el jugador controlado usa HipsPivot y TorsoPivot, brazos Upper/Fore con cod
 ## Drive — sesión 016
 
 ImpactFeedback distingue orientación cerrada de preparación y orientación abierta de contacto para drive. El codo se calcula con dos segmentos equilibrados y guía exterior al cruzar el torso; brazo libre usa solución reflejada para contrapeso. Las ramas de revés y reposo no cambian. Pelota y controlador siguen siendo autoridad del impacto; ningún giro difiere ni adelanta golpe físico.
+
+
+## Intento fallido — sesión 017
+
+BasicShot emite `missed` desde MISSED, con posición/disponibilidad de pelota, carga y motivo. El cruce del plano de contacto sin alcance resuelve fallo sin esperar caducidad; begin_prepare permite intento vacío que va directamente a MISSED. Mantener/soltar de una recepción válida conserva semántica anterior.
+
+ImpactFeedback.present_miss elige zona virtual local y anima avance/seguimiento con su propio progreso, sin reutilizar señales de strike o sonidos de impacto. Reutiliza poses de derecha/revés pero separa duración (0.28 s) y marca miss_animation; normal hit limpia esa marca. Los consumidores físicos solo reciben hit/strike real; un abanicazo no puede devolver la pelota.

@@ -9,6 +9,7 @@ const SOUNDS := {
 @export var volume_db: float = -8.0
 @export var follow_duration: float = 0.24
 @export var flash_duration: float = 0.18
+@export var miss_swing_duration: float = 0.28
 var player: CharacterBody3D
 var controller: Node
 var enabled: bool = false
@@ -33,6 +34,10 @@ var contact_yaw: float = 0.0
 var racket_rest: Transform3D
 var elapsed: float = 1.0
 var pending_contact: bool = false
+var miss_animation: bool = false
+var miss_start := Vector3.ZERO
+var miss_start_yaw: float = 0.0
+var presented_misses: int = 0
 var contact_local := Vector3.ZERO
 var follow_side: float = 1.0
 var last_kind: String = "normal"
@@ -68,10 +73,12 @@ func _ready() -> void:
 	flash.visible = false
 	add_child(flash)
 	controller.hit.connect(present_hit)
+	controller.missed.connect(present_miss)
 
 func present_hit(event: Dictionary) -> void:
 	if not enabled or paused:
 		return
+	miss_animation = false
 	last_kind = "perfect" if event.perfect else ("defense" if event.defensive else "normal")
 	presented_hits += 1
 	elapsed = 0.0
@@ -97,6 +104,33 @@ func present_hit(event: Dictionary) -> void:
 		audio.play()
 		sound_requests += 1
 
+func present_miss(event: Dictionary) -> void:
+	if not enabled or paused:
+		return
+	presented_misses += 1
+	if event.ball_available:
+		_select_side(event.ball_position)
+	follow_side = 1.0 if shot_side == "forehand" else -1.0
+	# A local reachable swing, never an arm stretching to a distant missed ball.
+	var swing_at: Vector3 = player.position + Vector3(follow_side * 0.65, 0.9, -0.45)
+	contact_local = player.visual.to_local(swing_at)
+	contact_yaw = _contact_yaw(swing_at)
+	miss_start = player.racket.position
+	miss_start_yaw = stance_yaw
+	miss_animation = true
+	pending_contact = false
+	last_kind = "miss"
+	elapsed = 0.0
+	flash.visible = false
+
+func _stroke_active() -> bool:
+	return elapsed < (miss_swing_duration if miss_animation else follow_duration)
+
+func _follow_progress() -> float:
+	if miss_animation:
+		return clampf((elapsed / miss_swing_duration - 0.35) / 0.65, 0.0, 1.0)
+	return clampf(elapsed / follow_duration, 0.0, 1.0)
+
 func _color() -> Color:
 	return Color("c7ff64") if last_kind == "perfect" else (Color("ffb76b") if last_kind == "defense" else Color("a5e9ff"))
 
@@ -110,8 +144,14 @@ func step(delta: float) -> void:
 		pending_contact = false
 		return
 	elapsed += delta
-	if elapsed < follow_duration:
-		var t := clampf(elapsed / follow_duration, 0.0, 1.0)
+	if miss_animation and elapsed < miss_swing_duration * 0.35:
+		var forward := smoothstep(0.0, 1.0, elapsed / (miss_swing_duration * 0.35))
+		stance_yaw = lerp_angle(miss_start_yaw, contact_yaw, forward)
+		_apply_body(stance_yaw, -0.04)
+		player.racket.position = _outside_torso(miss_start.lerp(contact_local, forward), 0.46)
+		player.racket.rotation = Vector3(0, follow_side * (1.0 - forward) * -0.6, 0)
+	elif _stroke_active():
+		var t := _follow_progress()
 		# Follow across the front of the torso; avoid a straight cut through it.
 		stance_yaw = lerp_angle(contact_yaw, -contact_yaw * 0.2, smoothstep(0.0, 1.0, t))
 		_apply_body(stance_yaw, -0.06 * (1.0 - t))
@@ -123,7 +163,8 @@ func step(delta: float) -> void:
 		desired = desired.lerp(racket_rest.origin, smoothstep(0.6, 1.0, t))
 		player.racket.position = _outside_torso(desired, 0.46)
 		player.racket.rotation = Vector3(0, follow_side * sin(t * PI) * 0.8, 0)
-		player.selection_ring.material_override.albedo_color = _color()
+		if not miss_animation:
+			player.selection_ring.material_override.albedo_color = _color()
 	elif player.preparing:
 		_select_side(controller.ball.position)
 		var distance: float = Vector2(controller.ball.position.x - player.position.x, controller.ball.position.z - player.position.z).length()
@@ -149,7 +190,7 @@ func step(delta: float) -> void:
 		_apply_body(0.0, 0.0)
 		player.racket.transform = racket_rest
 	_update_arm()
-	flash.visible = elapsed < flash_duration
+	flash.visible = not miss_animation and elapsed < flash_duration
 	if flash.visible:
 		var progress := elapsed / flash_duration
 		flash.scale = Vector3.ONE * lerpf(1.0, 2.2, progress)
@@ -225,23 +266,23 @@ func _update_arm() -> void:
 	var hand_local := torso.to_local(player.visual.to_global(hand))
 	# The right elbow stays outside the right/front edge, including on backhand.
 	var elbow_local := Vector3(maxf(0.36, (hand_local.x + 0.3) * 0.5), clampf((hand_local.y + 0.28) * 0.5 - 0.08, -0.25, 0.28), minf(-elbow_clearance, hand_local.z * 0.55))
-	if shot_side == "forehand" and (player.preparing or elapsed < follow_duration):
+	if shot_side == "forehand" and (player.preparing or _stroke_active()):
 		var natural_elbow := _forehand_elbow(Vector3(0.3, 0.28, 0), hand_local)
 		var across_body := 1.0 - smoothstep(0.05, 0.35, hand_local.x)
 		elbow_local = natural_elbow.lerp(elbow_local, across_body)
 	var shoulder: Vector3 = player.visual.to_local(torso.to_global(Vector3(0.3, 0.28, 0)))
 	var support := Vector3(-0.45, -0.10, -0.24)
-	if shot_side == "backhand" and (player.preparing or elapsed < follow_duration):
+	if shot_side == "backhand" and (player.preparing or _stroke_active()):
 		support = hand_local + Vector3(-0.07, 0.04, -0.04)
 	var off_elbow_local := Vector3(minf(-0.36, support.x - 0.12), clampf((support.y + 0.28) * 0.5 - 0.08, -0.25, 0.28), minf(-elbow_clearance, support.z * 0.55))
-	if shot_side == "forehand" and (player.preparing or elapsed < follow_duration):
+	if shot_side == "forehand" and (player.preparing or _stroke_active()):
 		var mirrored_hand := Vector3(-support.x, support.y, support.z)
 		off_elbow_local = _forehand_elbow(Vector3(0.3, 0.28, 0), mirrored_hand) * Vector3(-1, 1, 1)
 	# Rest is a relaxed hanging arm, not the clearance pose used for a stroke.
 	# Blend during the end of follow-through so the elbows do not snap back.
 	var rest_weight := 0.0
 	if not player.preparing:
-		rest_weight = smoothstep(0.6, 1.0, elapsed / follow_duration)
+		rest_weight = smoothstep(0.6, 1.0, _follow_progress())
 	support = support.lerp(Vector3(-0.37, -0.35, -0.08), rest_weight)
 	var right_relax := rest_weight * smoothstep(0.2, 0.4, hand_local.x)
 	var left_relax := rest_weight * smoothstep(0.2, 0.36, -support.x)
@@ -267,6 +308,7 @@ func set_muted(value: bool) -> void:
 
 func reset_presentation() -> void:
 	elapsed = 1.0
+	miss_animation = false
 	pending_contact = false
 	flash.visible = false
 	audio.stop()

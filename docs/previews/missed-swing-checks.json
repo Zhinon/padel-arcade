@@ -1,0 +1,42 @@
+{
+	"cases": [
+		{
+			"case": "empty",
+			"max_racket_motion_m": 1.21423757076263,
+			"miss_count_delta": 1,
+			"sound_requests_delta": 0,
+			"strikes": 0
+		},
+		{
+			"case": "backhand",
+			"max_racket_motion_m": 0.695280253887177,
+			"miss_count_delta": 1,
+			"sound_requests_delta": 0,
+			"strikes": 0
+		},
+		{
+			"case": "forehand",
+			"max_racket_motion_m": 1.22941184043884,
+			"miss_count_delta": 1,
+			"sound_requests_delta": 0,
+			"strikes": 0
+		},
+		{
+			"case": "too-high",
+			"max_racket_motion_m": 1.21896004676819,
+			"miss_count_delta": 1,
+			"sound_requests_delta": 0,
+			"strikes": 0
+		},
+		{
+			"case": "late",
+			"max_racket_motion_m": 1.21423757076263,
+			"miss_count_delta": 1,
+			"sound_requests_delta": 0,
+			"strikes": 0
+		}
+	],
+	"engine": "4.7.2-stable (official)",
+	"failures": [],
+	"note": "Controller miss events with synthetic inputs; visual captures if requested. Human feel pending."
+}

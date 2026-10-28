@@ -2,6 +2,7 @@ class_name PadelBasicShot
 extends Node
 signal feedback(message: String)
 signal hit(event: Dictionary)
+signal missed(event: Dictionary)
 enum State { IDLE, PREPARING, LOCKED, STRIKING, RECOVERING, MISSED }
 @export var reach: float = 1.25
 @export var ideal_contact_distance: float = 0.65
@@ -54,7 +55,11 @@ func begin_prepare() -> void:
 	if state == State.LOCKED:
 		cancel_prepare()
 		return
-	if state != State.IDLE or not ball.active or ball.last_hitter == 0:
+	if state != State.IDLE:
+		return
+	if not ball.active or ball.last_hitter == 0:
+		attempts += 1
+		_finish_miss("Abanicazo · R para recibir otra pelota")
 		return
 	state = State.PREPARING
 	attempts += 1
@@ -118,6 +123,8 @@ func step(delta: float) -> void:
 				_execute_contact()
 		elif contact_wait > 0.0:
 			_finish_miss("No llegaste al contacto · ajustá tu posición")
+		elif ball.velocity.z > 0.0 and previous_ball_position.z < player.position.z - 0.1 and ball.position.z >= player.position.z - 0.1:
+			_finish_miss("Abanicazo · la pelota quedó fuera de alcance")
 		if is_preparing() and (armed_time == 0.0 or not ball.active or ball.position.z > player.position.z + 0.7):
 			_finish_miss("Pelota fuera de alcance · preparación terminada")
 	previous_ball_position = ball.position
@@ -183,6 +190,7 @@ func _finish_miss(message: String) -> void:
 	player.preparing = false
 	recovery = emergency_recovery
 	feedback.emit(message)
+	missed.emit({"ball_position": ball.position, "ball_available": ball.active and ball.last_hitter != 0, "charge": shot_charge, "reason": message})
 
 func contact_reason() -> String:
 	if ball.last_hitter == 0:

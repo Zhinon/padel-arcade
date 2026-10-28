@@ -203,3 +203,14 @@
 **Pruebas:** 18 casos de poses, apertura previa al contacto, longitudes de brazo en drive cómodo, reposo y contacto exacto aprobados. Seis poses de revés en tres fases coinciden con registro previo. Jugador (90 trayectorias/diez devoluciones) e impacto/audio (tres clases) aprobados. Capturas de derecha de frente/perfil y vista cercana revisadas; importación sin errores de scripts. Opinión humana del nuevo drive pendiente.
 
 **Continuidad:** usuario revisa drive; después globo si presentación resulta cómoda. Informe antes/comparación/actual y documentación guardados, punto Git al cierre.
+
+
+## 28/10/2026 — Sesión 017: abanicazo al errar
+
+**Pedido:** usuario conforme con drive; al errar quiere que igual tire paletazo al aire.
+
+**Implementación:** evento de fallo separado, detección al pasar zona de contacto sin alcance y gesto local de derecha/revés sin impacto. Pulsación vacía y tardía también responden; cancelación mantiene su sentido. Recuperación corta y movimiento libre. Se comprueba que el intento gastado no capture otra pelota durante gesto.
+
+**Pruebas:** cinco gestos (vacío, lateral izquierdo/derecho, altura, tardío), sin sonido/destello/strike ni cambio de pelota, un gesto y vuelta al reposo. Cancelación/caducidad/pausa/laboratorio probados. Revisión gráfica de cuatro gestos; caso tardío adicional sin ventana. Dieciocho poses válidas, tres impactos/audio y jugador (90 trayectorias/diez devoluciones) siguen aprobados. Dos variables de ejecutor tipadas tras error inicial de inferencia; importación final sin errores. Geometría de antebrazos en recorrido comprobada con tolerancia previa.
+
+**Continuidad:** usuario prueba nuevo abanicazo; luego globo. Plan, guía, arquitectura, decisiones, estado e informes actualizados. Punto Git al cierre.

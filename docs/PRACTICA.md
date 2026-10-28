@@ -1,4 +1,4 @@
-# Práctica de preparación y contacto automático — sesión 016
+# Práctica de preparación y contacto automático — sesión 017
 
 Un jugador se mueve y devuelve pelotas de un lanzador. Se mantiene la cámara aprobada y la física calibrada de E2. Los otros tres personajes siguen estáticos; no hay rival, marcador ni partido.
 
@@ -93,6 +93,14 @@ Drive revisado: [preparación de perfil](previews/pose-forehand-preparation-side
 Capturas de revisión cercana: [revés preparado](previews/pose-backhand-preparation.png), [contacto de revés](previews/pose-backhand-contact.png), [derecha](previews/pose-forehand-contact.png). Solo el ejecutor usa cámara cercana; el encuadre de juego aprobado no cambia.
 
 Capturas de sesión 012 (presentación anterior, históricas): [preparación](previews/impact-preparation.png), [perfecto](previews/impact-perfect.png) y [defensa](previews/impact-defense.png). Ejecutor `tests/impact_checks.gd`: contacto, clases de audio, neutralización, silencio, pausa/F8 y preservación de física.
+
+## Abanicazo al errar
+
+Si preparás y la pelota se te pasa fuera del alcance o de la altura del golpe base, el personaje da un golpe al aire. También responde si pulsás Espacio sin pelota disponible o llegás tarde. El gesto sigue el lado de la pelota; sin pelota usa el lado de golpe que tenía preparado.
+
+El abanicazo dura aproximadamente 0.28 s, permite moverse y vuelve al reposo. No suena como impacto, no produce destello ni cambia pelota o contador de contactos. Un intento fallado no engancha la pelota después durante su animación. Cancelar una preparación fijada sigue cancelando sin abanicazo.
+
+Para probarlo rápido, **pulsá Espacio antes de lanzar con R**. Para probar un fallo real, prepará lejos de la trayectoria recibida. [Ejemplo de derecha al aire](previews/miss-forehand-forward.png).
 
 ## Laboratorio anterior
 

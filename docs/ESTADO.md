@@ -1,6 +1,6 @@
 # Estado y próxima sesión
 
-Actualizado: 28/10/2026, zona America/Argentina/Mendoza. Sesión 016.
+Actualizado: 28/10/2026, zona America/Argentina/Mendoza. Sesión 017.
 
 ## Dónde estamos
 
@@ -49,6 +49,12 @@ Usuario conforme con revés; pide corregir drive todavía raro. Se encontró tor
 Cambio solo de drive: preparación al costado/atrás, apertura gradual del torso antes de impacto, codo con dos segmentos más equilibrados y brazo libre de contrapeso. Acompañamiento cruza delante y sube; reposo aprobado conservado. Pelotas detrás del cuerpo conservan orientación defensiva. No cambia física, contactos, control o recuperación.
 
 Dieciocho casos de poses aprobados, incluidos giro antes del contacto, reposo y separación del torso. En contacto lateral cómodo, segmentos de brazo pasan de 0.605/0.516 m a 0.457/0.457 m. Preparación/contacto/seguimiento de los seis casos de revés registrados coinciden con versión anterior. Regresiones de jugador (90 trayectorias/diez devoluciones) e impacto/audio aprobadas; importación y revisión de vistas frontal/lateral/cercana realizadas. Evaluación humana del drive ajustado pendiente.
+
+## Abanicazo — sesión 017
+
+Usuario conforme con drive y pide gesto de pala aunque erre. BasicShot emite `missed` separado de `hit`: pelota preparada pasa fuera de alcance/altura, intento tardío, caducidad o pulsación sin pelota disponible. ImpactFeedback anima un golpe al aire local de derecha/revés (0.28 s), con movimiento libre y sin modificar pelota, emitir impacto ni destello. Cancelar continúa sin gesto. Mantener no encadena intentos; una vez fallado no engancha una pelota que entre después.
+
+Cinco gestos comprobados: vacío, fuera de alcance izquierda/derecha, altura excesiva y pulsación tardía con pelota entrando posteriormente en alcance. También caducidad, cancelación, pausa/laboratorio y retorno al reposo. Capturas de cuatro gestos revisadas; nuevo caso tardío verificado sin ventana. Regresiones de 18 poses, tres impactos/audio y jugador (90 trayectorias/diez devoluciones) aprobadas; importación sin errores de scripts. Valoración humana del nuevo gesto pendiente.
 
 ## Próximo paso
 

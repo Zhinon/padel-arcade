@@ -131,3 +131,10 @@ Para cambiar una decisión: añadir fecha, contexto, alternativas relevantes, el
 - **D59, feedback del usuario:** revés se ve bien; drive sigue raro. Acotar ajuste al drive y conservar revés/control/reposo aprobados.
 - **D60, presentación provisional:** drive lleva pala al costado/atrás al preparar y abre torso progresivamente al llegar pelota. En impacto delantero, yaw de torso usa 20% de orientación cerrada; detrás conserva orientación defensiva. Codo de brazo de golpe usa dos segmentos equilibrados con extensión de emergencia; al cruzar frente a torso se mezcla con guía exterior para evitar penetración. Brazo libre usa flexión exterior como contrapeso. Acompañamiento termina más arriba; duración/contacto/física sin cambios.
 - **Validación:** comparación local de seis casos de revés conserva poses registradas de preparación/contacto/seguimiento; dieciocho casos actuales y reposo pasan. La mejora visual requiere valoración del usuario; sigue siendo muñeco geométrico provisional, no biomecánica de producción.
+
+
+## 28/10/2026 — sesión 017: respuesta visual al fallo
+
+- **D61, feedback del usuario:** drive ajustado bueno; sumar abanicazo cuando pulsa e intenta golpear sin llegar a pelota.
+- **D62:** `missed` como evento separado de contacto. Activa gesto al pasar pelota preparada fuera de alcance/altura, al caducar, en pulsación tardía y sin pelota disponible (incluida pelota ya golpeada, sin permitir segundo impacto). No requiere soltar otro botón. Cancelación de preparación conserva función previa y no es fallo.
+- **D63, presentación provisional:** abanicazo de 0.28 s, avance hasta zona local cómoda y acompañamiento de derecha/revés. No estirar brazo hasta pelota remota, no modificar simulación ni marcar contacto, no sonido/destello de impacto. Movimiento libre, recuperación corta existente y un solo gesto por intento. Pausa/R/F8 limpian presentación.
