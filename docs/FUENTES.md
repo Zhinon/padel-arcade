@@ -77,3 +77,8 @@ Parámetros de diseño ajustados por feedback, sin nuevas mediciones empíricas 
 - `game/audio/impact-normal.wav`, `impact-perfect.wav`, `impact-defense.wav`: creados en este proyecto mediante síntesis de ruido/transitorios/resonancia con semilla fija. No incorporan muestras, música o grabaciones externas. Generador reproducible: `tools/generate-impact-audio.py`. Assets provisionales del proyecto, sin atribución externa necesaria. Formato/energía en previews/audio-checks.json.
 - Animación procedural, brazo, destello y código ImpactFeedback creados en el proyecto; capturas impact-*.png extraídas del motor. Video con audio mezclado desde eventos registrados y WAV originales (no captura del mezclador del sistema).
 - API consultada: [AudioStreamPlayer](https://docs.godotengine.org/en/stable/classes/class_audiostreamplayer.html) y [Quaternion](https://docs.godotengine.org/en/stable/classes/class_quaternion.html), documentación oficial; integración ejecutada con Godot 4.7.2.
+
+
+## Poses de derecha/revés — sesión 014
+
+Pivotes, geometría articulada, codos, zapatos, cara y animación generados como código del proyecto, sin modelos/animaciones externos. Capturas pose-*.png provienen del ejecutor stroke_pose_checks con cámara cercana de prueba; no representan cambio de encuadre de juego.

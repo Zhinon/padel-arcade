@@ -120,6 +120,9 @@ func _build_players() -> void:
 		if i == 0:
 			controlled_player.visual = player
 		var shirt := Color("ed8255") if i < 2 else Color("c8e4ef")
+		if i == 0:
+			_build_articulated_avatar(player, shirt)
+			continue
 		var torso := CapsuleMesh.new()
 		torso.radius = 0.24
 		torso.height = 0.7
@@ -141,6 +144,54 @@ func _build_players() -> void:
 		racket.position = Vector3(0.5, 0.85, -0.12)
 		if i == 0:
 			controlled_player.racket = racket
+
+func _build_articulated_avatar(avatar: Node3D, shirt: Color) -> void:
+	var hips := Node3D.new()
+	hips.name = "HipsPivot"
+	avatar.add_child(hips)
+	hips.position.y = 0.65
+	for side: float in [-1.0, 1.0]:
+		var leg_mesh := CapsuleMesh.new()
+		leg_mesh.radius = 0.095
+		leg_mesh.height = 0.68
+		var leg := _mesh("LegLeft" if side < 0 else "LegRight", leg_mesh, Color("223745"), hips)
+		leg.position = Vector3(side * 0.13, -0.23, 0)
+		var shoe := BoxMesh.new()
+		shoe.size = Vector3(0.18, 0.12, 0.3)
+		var foot := _mesh("FootLeft" if side < 0 else "FootRight", shoe, Color("e3e7de"), hips)
+		foot.position = Vector3(side * 0.13, -0.58, -0.06)
+	var torso := Node3D.new()
+	torso.name = "TorsoPivot"
+	avatar.add_child(torso)
+	torso.position.y = 1.05
+	var body_mesh := CapsuleMesh.new()
+	body_mesh.radius = 0.24
+	body_mesh.height = 0.7
+	var body := _mesh("Shirt", body_mesh, shirt, torso)
+	body.position.y = 0.1
+	body.scale.z = 0.68
+	var neck_mesh := CapsuleMesh.new()
+	neck_mesh.radius = 0.075
+	neck_mesh.height = 0.2
+	var neck := _mesh("Neck", neck_mesh, Color("d8ad88"), torso)
+	neck.position.y = 0.48
+	var head := _sphere("Head", 0.18, Color("d8ad88"), torso)
+	head.position.y = 0.67
+	var nose := _sphere("Nose", 0.055, Color("d8ad88"), torso)
+	nose.position = Vector3(0, 0.66, -0.17)
+	for side: float in [-1.0, 1.0]:
+		var eye := _sphere("Eye", 0.022, Color("263338"), torso)
+		eye.position = Vector3(side * 0.065, 0.72, -0.155)
+		for part: String in ["Upper", "Fore"]:
+			var mesh := CapsuleMesh.new()
+			mesh.radius = 0.065 if part == "Upper" else 0.055
+			mesh.height = 0.4
+			_mesh(part + ("ArmLeft" if side < 0 else "ArmRight"), mesh, shirt if part == "Upper" else Color("d8ad88"), avatar)
+		_sphere("ElbowLeft" if side < 0 else "ElbowRight", 0.065, Color("d8ad88"), avatar)
+	var racket := _sphere("Racket", 0.21, Color("d3e457"), avatar)
+	racket.scale = Vector3(0.75, 1.0, 0.12)
+	racket.position = Vector3(0.5, 0.85, -0.12)
+	controlled_player.racket = racket
 
 func set_camera_preset(index: int) -> void:
 	preset_index = clampi(index, 0, PRESETS.size() - 1)

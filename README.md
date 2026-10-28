@@ -2,9 +2,11 @@
 
 Juego de pádel 3D para PC, con jugabilidad arcade inspirada en Virtua Tennis y adaptación posterior a celular. Desarrollo individual asistido por Codex. Documentación en español.
 
-**Estado al 28/10/2026, sesión 012:** práctica con preparación que planta al jugador, carga fijada al soltar y contacto automático. Tiro preparado y defensa tardía diferenciados; sobrecarga con riesgo de cerramiento directo. Se conserva la física calibrada y el laboratorio anterior. Sensación de control aceptada por el usuario. Preparación/impacto con animación y tres sonidos provisionales; M silencia. Sin rival ni partido todavía.
+**Estado al 28/10/2026, sesión 014:** práctica con preparación que planta al jugador, carga fijada al soltar y contacto automático. Tiro preparado y defensa tardía diferenciados; sobrecarga con riesgo de cerramiento directo. Se conserva la física calibrada y el laboratorio anterior. Sensación de control aceptada por el usuario. Derecha y revés con giro de torso/cadera, codos y apoyos; tres sonidos provisionales; M silencia. Sin rival ni partido todavía.
 
-![Práctica con jugador controlable](docs/previews/practice.png)
+![Contacto de revés: vista cercana de revisión](docs/previews/pose-backhand-contact.png)
+
+La vista cercana es de revisión; el juego conserva la cámara general de cancha.
 
 En Linux: `./tools/run-godot.sh`. **WASD/flechas:** mover; **R:** recibir pelota; **Espacio:** mantener para cargar, soltar para fijar (ideal 90%); contacto automático; **T:** cambiar zona; **P:** pausa; **F8:** laboratorio.
 

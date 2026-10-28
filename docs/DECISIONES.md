@@ -111,3 +111,10 @@ Para cambiar una decisión: añadir fecha, contexto, alternativas relevantes, el
 
 - **D53:** la cara superior plana de los paneles de red no debe sostener indefinidamente una pelota. Asistencia arcade localizada: si normal.y ≥ 0.5 y velocidad transversal reflejada ≤ 0.05 m/s, redirigir hasta 45% de la velocidad vertical entrante hacia z, máximo 0.35 m/s y siempre limitado por rapidez total entrante. Elegir lado por posición; en simetría exacta usar sentido entrante o +z. Sin RNG ni salto de posición. Conservar rebote frontal y roce que ya atraviesa con impulso. Valores provisionales, no modelo de deformación real de una red.
 - **Límite de reproducción:** reproducido el equilibrio sobre cinta aislado; el usuario no proporcionó entradas/posición exactas de su tiro. Se ensayaron además 18 trayectorias generadas por carga 100% apuntando abajo.
+
+
+## 28/10/2026 — sesión 014: poses de derecha y revés
+
+- **D54, pedido del usuario:** el revés debe girar al personaje de costado; brazo/pala no deben atravesar el torso. Se mejora el muñeco actual antes del globo, manteniendo control y contacto aceptados.
+- **D55, implementación provisional:** avatar controlado diestro con torso/cadera independientes, pies orientados y brazos de dos segmentos. Lado por x relativo de pelota con banda de estabilidad ±0.15 m; torso de costado en preparación/contacto y mano de apoyo en revés. Trayectoria de pala proyectada fuera del volumen del torso durante preparación/seguimiento; codos por delante y fuera de sus bordes. No modifica colisión física del jugador ni mueve pelota/cuerpo para alcanzar.
+- **D56, alcance de validación:** 18 casos representativos, tres alturas y preparación corta/larga en ambos lados, con muestras de brazo y pala fuera del volumen conservador del torso. Exactitud de impacto, giro y recuperación verificados; revisión de capturas cercana. No equivale a rig final, límites biomecánicos completos o garantía para todas las pelotas dentro del collider del personaje. Personajes estáticos restantes no se rehicieron.

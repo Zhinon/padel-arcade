@@ -170,3 +170,14 @@
 **Cambio:** asistencia localizada de caída para contactos superiores de escaso impulso transversal. Redirige fracción de energía vertical entrante, con tope de rapidez; no mueve posición ni usa RNG. Cara frontal y roces de cruce con impulso quedan intactos.
 
 **Pruebas:** 35 casos después (incluye 15 caídas, 18 tiros al 100% y dos roces), todos llegan al piso; energía, finitud y presupuesto de impactos verificados. Regresiones de pelota/jugador/recorrido aprobadas, valores vidrio/reja conservados. Sin ventana o nueva valoración humana. Documentación e informes antes/después guardados; punto Git al cierre.
+
+
+## 28/10/2026 — Sesión 014: revés con cuerpo de costado
+
+**Pedido:** revisar muñecos antes del globo: giro de cuerpo en revés y evitar brazo atravesando torso.
+
+**Cambio:** avatar controlado articulado con cadera/torso, codos y dos segmentos por brazo, manos de apoyo en revés, zapatos y apoyos visibles. Selección derecha/revés automática y estable. Preparación anticipa zona de contacto; pala y brazos rodean frente del torso durante seguimiento. Sin cambios en controles, tiempos, golpes o física.
+
+**Revisión:** pruebas de 18 casos y capturas próximas; se ajustó posición del codo para evitar brazo excesivamente estirado, se definió silueta de torso para hacer visible giro y se agregó cuello. La cámara de juego permanece igual. Aprobadas regresiones de impacto/audio y jugador (90 trayectorias/diez contactos). No prueba humana ni rig final.
+
+**Continuación:** usuario revisa derecha/revés y su recuperación; después globo. Documentación e informe de poses guardados, punto Git al cierre.

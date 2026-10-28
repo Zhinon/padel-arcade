@@ -72,7 +72,7 @@ func move_player(direction: Vector2, delta: float) -> void:
 	if position.z != constrained_z: velocity.z = 0.0
 	position.x = constrained_x
 	position.z = constrained_z
-	if visual != null and direction.length() > 0.1:
+	if visual != null and direction.length() > 0.1 and not preparing:
 		# Small turn: retain a readable stance facing the opposing half.
 		visual.rotation.y = lerp_angle(visual.rotation.y, -direction.x * 0.35, minf(delta * 12, 1.0))
 

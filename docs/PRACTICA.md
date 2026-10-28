@@ -1,10 +1,10 @@
-# Práctica de preparación y contacto automático — sesión 012
+# Práctica de preparación y contacto automático — sesión 014
 
 Un jugador se mueve y devuelve pelotas de un lanzador. Se mantiene la cámara aprobada y la física calibrada de E2. Los otros tres personajes siguen estáticos; no hay rival, marcador ni partido.
 
 ![Jugador controlable y primer golpe](previews/practice.png)
 
-[Demostración de seis segundos](previews/practice.mp4): entradas sintéticas de Godot realizan dos contactos. Es una prueba grabada, no un rival o asistente que juegue por el usuario. El audio del video se mezcla con los WAV del juego según el registro de eventos, no se graba de la salida de audio del sistema.
+[Demostración histórica de sesión 012, seis segundos](previews/practice.mp4): entradas sintéticas de Godot realizan dos contactos. Es una prueba grabada, no un rival o asistente que juegue por el usuario. El audio del video se mezcla con los WAV del juego según el registro de eventos, no se graba de la salida de audio del sistema.
 
 ## Empezar
 
@@ -78,7 +78,17 @@ Se distinguen tres resultados: **normal** (destello celeste y golpe seco), **per
 
 La pala coincide con el contacto, el brazo acompaña y el gesto vuelve al reposo en 0.24 s. El destello dura 0.18 s y se dibuja como ayuda de lectura aunque lo tape el avatar. Son sonidos originales sintéticos provisionales; falta evaluación auditiva con el usuario. **M** silencia/reactiva y conserva preferencia al pausar o cambiar laboratorio dentro de esta ejecución; aún no se guarda entre ejecuciones.
 
-Capturas: [preparación](previews/impact-preparation.png), [perfecto](previews/impact-perfect.png) y [defensa](previews/impact-defense.png). Ejecutor `tests/impact_checks.gd`: contacto, clases de audio, neutralización, silencio, pausa/F8 y preservación de física.
+### Derecha y revés
+
+El muñeco controlado es **diestro** en este prototipo. Pelota a su derecha: derecha; a su izquierda: revés. La selección es automática, sin botón adicional. Cerca del centro conserva el lado elegido para que no cambie de pose continuamente.
+
+Torso y cadera se giran, los pies adoptan apoyo de costado y el brazo flexiona por el codo. En revés, la mano libre acompaña el agarre. La preparación aproxima la pala a la zona de contacto y el seguimiento rodea el frente del cuerpo. La pala sigue contactando en el evento físico original, sin esperar que termine una animación. Son poses geométricas provisionales, no un esqueleto deportivo final.
+
+**Para probar el revés:** recibí con R y ubicá al jugador un poco a la derecha de la trayectoria de la pelota antes de preparar. No necesitás apuntar hacia la izquierda para elegir revés: el apuntado sigue seleccionando destino del tiro.
+
+Capturas de revisión cercana: [revés preparado](previews/pose-backhand-preparation.png), [contacto de revés](previews/pose-backhand-contact.png), [derecha](previews/pose-forehand-contact.png). Solo el ejecutor usa cámara cercana; el encuadre de juego aprobado no cambia.
+
+Capturas de sesión 012 (presentación anterior, históricas): [preparación](previews/impact-preparation.png), [perfecto](previews/impact-perfect.png) y [defensa](previews/impact-defense.png). Ejecutor `tests/impact_checks.gd`: contacto, clases de audio, neutralización, silencio, pausa/F8 y preservación de física.
 
 ## Laboratorio anterior
 

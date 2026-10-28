@@ -1,0 +1,116 @@
+{
+	"cases": [
+		{
+			"contact_error_m": 0.0,
+			"height": 0.3,
+			"preparation_ticks": 1,
+			"side": "backhand"
+		},
+		{
+			"contact_error_m": 0.0,
+			"height": 0.3,
+			"preparation_ticks": 86,
+			"side": "backhand"
+		},
+		{
+			"contact_error_m": 0.0,
+			"height": 0.9,
+			"preparation_ticks": 1,
+			"side": "backhand"
+		},
+		{
+			"contact_error_m": 0.0,
+			"height": 0.9,
+			"preparation_ticks": 86,
+			"side": "backhand"
+		},
+		{
+			"contact_error_m": 0.0,
+			"height": 1.8,
+			"preparation_ticks": 1,
+			"side": "backhand"
+		},
+		{
+			"contact_error_m": 0.0,
+			"height": 1.8,
+			"preparation_ticks": 86,
+			"side": "backhand"
+		},
+		{
+			"contact_error_m": 0.0,
+			"height": 0.3,
+			"preparation_ticks": 1,
+			"side": "forehand"
+		},
+		{
+			"contact_error_m": 0.0,
+			"height": 0.3,
+			"preparation_ticks": 86,
+			"side": "forehand"
+		},
+		{
+			"contact_error_m": 0.0,
+			"height": 0.9,
+			"preparation_ticks": 1,
+			"side": "forehand"
+		},
+		{
+			"contact_error_m": 0.0,
+			"height": 0.9,
+			"preparation_ticks": 86,
+			"side": "forehand"
+		},
+		{
+			"contact_error_m": 0.0,
+			"height": 1.8,
+			"preparation_ticks": 1,
+			"side": "forehand"
+		},
+		{
+			"contact_error_m": 0.0,
+			"height": 1.8,
+			"preparation_ticks": 86,
+			"side": "forehand"
+		},
+		{
+			"contact_error_m": 0.0,
+			"height": 0.3,
+			"preparation_ticks": 1,
+			"side": "forehand"
+		},
+		{
+			"contact_error_m": 0.0,
+			"height": 0.3,
+			"preparation_ticks": 86,
+			"side": "forehand"
+		},
+		{
+			"contact_error_m": 0.0,
+			"height": 0.9,
+			"preparation_ticks": 1,
+			"side": "forehand"
+		},
+		{
+			"contact_error_m": 0.0,
+			"height": 0.9,
+			"preparation_ticks": 86,
+			"side": "forehand"
+		},
+		{
+			"contact_error_m": 0.0,
+			"height": 1.8,
+			"preparation_ticks": 1,
+			"side": "forehand"
+		},
+		{
+			"contact_error_m": 0.0,
+			"height": 1.8,
+			"preparation_ticks": 86,
+			"side": "forehand"
+		}
+	],
+	"engine": "4.7.2-stable (official)",
+	"failures": [],
+	"minimum_forearm_clearance_m": 0.0591243374347687,
+	"note": "Procedural right-handed placeholder rig. Samples representative preparation/contact/follow paths, not full production skeletal collision guarantees."
+}

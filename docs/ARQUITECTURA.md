@@ -66,3 +66,8 @@ No existe IA de jugador en runtime. El conductor que realiza contactos de prueba
 ## Presentación — sesión 012
 
 ImpactFeedback observa `BasicShot.hit` y no modifica simulación. Prioridad 30 después de pelota y golpe: aplica pose de pala al contacto y solicita AudioStreamPlayer en el mismo evento; luego anima seguimiento, brazo y destello. PlayerMotor mantiene autoridad exclusiva del desplazamiento; se retiró su antigua rotación independiente de pala para no competir. Root coordina activación, alimentación, pausa y laboratorio. M controla silencio de efectos, sin mutar el bus global. Sonidos importados desde game/audio, generados por tools/generate-impact-audio.py.
+
+
+## Avatar articulado provisional — sesión 014
+
+Solo el jugador controlado usa HipsPivot y TorsoPivot, brazos Upper/Fore con codos y pies diferenciados. ImpactFeedback selecciona derecha/revés, gira pivotes y resuelve segmentos hombro→codo→mano; la mano libre acompaña revés. PlayerMotor conserva desplazamiento/colisión y no usa apuntado para orientar el avatar durante preparación. Pala se coloca exactamente en hit; preparación y seguimiento usan recorrido exterior al torso. No hay esqueleto importado ni nuevo sistema físico de articulaciones. Cámara cercana de stroke_pose_checks solo para revisión.

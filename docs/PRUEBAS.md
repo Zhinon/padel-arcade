@@ -173,3 +173,12 @@ Quince caídas: x [-4.25,-2.25,0.25,2.25,4.25], z [-0.006,0,0.006], centro a alt
 Después: 35/35 llegan al piso antes de 5 s, máximo 1.941 s desde lanzamiento; sin estado no finito ni agotamiento de impactos. Energía saliente de cada contacto ≤ entrante +0.001 m/s de tolerancia en rapidez. Primer contacto y sentido de ambos roces conservados. Informe `previews/net-tape-checks.json`. No se afirma captura exacta de la jugada del usuario ni validación visual de este ajuste.
 
 Regresiones ejecutadas: `ball_checks.gd` (13), `player_checks.gd` (90 trayectorias, diez devoluciones/control/riesgos) y `travel_checks.gd` (22 recorridos), sin fallos. Retorno de globo 2.00 m y reja máximo 4.25 m conservados. Cambia solo respuesta de contactos superiores de red, sin modificar coeficientes de piso/vidrio/reja.
+
+
+## Sesión 014 — derecha, revés y brazos fuera del torso
+
+`tests/stroke_pose_checks.gd`, Godot 4.7.2.stable.official.ed1daf0bf, paso 1/120 s. Dieciocho casos: posiciones x -0.8/0/+0.8 m, alturas 0.3/0.9/1.8 m y 1/86 ticks de preparación. Contacto relativo (±0.8, altura, -0.4), central (0, altura, -0.65) al cuerpo en (0,0,6.8). Verifica selección automática, giro de torso/cadera en preparado, contacto <0.0001 m, sin cambio de velocidad de pelota ni posición del cuerpo por animación y retorno de pivotes al reposo.
+
+En preparación/contacto/40 pasos de seguimiento se muestrean 13 puntos de cada segmento de ambos brazos contra envolvente conservadora de torso (cápsula radio 0.24 m, eje local y [-0.01,0.21]). Margen adicional de radio de cada brazo; tolerancia de unión del hombro 0.008 m. Se verifica además separación de centro de pala ≥0.445 m respecto al eje. Mínimo margen de antebrazo observado 0.0591 m, sin fallos. No cubre toda combinación de altura/distancia ni reemplaza observación humana de biomecánica.
+
+Capturas cercanas de preparación/contacto/seguimiento de ambos lados renderizadas e inspeccionadas: se mejoró flexión de codo, silueta de torso y unión del cuello tras revisión. Seis PNG pose-*.png; el zoom es exclusivo de prueba. `impact_checks.gd` (tres clases/audio/silencio/pausa) y `player_checks.gd` (90 trayectorias/diez devoluciones/controles) siguen aprobados. Importación sin errores de scripts. No se modificaron simulación de pelota ni materiales de cancha; no se repitieron recorridos/FPS pasivos.
