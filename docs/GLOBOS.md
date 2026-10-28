@@ -30,3 +30,8 @@ Presentación reutiliza poses provisionales derecha/revés y sonidos de clases n
 Regresiones de plano/control (90 trayectorias/diez devoluciones), chiquita (54/24/tres feeds y segundo pique), impactos/audio (tres) y abanicazos (cinco) aprobadas. Importación sin errores de scripts; capturas nativas de vuelo y controles a 640×360 revisadas. El render usa llvmpipe y no mide rendimiento objetivo.
 
 [Demostración de tres segundos](previews/lob.mp4), sin audio y con contacto sintético. [Captura](previews/lob.png). Informe: previews/lob-checks.json.
+
+
+## Valoración humana — sesión 022
+
+Tras la implementación, el usuario dijo «lo sentí bien». Sensación general aceptada como base; no se registraron duración de prueba, dispositivo o casos particulares. Mantener esta base al añadir remate/volea.

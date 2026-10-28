@@ -165,3 +165,8 @@ Para cambiar una decisión: añadir fecha, contexto, alternativas relevantes, el
 - **D72, pedido del usuario:** un botón para plano y otro para globo. Asignación provisional Espacio/A para plano, E/B para globo, conservando chiquita en plano con carga baja y abajo.
 - **D73:** ambos mantienen preparación/fijación/contacto automático. Otro botón cambia tipo, reinicia carga y conserva tiempo de preparación/equilibrio. Liberación solo del botón seleccionado fija; repetir mismo botón tras fijar cancela. Sin contactos duplicados ni golpe por soltar.
 - **D74, globo provisional:** apex 3.0–5.5 m y profundidad 4.0–8.0 m según potencia efectiva; dirección desplaza destino, limitado nominalmente a 3–9 m. Sobrecarga agrega riesgo de cerramiento antes del piso, sin bajar arco como plano. Sin cambio de física pasiva/cámara. Poses/sonidos existentes reutilizados; remate y volea aún pendientes.
+
+
+## 28/10/2026 — sesión 022: aceptación de plano/globo
+
+- **D75, feedback del usuario:** «lo sentí bien» tras incorporar botones separados. Se acepta cualitativamente la sensación actual de plano/globo como base. No implica prueba exhaustiva, duración medida, mando físico aprobado o validación específica de todos los casos/segundo pique. Próximo trabajo de P40: remate contextual y volea, conservando control aceptado.

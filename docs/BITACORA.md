@@ -250,3 +250,8 @@
 **Implementación:** destino y apex de globo según potencia efectiva, dirección limitada por calidad y sobrecarga al cerramiento. Solver usa integrador existente; no modifica cámara/pelota física ni añade spin. Presentación derecha/revés y audio reutilizados. HUD/guía actualizados.
 
 **Verificación:** 54 trayectorias y tres feeds reales con E, mapa B, cambios/cancelación/liberaciones, mantener sin repetir, foco/pausa/R/laboratorio aprobados. Plano/control 90/diez, chiquita 54/24/tres feeds y segundo pique, tres impactos/audio y cinco abanicazos aprobados. Importación sin errores de scripts; vista nativa y HUD 640×360 revisados. Video de tres segundos generado, sin audio. Valoración humana y mando físico pendientes; documentación y punto Git al cierre.
+
+
+## 28/10/2026 — Sesión 022: sensación de plano/globo aceptada
+
+Usuario indica «lo sentí bien». Registrada aceptación cualitativa, sin inferir duración, dispositivo o casos específicos. Plan y continuidad pasan al remate contextual pendiente en P40, después volea. No cambios de código ni nuevas pruebas del motor; calibración restante sigue abierta.

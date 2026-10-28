@@ -1,6 +1,6 @@
 # Estado y próxima sesión
 
-Actualizado: 28/10/2026, zona America/Argentina/Mendoza. Sesión 021.
+Actualizado: 28/10/2026, zona America/Argentina/Mendoza. Sesión 022.
 
 ## Dónde estamos
 
@@ -72,11 +72,11 @@ Nueva comprobación de segundo pique, 54 trayectorias/24 transiciones/tres feeds
 
 Espacio/A prepara plano, E/B prepara globo. Ambos cargan/fijan al soltar y golpean al llegar pelota. Chiquita se mantiene en plano. Otro botón cambia tipo y reinicia carga conservando preparación; soltar anterior no afecta al nuevo, mismo botón tras fijar cancela. R/pausa/laboratorio limpian.
 
-Globo tiene arco/profundidad propios, con calidad y sobrecarga al cerramiento. Ejemplo 25%: apex 3.65 m/profundidad 5 m; ~90%: 5.25 m/7.58 m. Cámara/física pasiva sin cambios, poses/sonidos provisionales compartidos. 54 trayectorias/tres feeds y controles probados; regresiones de plano, chiquita, impacto y abanicazo aprobadas. Captura nativa y HUD pequeño revisados. GLOBOS.md contiene parámetros, límites y evidencia; prueba humana/mando físico pendientes.
+Globo tiene arco/profundidad propios, con calidad y sobrecarga al cerramiento. Ejemplo 25%: apex 3.65 m/profundidad 5 m; ~90%: 5.25 m/7.58 m. Cámara/física pasiva sin cambios, poses/sonidos provisionales compartidos. 54 trayectorias/tres feeds y controles probados; regresiones de plano, chiquita, impacto y abanicazo aprobadas. Captura nativa y HUD pequeño revisados. GLOBOS.md contiene parámetros, límites y evidencia; El usuario aprobó cualitativamente la sensación de plano/globo («lo sentí bien»), sesión 022. No se midieron duración ni casos concretos; mando físico pendiente.
 
 ## Próximo paso
 
-**Probar dos botones y globos con el usuario (P41):** comparar plano/Espacio y globo/E; 25–30% frente a 90%, dirección y cambio de botón. Conservar sensación aceptada y revisar segundo pique calibrado. Después continuar P40 remate contextual/volea; rival activo sigue pendiente.
+**Continuar P40: remate contextual y después volea.** Sensación de plano/globo aceptada cualitativamente por el usuario. Conservar esta base; detalles de remate y sus pruebas se definirán al implementarlo. P41 sigue abierto para calibración restante, incluido segundo pique específico; rival activo pendiente.
 
 ## Abrir
 
