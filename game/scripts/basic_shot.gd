@@ -21,6 +21,13 @@ enum State { IDLE, PREPARING, LOCKED, STRIKING, RECOVERING, MISSED }
 @export var overload_width: float = 6.0
 @export var overload_net_clearance: float = 0.45
 @export var overload_net_risk_strength: float = 1.6
+@export var touch_charge_limit: float = 0.40
+@export var touch_charge_fade: float = 0.65
+@export var touch_depth: float = 1.6
+@export var touch_net_height: float = 1.16
+@export var touch_minimum_power: float = 0.18
+@export var touch_net_penalty: float = 0.9
+@export var touch_horizontal_speed: float = 8.0
 var player: CharacterBody3D
 var ball: CharacterBody3D
 var enabled: bool = false
@@ -72,7 +79,7 @@ func begin_prepare() -> void:
 	aim = Vector2.ZERO
 	previous_ball_position = ball.position
 	player.preparing = true
-	feedback.emit("Preparando · soltá cerca del 90% · direccional apunta")
+	feedback.emit("Preparando · poca carga + abajo: chiquita · 90%: potencia")
 
 func release_shot(direction: Vector2) -> void:
 	if not enabled or paused or state != State.PREPARING:
@@ -89,7 +96,12 @@ func cancel_prepare() -> void:
 	feedback.emit("Preparación cancelada · podés moverte")
 
 func target_for_aim(direction: Vector2) -> Vector3:
-	return Vector3(clampf(player.position.x + direction.x * 4.0, -3.8, 3.8), ball.radius, -5.5 + direction.y * 1.8)
+	var depth := lerpf(-5.5 + direction.y * 1.8, -touch_depth, touch_weight(direction, shot_charge))
+	return Vector3(clampf(player.position.x + direction.x * 4.0, -3.8, 3.8), ball.radius, depth)
+
+func touch_weight(direction: Vector2, charge: float) -> float:
+	# Blend continuously into a short shot; charge is intent, not contact quality.
+	return smoothstep(0.2, 0.8, direction.y) * (1.0 - smoothstep(touch_charge_limit, touch_charge_fade, charge))
 
 func _physics_process(delta: float) -> void:
 	if enabled and not paused:
@@ -155,7 +167,7 @@ func result_for_contact() -> Dictionary:
 	var short_aim := maxf(0.0, aim.y)
 	goal.z -= overload_depth * risk * lerpf(0.6, 1.0, maxf(0.0, -aim.y)) * (1.0 - short_aim)
 	goal.x += aim.x * overload_width * risk
-	return {"quality": contact_quality_value, "power": power, "target": goal, "defensive": defensive, "overload": overload, "net_risk": risk * short_aim}
+	return {"quality": contact_quality_value, "power": power, "target": goal, "defensive": defensive, "overload": overload, "net_risk": risk * short_aim, "touch": touch_weight(aim, shot_charge)}
 
 func _execute_contact() -> void:
 	state = State.STRIKING
@@ -163,7 +175,7 @@ func _execute_contact() -> void:
 	quality = result.quality
 	effective_power = result.power
 	target = result.target
-	var outgoing := solve_velocity(ball.position, target, effective_power, result.net_risk)
+	var outgoing := solve_velocity(ball.position, target, effective_power, result.net_risk, result.touch, quality)
 	ball.strike(outgoing, 0)
 	hits += 1
 	charging = false
@@ -171,16 +183,20 @@ func _execute_contact() -> void:
 	player.preparing = false
 	recovery = emergency_recovery if result.defensive else recovery_duration
 	state = State.RECOVERING
-	var perfect: bool = absf(shot_charge - perfect_charge) <= perfect_tolerance and quality >= 0.85 and not result.defensive
+	var touch_shot: bool = result.touch >= 0.9 and not result.defensive
+	var ideal_charge: bool = shot_charge >= 0.12 and shot_charge <= touch_charge_limit if touch_shot else absf(shot_charge - perfect_charge) <= perfect_tolerance
+	var perfect: bool = ideal_charge and quality >= 0.85 and not result.defensive
 	var message := "Buen contacto · recuperá posición"
-	if perfect:
+	if touch_shot:
+		message = "¡Chiquita bien colocada!" if perfect else "Chiquita · suave a los pies"
+	elif perfect:
 		message = "¡Golpe perfecto!"
 	elif result.overload > 0.0:
 		message = "Sobrecarga · menos margen sobre la red" if result.net_risk > 0.0 else "Sobrecarga · menos margen al cerramiento"
 	elif result.defensive:
 		message = "Defensa exigida · poca potencia y dirección"
 	feedback.emit(message)
-	hit.emit({"position": ball.position, "velocity": outgoing, "target": target, "charge": shot_charge, "quality": quality, "effective_power": effective_power, "defensive": result.defensive, "perfect": perfect, "net_risk": result.net_risk})
+	hit.emit({"position": ball.position, "velocity": outgoing, "target": target, "charge": shot_charge, "quality": quality, "effective_power": effective_power, "defensive": result.defensive, "perfect": perfect, "net_risk": result.net_risk, "touch": result.touch, "shot_type": "chiquita" if touch_shot else ("defense" if result.defensive else "drive")})
 
 func _finish_miss(message: String) -> void:
 	misses += 1
@@ -209,7 +225,7 @@ func contact_reason() -> String:
 		return "Fuera de alcance · acercate a la pelota"
 	return ""
 
-func solve_velocity(at: Vector3, goal: Vector3, power: float, net_risk: float = 0.0) -> Vector3:
+func solve_velocity(at: Vector3, goal: Vector3, power: float, net_risk: float = 0.0, touch: float = 0.0, contact: float = 1.0) -> Vector3:
 	var duration := lerpf(1.55, 1.10, clampf(power, 0.0, 1.0))
 	var outgoing := Vector3.ZERO
 	for iteration in range(10):
@@ -217,6 +233,33 @@ func solve_velocity(at: Vector3, goal: Vector3, power: float, net_risk: float = 
 		if _net_height(at, outgoing, duration) >= 1.3:
 			break
 		duration += 0.10
+	if touch > 0.0:
+		# Find a lower arc for the short destination using the actual fixed-step model.
+		# Poor contact with insufficient power loses net margin instead of being rescued.
+		var deficit := clampf((touch_minimum_power - power) / touch_minimum_power, 0.0, 1.0)
+		var low := maxf(0.15, Vector2(goal.x - at.x, goal.z - at.z).length() / touch_horizontal_speed)
+		# Account for drag and tick rounding when bounding initial horizontal speed.
+		for tick in range(12):
+			var minimum_velocity := _velocity_for_duration(at, goal, low)
+			if Vector2(minimum_velocity.x, minimum_velocity.z).length() <= touch_horizontal_speed:
+				break
+			low += 1.0 / Engine.physics_ticks_per_second
+		var high := maxf(3.0, low)
+		for iteration in range(22):
+			var middle := (low + high) * 0.5
+			var candidate := _velocity_for_duration(at, goal, middle)
+			if _net_height(at, candidate, middle) < touch_net_height:
+				low = middle
+			else:
+				high = middle
+		var soft_velocity := _velocity_for_duration(at, goal, high)
+		var normal_height := _net_height(at, soft_velocity, high)
+		var response := _net_height(at, soft_velocity + Vector3.UP, high) - normal_height
+		var weakness := deficit * (1.0 - contact)
+		if response > 0.001 and weakness > 0.0001:
+			var desired_height := touch_net_height - weakness * touch_net_penalty
+			soft_velocity.y -= maxf(0.0, normal_height - desired_height) / response
+		outgoing = outgoing.lerp(soft_velocity, touch)
 	if net_risk > 0.0:
 		# Apply after the safe-arc assistance, so it cannot erase the risk.
 		var normal_height := _net_height(at, outgoing, duration)

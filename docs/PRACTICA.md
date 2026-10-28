@@ -1,4 +1,4 @@
-# Práctica de preparación y contacto automático — sesión 017
+# Práctica de preparación y contacto automático — sesión 019
 
 Un jugador se mueve y devuelve pelotas de un lanzador. Se mantiene la cámara aprobada y la física calibrada de E2. Los otros tres personajes siguen estáticos; no hay rival, marcador ni partido.
 
@@ -17,7 +17,7 @@ Desde la raíz del proyecto en Linux:
 1. El jugador naranja con aro es el que controlás. Al abrir, la pelota espera en el lanzador.
 2. Pulsá **R**. La primera pelota llega por tu zona inicial, a la izquierda.
 3. Movete con **WASD o flechas**. Llegá antes de preparar: al preparar el personaje frena y se planta.
-4. Mantené **Espacio** para cargar y soltalo cerca del **90%** para fijar potencia. El contacto ocurre automáticamente al llegar la pelota, incluso si todavía estás manteniendo el botón. Apuntá con WASD/flechas mientras estás plantado.
+4. Mantené **Espacio** para cargar y soltalo cerca del **90%** para un golpe potente, o **20–40% + abajo** para probar una chiquita. El contacto ocurre automáticamente al llegar la pelota, incluso si todavía estás manteniendo el botón. Apuntá con WASD/flechas mientras estás plantado.
 5. **R** repite esa pelota. **T** cambia la zona de alimentación entre izquierda, centro y derecha y lanza.
 
 Si aparece PAUSA al cambiar de ventana, pulsá **P** para continuar.
@@ -126,3 +126,12 @@ F1–F7 desde práctica entran al laboratorio y seleccionan escenario. Allí Esp
 ```
 
 Informe: `previews/player-checks.json`. Coeficientes de rebote anteriores conservados; regresiones documentadas en PRUEBAS.md.
+
+
+## Probar la chiquita
+
+Recibí con R y llegá temprano. Prepará con Espacio, soltá al 20–40% para fijar poca potencia y mantené S/flecha abajo hasta el contacto automático. A/D permite colocación lateral; diagonal abajo también sirve. Seguir plantado después de soltar mejora preparación sin aumentar potencia. La pelota busca un pique corto cerca de la red rival; el aro indica destino aproximado. Un contacto preparado puede mostrar «¡Chiquita bien colocada!» y usar feedback de golpe excelente, aunque no tenga 90% de carga.
+
+Compará con pulsar tarde: perdés dirección y una carga mínima exigida puede quedarse en red. Más de 40% se mezcla hacia golpe base (65% ya es base); 90% y 100% conservan comportamiento previo. Parámetros provisionales: ajustar según comodidad. Los rivales siguen estáticos, por lo que todavía no prueban la ventaja táctica de subir a la red.
+
+[Demostración de chiquita, 2.5 segundos](previews/chiquita.mp4): trayectoria del motor con contacto sintético, cámara de juego y sin audio; no es un rival activo.

@@ -144,3 +144,10 @@ Para cambiar una decisión: añadir fecha, contexto, alternativas relevantes, el
 
 - **D64, orientación aceptada:** usuario quiere distinguir poca potencia deliberada de devolución débil por mala preparación; propone investigar la chiquita.
 - **D65, propuesta pendiente de prueba:** carga baja fijada temprano más dirección corta permite buscar pies del rival. Calidad independiente de cantidad de carga; no exigir 90% para todo golpe excelente. Sin botón adicional inicialmente. Detalle y límites en CHIQUITA.md; no implementado ni calibrado.
+
+
+## 28/10/2026 — sesión 019: primer prototipo de chiquita
+
+- **D66, autorización:** usuario pide continuar con siguientes pasos tras propuesta de chiquita. Se implementa prototipo y se mantiene pendiente calibración humana.
+- **D67, provisional:** carga <=40% y abajo completo produce chiquita; mezcla suave por carga (40–65%) y componente abajo (0.2–0.8). Objetivo de pique 1.6 m de red y centro de pelota sobre red 1.16 m, velocidad horizontal <=8 m/s. Parámetros exportados; no valores reglamentarios ni mediciones reales. Contacto alto/cercano puede flotar por límite de velocidad. Sin segundo botón ni ajuste al rival.
+- **D68:** calidad sigue madurando después de fijar carga. Con buena calidad (>=0.85), carga 12–40% y chiquita completa se reconoce excelente golpe suave. El 90% permanece referencia de drive potente. Una mínima carga tardía puede perder margen de red mediante trayectoria determinista, sin RNG. Riesgo potente aprobado se conserva.

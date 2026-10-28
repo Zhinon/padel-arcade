@@ -221,3 +221,12 @@
 **Pedido:** usuario propone chiquita para representar golpe suave intencional. Se consultaron dos referencias primarias de The Padel School y se documentó propuesta de control/ trayectoria en CHIQUITA.md. Calidad de preparación independiente de carga, profundidad corta y asistencia limitada; porcentajes abiertos. P45 pendiente y continuidad actualizada.
 
 **Validación:** revisión documental y de fuentes. Sin cambios de código, ejecución del motor o nuevas pruebas de gameplay.
+
+
+## 28/10/2026 — Sesión 019: chiquita jugable
+
+**Pedido:** avanzar tras investigación de chiquita. Implementados destino corto, arco bajo, mezcla de intención por carga/apuntado, feedback para golpe suave y calidad independiente de carga. HUD enseña alternativa a 90%. Física pasiva, cámara, controles y animaciones conservados.
+
+**Ajustes:** primer ejecutor colocaba pelota de espera detrás del jugador cercano y provocaba fallo antes de contacto; corregida preparación del caso. Límite de velocidad elevaba arco y anulaba el fallo mínimo; separado límite horizontal de pérdida vertical por mal contacto, sin RNG. Calibración provisional a pique de 1.6 m y máximo horizontal 8 m/s.
+
+**Verificación:** 54 trayectorias, 24 transiciones y tres feeds reales aprobados. Comparación misma carga temprana/tardía, contacto excelente suave, golpe potente y mínima carga que pega en red. Regresiones de jugador (90/diez), impacto/audio (tres), abanicazo (cinco) y cinta (35) aprobadas. Importación sin errores de scripts; captura nativa revisada, render llvmpipe. Sin prueba humana ni rival activo. Documentación y punto Git al cierre.

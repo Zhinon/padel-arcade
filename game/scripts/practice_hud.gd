@@ -78,8 +78,9 @@ func _process(_delta: float) -> void:
 	if paused:
 		status.text = "PAUSA · P para continuar"
 	elif controller.charging:
-		status.text = ("Carga %d%% · ideal 90%% · direccional apunta" if compact else "Carga %d%% · soltá cerca del 90%% para fijar · direccional apunta") % roundi(100.0 * controller.charge_time / controller.full_preparation)
+		status.text = ("Carga %d%% · suave + abajo: chiquita" if compact else "Carga %d%% · suave + abajo: chiquita · 90%%: golpe potente · soltar fija") % roundi(100.0 * controller.charge_time / controller.full_preparation)
 	elif controller.armed_time > 0.0:
-		status.text = "Fijada %d%% · apuntá · Espacio cancela" % roundi(controller.shot_charge * 100.0)
+		var short_hint: String = " · abajo: chiquita" if controller.shot_charge <= controller.touch_charge_limit else ""
+		status.text = "Fijada %d%%%s · apuntá · Espacio cancela" % [roundi(controller.shot_charge * 100.0), short_hint]
 	else:
 		status.text = "WASD: mover · R: pelota · Espacio: cargar/fijar" if compact and last_message.begins_with("R para") else last_message

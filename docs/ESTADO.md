@@ -1,6 +1,6 @@
 # Estado y próxima sesión
 
-Actualizado: 28/10/2026, zona America/Argentina/Mendoza. Sesión 017.
+Actualizado: 28/10/2026, zona America/Argentina/Mendoza. Sesión 019.
 
 ## Dónde estamos
 
@@ -20,7 +20,7 @@ Godot 4.7.2.stable.official.ed1daf0bf portátil. Git local main, sin remoto. P06
 
 ## Límites
 
-Animación geométrica provisional sin esqueleto ni biomecánica final; no hay rival, arbitraje, puntos, giro o tiros avanzados. Otros personajes estáticos; pelota sin colisión con cuerpos. Sonidos sintéticos sin muestras externas; no equivalen a grabaciones de pádel. Mando solo probado sintéticamente. No se repitieron recorridos/FPS pasivos porque no se cambió esa física.
+Animación geométrica provisional sin esqueleto ni biomecánica final; no hay rival, arbitraje, puntos o giro; primera chiquita disponible, globo/remate/volea pendientes. Otros personajes estáticos; pelota sin colisión con cuerpos. Sonidos sintéticos sin muestras externas; no equivalen a grabaciones de pádel. Mando solo probado sintéticamente. No se repitieron recorridos/FPS pasivos porque no se cambió esa física.
 
 ## Corrección de red — sesión 013
 
@@ -56,9 +56,15 @@ Usuario conforme con drive y pide gesto de pala aunque erre. BasicShot emite `mi
 
 Cinco gestos comprobados: vacío, fuera de alcance izquierda/derecha, altura excesiva y pulsación tardía con pelota entrando posteriormente en alcance. También caducidad, cancelación, pausa/laboratorio y retorno al reposo. Capturas de cuatro gestos revisadas; nuevo caso tardío verificado sin ventana. Regresiones de 18 poses, tres impactos/audio y jugador (90 trayectorias/diez devoluciones) aprobadas; importación sin errores de scripts. Valoración humana del nuevo gesto pendiente.
 
+## Chiquita — sesión 019
+
+Primera chiquita con carga baja fijada y dirección abajo, sin botón nuevo. Hasta 40% mezcla hacia pique a 1.6 m de red rival; entre 40–65% vuelve gradualmente al golpe base. Dirección lateral conserva control según calidad. Preparación sigue acumulando calidad tras soltar; carga baja elegida temprano puede ser excelente (12–40% con calidad >=0.85). Tardía continúa defensiva; potencia insuficiente más mala calidad puede tocar red. Solución de arco bajo con límite horizontal 8 m/s, por lo que contacto alto/cercano puede flotar. Sin giro ni ajuste automático al rival.
+
+54 trayectorias, 24 transiciones y tres feeds reales por zonas aprobados, además de 90 trayectorias/diez devoluciones, tres impactos/audio, cinco abanicazos y 35 contactos de cinta. Captura nativa revisada con cámara conservada; todavía no evaluación humana ni efecto táctico contra rival. Guía y parámetros en CHIQUITA.md.
+
 ## Próximo paso
 
-**Prioridad propuesta tras consulta del usuario:** P45, chiquita y carga baja, antes de retomar globo/remate/volea. Diseño investigado en CHIQUITA.md; todavía sin implementación. Mantener sensación de control aceptada y comprobar con el usuario el abanicazo pendiente. La evaluación táctica de la chiquita requiere rival activo posterior.
+**Probar chiquita con el usuario (P41):** llegar temprano, fijar 20–40% y apuntar abajo o diagonal abajo. Comparar con llegada tardía y 90% potente. Ajustar según sensación, conservando el control aceptado. Después retomar P40 globo/remate/volea. Evaluación táctica requiere rival activo posterior.
 
 ## Abrir
 

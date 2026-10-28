@@ -83,3 +83,8 @@ ImpactFeedback distingue orientación cerrada de preparación y orientación abi
 BasicShot emite `missed` desde MISSED, con posición/disponibilidad de pelota, carga y motivo. El cruce del plano de contacto sin alcance resuelve fallo sin esperar caducidad; begin_prepare permite intento vacío que va directamente a MISSED. Mantener/soltar de una recepción válida conserva semántica anterior.
 
 ImpactFeedback.present_miss elige zona virtual local y anima avance/seguimiento con su propio progreso, sin reutilizar señales de strike o sonidos de impacto. Reutiliza poses de derecha/revés pero separa duración (0.28 s) y marca miss_animation; normal hit limpia esa marca. Los consumidores físicos solo reciben hit/strike real; un abanicazo no puede devolver la pelota.
+
+
+## Golpe suave — sesión 019
+
+BasicShot.touch_weight mezcla intención corta según carga y componente abajo. target_for_aim incluye esa profundidad para marcador; resultado al contacto aplica control de dirección según calidad. solve_velocity conserva firma previa con argumentos opcionales touch/contact y añade arco corto resuelto por búsqueda de duración en modelo físico existente, con límite horizontal. Debilidad por potencia insuficiente y mala calidad reduce componente vertical después de asistencia. Evento hit añade touch y shot_type (chiquita/defense/drive); perfect reconoce también golpe suave preparado. Presentación consume clase existente sin nueva autoridad de contacto. Valores exportados, sin cambios en BallSimulation o cámara.

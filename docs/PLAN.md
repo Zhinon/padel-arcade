@@ -76,7 +76,7 @@ Depende de E3. Objetivo: elegir un tiro cambia el intercambio.
 - [ ] P41 Ajustar tiempos, potencia, precisión y asistencia.
 - [x] P42 Integrar animaciones y sonido provisionales para golpe base normal/perfecto/defensivo, sin cambiar autoridad del contacto. Sesión 014: poses derecha/revés, giro de torso/cadera, codos y apoyos; 18 casos y capturas verificados. Sesión 015: reposo relajado separado, recuperación al costado y uniones de hombro; verificación frontal/lateral. Sesión 016: drive prepara al costado y abre torso antes del impacto; codos y contrapeso revisados, revés conservado en comparación de seis casos. Sesión 017: abanicazo sin contacto ante fallo o pulsación vacía; cinco gestos y regresiones aprobados. Extender a nuevos tiros cuando se incorporen. Revisión auditiva/visual del usuario pendiente.
 - [ ] P43 Añadir rival simple de laboratorio y revisar diversión con el usuario.
-- [ ] P45 Prototipar chiquita y revisar carga baja: separar calidad de potencia, ampliar profundidad corta y validar red/colocación. Diseño propuesto en CHIQUITA.md (sesión 018), implementación pendiente.
+- [x] P45 Prototipo de chiquita: carga baja + abajo, calidad independiente de carga, destino corto/arco y riesgo de red por contacto insuficiente. Sesión 019: 54 trayectorias, 24 transiciones y tres feeds reales aprobados; regresiones conservadas. Calibración humana pendiente en P41. Ver CHIQUITA.md.
 - [ ] P44 Diseñar e implementar giro de pelota (topspin, slice y lateral) con pruebas separadas de vuelo y contacto; todavía no implementado.
 
 **Salida:** intercambio de 30 segundos con decisiones de tiro que el usuario quiera repetir. Si no es divertido, iterar aquí.
