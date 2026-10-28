@@ -63,3 +63,8 @@ Excluir `.godot/`, builds y archivos locales del editor. Versionar escenas, scri
 - Teléfono de prueba y Android/iOS más adelante. Para iOS consultar requisitos de macOS/Xcode al llegar a esa etapa.
 
 No se han instalado SDK de Android/iOS, paquetes externos ni assets de tienda.
+
+
+## Arranque local — sesión 014
+
+Al abrir la práctica se observaron errores X11 BadShmSeg con la selección automática de driver; las capturas habían funcionado. Se detuvo esa ejecución y se volvió a abrir usando `DISPLAY=:1 LIBGL_ALWAYS_SOFTWARE=1 ./tools/run-godot.sh`: arranque llvmpipe sin repetición del error durante la observación. La prueba con OpenGL indirecto no creó contexto y se detuvo. Estos ajustes se limitaron a los procesos de diagnóstico; no se cambió configuración global ni el lanzador para otros equipos. El aviso VSync no soportado continúa en este entorno. No implica rendimiento validado.
