@@ -1,0 +1,50 @@
+{
+  "baseline_revision": "1fc154e",
+  "engine": "4.7.2-stable (official)",
+  "backhand_cases_unchanged": 6,
+  "rest_checks_unchanged": true,
+  "drive_examples": [
+    {
+      "before": {
+        "elbow": "(0.539421, 0.955537, -0.104494)",
+        "fore_length": 0.791698098182678,
+        "hips_yaw": -0.31920000910759,
+        "off_elbow": "(-0.189474, 1.034797, -0.682106)",
+        "racket": "(0.0, 0.9, -0.65)",
+        "torso_yaw": -0.665000021457672,
+        "upper_length": 0.549620628356934
+      },
+      "after": {
+        "elbow": "(0.411896, 0.95951, -0.363914)",
+        "fore_length": 0.539728879928589,
+        "hips_yaw": -0.0638400018215179,
+        "off_elbow": "(-0.664732, 1.182842, -0.099807)",
+        "racket": "(0.0, 0.9, -0.65)",
+        "torso_yaw": -0.133000001311302,
+        "upper_length": 0.547098815441132
+      }
+    },
+    {
+      "before": {
+        "elbow": "(0.609681, 0.962179, 0.034675)",
+        "fore_length": 0.515791058540344,
+        "hips_yaw": -0.478629410266876,
+        "off_elbow": "(0.043297, 1.034797, -0.706608)",
+        "racket": "(0.8, 0.9, -0.4)",
+        "torso_yaw": -0.99714457988739,
+        "upper_length": 0.604609489440918
+      },
+      "after": {
+        "elbow": "(0.640749, 1.060719, -0.09459)",
+        "fore_length": 0.4572394490242,
+        "hips_yaw": -0.095725879073143,
+        "off_elbow": "(-0.656641, 1.182842, -0.143712)",
+        "racket": "(0.8, 0.9, -0.4)",
+        "torso_yaw": -0.199428915977478,
+        "upper_length": 0.457239508628845
+      }
+    }
+  ],
+  "failures": [],
+  "note": "Comparison of recorded cases on this platform/version, not a cross-platform determinism guarantee."
+}

@@ -190,3 +190,16 @@
 **Causa:** la postura exterior del codo usada para evitar torso durante golpe se reutilizaba con mano/pala bajas, creando un quiebre poco natural. Se separó descanso y se mezcló al finalizar gesto; el primer retorno directo rozaba envolvente conservadora del torso, por lo que se difiere relajación de codo hasta que la mano vuelve al mismo lado. Revisión visual añadió uniones de hombro para cerrar huecos.
 
 **Validación:** 18 casos de golpes y reposo inicial/posterior, codos aproximadamente 170° y 166°, sin inversión de flexión o estiramiento de segmentos. Capturas frontales/laterales inspeccionadas. Regresión de tres impactos/audio aprobada e importación sin errores de scripts. Sin cambios en control ni física; no prueba humana del nuevo reposo. Documentación actualizada y punto Git de cierre.
+
+
+## 28/10/2026 — Sesión 016: revisión del drive
+
+**Pedido:** usuario conforme con revés, drive se ve raro.
+
+**Diagnóstico:** drive reutilizaba torso cerrado hasta impacto y preparación frontal de pala, obligando brazo a extenderse. Se guardó informe anterior con poses/métricas antes de modificar. Revisión cercana detectó también codo de brazo libre plegado de forma extraña.
+
+**Cambio:** preparación de derecha al costado/atrás, apertura antes de contacto, codo de segmentos equilibrados y brazo libre de contrapeso; seguimiento más alto por delante. Se conserva guía exterior al cruzar para evitar clipping: primera versión sin esa mezcla falló los controles geométricos. Revés y reposo conservados, sin cambios de control/física.
+
+**Pruebas:** 18 casos de poses, apertura previa al contacto, longitudes de brazo en drive cómodo, reposo y contacto exacto aprobados. Seis poses de revés en tres fases coinciden con registro previo. Jugador (90 trayectorias/diez devoluciones) e impacto/audio (tres clases) aprobados. Capturas de derecha de frente/perfil y vista cercana revisadas; importación sin errores de scripts. Opinión humana del nuevo drive pendiente.
+
+**Continuidad:** usuario revisa drive; después globo si presentación resulta cómoda. Informe antes/comparación/actual y documentación guardados, punto Git al cierre.

@@ -1,6 +1,6 @@
 # Estado y próxima sesión
 
-Actualizado: 28/10/2026, zona America/Argentina/Mendoza. Sesión 015.
+Actualizado: 28/10/2026, zona America/Argentina/Mendoza. Sesión 016.
 
 ## Dónde estamos
 
@@ -41,6 +41,14 @@ Verificados 18 casos (ambos lados, tres alturas y dos preparaciones): contacto d
 El usuario aprobó los golpes de derecha/revés y señaló brazos con aspecto quebrado al descansar. Reposo ahora usa codos bajos y relajados, pala al costado y mano libre baja, separado del recorrido de golpe. La recuperación mezcla a esta pose al final y espera que las manos vuelvan a su lado antes de relajar el codo. Se agregaron uniones de hombro para evitar huecos visibles entre manga y torso.
 
 Dieciocho casos de golpes conservan aprobación; reposo inicial y posterior a cada uno verificado con codos de aproximadamente 170°/166°, manos bajo codos y sin estiramiento de segmentos. Tres clases de impacto/audio aprobadas. Capturas de reposo frontal y lateral revisadas. Los golpes, controles y simulación no se modificaron; evaluación humana del reposo nuevo pendiente.
+
+## Revisión del drive — sesión 016
+
+Usuario conforme con revés; pide corregir drive todavía raro. Se encontró torso cerrado al contacto y pala preparando por delante como bloqueo, con brazo de golpe demasiado estirado y codo de brazo libre poco natural.
+
+Cambio solo de drive: preparación al costado/atrás, apertura gradual del torso antes de impacto, codo con dos segmentos más equilibrados y brazo libre de contrapeso. Acompañamiento cruza delante y sube; reposo aprobado conservado. Pelotas detrás del cuerpo conservan orientación defensiva. No cambia física, contactos, control o recuperación.
+
+Dieciocho casos de poses aprobados, incluidos giro antes del contacto, reposo y separación del torso. En contacto lateral cómodo, segmentos de brazo pasan de 0.605/0.516 m a 0.457/0.457 m. Preparación/contacto/seguimiento de los seis casos de revés registrados coinciden con versión anterior. Regresiones de jugador (90 trayectorias/diez devoluciones) e impacto/audio aprobadas; importación y revisión de vistas frontal/lateral/cercana realizadas. Evaluación humana del drive ajustado pendiente.
 
 ## Próximo paso
 

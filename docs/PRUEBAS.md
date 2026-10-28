@@ -191,3 +191,12 @@ Capturas cercanas de preparación/contacto/seguimiento de ambos lados renderizad
 Los 18 casos de preparación/contacto/retorno, exactitud de impacto y aislamiento de física conservan aprobación. Margen mínimo de antebrazo frente a envolvente conservadora de torso -0.0007 m, dentro de tolerancia de unión de 0.008 m y torso real aplanado; no se afirma margen estrictamente positivo durante toda transición. Informe stroke-pose-checks.json actualizado. Impact_checks: tres clases, audio/silencio/pausa, sin fallos.
 
 Capturas pose-rest-front.png y pose-rest-side.png inspeccionadas con render llvmpipe forzado por LIBGL_ALWAYS_SOFTWARE=1. Cámara cercana solo en ejecutor. Uniones de hombro revisadas para evitar separación visible. Importación sin errores de scripts. Gameplay/pelota sin cambios; no se repitieron recorridos/FPS pasivos. Nuevo reposo pendiente de valoración del usuario.
+
+
+## Sesión 016 — drive con apertura antes del impacto
+
+Godot 4.7.2.stable.official.ed1daf0bf, física 120 Hz; mismo ejecutor y 18 casos de stroke_pose_checks. Informe previo a cambio `drive-review-before.json` (código de partida 1fc154e) conserva giro, posiciones de pala/codos y longitudes en preparación/contacto/seguimiento. Informe actual en stroke-pose-checks.json; comparación en drive-review-comparison.json.
+
+Nueva expectativa: drive preparado abre torso antes de contacto (yaw absoluto de contacto <60% del de preparación); drive lateral a altura 0.9 m mantiene cada segmento del brazo debajo de 0.5 m. Observado antes 0.605/0.516 m, después 0.457/0.457 m; contacto al mismo punto. Seis casos de revés, tres fases cada uno, coinciden con registros anteriores en esta versión/plataforma. No se usa igualdad de snapshots como promesa entre plataformas.
+
+Dieciocho casos y reposo mantienen separación con tolerancias previas y contacto <0.0001 m. La solución inicial del codo fallaba al acompañar por delante del torso; se agregó mezcla con guía exterior al cruzar el cuerpo, conservando las expectativas de prueba. Vistas adicionales pose-forehand-*-front/side.png revisadas junto con vista cercana anterior. Solo se cambia cámara del ejecutor. Player_checks (90 trayectorias/diez devoluciones) e impact_checks (tres clases/audio) aprobados, importación sin errores. Sin alteración de simulación pasiva; no se repiten recorridos/FPS. Validación humana del drive nuevo pendiente.

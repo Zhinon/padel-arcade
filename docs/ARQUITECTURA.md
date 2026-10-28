@@ -71,3 +71,8 @@ ImpactFeedback observa `BasicShot.hit` y no modifica simulación. Prioridad 30 d
 ## Avatar articulado provisional — sesión 014
 
 Solo el jugador controlado usa HipsPivot y TorsoPivot, brazos Upper/Fore con codos y pies diferenciados. ImpactFeedback selecciona derecha/revés, gira pivotes y resuelve segmentos hombro→codo→mano; la mano libre acompaña revés. PlayerMotor conserva desplazamiento/colisión y no usa apuntado para orientar el avatar durante preparación. Pala se coloca exactamente en hit; preparación y seguimiento usan recorrido exterior al torso. No hay esqueleto importado ni nuevo sistema físico de articulaciones. Cámara cercana de stroke_pose_checks solo para revisión.
+
+
+## Drive — sesión 016
+
+ImpactFeedback distingue orientación cerrada de preparación y orientación abierta de contacto para drive. El codo se calcula con dos segmentos equilibrados y guía exterior al cruzar el torso; brazo libre usa solución reflejada para contrapeso. Las ramas de revés y reposo no cambian. Pelota y controlador siguen siendo autoridad del impacto; ningún giro difiere ni adelanta golpe físico.

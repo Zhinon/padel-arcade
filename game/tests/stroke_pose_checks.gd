@@ -21,7 +21,7 @@ func _arm_clearance(label: String) -> void:
 			var is_forearm: bool = mesh in [pose.forearm, pose.off_fore]
 			var clearance := local.distance_to(axis) - (0.24 + (0.055 if is_forearm else 0.065))
 			if is_forearm: minimum_clearance = minf(minimum_clearance, clearance)
-			_check(clearance >= -0.008, label + ": arm stays outside torso except shoulder attachment")
+			_check(clearance >= -0.008, "%s %s %s t %.3f: arm stays outside torso" % [label, pose.shot_side, mesh.name, pose.elapsed])
 	var racket_local: Vector3 = pose.torso.to_local(player.racket.global_position)
 	var racket_axis := Vector3(0, clampf(racket_local.y, -0.01, 0.21), 0)
 	_check(racket_local.distance_to(racket_axis) >= 0.445, label + ": racket stays outside torso")
@@ -39,6 +39,10 @@ func _rest_pose(label: String) -> void:
 		_check(joint.position.y < shoulder.y - 0.2 and hand.y < joint.position.y - 0.2, label + ": arm hangs down at rest")
 		_check(shoulder.distance_to(joint.position) < 0.5 and hand.distance_to(joint.position) < 0.5, label + ": no stretched limb at rest")
 	rest_checks.append({"label": label, "elbow_angles_degrees": angles})
+func _snapshot() -> Dictionary:
+	var shoulder: Vector3 = pose.arm.position - pose.arm.basis.y * 0.2
+	var hand: Vector3 = pose.forearm.position + pose.forearm.basis.y * 0.2
+	return {"torso_yaw": pose.torso.rotation.y, "hips_yaw": pose.hips.rotation.y, "racket": player.racket.position, "elbow": pose.elbow.position, "off_elbow": pose.off_elbow.position, "upper_length": shoulder.distance_to(pose.elbow.position), "fore_length": pose.elbow.position.distance_to(hand)}
 func _capture(label: String) -> void:
 	var required_flag := "--rest-capture" if label.begins_with("rest-") else "--capture"
 	if not required_flag in OS.get_cmdline_user_args(): return
@@ -46,6 +50,15 @@ func _capture(label: String) -> void:
 	await process_frame
 	RenderingServer.force_draw()
 	root.get_texture().get_image().save_png(ProjectSettings.globalize_path("res://../docs/previews/pose-" + label + ".png"))
+	if label.begins_with("forehand-") and "--capture" in OS.get_cmdline_user_args():
+		var original_camera: Transform3D = lab.camera.transform
+		for view: String in ["front", "side"]:
+			lab.camera.position = Vector3(0, 2.3, 3.4) if view == "front" else Vector3(3.4, 2.2, 6.8)
+			lab.camera.look_at(Vector3(0, 1.0, 6.8))
+			await process_frame
+			RenderingServer.force_draw()
+			root.get_texture().get_image().save_png(ProjectSettings.globalize_path("res://../docs/previews/pose-" + label + "-" + view + ".png"))
+		lab.camera.transform = original_camera
 func _run() -> void:
 	change_scene_to_file("res://scenes/main.tscn")
 	await process_frame
@@ -95,6 +108,7 @@ func _run() -> void:
 				if height == 0.9 and charge_ticks == 86:
 					_check(absf(pose.torso.rotation.y) > 0.4 and absf(pose.hips.rotation.y) > 0.15, "Torso and hips turn sideways")
 					await _capture(expected + "-preparation")
+				var preparation_pose := _snapshot()
 				shot.release_shot(Vector2.ZERO)
 				ball.position = player.position + Vector3(side * 0.8, height, -0.65 if side == 0.0 else -0.4)
 				shot.previous_ball_position = ball.position
@@ -104,17 +118,24 @@ func _run() -> void:
 				var error: float = player.racket.global_position.distance_to(ball.global_position)
 				_check(error < 0.0001, "Pose preserves exact impact")
 				_arm_clearance("contact")
+				var contact_pose := _snapshot()
+				if expected == "forehand" and charge_ticks == 86:
+					_check(absf(contact_pose.torso_yaw) < absf(preparation_pose.torso_yaw) * 0.6, "Forehand opens torso before contact")
+				if side == 1.0 and height == 0.9:
+					_check(contact_pose.upper_length < 0.5 and contact_pose.fore_length < 0.5, "Comfortable lateral drive avoids excessive arm stretch")
+				var follow_pose: Dictionary = {}
 				var outgoing: Vector3 = ball.velocity
 				var start: Vector3 = player.position
 				if height == 0.9 and charge_ticks == 86: await _capture(expected + "-contact")
 				for tick in range(40):
 					pose.step(DT)
 					_arm_clearance("follow-through")
+					if tick == 10: follow_pose = _snapshot()
 					if tick == 10 and height == 0.9 and charge_ticks == 86: await _capture(expected + "-follow")
 				_check(ball.velocity.is_equal_approx(outgoing) and player.position.is_equal_approx(start), "Animation does not change gameplay")
 				_check(absf(pose.torso.rotation.y) < 0.001 and absf(pose.hips.rotation.y) < 0.001, "Returns to neutral stance")
 				_rest_pose("after_" + expected)
-				cases.append({"side": expected, "height": height, "preparation_ticks": charge_ticks, "contact_error_m": error})
+				cases.append({"side": expected, "height": height, "preparation_ticks": charge_ticks, "contact_error_m": error, "preparation_pose": preparation_pose, "contact_pose": contact_pose, "follow_pose": follow_pose})
 	var report := {"engine": Engine.get_version_info().string, "failures": failures, "cases": cases, "minimum_forearm_clearance_m": minimum_clearance, "rest_checks": rest_checks, "note": "Procedural right-handed placeholder rig. Samples representative preparation/contact/follow paths, not full production skeletal collision guarantees."}
 	var file := FileAccess.open("res://../docs/previews/stroke-pose-checks.json", FileAccess.WRITE)
 	file.store_string(JSON.stringify(report, "\t"))

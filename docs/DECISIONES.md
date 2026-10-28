@@ -124,3 +124,10 @@ Para cambiar una decisión: añadir fecha, contexto, alternativas relevantes, el
 
 - **D57, feedback del usuario:** golpes de derecha/revés quedaron bien; conservarlos. Corregir brazos con aspecto quebrado en reposo.
 - **D58:** reposo separado del codo adelantado de golpe: brazos caen al costado con flexión suave, pala a derecha y mano libre baja. Retorno se mezcla en el último 40% del acompañamiento existente, relajando codo cuando la mano vuelve al mismo costado para evitar atravesar torso durante transición. Dos uniones visuales de hombro cubren separación entre manga y cuerpo. Sin cambio de poses de preparación/contacto, controles, duración de recuperación o física.
+
+
+## 28/10/2026 — sesión 016: drive independiente del revés
+
+- **D59, feedback del usuario:** revés se ve bien; drive sigue raro. Acotar ajuste al drive y conservar revés/control/reposo aprobados.
+- **D60, presentación provisional:** drive lleva pala al costado/atrás al preparar y abre torso progresivamente al llegar pelota. En impacto delantero, yaw de torso usa 20% de orientación cerrada; detrás conserva orientación defensiva. Codo de brazo de golpe usa dos segmentos equilibrados con extensión de emergencia; al cruzar frente a torso se mezcla con guía exterior para evitar penetración. Brazo libre usa flexión exterior como contrapeso. Acompañamiento termina más arriba; duración/contacto/física sin cambios.
+- **Validación:** comparación local de seis casos de revés conserva poses registradas de preparación/contacto/seguimiento; dieciocho casos actuales y reposo pasan. La mejora visual requiere valoración del usuario; sigue siendo muñeco geométrico provisional, no biomecánica de producción.

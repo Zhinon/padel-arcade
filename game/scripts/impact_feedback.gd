@@ -78,7 +78,7 @@ func present_hit(event: Dictionary) -> void:
 	pending_contact = true
 	_select_side(event.position)
 	follow_side = 1.0 if shot_side == "forehand" else -1.0
-	contact_yaw = _desired_yaw(event.position)
+	contact_yaw = _contact_yaw(event.position)
 	stance_yaw = contact_yaw
 	_apply_body(stance_yaw, 0.06 if last_kind == "defense" else -0.06)
 	contact_local = player.visual.to_local(event.position)
@@ -116,6 +116,8 @@ func step(delta: float) -> void:
 		stance_yaw = lerp_angle(contact_yaw, -contact_yaw * 0.2, smoothstep(0.0, 1.0, t))
 		_apply_body(stance_yaw, -0.06 * (1.0 - t))
 		var across := Vector3(-follow_side * (0.62 if last_kind == "perfect" else 0.46), 0.38, -0.55)
+		if shot_side == "forehand":
+			across = Vector3(-0.42, 0.52 if last_kind != "defense" else 0.18, -0.50)
 		var follow: Vector3 = player.visual.to_local(torso.to_global(across))
 		var desired := contact_local.lerp(follow, smoothstep(0.0, 0.55, t))
 		desired = desired.lerp(racket_rest.origin, smoothstep(0.6, 1.0, t))
@@ -124,14 +126,19 @@ func step(delta: float) -> void:
 		player.selection_ring.material_override.albedo_color = _color()
 	elif player.preparing:
 		_select_side(controller.ball.position)
-		stance_yaw = lerp_angle(stance_yaw, _desired_yaw(controller.ball.position), minf(delta * stance_turn_speed, 1.0))
+		var distance: float = Vector2(controller.ball.position.x - player.position.x, controller.ball.position.z - player.position.z).length()
+		var arrival := clampf((2.0 - distance) / 1.2, 0.0, 1.0)
+		var prepared_yaw := _desired_yaw(controller.ball.position)
+		if shot_side == "forehand":
+			prepared_yaw = lerp_angle(prepared_yaw, _contact_yaw(controller.ball.position), smoothstep(0.0, 1.0, arrival))
+		stance_yaw = lerp_angle(stance_yaw, prepared_yaw, minf(delta * stance_turn_speed, 1.0))
 		_apply_body(stance_yaw, -0.03)
 		var charge: float = controller.shot_charge
 		var side := 1.0 if shot_side == "forehand" else -1.0
 		var windup_torso := Vector3(side * 0.50, 0.02 + charge * 0.12, -0.48)
+		if shot_side == "forehand":
+			windup_torso = Vector3(0.56, 0.04 + charge * 0.12, 0.12)
 		var windup: Vector3 = player.visual.to_local(torso.to_global(windup_torso))
-		var distance: float = Vector2(controller.ball.position.x - player.position.x, controller.ball.position.z - player.position.z).length()
-		var arrival := clampf((2.0 - distance) / 1.2, 0.0, 1.0)
 		if controller.ball.position.y >= controller.minimum_height and controller.ball.position.y <= controller.maximum_height:
 			var approaching: Vector3 = player.visual.to_local(controller.ball.position + controller.ball.velocity * 0.025)
 			windup = windup.lerp(approaching, arrival)
@@ -163,6 +170,26 @@ func _desired_yaw(ball_at: Vector3) -> float:
 	var facing := atan2(-delta.x, -delta.z)
 	var side_angle := -0.95 if shot_side == "forehand" else 1.15
 	return facing if delta.z > 0.0 else lerp_angle(side_angle, facing, 0.3)
+
+func _contact_yaw(ball_at: Vector3) -> float:
+	var closed := _desired_yaw(ball_at)
+	# Forehand uncoils before impact; the backhand keeps its approved side-on pose.
+	return closed * 0.2 if shot_side == "forehand" and ball_at.z <= player.position.z else closed
+
+func _forehand_elbow(shoulder: Vector3, hand: Vector3) -> Vector3:
+	var reach_vector := hand - shoulder
+	var distance := reach_vector.length()
+	if distance < 0.001:
+		return shoulder + Vector3(0.2, -0.2, 0)
+	var direction := reach_vector / distance
+	# Two equal segments with a small emergency extension for the arcade reach.
+	var segment := maxf(0.40, distance * 0.52)
+	var bend := sqrt(maxf(0.0, segment * segment - distance * distance * 0.25))
+	var preferred := Vector3(1.0, -0.25, 0.1)
+	var bend_direction := preferred - direction * preferred.dot(direction)
+	if bend_direction.length() < 0.01:
+		bend_direction = Vector3.FORWARD
+	return (shoulder + hand) * 0.5 + bend_direction.normalized() * bend
 
 func _apply_body(yaw: float, lean: float) -> void:
 	torso.rotation = Vector3(lean, yaw, 0)
@@ -198,11 +225,18 @@ func _update_arm() -> void:
 	var hand_local := torso.to_local(player.visual.to_global(hand))
 	# The right elbow stays outside the right/front edge, including on backhand.
 	var elbow_local := Vector3(maxf(0.36, (hand_local.x + 0.3) * 0.5), clampf((hand_local.y + 0.28) * 0.5 - 0.08, -0.25, 0.28), minf(-elbow_clearance, hand_local.z * 0.55))
+	if shot_side == "forehand" and (player.preparing or elapsed < follow_duration):
+		var natural_elbow := _forehand_elbow(Vector3(0.3, 0.28, 0), hand_local)
+		var across_body := 1.0 - smoothstep(0.05, 0.35, hand_local.x)
+		elbow_local = natural_elbow.lerp(elbow_local, across_body)
 	var shoulder: Vector3 = player.visual.to_local(torso.to_global(Vector3(0.3, 0.28, 0)))
 	var support := Vector3(-0.45, -0.10, -0.24)
 	if shot_side == "backhand" and (player.preparing or elapsed < follow_duration):
 		support = hand_local + Vector3(-0.07, 0.04, -0.04)
 	var off_elbow_local := Vector3(minf(-0.36, support.x - 0.12), clampf((support.y + 0.28) * 0.5 - 0.08, -0.25, 0.28), minf(-elbow_clearance, support.z * 0.55))
+	if shot_side == "forehand" and (player.preparing or elapsed < follow_duration):
+		var mirrored_hand := Vector3(-support.x, support.y, support.z)
+		off_elbow_local = _forehand_elbow(Vector3(0.3, 0.28, 0), mirrored_hand) * Vector3(-1, 1, 1)
 	# Rest is a relaxed hanging arm, not the clearance pose used for a stroke.
 	# Blend during the end of follow-through so the elbows do not snap back.
 	var rest_weight := 0.0
