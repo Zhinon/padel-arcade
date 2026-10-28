@@ -230,3 +230,14 @@
 **Ajustes:** primer ejecutor colocaba pelota de espera detrás del jugador cercano y provocaba fallo antes de contacto; corregida preparación del caso. Límite de velocidad elevaba arco y anulaba el fallo mínimo; separado límite horizontal de pérdida vertical por mal contacto, sin RNG. Calibración provisional a pique de 1.6 m y máximo horizontal 8 m/s.
 
 **Verificación:** 54 trayectorias, 24 transiciones y tres feeds reales aprobados. Comparación misma carga temprana/tardía, contacto excelente suave, golpe potente y mínima carga que pega en red. Regresiones de jugador (90/diez), impacto/audio (tres), abanicazo (cinco) y cinta (35) aprobadas. Importación sin errores de scripts; captura nativa revisada, render llvmpipe. Sin prueba humana ni rival activo. Documentación y punto Git al cierre.
+
+
+## 28/10/2026 — Sesión 020: recorrido entre piques
+
+**Pedido:** usuario observa segundo pique largo y pide contraste en internet. NOX/TPS describen chiquita suave a los pies, sin distancia universal. Física primaria de Rod Cross explica papel de fricción/agarre; no se usó como medición de césped de pádel.
+
+**Diagnóstico:** ejecutor anterior terminaba en primer pique. Ampliado a segundo, altura y velocidades. Baseline de código 78d5750: caso cómodo 4.02 m entre piques y feed habitual 3.70 m. Guardados informe/video previos.
+
+**Cambio:** agarre efectivo por pendiente de entrada, compartido por todas las pelotas. Fricción 0.18→0.42; primer intento detenía globo antes del vidrio y falló regresiones. Se acotó pérdida adicional a 50% tangencial para conservar secuencia de globo. Resultado cómodo 2.65 m, feed 2.47 m; drive corto también pasa de 5.10 a 3.35 m. No se cambian restitución vertical, salida, rodadura o controles; no spin ni freno exclusivo de chiquita.
+
+**Verificación:** 54 trayectorias, 24 transiciones y tres feeds, ahora con segundo pique. Trece escenarios de pelota, superficies (incluidos agarre/caída rasante), 22 recorridos/veinte semillas, 90 trayectorias/diez devoluciones y 35 contactos de cinta aprobados. Caso canónico coincide en posición/velocidad/eventos a 30/60/120 FPS. Importación sin errores de scripts, render llvmpipe y captura ambos piques inspeccionada. Video actualizado, documentación y punto Git. Calibración humana pendiente.

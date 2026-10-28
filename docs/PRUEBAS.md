@@ -218,3 +218,12 @@ Godot 4.7.2.stable.official.ed1daf0bf, 120 Hz. `./tools/run-godot.sh --headless 
 Igual carga 15% preparada con espera vs sin espera distingue excelente chiquita de defensa, con control lateral menor en segunda. Carga mínima tardía a 0.3 m toca red. Contacto cómodo a (0,0.9,6.15), carga 25%, cruza a 1.162 m y pica a z=-1.600; 90% conserva destino z=-3.700. Tres feeds reales desde lanzador (sin teletransporte de contacto) llegan a piso rival corto, uno por zona. Informe previews/chiquita-checks.json.
 
 Regresiones: player_checks 90 trayectorias/diez devoluciones, impact_checks tres clases/audio, missed_swing_checks cinco gestos, net_tape_checks 35 casos aprobados. Importación sin errores de scripts. Captura nativa con paso manual de cuatro ticks por frame a 30 FPS, cámara de juego, inspección de paso de red y pique; inputs sintéticos. Sin nuevo ensayo de rendimiento, mando físico, física pasiva entre FPS, rival táctico o valoración humana de diversión.
+
+
+## Sesión 020 — medición hasta segundo pique
+
+Mismo motor 4.7.2, paso 1/120 s y condiciones de chiquita_checks. Antes de modificar piso se ejecutó con `-- --baseline`, registrando baseline de 78d5750 en previews/chiquita-bounce-before.json; no se usa como expectativa reglamentaria. _flight ahora continúa hasta segundo piso, anota paredes intermedias, separación, altura libre máxima y velocidades de primer rebote. Caso cómodo: 4.016→2.654 m; feed habitual: 3.697→2.466 m; drive corto: 5.100→3.351 m. El primer destino se conserva en caso sintético; el feed también recibe física general del piso, con pequeño cambio de contacto entrante.
+
+54 casos y 24 mezclas siguen pasando primer destino. Caso cómodo y tres feeds exigen separación 1.5–3.0 m como calibración del prototipo, sin paredes; altura del feed ~0.73 m. Casos variados no tienen un tope universal de separación (rango observado 0.51–3.64 m).
+
+surface_calibration_checks compara caída con/sin agarre: pierde más horizontal, no invierte velocidad ni cambia restitución vertical; impacto rápido rasante conserva respuesta previa. Regresiones de superficies/veinte semillas, 22 recorridos, 13 escenarios físicos y energía, player_checks 90/diez y net_tape 35 aprobados. Primera variante sin límite fallaba globo: el límite adicional restaura piso/vidrio/piso. Comparación separada a 30/60/120 FPS de render con 120 Hz físicos coincide en posición, velocidad y eventos a 2 s. Informes actualizados. Importación sin errores de scripts y captura nativa revisada hasta segundo pique; evaluación humana pendiente.

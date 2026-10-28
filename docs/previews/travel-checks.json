@@ -9,16 +9,15 @@
 				"floor",
 				"floor",
 				"floor",
-				"floor",
 				"floor"
 			],
 			"first_wall_found": true,
-			"horizontal_path_after_wall_m": 8.09580910777004,
-			"position": "(2.886422, 0.105295, -1.858368)",
-			"return_from_wall_m": 8.01799297332764,
+			"horizontal_path_after_wall_m": 5.34329643435194,
+			"position": "(2.606929, 0.10531, -4.605506)",
+			"return_from_wall_m": 5.27381181716919,
 			"scenario": 2,
 			"seed": 42,
-			"stopped_at_s": 3.58333333333332
+			"stopped_at_s": 2.90833333333333
 		},
 		{
 			"contact_surfaces": [
@@ -33,12 +32,12 @@
 				"floor"
 			],
 			"first_wall_found": true,
-			"horizontal_path_after_wall_m": 2.03056943276897,
-			"position": "(2.572494, 0.105313, -7.886443)",
-			"return_from_wall_m": 1.99611234664917,
+			"horizontal_path_after_wall_m": 1.84777645673603,
+			"position": "(2.53776, 0.105263, -8.085925)",
+			"return_from_wall_m": 1.80453777313232,
 			"scenario": 7,
 			"seed": 42,
-			"stopped_at_s": 6.2000000000001
+			"stopped_at_s": 6.26666666666677
 		},
 		{
 			"contact_surfaces": [
@@ -51,9 +50,9 @@
 				"floor"
 			],
 			"first_wall_found": true,
-			"horizontal_path_after_wall_m": 2.66366307076532,
-			"position": "(2.38738, 0.105301, -2.653804)",
-			"return_from_wall_m": 2.50370287895203,
+			"horizontal_path_after_wall_m": 2.53032831731252,
+			"position": "(2.516399, 0.105301, -2.620157)",
+			"return_from_wall_m": 2.37468338012695,
 			"scenario": 3,
 			"seed": 0,
 			"stopped_at_s": 2.64999999999999
@@ -69,9 +68,9 @@
 				"floor"
 			],
 			"first_wall_found": true,
-			"horizontal_path_after_wall_m": 2.99226160187391,
-			"position": "(2.002637, 0.105314, -2.404246)",
-			"return_from_wall_m": 2.88820457458496,
+			"horizontal_path_after_wall_m": 2.71239688119385,
+			"position": "(2.279806, 0.105314, -2.365499)",
+			"return_from_wall_m": 2.61103510856628,
 			"scenario": 3,
 			"seed": 1,
 			"stopped_at_s": 2.66666666666666
@@ -87,9 +86,9 @@
 				"floor"
 			],
 			"first_wall_found": true,
-			"horizontal_path_after_wall_m": 3.53481032210402,
-			"position": "(1.473109, 0.105321, -1.464939)",
-			"return_from_wall_m": 3.41751384735107,
+			"horizontal_path_after_wall_m": 3.00820667346306,
+			"position": "(1.993389, 0.105321, -1.546308)",
+			"return_from_wall_m": 2.89723443984985,
 			"scenario": 3,
 			"seed": 2,
 			"stopped_at_s": 2.64999999999999
@@ -105,9 +104,9 @@
 				"floor"
 			],
 			"first_wall_found": true,
-			"horizontal_path_after_wall_m": 3.91448131832294,
-			"position": "(1.051529, 0.104537, -2.00144)",
-			"return_from_wall_m": 3.83891201019287,
+			"horizontal_path_after_wall_m": 3.25962012476521,
+			"position": "(1.70639, 0.105289, -2.001194)",
+			"return_from_wall_m": 3.18405079841614,
 			"scenario": 3,
 			"seed": 3,
 			"stopped_at_s": 2.64166666666666
@@ -123,9 +122,9 @@
 				"floor"
 			],
 			"first_wall_found": true,
-			"horizontal_path_after_wall_m": 3.02593546980825,
-			"position": "(2.095639, 0.105306, -1.056778)",
-			"return_from_wall_m": 2.79533743858337,
+			"horizontal_path_after_wall_m": 2.7622653148137,
+			"position": "(2.345501, 0.105304, -1.140985)",
+			"return_from_wall_m": 2.54547524452209,
 			"scenario": 3,
 			"seed": 4,
 			"stopped_at_s": 2.70833333333333
@@ -141,9 +140,9 @@
 				"floor"
 			],
 			"first_wall_found": true,
-			"horizontal_path_after_wall_m": 4.12517027847935,
-			"position": "(0.844669, 0.105292, -1.821148)",
-			"return_from_wall_m": 4.04571437835693,
+			"horizontal_path_after_wall_m": 3.41733938106336,
+			"position": "(1.55181, 0.105308, -1.852378)",
+			"return_from_wall_m": 3.33857297897339,
 			"scenario": 3,
 			"seed": 5,
 			"stopped_at_s": 2.58333333333333
@@ -159,9 +158,9 @@
 				"floor"
 			],
 			"first_wall_found": true,
-			"horizontal_path_after_wall_m": 4.31569711210614,
-			"position": "(0.831165, 0.105318, -0.774168)",
-			"return_from_wall_m": 4.05933904647827,
+			"horizontal_path_after_wall_m": 3.55338781682076,
+			"position": "(1.560984, 0.105318, -0.994351)",
+			"return_from_wall_m": 3.3295202255249,
 			"scenario": 3,
 			"seed": 6,
 			"stopped_at_s": 2.69999999999999
@@ -177,12 +176,12 @@
 				"floor"
 			],
 			"first_wall_found": true,
-			"horizontal_path_after_wall_m": 3.89672242943197,
-			"position": "(1.074195, 0.105297, -2.193411)",
-			"return_from_wall_m": 3.81625556945801,
+			"horizontal_path_after_wall_m": 3.25414692334016,
+			"position": "(1.715948, 0.105298, -2.16092)",
+			"return_from_wall_m": 3.17450189590454,
 			"scenario": 3,
 			"seed": 7,
-			"stopped_at_s": 2.64999999999999
+			"stopped_at_s": 2.65833333333333
 		},
 		{
 			"contact_surfaces": [
@@ -195,9 +194,9 @@
 				"floor"
 			],
 			"first_wall_found": true,
-			"horizontal_path_after_wall_m": 3.73055677651428,
-			"position": "(1.241742, 0.1053, -2.212122)",
-			"return_from_wall_m": 3.64876890182495,
+			"horizontal_path_after_wall_m": 3.13325128359429,
+			"position": "(1.838043, 0.105305, -2.177491)",
+			"return_from_wall_m": 3.05246829986572,
 			"scenario": 3,
 			"seed": 8,
 			"stopped_at_s": 2.64166666666666
@@ -214,9 +213,9 @@
 				"floor"
 			],
 			"first_wall_found": true,
-			"horizontal_path_after_wall_m": 2.60204812447773,
-			"position": "(2.513591, 0.10531, -1.146745)",
-			"return_from_wall_m": 2.37761497497559,
+			"horizontal_path_after_wall_m": 2.50431618088624,
+			"position": "(2.605593, 0.10531, -1.179717)",
+			"return_from_wall_m": 2.28561282157898,
 			"scenario": 3,
 			"seed": 9,
 			"stopped_at_s": 2.87499999999999
@@ -232,9 +231,9 @@
 				"floor"
 			],
 			"first_wall_found": true,
-			"horizontal_path_after_wall_m": 4.34656706009991,
-			"position": "(0.642989, 0.105266, -1.550035)",
-			"return_from_wall_m": 4.24736213684082,
+			"horizontal_path_after_wall_m": 3.59347839621478,
+			"position": "(1.391895, 0.105306, -1.6293)",
+			"return_from_wall_m": 3.4984564781189,
 			"scenario": 3,
 			"seed": 10,
 			"stopped_at_s": 2.69166666666666
@@ -250,9 +249,9 @@
 				"floor"
 			],
 			"first_wall_found": true,
-			"horizontal_path_after_wall_m": 3.3094149089884,
-			"position": "(1.762915, 0.105291, -1.179411)",
-			"return_from_wall_m": 3.1278760433197,
+			"horizontal_path_after_wall_m": 2.91545346286148,
+			"position": "(2.144009, 0.1053, -1.279276)",
+			"return_from_wall_m": 2.74678230285645,
 			"scenario": 3,
 			"seed": 11,
 			"stopped_at_s": 2.71666666666666
@@ -268,9 +267,9 @@
 				"floor"
 			],
 			"first_wall_found": true,
-			"horizontal_path_after_wall_m": 3.31891193718184,
-			"position": "(1.805828, 0.105301, -0.999252)",
-			"return_from_wall_m": 3.08501863479614,
+			"horizontal_path_after_wall_m": 2.91231224639341,
+			"position": "(2.19263, 0.105301, -1.124585)",
+			"return_from_wall_m": 2.69821763038635,
 			"scenario": 3,
 			"seed": 12,
 			"stopped_at_s": 2.64999999999999
@@ -286,9 +285,9 @@
 				"floor"
 			],
 			"first_wall_found": true,
-			"horizontal_path_after_wall_m": 3.20041029789718,
-			"position": "(1.954038, 0.105315, -3.067131)",
-			"return_from_wall_m": 2.93689489364624,
+			"horizontal_path_after_wall_m": 2.84924463171046,
+			"position": "(2.284135, 0.105315, -2.947326)",
+			"return_from_wall_m": 2.60679793357849,
 			"scenario": 3,
 			"seed": 13,
 			"stopped_at_s": 2.69166666666666
@@ -304,9 +303,9 @@
 				"floor"
 			],
 			"first_wall_found": true,
-			"horizontal_path_after_wall_m": 3.66826078190934,
-			"position": "(1.547727, 0.105309, -0.683813)",
-			"return_from_wall_m": 3.34306812286377,
+			"horizontal_path_after_wall_m": 3.11407297084224,
+			"position": "(2.063462, 0.105309, -0.886647)",
+			"return_from_wall_m": 2.8273332118988,
 			"scenario": 3,
 			"seed": 14,
 			"stopped_at_s": 2.71666666666666
@@ -323,9 +322,9 @@
 				"floor"
 			],
 			"first_wall_found": true,
-			"horizontal_path_after_wall_m": 2.54145357385278,
-			"position": "(2.429052, 0.105299, -2.127277)",
-			"return_from_wall_m": 2.46199679374695,
+			"horizontal_path_after_wall_m": 2.47871278994717,
+			"position": "(2.491709, 0.105299, -2.124043)",
+			"return_from_wall_m": 2.39933943748474,
 			"scenario": 3,
 			"seed": 15,
 			"stopped_at_s": 2.88333333333333
@@ -341,9 +340,9 @@
 				"floor"
 			],
 			"first_wall_found": true,
-			"horizontal_path_after_wall_m": 2.9156069685705,
-			"position": "(2.051645, 0.105311, -1.95026)",
-			"return_from_wall_m": 2.83919930458069,
+			"horizontal_path_after_wall_m": 2.69061125954613,
+			"position": "(2.276606, 0.105311, -1.954195)",
+			"return_from_wall_m": 2.61423802375793,
 			"scenario": 3,
 			"seed": 16,
 			"stopped_at_s": 2.69999999999999
@@ -360,9 +359,9 @@
 				"floor"
 			],
 			"first_wall_found": true,
-			"horizontal_path_after_wall_m": 2.7962450904015,
-			"position": "(2.238446, 0.105307, -2.603319)",
-			"return_from_wall_m": 2.65254378318787,
+			"horizontal_path_after_wall_m": 2.61352777988941,
+			"position": "(2.416624, 0.105307, -2.562844)",
+			"return_from_wall_m": 2.47436594963074,
 			"scenario": 3,
 			"seed": 17,
 			"stopped_at_s": 2.84166666666666
@@ -378,9 +377,9 @@
 				"floor"
 			],
 			"first_wall_found": true,
-			"horizontal_path_after_wall_m": 3.61947888194118,
-			"position": "(1.363517, 0.105307, -1.655601)",
-			"return_from_wall_m": 3.52704691886902,
+			"horizontal_path_after_wall_m": 3.06880729373734,
+			"position": "(1.911587, 0.105307, -1.709061)",
+			"return_from_wall_m": 2.9789764881134,
 			"scenario": 3,
 			"seed": 18,
 			"stopped_at_s": 2.65833333333333
@@ -397,9 +396,9 @@
 				"floor"
 			],
 			"first_wall_found": true,
-			"horizontal_path_after_wall_m": 3.09056452116056,
-			"position": "(2.111732, 0.105298, -0.831593)",
-			"return_from_wall_m": 2.77930808067322,
+			"horizontal_path_after_wall_m": 2.78248224628624,
+			"position": "(2.395789, 0.105298, -0.950867)",
+			"return_from_wall_m": 2.49525141716003,
 			"scenario": 3,
 			"seed": 19,
 			"stopped_at_s": 2.87499999999999
@@ -407,8 +406,8 @@
 	],
 	"engine": "4.7.2-stable (official)",
 	"failures": [],
-	"max_ordinary_fence_path_m": 4.34656706009991,
-	"max_ordinary_fence_return_m": 4.24736213684082,
+	"max_ordinary_fence_path_m": 3.59347839621478,
+	"max_ordinary_fence_return_m": 3.4984564781189,
 	"note": "Calibration thresholds apply to these ordinary launches, not a universal cap on ball travel.",
-	"ordinary_lob_return_m": 1.99611234664917
+	"ordinary_lob_return_m": 1.80453777313232
 }

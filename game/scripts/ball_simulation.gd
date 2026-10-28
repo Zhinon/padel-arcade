@@ -26,6 +26,10 @@ var fence_rng := RandomNumberGenerator.new()
 @export var net_tape_balance_speed: float = 0.05
 @export var floor_retention: float = 0.94
 @export var floor_impact_friction: float = 0.18
+@export var floor_grip_friction: float = 0.42
+@export var floor_grip_slope_start: float = 0.35
+@export var floor_grip_slope_end: float = 0.85
+@export var floor_grip_max_loss: float = 0.50
 @export var rolling_deceleration: float = 2.8
 @export var max_impacts_per_step: int = 8
 var active: bool = true
@@ -92,7 +96,16 @@ func step(delta: float) -> void:
 			var tangent := incoming - incoming.dot(normal) * normal
 			if surface == "floor":
 				# Coulomb-style tangential impulse, capped so it cannot reverse motion.
-				var friction_impulse := floor_impact_friction * (1.0 + restitution) * approach
+				# Effective grip grows for steeper landings; this is an arcade
+				# approximation, shared by every shot, not a chiquita-only brake.
+				var slope := approach / maxf(0.001, tangent.length())
+				var grip := smoothstep(floor_grip_slope_start, floor_grip_slope_end, slope)
+				var friction := lerpf(floor_impact_friction, floor_grip_friction, grip)
+				var friction_impulse := friction * (1.0 + restitution) * approach
+				# Bound added grip: high vertical impulse must not erase all forward
+				# motion. Preserve stronger losses already present in the base model.
+				var base_impulse := floor_impact_friction * (1.0 + restitution) * approach
+				friction_impulse = minf(friction_impulse, maxf(base_impulse, tangent.length() * floor_grip_max_loss))
 				tangent = tangent.move_toward(Vector3.ZERO, friction_impulse)
 			var retention := floor_retention if surface == "floor" else 0.98
 			if surface == "glass":

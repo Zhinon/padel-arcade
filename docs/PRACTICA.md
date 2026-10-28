@@ -135,3 +135,6 @@ Recibí con R y llegá temprano. Prepará con Espacio, soltá al 20–40% para f
 Compará con pulsar tarde: perdés dirección y una carga mínima exigida puede quedarse en red. Más de 40% se mezcla hacia golpe base (65% ya es base); 90% y 100% conservan comportamiento previo. Parámetros provisionales: ajustar según comodidad. Los rivales siguen estáticos, por lo que todavía no prueban la ventaja táctica de subir a la red.
 
 [Demostración de chiquita, 2.5 segundos](previews/chiquita.mp4): trayectoria del motor con contacto sintético, cámara de juego y sin audio; no es un rival activo.
+
+
+Segundo pique revisado (sesión 020): misma carga/controles, con mayor pérdida horizontal al caer con pendiente pronunciada. Feed habitual pasa de unos 3.70 a 2.47 m entre piques; afecta también otras pelotas en esas condiciones. Es calibración provisional: revisar sensación y comparar con golpe potente. [Video anterior](previews/chiquita-bounce-before.mp4) y [actual](previews/chiquita.mp4), sin audio y con entradas sintéticas. Reiniciar el juego para cargar esta versión.

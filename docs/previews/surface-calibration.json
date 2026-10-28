@@ -155,7 +155,7 @@
 			"incoming": "(0.919438, -10.74575, -6.987727)",
 			"last_hitter": -1,
 			"normal": "(0.0, 1.0, 0.0)",
-			"outgoing": "(0.465792, 7.307113, -3.540022)",
+			"outgoing": "(0.432136, 7.307113, -3.284232)",
 			"position": "(2.006572, 0.0, -8.249947)",
 			"sequence": 1,
 			"side": -1,
@@ -166,45 +166,45 @@
 			"collider": "EndGlassCollider",
 			"fence_deflection_degrees": "(0.0, 0.0)",
 			"fence_seed": 42,
-			"incoming": "(0.457179, 2.637212, -3.47456)",
+			"incoming": "(0.42358, 2.306971, -3.219205)",
 			"last_hitter": -1,
 			"normal": "(0.0, 0.0, 1.0)",
-			"outgoing": "(0.374887, 2.162514, 2.154227)",
-			"position": "(2.223026, 2.44644, -10.0)",
+			"outgoing": "(0.347335, 1.891716, 1.995907)",
+			"position": "(2.223024, 2.537537, -10.0)",
 			"sequence": 2,
 			"side": -1,
 			"surface": "glass",
-			"time": 2.56103515708609
+			"time": 2.59791666760194
 		},
 		{
 			"collider": "FloorCollider",
 			"fence_deflection_degrees": "(0.0, 0.0)",
 			"fence_seed": 42,
-			"incoming": "(0.360909, -7.061252, 2.07391)",
+			"incoming": "(0.33472, -7.083947, 1.923414)",
 			"last_hitter": -1,
 			"normal": "(0.0, 1.0, 0.0)",
-			"outgoing": "(0.0, 4.801651, 0.0)",
-			"position": "(2.572505, 0.0, -7.886375)",
+			"outgoing": "(0.0, 4.817084, 0.0)",
+			"position": "(2.537771, 0.0, -8.085862)",
 			"sequence": 3,
 			"side": -1,
 			"surface": "floor",
-			"time": 3.51103515651858
+			"time": 3.52102864606305
 		},
 		{
 			"collider": "FloorCollider",
 			"fence_deflection_degrees": "(0.0, 0.0)",
 			"fence_seed": 42,
-			"incoming": "(0.0, -4.76108, 0.0)",
+			"incoming": "(0.0, -4.746235, 0.0)",
 			"last_hitter": -1,
 			"normal": "(0.0, 1.0, 0.0)",
-			"outgoing": "(0.0, 3.237534, 0.0)",
-			"position": "(2.572494, 0.0, -7.886443)",
+			"outgoing": "(0.0, 3.22744, 0.0)",
+			"position": "(2.53776, 0.0, -8.085925)",
 			"sequence": 4,
 			"side": -1,
 			"surface": "floor",
-			"time": 4.48681640626224
+			"time": 4.49654947897659
 		}
 	],
-	"lob_max_z_before_second_bounce": -7.8864426612854,
+	"lob_max_z_before_second_bounce": -8.08592510223389,
 	"note": "Design calibration, not measured material values; spin is not implemented."
 }

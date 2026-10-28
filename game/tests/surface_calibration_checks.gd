@@ -32,6 +32,21 @@ func _run() -> void:
 	lab.set_physics_process(false)
 	ball = lab.simulation
 	ball.set_physics_process(false)
+	# Added grip responds to incidence geometry, never a shot label.
+	var saved_grip: float = ball.floor_grip_friction
+	ball.floor_grip_friction = ball.floor_impact_friction
+	var steep_before := _launch(Vector3(0, 1, 3), Vector3(4, -3, 0), 42, 0.3)
+	var shallow_before := _launch(Vector3(0, 0.25, 3), Vector3(20, -1, 0), 42, 0.15)
+	ball.floor_grip_friction = saved_grip
+	var steep_after := _launch(Vector3(0, 1, 3), Vector3(4, -3, 0), 42, 0.3)
+	var shallow_after := _launch(Vector3(0, 0.25, 3), Vector3(20, -1, 0), 42, 0.15)
+	_check(not steep_before.contacts.is_empty() and not steep_after.contacts.is_empty(), "Steep floor comparison has contacts")
+	if not steep_before.contacts.is_empty() and not steep_after.contacts.is_empty():
+		var old_floor: Dictionary = steep_before.contacts[0]
+		var new_floor: Dictionary = steep_after.contacts[0]
+		_check(new_floor.surface == "floor" and new_floor.outgoing.x > 0 and new_floor.outgoing.x < old_floor.outgoing.x, "Grip removes more horizontal speed without reversing")
+		_check(absf(new_floor.outgoing.y - old_floor.outgoing.y) < 0.00001, "Grip preserves vertical restitution")
+	_check(not shallow_after.contacts.is_empty() and shallow_before.velocity.is_equal_approx(shallow_after.velocity) and shallow_before.position.is_equal_approx(shallow_after.position), "Fast shallow floor impact preserves previous response")
 	var glass := _launch(Vector3(0, 2.5, -8), Vector3(0, 0, -15), 42, 0.25)
 	_check(not glass.contacts.is_empty(), "Glass impact exists")
 	if not glass.contacts.is_empty():

@@ -39,14 +39,28 @@ func _contact(z: float, height: float, direction: Vector2, charge: float, early:
 func _flight(event: Dictionary) -> Dictionary:
 	var start: Vector3 = ball.position
 	var net_height := -1.0
+	var first_floor: Dictionary = {}
+	var first_result: Dictionary = {}
+	var apex_after := 0.0
+	var seen := 0
 	for tick in range(600):
 		var previous: Vector3 = ball.position
 		ball.step(DT)
 		if previous.z > 0 and ball.position.z <= 0:
 			net_height = lerpf(previous.y, ball.position.y, previous.z / (previous.z - ball.position.z))
-		if not ball.contacts.is_empty():
-			var first: Dictionary = ball.contacts[0]
-			return {"start": start, "charge": event.charge, "quality": event.quality, "type": event.shot_type, "perfect": event.perfect, "target": event.target, "velocity": event.velocity, "net_height": net_height, "first_surface": first.surface, "landing": first.position, "error_m": Vector2(first.position.x - event.target.x, first.position.z - event.target.z).length()}
+		if not first_floor.is_empty(): apex_after = maxf(apex_after, ball.position.y - ball.radius)
+		for contact: Dictionary in ball.contacts.slice(seen):
+			if first_result.is_empty():
+				first_result = {"start": start, "charge": event.charge, "quality": event.quality, "type": event.shot_type, "perfect": event.perfect, "target": event.target, "velocity": event.velocity, "net_height": net_height, "first_surface": contact.surface, "landing": contact.position, "error_m": Vector2(contact.position.x - event.target.x, contact.position.z - event.target.z).length()}
+				if contact.surface != "floor": return first_result
+				first_floor = contact
+			elif contact.surface == "floor":
+				first_result.merge({"second_landing": contact.position, "bounce_distance_m": Vector2(contact.position.x - first_floor.position.x, contact.position.z - first_floor.position.z).length(), "bounce_apex_m": apex_after, "bounce_time_s": contact.time - first_floor.time, "floor_incoming": first_floor.incoming, "floor_outgoing": first_floor.outgoing})
+				return first_result
+			else:
+				first_result["intervening_surface"] = contact.surface
+		seen = ball.contacts.size()
+	if not first_result.is_empty(): return first_result
 	return {"first_surface": "none"}
 
 func _run() -> void:
@@ -90,6 +104,8 @@ func _run() -> void:
 	_check(good.perfect and drive.perfect and drive.shot_type == "drive", "Excellent soft shot and 90 percent drive both recognized")
 	_check(good.velocity.length() < drive.velocity.length() and good_flight.landing.z > drive_flight.landing.z + 1.0, "Chiquita slower and shorter than prepared drive")
 	_check(good_flight.net_height >= 1.10 and good_flight.net_height < 1.25, "Comfortable chiquita passes low above net")
+	if not "--baseline" in OS.get_cmdline_user_args():
+		_check(good_flight.bounce_distance_m >= 1.5 and good_flight.bounce_distance_m <= 3.0, "Comfortable short shot has calibrated second bounce, not a universal padel limit")
 	var transitions: Array[Dictionary] = []
 	for charge: float in [0.4, 0.45, 0.5, 0.55, 0.6, 0.65]:
 		for downward: float in [0.2, 0.4, 0.6, 0.8]:
@@ -117,6 +133,8 @@ func _run() -> void:
 			var feed_result := _flight(events.back())
 			feeds.append(feed_result)
 			_check(events.back().shot_type == "chiquita" and feed_result.first_surface == "floor" and feed_result.landing.z < 0 and feed_result.landing.z > -3, "Real feed chiquita lands short in opposing court")
+			if not "--baseline" in OS.get_cmdline_user_args():
+				_check(feed_result.bounce_distance_m >= 1.5 and feed_result.bounce_distance_m <= 3.0 and not feed_result.has("intervening_surface"), "Practice feed second bounce stays short before walls")
 	if "--capture" in OS.get_cmdline_user_args():
 		shot.hits = 0
 		_contact(6.8, 0.9, Vector2.DOWN, 0.25)
@@ -134,7 +152,8 @@ func _run() -> void:
 			if frame == 25:
 				root.get_texture().get_image().save_png(ProjectSettings.globalize_path("res://../docs/previews/chiquita.png"))
 	var report := {"engine": Engine.get_version_info().string, "dt": DT, "failures": failures, "cases": cases, "transitions": transitions, "feeds": feeds, "early": early, "late": late, "weak": weak_flight, "comfortable": good_flight, "drive": drive_flight, "note": "Synthetic contacts plus three real practice feeds and swept trajectories. Static opponents; tactical effect and human feel pending."}
-	var file := FileAccess.open("res://../docs/previews/chiquita-checks.json", FileAccess.WRITE)
+	var output := "res://../../../work/chiquita-bounce-before.json" if "--baseline" in OS.get_cmdline_user_args() else "res://../docs/previews/chiquita-checks.json"
+	var file := FileAccess.open(output, FileAccess.WRITE)
 	file.store_string(JSON.stringify(report, "\t"))
 	file.close()
 	print("Chiquita checks: %d trajectories, %d failures" % [cases.size(), failures.size()])

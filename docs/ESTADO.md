@@ -1,6 +1,6 @@
 # Estado y próxima sesión
 
-Actualizado: 28/10/2026, zona America/Argentina/Mendoza. Sesión 019.
+Actualizado: 28/10/2026, zona America/Argentina/Mendoza. Sesión 020.
 
 ## Dónde estamos
 
@@ -62,9 +62,15 @@ Primera chiquita con carga baja fijada y dirección abajo, sin botón nuevo. Has
 
 54 trayectorias, 24 transiciones y tres feeds reales por zonas aprobados, además de 90 trayectorias/diez devoluciones, tres impactos/audio, cinco abanicazos y 35 contactos de cinta. Captura nativa revisada con cámara conservada; todavía no evaluación humana ni efecto táctico contra rival. Guía y parámetros en CHIQUITA.md.
 
+## Segundo pique — sesión 020
+
+Feedback del usuario: chiquita avanza demasiado tras primer pique. Medido hasta segundo: 3.70 m en feed habitual. Calibración general del agarre del piso por pendiente reduce a 2.47 m (caso cómodo 4.02→2.65 m). También afecta caídas pronunciadas de otros golpes, con restitución vertical y rodadura conservadas. Sin giro ni frenado por etiqueta de golpe. Más detalle, fuentes y límites en CHIQUITA.md.
+
+Nueva comprobación de segundo pique, 54 trayectorias/24 transiciones/tres feeds, superficies, 22 recorridos, 13 escenarios, 90 trayectorias/diez devoluciones, 35 casos de cinta y comparación 30/60/120 FPS aprobados. Primera variante frenaba globo antes de vidrio; corregida con pérdida extra acotada. Captura revisada y video regenerado. Falta valoración humana; las distancias son calibración, no datos reales de chiquita.
+
 ## Próximo paso
 
-**Probar chiquita con el usuario (P41):** llegar temprano, fijar 20–40% y apuntar abajo o diagonal abajo. Comparar con llegada tardía y 90% potente. Ajustar según sensación, conservando el control aceptado. Después retomar P40 globo/remate/volea. Evaluación táctica requiere rival activo posterior.
+**Probar nuevo segundo pique con el usuario (P41):** llegar temprano, fijar 20–40% y apuntar abajo o diagonal abajo; comparar recorrido y resto de golpes con nueva respuesta de piso. Comparar con llegada tardía y 90% potente. Ajustar según sensación, conservando el control aceptado. Después retomar P40 globo/remate/volea. Evaluación táctica requiere rival activo posterior.
 
 ## Abrir
 

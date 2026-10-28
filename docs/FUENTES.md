@@ -87,3 +87,11 @@ Pivotes, geometría articulada, codos, zapatos, cara y animación generados como
 ## Chiquita — sesión 018
 
 Referencias de técnica consultadas el 28/10/2026: [Use the Chiquita!](https://thepadelschool.com/resources/padel-tips/use-the-chiquita) y [The Perfect Padel Return](https://thepadelschool.com/resources/blog/the-perfect-padel-return), The Padel School. Orientan objetivo táctico y colocación; los controles propuestos son diseño del proyecto. No se incorporaron imágenes, videos ni assets externos.
+
+
+## Segundo pique — sesión 020
+
+- [NOX: La Chiquita en pádel](https://noxsport.com/blogs/making-you-improve/la-chiquita-en-padel): intención de bola suave y corta cerca de red. No prescribe separación entre piques.
+- [The Padel School: The Perfect Padel Return](https://thepadelschool.com/resources/blog/the-perfect-padel-return): colocación/control, sin exigir un tipo de efecto. Consultadas 28/10/2026.
+- [Rod Cross: Tennis physics, anyone?, Physics Today, 2008](https://physicstoday.aip.org/quick-study/tennis-physics-anyone): fricción, deslizamiento, agarre y separación entre respuesta horizontal/vertical. Referencia primaria de física de tenis; no medir directamente parámetros de césped de pádel a partir de ella. Nuestra curva de agarre es calibración arcade propia.
+- Videos antes/ahora generados en motor, sin imágenes o audio externos. No se descargaron videos de entrenamiento.

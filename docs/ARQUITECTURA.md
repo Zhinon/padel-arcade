@@ -88,3 +88,8 @@ ImpactFeedback.present_miss elige zona virtual local y anima avance/seguimiento 
 ## Golpe suave — sesión 019
 
 BasicShot.touch_weight mezcla intención corta según carga y componente abajo. target_for_aim incluye esa profundidad para marcador; resultado al contacto aplica control de dirección según calidad. solve_velocity conserva firma previa con argumentos opcionales touch/contact y añade arco corto resuelto por búsqueda de duración en modelo físico existente, con límite horizontal. Debilidad por potencia insuficiente y mala calidad reduce componente vertical después de asistencia. Evento hit añade touch y shot_type (chiquita/defense/drive); perfect reconoce también golpe suave preparado. Presentación consume clase existente sin nueva autoridad de contacto. Valores exportados, sin cambios en BallSimulation o cámara.
+
+
+## Agarre efectivo de piso — sesión 020
+
+BallSimulation mantiene responsabilidad del rebote. En piso calcula pendiente approach/|tangent| y mezcla fricción base hacia floor_grip_friction entre floor_grip_slope_start/end. Limita impulso aumentado con floor_grip_max_loss, conserva base si era mayor y aplica retención previa. No consulta BasicShot, estado de preparación ni etiqueta chiquita. Parámetros exportados; restitución y rama de rodadura independientes. Modelo aproximado sin velocidad angular.

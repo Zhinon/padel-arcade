@@ -151,3 +151,10 @@ Para cambiar una decisión: añadir fecha, contexto, alternativas relevantes, el
 - **D66, autorización:** usuario pide continuar con siguientes pasos tras propuesta de chiquita. Se implementa prototipo y se mantiene pendiente calibración humana.
 - **D67, provisional:** carga <=40% y abajo completo produce chiquita; mezcla suave por carga (40–65%) y componente abajo (0.2–0.8). Objetivo de pique 1.6 m de red y centro de pelota sobre red 1.16 m, velocidad horizontal <=8 m/s. Parámetros exportados; no valores reglamentarios ni mediciones reales. Contacto alto/cercano puede flotar por límite de velocidad. Sin segundo botón ni ajuste al rival.
 - **D68:** calidad sigue madurando después de fijar carga. Con buena calidad (>=0.85), carga 12–40% y chiquita completa se reconoce excelente golpe suave. El 90% permanece referencia de drive potente. Una mínima carga tardía puede perder margen de red mediante trayectoria determinista, sin RNG. Riesgo potente aprobado se conserva.
+
+
+## 28/10/2026 — sesión 020: segundo pique y agarre del piso
+
+- **D69, feedback:** segundo pique de chiquita demasiado largo. Ampliar validación más allá del primer pique y contrastar referencia deportiva, sin inventar distancia oficial.
+- **D70, calibración provisional:** agarre efectivo por pendiente en toda colisión de piso. Fricción 0.18→0.42 al variar pendiente 0.35→0.85; pérdida extra limitada al 50% tangencial para no anular globos. Base y retención existentes conservadas. No excepción por tipo de golpe. La fricción también cambia otras caídas pronunciadas; prueba humana pendiente.
+- **D71, alcance:** se conserva restitución vertical, arco de salida, gravedad y rodadura. Referencia de fricción/agarre no equivale a simular giro. Spin completo sigue P44 pendiente. Metas de segundo pique son criterios arcade para casos conocidos, no regla ni medición real.
