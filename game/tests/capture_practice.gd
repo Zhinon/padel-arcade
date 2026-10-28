@@ -1,6 +1,7 @@
 extends SceneTree
 ## Scripted demonstration driven through Godot input, not runtime AI.
-var event_hits: int = 0
+var capture_frame: int = 0
+var audio_events: Array[Dictionary] = []
 func _initialize() -> void:
 	call_deferred("_run")
 
@@ -17,19 +18,26 @@ func _run() -> void:
 	await physics_frame
 	await process_frame
 	var lab = current_scene
+	# Capture must continue if another verification window takes focus.
+	# This disconnect is test-only; runtime retains focus-loss pause.
+	for connection in lab.input_adapter.focus_lost.get_connections():
+		lab.input_adapter.focus_lost.disconnect(connection.callable)
 	lab._set_practice_paused(false)
 	if "--small" in OS.get_cmdline_user_args():
 		root.size = Vector2i(640, 360)
 		root.content_scale_size = Vector2i(640, 360)
 		await process_frame
 		await process_frame
-		await RenderingServer.frame_post_draw
+		await process_frame
+		RenderingServer.force_draw()
 		var error := root.get_texture().get_image().save_png(ProjectSettings.globalize_path("res://../docs/previews/practice-640x360.png"))
 		quit(0 if error == OK else 1)
 		return
 	var folder := ProjectSettings.globalize_path("res://../../../work/practice-frames")
 	DirAccess.make_dir_recursive_absolute(folder)
+	lab.shot_controller.hit.connect(func(_event: Dictionary): audio_events.append({"time": capture_frame / 30.0, "kind": lab.impact_feedback.last_kind}))
 	for frame in range(180):
+		capture_frame = frame
 		if frame in [0, 90]:
 			_key(KEY_R if frame == 0 else KEY_T, true)
 			_key(KEY_R if frame == 0 else KEY_T, false)
@@ -42,7 +50,8 @@ func _run() -> void:
 		if frame in [18, 108]: _key(KEY_SPACE, true)
 		if lab.shot_controller.charging and lab.shot_controller.charge_time >= lab.shot_controller.full_preparation * 0.9:
 			_key(KEY_SPACE, false)
-		await RenderingServer.frame_post_draw
+		await process_frame
+		RenderingServer.force_draw()
 		var image := root.get_texture().get_image()
 		var error_code := image.save_png(folder.path_join("frame-%04d.png" % frame))
 		if error_code != OK:
@@ -50,7 +59,12 @@ func _run() -> void:
 			return
 		if frame == 132:
 			image.save_png(ProjectSettings.globalize_path("res://../docs/previews/practice.png"))
+	var log_file := FileAccess.open(folder.path_join("impact-events.json"), FileAccess.WRITE)
+	log_file.store_string(JSON.stringify(audio_events))
+	log_file.close()
 	Input.action_release("padel_left")
 	Input.action_release("padel_right")
+	lab.impact_feedback.reset_presentation()
+	await create_timer(0.25).timeout
 	print("Input-event demonstration: %d hits, %d attempts, practice mode %s" % [lab.shot_controller.hits, lab.shot_controller.attempts, lab.practice_mode])
 	quit(0 if lab.shot_controller.hits == 2 else 1)

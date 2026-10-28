@@ -61,3 +61,8 @@ BallSimulation resuelve ahora fricción tangencial de piso según impulso normal
 - Capa de colisión: cancha 1, pelota 2, jugador 4. Jugador consulta cancha; pelota consulta cancha, no cuerpos. Evita introducir reglas de cuerpo antes de implementarlas.
 
 No existe IA de jugador en runtime. El conductor que realiza contactos de prueba y mueve el actor automáticamente está únicamente en tests/.
+
+
+## Presentación — sesión 012
+
+ImpactFeedback observa `BasicShot.hit` y no modifica simulación. Prioridad 30 después de pelota y golpe: aplica pose de pala al contacto y solicita AudioStreamPlayer en el mismo evento; luego anima seguimiento, brazo y destello. PlayerMotor mantiene autoridad exclusiva del desplazamiento; se retiró su antigua rotación independiente de pala para no competir. Root coordina activación, alimentación, pausa y laboratorio. M controla silencio de efectos, sin mutar el bus global. Sonidos importados desde game/audio, generados por tools/generate-impact-audio.py.

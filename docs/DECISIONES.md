@@ -98,3 +98,10 @@ Para cambiar una decisión: añadir fecha, contexto, alternativas relevantes, el
 
 - **D49, pedido del usuario:** apuntar hacia abajo con 100% de carga debe poder producir red. El riesgo de sobrecarga (por encima del 94%) se reparte según el apuntado: hacia abajo reduce arco en vez de alargar profundidad; hacia adelante/laterales conserva riesgo de cerramiento. Calidad favorable conserva más margen, sin RNG de fallo ni obligación de que todo 100% falle.
 - **Calibración técnica provisional:** factor de riesgo vertical 1.6 hacia una altura de centro de pelota de 0.45 m al cruzar red en máxima penalización. Se modifica velocidad vertical después de calcular arco nominal; no se altera gravedad, red o rebotes. Aviso específico de menor margen sobre red. Ajustar con juego humano.
+
+
+## 28/10/2026 — sesión 012: aceptación del control y presentación
+
+- **D50, confirmado por el usuario:** sensación de juego buena tras probar versión con riesgo de red. E3/P34 aceptados cualitativamente; conservar sus parámetros al mejorar presentación. No se atribuye una duración medida a esa prueba humana.
+- **D51:** presentación separada en ImpactFeedback (prioridad física 30), consumiendo BasicShot.hit después del impacto. Preparación geométrica, pala en posición de contacto, brazo conectado y acompañamiento 0.24 s; destello 0.18 s como ayuda visual. No retemporizar pelota ni bloquear movimiento. Personajes y animación siguen provisionales.
+- **D52:** impactos normal/perfecto/defensivo con WAV propios de síntesis determinista, sin muestras/licencias externas; volumen inicial -8 dB. Colores celeste/verde/ámbar. M silencia; pausa/alimentación/F8 limpian efectos y voces, silencio persiste en sesión. Sonido comunica clase de contacto, no resultado de punto; no suena en fallo sin contacto. Escucha y valoración del usuario pendientes.

@@ -1,10 +1,10 @@
-# Práctica de preparación y contacto automático — sesión 011
+# Práctica de preparación y contacto automático — sesión 012
 
 Un jugador se mueve y devuelve pelotas de un lanzador. Se mantiene la cámara aprobada y la física calibrada de E2. Los otros tres personajes siguen estáticos; no hay rival, marcador ni partido.
 
 ![Jugador controlable y primer golpe](previews/practice.png)
 
-[Demostración de seis segundos](previews/practice.mp4): entradas sintéticas de Godot realizan dos contactos. Es una prueba grabada, no un rival o asistente que juegue por el usuario.
+[Demostración de seis segundos](previews/practice.mp4): entradas sintéticas de Godot realizan dos contactos. Es una prueba grabada, no un rival o asistente que juegue por el usuario. El audio del video se mezcla con los WAV del juego según el registro de eventos, no se graba de la salida de audio del sistema.
 
 ## Empezar
 
@@ -31,6 +31,7 @@ Si aparece PAUSA al cambiar de ventana, pulsá **P** para continuar.
 | Cancelar preparación fijada | Volver a pulsar Espacio | Volver a pulsar A |
 | Recibir pelota | R | X |
 | Cambiar zona y recibir | T | Y |
+| Silenciar / reactivar impactos | M | Sin asignación todavía |
 | Pausar / continuar | P o Escape | Start |
 | Alternar laboratorio / práctica | F8 | Sin asignación todavía |
 | Cámaras | 1/2/3 | Sin asignación todavía |
@@ -59,7 +60,7 @@ La recuperación impide otro intento durante 0.18 s (0.28 s defensivo), pero dev
 - Velocidad máxima 5.2 m/s, aceleración 25 m/s²; preparando la velocidad objetivo es cero, con frenado de 60 m/s². Puede quedar un pequeño desplazamiento de frenado; el apuntado no permite correr.
 - Movimiento diagonal normalizado, con barridos de colisión y límites dentro de la mitad cercana. No hay salto ni cambio de lado.
 - Alcance horizontal inicial 1.25 m; altura de contacto 0.22–2.1 m. Existe tolerancia limitada para una pelota que llega durante la preparación, no un golpe remoto.
-- Pala con movimiento procedural provisional; no animación deportiva final ni esqueleto animado.
+- Pala y brazo con preparación y acompañamiento procedural, contacto sincronizado y breve inclinación del cuerpo; sin esqueleto o animación deportiva final. El cuerpo conserva movimiento durante el gesto.
 - Un solo contacto por intento y un solo golpe del jugador por pelota recibida. R/T vuelven a habilitar una nueva pelota.
 - La bola conserva posición, reloj, historial de contactos y estado aleatorio al golpearla. El golpe cambia velocidad y último golpeador; no es un relanzamiento oculto.
 
@@ -70,6 +71,14 @@ El cuerpo del jugador colisiona con la cancha. La pelota no rebota contra los cu
 El golpe base calcula una velocidad de salida para aterrizar cerca del aro rival usando el mismo paso de gravedad y resistencia de E2. Ajusta duración si hace falta para intentar pasar la red con margen (altura de centro de pelota al cruzar: al menos 1.3 m en la predicción). Esto es asistencia arcade explícita.
 
 La pelota sigue recorriendo la trayectoria mediante física y colisiones. Si hay un impacto intermedio, ya no se garantiza el destino previsto. No se implementaron globo/remate del jugador ni giro de pelota. Los lanzamientos F1–F7 siguen siendo pruebas del laboratorio.
+
+## Presentación del impacto
+
+Se distinguen tres resultados: **normal** (destello celeste y golpe seco), **perfecto** (verde y ataque más marcado) y **defensa** (ámbar y sonido más suave/opaco). El sonido se solicita una sola vez desde el contacto real; preparar, soltar sin contacto o fallar no produce impacto. La sobrecarga conserva su aviso de riesgo; el sonido depende de la calidad real del contacto, no implica punto ganado/perdido.
+
+La pala coincide con el contacto, el brazo acompaña y el gesto vuelve al reposo en 0.24 s. El destello dura 0.18 s y se dibuja como ayuda de lectura aunque lo tape el avatar. Son sonidos originales sintéticos provisionales; falta evaluación auditiva con el usuario. **M** silencia/reactiva y conserva preferencia al pausar o cambiar laboratorio dentro de esta ejecución; aún no se guarda entre ejecuciones.
+
+Capturas: [preparación](previews/impact-preparation.png), [perfecto](previews/impact-perfect.png) y [defensa](previews/impact-defense.png). Ejecutor `tests/impact_checks.gd`: contacto, clases de audio, neutralización, silencio, pausa/F8 y preservación de física.
 
 ## Laboratorio anterior
 

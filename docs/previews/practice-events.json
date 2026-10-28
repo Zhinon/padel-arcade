@@ -1,0 +1,15 @@
+{
+  "capture_fps": 30,
+  "duration_s": 6,
+  "events": [
+    {
+      "kind": "normal",
+      "time": 1.23333333333333
+    },
+    {
+      "kind": "normal",
+      "time": 4.23333333333333
+    }
+  ],
+  "audio_note": "Mixed from original WAV assets at -8 dB by logged hit time; not a system-audio recording."
+}

@@ -70,3 +70,10 @@ Parámetros de diseño ajustados por feedback, sin nuevas mediciones empíricas 
 - [CharacterBody3D](https://docs.godotengine.org/en/stable/classes/class_characterbody3d.html): cuerpo de jugador; el movimiento final usa barridos move_and_collide con delta explícito.
 - PlayerMotor, BasicShot, PracticeInput, panel y aro/objetivo son código y geometría creados en el proyecto. No se incorporaron modelos, fuentes, sonidos o animaciones externas.
 - `previews/practice.png`, `practice-640x360.png` y `practice.mp4`: capturas del motor con conductor sintético de prueba. El video no corresponde a un rival implementado.
+
+
+## Presentación de golpe — sesión 012
+
+- `game/audio/impact-normal.wav`, `impact-perfect.wav`, `impact-defense.wav`: creados en este proyecto mediante síntesis de ruido/transitorios/resonancia con semilla fija. No incorporan muestras, música o grabaciones externas. Generador reproducible: `tools/generate-impact-audio.py`. Assets provisionales del proyecto, sin atribución externa necesaria. Formato/energía en previews/audio-checks.json.
+- Animación procedural, brazo, destello y código ImpactFeedback creados en el proyecto; capturas impact-*.png extraídas del motor. Video con audio mezclado desde eventos registrados y WAV originales (no captura del mezclador del sistema).
+- API consultada: [AudioStreamPlayer](https://docs.godotengine.org/en/stable/classes/class_audiostreamplayer.html) y [Quaternion](https://docs.godotengine.org/en/stable/classes/class_quaternion.html), documentación oficial; integración ejecutada con Godot 4.7.2.

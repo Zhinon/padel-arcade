@@ -1,0 +1,32 @@
+{
+  "assets": [
+    {
+      "asset": "game/audio/impact-defense.wav",
+      "rate": 44100,
+      "channels": 1,
+      "duration_s": 0.18,
+      "peak": 0.399993896484375,
+      "rms": 0.05960421394710294,
+      "sha256": "989c0d5c204067fe080c4e15eedfd19c208a912f1f92abdc44c850a499274b70"
+    },
+    {
+      "asset": "game/audio/impact-normal.wav",
+      "rate": 44100,
+      "channels": 1,
+      "duration_s": 0.14,
+      "peak": 0.6199951171875,
+      "rms": 0.07290695453198338,
+      "sha256": "b64a992474a959d6af5836327104215facc0c08166765722aa4c5b1eb182c529"
+    },
+    {
+      "asset": "game/audio/impact-perfect.wav",
+      "rate": 44100,
+      "channels": 1,
+      "duration_s": 0.12,
+      "peak": 0.759979248046875,
+      "rms": 0.08051331710934131,
+      "sha256": "fe46a5545181bb9f48bf1bbed6d870d25941db75741876121ff4a77ed061eb0f"
+    }
+  ],
+  "note": "Original synthetic provisional impacts. Format, distinct content and headroom verified; human listening pending."
+}

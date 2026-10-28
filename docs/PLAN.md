@@ -55,7 +55,9 @@ Depende de E2. Objetivo: devolver con intención.
 - [x] P33 Dirigir devolución con ayuda ajustable y un solo impacto por golpe.
 - [x] P35 Revisar control según documento del usuario: potencia/liberación aprobadas en D43–D45 (ideal cerca del 90%, riesgo al 100%, defensa débil). Definir cancelación/caducidad y revisar plantado, apuntado y contacto automático. Ver REVISION_CONTROLES_ARCADE.md.
 - [x] P36 Implementar y verificar contraste preparado/emergencia, calidad de contacto y recuperación antes de ampliar tiros. No modificar física aceptada sin evidencia.
-- [ ] P34 Probar 30 segundos con el usuario y registrar sensaciones. Integración automática de 30 s aprobada en sesión 007; no reemplaza esa prueba humana.
+- [x] P34 Validar sensación con el usuario: expresó «yo creo que la sensacion de juego está buena» tras probar la versión con riesgo de red. Aceptación cualitativa; no se midió duración de esa prueba humana.
+
+**Avance sesión 012:** E3 aceptada cualitativamente por el usuario. P42 implementado y verificado para golpe base: preparación, contacto, acompañamiento, sonido y destello. Próximo paso: probar presentación, después P40 globo.
 
 **Avance sesión 011:** usuario conforme con control; agregado riesgo de red para apuntado corto sobrecargado, verificado con contacto automático y física. Pendiente revisar este ajuste jugando.
 
@@ -71,7 +73,7 @@ Depende de E3. Objetivo: elegir un tiro cambia el intercambio.
 
 - [ ] P40 Añadir globo, remate contextual y volea con resultados distintos.
 - [ ] P41 Ajustar tiempos, potencia, precisión y asistencia.
-- [ ] P42 Integrar animaciones y sonido provisionales sin cambiar autoridad del contacto.
+- [x] P42 Integrar animaciones y sonido provisionales para golpe base normal/perfecto/defensivo, sin cambiar autoridad del contacto. Extender a nuevos tiros cuando se incorporen. Revisión auditiva/visual del usuario pendiente.
 - [ ] P43 Añadir rival simple de laboratorio y revisar diversión con el usuario.
 - [ ] P44 Diseñar e implementar giro de pelota (topspin, slice y lateral) con pruebas separadas de vuelo y contacto; todavía no implementado.
 

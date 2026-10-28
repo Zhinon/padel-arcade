@@ -238,4 +238,10 @@ func _run() -> void:
 	file.close()
 	print("Player checks: %d trajectories, %d scripted returns, %d failures" % [landings.size(), shot.hits, failures.size()])
 	for message: String in failures.slice(0, 20): push_error(message)
+	lab.impact_feedback.reset_presentation()
+	# Let the audio mixer release stopped voices before the fast test exits.
+	await create_timer(0.25).timeout
+	current_scene.queue_free()
+	await process_frame
+	await process_frame
 	quit(0 if failures.is_empty() else 1)

@@ -11,7 +11,6 @@ var input_adapter: Node
 var visual: Node3D
 var racket: MeshInstance3D
 var selection_ring: MeshInstance3D
-var swing_time: float = 0.0
 var walk_time: float = 0.0
 
 func _ready() -> void:
@@ -43,12 +42,9 @@ func _physics_process(delta: float) -> void:
 		return
 	var direction: Vector2 = Vector2.ZERO if input_adapter == null else input_adapter.movement()
 	move_player(direction, delta)
-	swing_time = maxf(0.0, swing_time - delta)
 	walk_time += delta * Vector2(velocity.x, velocity.z).length()
 	if visual != null:
 		visual.position.y = 0.015 * sin(walk_time * 12.0) if direction.length() > 0.1 else 0.0
-	if racket != null:
-		racket.rotation.y = lerpf(-0.9, 1.1, 1.0 - swing_time / 0.24) if swing_time > 0.0 else (-0.6 if preparing else 0.0)
 	selection_ring.material_override.albedo_color = Color("ffcf70") if preparing else Color("ddff74")
 
 func move_player(direction: Vector2, delta: float) -> void:
@@ -85,7 +81,6 @@ func reset_position(at: Vector3) -> void:
 	velocity = Vector3.ZERO
 	grounded = false
 	preparing = false
-	swing_time = 0.0
 	if visual != null:
 		visual.position.y = 0.0
 		visual.rotation = Vector3.ZERO

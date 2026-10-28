@@ -10,10 +10,12 @@ const BALL_SIM = preload("res://scripts/ball_simulation.gd")
 const PLAYER_MOTOR = preload("res://scripts/player_motor.gd")
 const PRACTICE_INPUT = preload("res://scripts/practice_input.gd")
 const BASIC_SHOT = preload("res://scripts/basic_shot.gd")
+const IMPACT_FEEDBACK = preload("res://scripts/impact_feedback.gd")
 const PRACTICE_HUD = preload("res://scripts/practice_hud.gd")
 var controlled_player: CharacterBody3D
 var input_adapter: Node
 var shot_controller: Node
+var impact_feedback: Node3D
 var hud: CanvasLayer
 var practice_mode: bool = false
 var resume_ball_active: bool = false
@@ -131,7 +133,7 @@ func _build_players() -> void:
 			limb.height = 0.68
 			var leg := _mesh("Leg", limb, Color("223745"), player)
 			leg.position = Vector3(side * 0.13, 0.42, 0)
-			var arm := _mesh("Arm", limb, shirt, player)
+			var arm := _mesh("ArmLeft" if side < 0.0 else "ArmRight", limb, shirt, player)
 			arm.position = Vector3(side * 0.29, 1.08, -0.03)
 			arm.rotation.z = side * 0.25
 		var racket := _sphere("Racket", 0.21, Color("d3e457"), player)
@@ -292,6 +294,12 @@ func _setup_practice() -> void:
 	hud.controller = shot_controller
 	add_child(hud)
 	shot_controller.feedback.connect(hud.show_feedback)
+	impact_feedback = IMPACT_FEEDBACK.new()
+	impact_feedback.name = "ImpactFeedback"
+	impact_feedback.player = controlled_player
+	impact_feedback.controller = shot_controller
+	add_child(impact_feedback)
+	hud.impact_feedback = impact_feedback
 	var mesh := TorusMesh.new()
 	mesh.inner_radius = 0.35
 	mesh.outer_radius = 0.4
@@ -305,6 +313,9 @@ func set_practice_mode(enabled: bool) -> void:
 	repeat_launch = false
 	if shot_controller == null:
 		return
+	impact_feedback.enabled = enabled
+	impact_feedback.paused = false
+	impact_feedback.reset_presentation()
 	shot_controller.enabled = enabled
 	shot_controller.paused = false
 	shot_controller.reset_cycle()
@@ -330,6 +341,7 @@ func feed_practice_ball() -> void:
 		return
 	simulation.launch(Vector3(FEED_LANES[feed_lane], 1.6, -5.8), Vector3(0, 4.2, 10), launch_seed)
 	shot_controller.reset_cycle()
+	impact_feedback.reset_presentation()
 	resting_notified = false
 	trail_points.clear()
 	trail.mesh = null
@@ -352,4 +364,6 @@ func _set_practice_paused(paused: bool) -> void:
 	shot_controller.paused = paused
 	shot_controller.reset_cycle()
 	simulation.active = false if paused else resume_ball_active
+	impact_feedback.paused = paused
+	impact_feedback.reset_presentation()
 	hud.paused = paused

@@ -2,7 +2,7 @@
 
 Juego de pádel 3D para PC, con jugabilidad arcade inspirada en Virtua Tennis y adaptación posterior a celular. Desarrollo individual asistido por Codex. Documentación en español.
 
-**Estado al 28/10/2026, sesión 010:** práctica con preparación que planta al jugador, carga fijada al soltar y contacto automático. Tiro preparado y defensa tardía diferenciados; sobrecarga con riesgo de cerramiento directo. Se conserva la física calibrada y el laboratorio anterior. Sin rival ni partido todavía.
+**Estado al 28/10/2026, sesión 012:** práctica con preparación que planta al jugador, carga fijada al soltar y contacto automático. Tiro preparado y defensa tardía diferenciados; sobrecarga con riesgo de cerramiento directo. Se conserva la física calibrada y el laboratorio anterior. Sensación de control aceptada por el usuario. Preparación/impacto con animación y tres sonidos provisionales; M silencia. Sin rival ni partido todavía.
 
 ![Práctica con jugador controlable](docs/previews/practice.png)
 

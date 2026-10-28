@@ -2,7 +2,7 @@
 
 ## Estado actual
 
-Sesión 011: preparación/contacto automático y riesgo direccional implementados y probados técnicamente. Usuario conforme con versión 010; ajuste de red pendiente de revisión humana. P34 de evaluación completa sigue pendiente. E2 conserva sus regresiones aprobadas. Parejas, reglas y partido continúan pendientes.
+Sesión 012: usuario acepta sensación de E3/P34 tras probar versión con riesgo de red. Presentación provisional de golpe/audio implementada y comprobada técnicamente; su valoración humana sigue pendiente. E2 conserva sus regresiones aprobadas. Parejas, reglas y partido continúan pendientes.
 
 ## Escenarios mínimos
 
@@ -153,3 +153,12 @@ Regresiones ejecutadas: ball_checks (13 escenarios), surface_calibration_checks 
 Godot 4.7.2.stable.official.ed1daf0bf, paso 1/120 s. Jugador (0,0,6.8), pelota (1.1,0.3,6.8), preparación 0.02 s, dirección abajo. Dos cargas: 0.9 y 1.0. Se entra en LOCKED con contacto válido y se ejecuta `step`, luego se simula pelota hasta primer contacto. Esperado/observado: 90% → piso rival; 100% → red. Resultado reproducible sin RNG del golpe; registro en previews/player-checks.json. La asistencia nominal no anula el aplanamiento del arco.
 
 `player_checks.gd`: dos casos nuevos, casos de fondo/lateral anteriores, 90 trayectorias nominales, diez contactos en 30 s y comprobaciones de control aprobadas. `ball_checks.gd`: 13 escenarios aprobados. Importación sin errores de scripts (avisos de puertos bloqueados por sandbox). No se cambió simulación pasiva ni coeficientes; sin nuevo render o evaluación humana del ajuste. La prueba de contacto exigido al 90% es defensa segura, no se etiqueta como tiro perfecto.
+
+
+## Sesión 012 — presentación y audio del contacto
+
+Motor 4.7.2.stable.official.ed1daf0bf; `impact_checks.gd` crea golpes reales normal/perfecto/defensivo preparando 42/86/1 ticks a 120 Hz, jugador (-2.4,0,6.8) y llegada (0,0.9,-0.65) relativa al jugador. Se verifica pose de pala <0.0001 m del contacto en callback, una presentación/solicitud de audio por hit, WAV correspondiente importado, retorno a reposo, movimiento disponible durante gesto y física sin cambios al animar. Sin sonido preparando; silencio/M, pausa y laboratorio comprobados. Informe previews/impact-checks.json, sin fallos. La espera de 0.25 s al cerrar ejecutores permite al mezclador liberar voces detenidas; sin fugas de audio al cierre final.
+
+Capturas gráficas de preparación y tres clases inspeccionadas a 720p; brazo conectado y destello legible. HUD compacto 640×360 revisado. WAV propios: tres hashes distintos, mono PCM16 44.1 kHz, duraciones 0.12/0.14/0.18 s, sin saturación. Nivel del reproductor -8 dB. Informe audio-checks.json. Se verifican archivos y solicitud de reproducción; no se afirma evaluación auditiva humana ni latencia medida del equipo final.
+
+`player_checks.gd`: 90 trayectorias nominales y diez devoluciones en conductor de 30 s, riesgos de fondo/lateral/red y controles aprobados. `ball_checks.gd`: 13 regresiones aprobadas. Importación sin errores después de tipar dos vectores explícitos. Render llvmpipe CPU con avisos Mesa/VSync conocidos. E3 aceptada por testimonio del usuario; presentación nueva pendiente de su valoración.

@@ -162,7 +162,6 @@ func _execute_contact() -> void:
 	charging = false
 	armed_time = 0.0
 	player.preparing = false
-	player.swing_time = 0.24
 	recovery = emergency_recovery if result.defensive else recovery_duration
 	state = State.RECOVERING
 	var perfect: bool = absf(shot_charge - perfect_charge) <= perfect_tolerance and quality >= 0.85 and not result.defensive

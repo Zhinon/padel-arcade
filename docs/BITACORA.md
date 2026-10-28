@@ -146,3 +146,16 @@
 **Pruebas:** mismo contacto exigido 90% llega a piso rival, 100% toca red, ejecutados por contacto automático y física. Pruebas anteriores de control, fondo/lateral, 90 trayectorias y diez devoluciones aprobadas; 13 regresiones de pelota aprobadas. Importación sin errores de scripts con avisos del sandbox sobre puertos del editor. Sin nueva prueba visual/humana. Ajuste de altura calibrado tras detectar que una reducción fija inicial todavía pasaba la red.
 
 **Continuidad:** probar este riesgo jugando; mantener P34 antes de avanzar a tiros/IA. Estado, plan, guía, decisiones y pruebas actualizados.
+
+
+## 28/10/2026 — Sesión 012: pala, brazo y sonidos provisionales
+
+**Pedido:** avanzar con presentación tras aprobación explícita de sensación de juego. Se registra cierre cualitativo de P34, sin inventar duración de prueba humana.
+
+**Implementación:** ImpactFeedback desacoplado de física, preparación/pala/brazo e inclinación, contacto sincronizado y acompañamiento corto. Destello normal/perfecto/defensa; síntesis propia de tres WAV sin samples externos. M silencia. Pausa, relanzamiento y F8 limpian presentación sin cambiar control aceptado.
+
+**Correcciones:** dos vectores tipados tras errores de inferencia; nombres explícitos de brazos al detectar que un nombre duplicado impedía hallar brazo derecho. Destello como ayuda sin profundidad para que no quede oculto por avatar. Ejecutores esperan al mezclador al cerrar tras detectar recursos de audio pendientes en pruebas muy rápidas. La primera grabación perdió foco y quedó pausada: se aisló esa notificación solo en el ejecutor y se forzó dibujado de captura; segunda grabación completa con dos contactos. El juego conserva pausa al perder foco.
+
+**Validación:** tres clases de golpe real, coincidencia de pala, sonido solicitado, silencio, vuelta neutral, movimiento durante seguimiento y física intacta. Regresión jugador (90 trayectorias/diez contactos/riesgos) y 13 escenarios de pelota aprobados. Importación y capturas 720p/360p revisadas. Formato/contenido/energía WAV comprobados; escucha humana pendiente. Demostración actualizada con audio mezclado por eventos de captura, sin grabación del audio del sistema.
+
+**Continuación:** probar presentación con usuario y ajustar volumen/claridad; después globo del jugador (P40). Plan, guía, fuentes, arquitectura, decisiones y estado actualizados; punto Git al cierre.

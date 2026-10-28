@@ -6,6 +6,7 @@ var counter: Label
 var title: Label
 var controls: Label
 var compact: bool = false
+var impact_feedback: Node
 var controller: Node
 var paused: bool = false
 var last_message: String = "R para recibir una pelota · el jugador marcado es tuyo"
@@ -44,7 +45,7 @@ func _ready() -> void:
 	status.add_theme_font_size_override("font_size", 18)
 	column.add_child(status)
 	controls = Label.new()
-	controls.text = "WASD / flechas: mover · Espacio: cargar / soltar fija · R: pelota · T: zona · P: pausa · F8: laboratorio"
+	controls.text = "WASD / flechas: mover · Espacio: cargar / soltar fija · R: pelota · T: zona · P: pausa · M: audio · F8: laboratorio"
 	controls.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	controls.add_theme_font_size_override("font_size", 16)
 	controls.add_theme_color_override("font_color", Color("d0dde0"))
@@ -55,7 +56,7 @@ func _ready() -> void:
 func _resize() -> void:
 	compact = get_window().size.x < 800
 	if title != null:
-		title.text = "PRÁCTICA · P pausa · F8 lab" if compact else "PRÁCTICA · GOLPE BASE"
+		title.text = "PRÁCTICA · P pausa · M audio" if compact else "PRÁCTICA · GOLPE BASE"
 		title.add_theme_font_size_override("font_size", 16 if compact else 18)
 		status.add_theme_font_size_override("font_size", 16 if compact else 18)
 		controls.visible = not compact
@@ -69,7 +70,7 @@ func show_feedback(message: String) -> void:
 func _process(_delta: float) -> void:
 	if not visible or controller == null:
 		return
-	counter.text = "Contactos: %d" % controller.hits
+	counter.text = "Contactos: %d%s" % [controller.hits, " · sin audio" if impact_feedback != null and impact_feedback.muted else ""]
 	status.remove_theme_color_override("font_color")
 	if controller.is_preparing():
 		var near_ideal: bool = absf(controller.shot_charge - controller.perfect_charge) <= controller.perfect_tolerance
