@@ -1,8 +1,23 @@
 {
+	"control_model": "charge, release locks, automatic contact",
+	"defensive_power": 0.0638523839033409,
 	"diagonal_distance_m": 4.68054246902466,
 	"engine": "4.7.2-stable (official)",
 	"failures": [],
 	"note": "Synthetic inputs and scripted driver; no human playability or physical gamepad validation.",
+	"overload_cases": [
+		{
+			"aim": "(0.0, -1.0)",
+			"first_surface": "glass",
+			"target": "(0.0, 0.105, -13.3093)"
+		},
+		{
+			"aim": "(1.0, 0.0)",
+			"first_surface": "glass",
+			"target": "(5.4162, 0.105, -9.80758)"
+		}
+	],
+	"prepared_power": 0.895825755868386,
 	"scripted_hits": 10,
 	"scripted_practice_seconds": 30,
 	"straight_distance_m": 4.68055057525635,

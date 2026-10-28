@@ -5,6 +5,7 @@ var ball: CharacterBody3D
 var shot: Node
 var failures: Array[String] = []
 var landings: Array[Dictionary] = []
+var overload_cases: Array[Dictionary] = []
 const DT: float = 1.0 / 120.0
 
 func _initialize() -> void:
@@ -58,43 +59,97 @@ func _run() -> void:
 		for tick in range(360): player.move_player(direction, DT)
 		_check(absf(player.position.x) <= 4.601 and player.position.z >= 0.599 and player.position.z <= 9.501, "Player remains in own court")
 	player.reset_position(Vector3(-2.4, 0, 6.8))
+	for tick in range(30): player.move_player(Vector2.RIGHT, DT)
+	var brake_start := player.position
+	player.preparing = true
+	for tick in range(36): player.move_player(Vector2.LEFT, DT)
+	_check(absf(player.position.x - brake_start.x) < 0.25 and absf(player.velocity.x) < 0.01, "Preparation brakes a running player quickly without using aim as movement")
+	player.reset_position(Vector3(-2.4, 0, 6.8))
 	ball.launch(Vector3(3, 1, 6), Vector3.ZERO)
 	shot.reset_cycle()
 	var hits_before: int = shot.hits
-	_prepare()
-	shot.release_shot(Vector2.ZERO)
-	shot.step(0.25)
-	_check(shot.hits == hits_before and ball.velocity.is_zero_approx(), "Out of reach does not hit")
-	ball.position = player.position + Vector3(0, 0.9, -0.4)
-	shot.step(0.01)
-	_check(shot.hits == hits_before, "Expired window does not hit later")
-	shot.reset_cycle()
-	_prepare(0.025)
-	shot.release_shot(Vector2.ZERO)
-	shot.step(DT)
-	_check(shot.hits == hits_before, "Very short preparation is rejected")
-	shot.reset_cycle()
-	ball.launch(player.position + Vector3(0.4, 3, -0.4), Vector3.ZERO)
-	_prepare()
-	shot.release_shot(Vector2.ZERO)
-	shot.step(0.25)
-	_check(shot.hits == hits_before, "High ball cannot be hit by base shot")
-	shot.reset_cycle()
-	ball.launch(player.position + Vector3(0.4, 0.9, -0.4), Vector3(0, 0, 10))
-	_prepare()
+	_prepare(0.72)
+	shot.release_shot(Vector2.RIGHT)
+	_check(shot.is_preparing() and not shot.charging and player.preparing, "Release locks charge and preserves planted stance")
+	_check(shot.hits == hits_before and absf(shot.shot_charge - 0.9) < 0.006, "Release at 90 percent does not strike remotely")
+	shot.step(0.4)
+	_check(absf(shot.shot_charge - 0.9) < 0.006, "Locked charge does not grow")
+	var planted_start := player.position
+	for tick in range(60): player.move_player(Vector2.RIGHT, DT)
+	_check(Vector2(player.position.x - planted_start.x, player.position.z - planted_start.z).length() < 0.01, "Aim input cannot run while planted")
+	shot.aim = Vector2.LEFT
+	ball.position = player.position + Vector3(0, 0.9, -0.65)
+	shot.previous_ball_position = ball.position
 	var at := ball.position
 	var clock: float = ball.elapsed
 	var rng_state: int = ball.fence_rng.state
-	shot.release_shot(Vector2.ZERO)
+	var perfect_event: Dictionary = {}
+	shot.hit.connect(func(event: Dictionary): perfect_event.merge(event, true))
 	shot.step(DT)
-	_check(shot.hits == hits_before + 1 and ball.last_hitter == 0, "One valid contact marks hitter")
+	_check(shot.hits == hits_before + 1 and ball.last_hitter == 0, "Arrival automatically contacts locked shot")
+	_check(perfect_event.get("perfect", false) and shot.target.x < player.position.x, "Prepared 90 percent is perfect and accepts late aim changes")
+	var prepared_power: float = shot.effective_power
 	_check(ball.position.is_equal_approx(at) and ball.elapsed == clock and ball.fence_rng.state == rng_state, "Strike preserves position/time/RNG")
 	for tick in range(60): shot.step(DT)
-	_check(ball.strikes.size() == 1, "Swing contacts only once")
-	_prepare()
+	_check(ball.strikes.size() == 1 and not player.preparing, "One strike and prompt recovery")
+	shot.begin_prepare()
+	shot.step(DT)
+	_check(ball.strikes.size() == 1 and not shot.is_preparing(), "Same player cannot hit same ball twice")
+	shot.reset_cycle()
+	ball.launch(player.position + Vector3(0, 0.9, -0.65), Vector3.ZERO)
+	shot.begin_prepare()
+	shot.aim = Vector2.RIGHT
+	shot.step(DT)
+	_check(shot.hits == hits_before + 2 and shot.effective_power <= shot.emergency_power and shot.effective_power < prepared_power, "Reachable late contact is weak defense, never rejected for short charge")
+	var defensive_power: float = shot.effective_power
+	_check(absf(shot.target.x) < 1.5, "Emergency shot has limited directional control")
+	shot.reset_cycle()
+	ball.launch(Vector3(3, 1, 6), Vector3.ZERO)
+	_prepare(0.72)
 	shot.release_shot(Vector2.ZERO)
-	shot.step(0.25)
-	_check(ball.strikes.size() == 1, "Same player cannot hit same ball twice")
+	shot.begin_prepare()
+	_check(not player.preparing and not shot.is_preparing(), "New press cancels locked preparation")
+	_prepare(0.72)
+	shot.release_shot(Vector2.ZERO)
+	shot.step(shot.preparation_timeout)
+	_check(not shot.is_preparing() and not player.preparing, "Preparation expires without remote strike")
+	shot.step(1.0)
+	ball.launch(player.position + Vector3(0, 3, -0.65), Vector3.ZERO)
+	_prepare(0.72)
+	shot.release_shot(Vector2.ZERO)
+	shot.step(DT)
+	_check(ball.strikes.is_empty(), "High ball cannot be hit by base shot")
+	shot.reset_cycle()
+	# Arrival while still held must also strike, then require a fresh press.
+	ball.launch(player.position + Vector3(0, 0.9, -0.65), Vector3.ZERO)
+	shot.begin_prepare()
+	shot.step(DT)
+	_check(ball.strikes.size() == 1 and not shot.charging, "Held button contacts automatically without release")
+	for tick in range(120): shot.step(DT)
+	_check(ball.strikes.size() == 1, "Holding through recovery cannot repeat contact")
+	# Compare deterministic overload margins and actual first wall contact.
+	player.reset_position(Vector3(0, 0, 6.8))
+	for direction: Vector2 in [Vector2.UP, Vector2.RIGHT]:
+		shot.reset_cycle()
+		ball.launch(player.position + Vector3(1.1, 0.3, 0), Vector3.ZERO)
+		shot.aim = direction
+		shot.preparation_elapsed = 0.02
+		shot.shot_charge = 0.9
+		var safe: Dictionary = shot.result_for_contact()
+		shot.shot_charge = 1.0
+		var risky: Dictionary = shot.result_for_contact()
+		_check(risky == shot.result_for_contact(), "Overload is deterministic")
+		_check(risky.target.z < safe.target.z, "Overload extends intended depth")
+		if direction.x > 0: _check(risky.target.x > safe.target.x, "Angled overload extends towards side wall")
+		ball.launch(ball.position, shot.solve_velocity(ball.position, risky.target, risky.power))
+		var first_surface := ""
+		for tick in range(500):
+			ball.step(DT)
+			if not ball.contacts.is_empty():
+				first_surface = ball.contacts[0].surface
+				break
+		overload_cases.append({"aim": direction, "target": risky.target, "first_surface": first_surface})
+		_check(first_surface in ["glass", "fence"], "Poor maximum charge reaches rival enclosure before floor: %s, goal %s, direction %s" % [first_surface, risky.target, direction])
 	# Validate real trajectories and first landing against the intended target.
 	for z: float in [0.7, 5.0, 9.0]:
 		for height: float in [0.3, 0.9, 1.8]:
@@ -135,8 +190,8 @@ func _run() -> void:
 		var desired_x: float = lab.FEED_LANES[lab.feed_lane]
 		player.move_player(Vector2(clampf((desired_x - player.position.x) * 3, -1, 1), 0), DT)
 		ball.step(DT)
-		if cycle_tick == 65: shot.begin_prepare()
-		if shot.charging and shot.charge_time > 0.15 and shot.contact_reason() == "":
+		if cycle_tick >= 25 and cycle_tick < 130 and absf(desired_x - player.position.x) < 0.10 and shot.state == shot.State.IDLE: shot.begin_prepare()
+		if shot.charging and shot.charge_time >= shot.full_preparation * 0.9:
 			shot.release_shot(Vector2.ZERO)
 		shot.step(DT)
 	_check(shot.hits == 10, "Scripted 30 s practice returns ten feeds across three lanes")
@@ -156,7 +211,7 @@ func _run() -> void:
 		await process_frame
 		var rect: Rect2 = lab.hud.panel.get_global_rect()
 		_check(rect.position.x >= 0 and rect.end.x <= resolution.x + 1 and rect.end.y <= resolution.y, "HUD stays inside resized viewport")
-	var report := {"engine": Engine.get_version_info().string, "failures": failures, "straight_distance_m": straight, "diagonal_distance_m": diagonal, "trajectory_cases": landings, "scripted_practice_seconds": 30, "scripted_hits": shot.hits, "note": "Synthetic inputs and scripted driver; no human playability or physical gamepad validation."}
+	var report := {"engine": Engine.get_version_info().string, "failures": failures, "control_model": "charge, release locks, automatic contact", "prepared_power": prepared_power, "defensive_power": defensive_power, "overload_cases": overload_cases, "straight_distance_m": straight, "diagonal_distance_m": diagonal, "trajectory_cases": landings, "scripted_practice_seconds": 30, "scripted_hits": shot.hits, "note": "Synthetic inputs and scripted driver; no human playability or physical gamepad validation."}
 	var file := FileAccess.open("res://../docs/previews/player-checks.json", FileAccess.WRITE)
 	file.store_string(JSON.stringify(report, "\t"))
 	file.close()

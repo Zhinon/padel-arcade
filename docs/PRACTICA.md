@@ -1,4 +1,4 @@
-# Primera práctica jugable — sesión 007
+# Práctica de preparación y contacto automático — sesión 010
 
 Un jugador se mueve y devuelve pelotas de un lanzador. Se mantiene la cámara aprobada y la física calibrada de E2. Los otros tres personajes siguen estáticos; no hay rival, marcador ni partido.
 
@@ -16,8 +16,8 @@ Desde la raíz del proyecto en Linux:
 
 1. El jugador naranja con aro es el que controlás. Al abrir, la pelota espera en el lanzador.
 2. Pulsá **R**. La primera pelota llega por tu zona inicial, a la izquierda.
-3. Movete con **WASD o flechas**. Llegá antes de preparar: durante preparación se reduce la velocidad.
-4. Mantené **Espacio** para preparar y soltalo cuando la pelota esté cerca y a una altura alcanzable. No se golpea solo por mantenerlo.
+3. Movete con **WASD o flechas**. Llegá antes de preparar: al preparar el personaje frena y se planta.
+4. Mantené **Espacio** para cargar y soltalo cerca del **90%** para fijar potencia. El contacto ocurre automáticamente al llegar la pelota, incluso si todavía estás manteniendo el botón. Apuntá con WASD/flechas mientras estás plantado.
 5. **R** repite esa pelota. **T** cambia la zona de alimentación entre izquierda, centro y derecha y lanza.
 
 Si aparece PAUSA al cambiar de ventana, pulsá **P** para continuar.
@@ -27,7 +27,8 @@ Si aparece PAUSA al cambiar de ventana, pulsá **P** para continuar.
 | Acción | Teclado | Mando preparado en el mapa de acciones |
 | --- | --- | --- |
 | Moverse | WASD / flechas | Stick izquierdo |
-| Preparar / solicitar golpe | Mantener / soltar Espacio | Mantener / soltar A |
+| Cargar / fijar potencia | Mantener / soltar Espacio | Mantener / soltar A |
+| Cancelar preparación fijada | Volver a pulsar Espacio | Volver a pulsar A |
 | Recibir pelota | R | X |
 | Cambiar zona y recibir | T | Y |
 | Pausar / continuar | P o Escape | Start |
@@ -41,17 +42,23 @@ En ventana pequeña se muestran las instrucciones esenciales; las instrucciones 
 
 ## Dirección y preparación
 
-La dirección de movimiento al soltar el golpe también selecciona objetivo: izquierda/derecha desplazan el destino; hacia adelante busca más profundidad y hacia atrás un destino más corto. Sin dirección, apunta aproximadamente frente al jugador. El aro del campo rival representa el objetivo.
+Durante la preparación, WASD/flechas o stick dejan de mover al personaje y pasan a apuntar. Izquierda/derecha buscan ángulo; adelante busca profundidad y atrás acorta. Podés cambiar dirección después de fijar carga, hasta el contacto. Sin dirección, el destino nominal está frente al jugador. El aro rival muestra la intención; la calidad y sobrecarga pueden modificar el destino final.
 
-Preparación mínima: 0.10 s. La preparación completa se alcanza a 0.8 s; no sigue acumulando potencia después. Soltar abre una ventana de contacto de 0.20 s, seguida de recuperación de 0.35 s. El golpe intenta contactar una vez; si no llega la pelota a tiempo se informa el motivo. Un toque demasiado corto falla.
+Carga completa: 0.8 s. Zona ideal inicial: **86–94%**, alrededor del 90%; el texto cambia de color para indicarla. Soltar conserva la carga sin disparar. Un tiro perfecto exige también posición, altura y equilibrio favorables. La potencia no depende solo del tiempo.
 
-Son decisiones iniciales de diseño; todavía debe revisarlas el usuario con el juego abierto.
+Si la pelota llega antes de soltar, se usa la carga disponible. Una llegada tardía alcanzable devuelve con poca potencia y dirección más central. Si no hay alcance o altura válida, no hay golpe remoto. El contacto prioriza una distancia cómoda dentro de una ventana corta de 0.06 s desde que entra en alcance.
+
+Después de fijar, una nueva pulsación cancela y devuelve el movimiento. La preparación caduca a los 3 s desde su inicio o cuando la pelota queda atrás. Cada golpe exige nueva pulsación; mantener no encadena devoluciones. Pausar cancela la preparación.
+
+Por encima del 94% se pierde margen progresivamente: al 100%, buscar profundidad o ángulo con mala posición puede producir un impacto directo en vidrio/reja rival antes del piso. La desviación se calcula con carga, dirección y calidad, sin sorteo de fallo. Todavía no hay árbitro ni marcador: la práctica muestra la trayectoria y el aviso de sobrecarga, no resuelve puntos.
+
+La recuperación impide otro intento durante 0.18 s (0.28 s defensivo), pero devuelve el movimiento inmediatamente después del contacto. Todos estos tiempos y coeficientes son provisionales para probar la sensación.
 
 ## Movimiento y contacto
 
-- Velocidad máxima 5.2 m/s, aceleración 25 m/s²; preparando se usa el 60% de esa velocidad.
+- Velocidad máxima 5.2 m/s, aceleración 25 m/s²; preparando la velocidad objetivo es cero, con frenado de 60 m/s². Puede quedar un pequeño desplazamiento de frenado; el apuntado no permite correr.
 - Movimiento diagonal normalizado, con barridos de colisión y límites dentro de la mitad cercana. No hay salto ni cambio de lado.
-- Alcance horizontal inicial 1.25 m; altura de contacto 0.22–2.1 m. Existe tolerancia limitada para una pelota que llega durante la ventana de golpe, no un golpe remoto.
+- Alcance horizontal inicial 1.25 m; altura de contacto 0.22–2.1 m. Existe tolerancia limitada para una pelota que llega durante la preparación, no un golpe remoto.
 - Pala con movimiento procedural provisional; no animación deportiva final ni esqueleto animado.
 - Un solo contacto por intento y un solo golpe del jugador por pelota recibida. R/T vuelven a habilitar una nueva pelota.
 - La bola conserva posición, reloj, historial de contactos y estado aleatorio al golpearla. El golpe cambia velocidad y último golpeador; no es un relanzamiento oculto.
@@ -77,7 +84,7 @@ F1–F7 desde práctica entran al laboratorio y seleccionan escenario. Allí Esp
 
 ## Comprobaciones y límites
 
-- `tests/player_checks.gd`: movimiento, límites, fallos de alcance/preparación/altura, un solo impacto, conservación de posición/reloj/RNG al golpear, pausa, foco y F8.
+- `tests/player_checks.gd`: movimiento, límites, carga fijada/automática, defensa tardía, cancelación, caducidad, alcance y altura, un solo impacto, conservación de posición/reloj/RNG al golpear, pausa, foco y F8.
 - 90 trayectorias con varias alturas, posiciones, potencias y direcciones: cruzan red y primer pique rival a menos de 0.4 m del objetivo.
 - Práctica automática de 30 s: diez alimentaciones en tres zonas y diez contactos. Es integración técnica; **la comodidad y diversión siguen pendientes de prueba humana**.
 - Grabación a 30 FPS programados mediante eventos de teclado/action: dos golpes reales en el motor.
@@ -87,4 +94,4 @@ F1–F7 desde práctica entran al laboratorio y seleccionan escenario. Allí Esp
 ./tools/run-godot.sh --headless --script res://tests/player_checks.gd
 ```
 
-Informe: `previews/player-checks.json`. Física y trayectoria anteriores conservadas; regresiones documentadas en PRUEBAS.md.
+Informe: `previews/player-checks.json`. Coeficientes de rebote anteriores conservados; regresiones documentadas en PRUEBAS.md.

@@ -51,11 +51,11 @@ BallSimulation incorpora retención tangencial de vidrio/reja y RNG local para d
 BallSimulation resuelve ahora fricción tangencial de piso según impulso normal y desaceleración de rodadura de magnitud constante. La conservación/reducción de energía se comprueba por contacto y el reposo por distancia analítica. No hay condiciones que corten el viaje por cantidad de piques o por tipo de escenario. La repetición automática es un control del laboratorio, apagado de inicio.
 
 
-## Práctica y golpe base — sesión 007
+## Práctica y golpe base — sesión 010
 
 - PracticeInput traduce teclado/mando a acciones semánticas; no se leen teclas físicas en movimiento o resolución de golpe.
 - PlayerMotor usa cápsula y barridos move_and_collide con delta explícito. Superficie plana, sin saltos; resuelve deslizamiento por contacto y limita a la mitad cercana. Prioridad física -10, antes de la pelota (0).
-- BasicShot (prioridad 20) modela preparación, ventana, recuperación y alcance, después de mover la pelota. Objetivo rival y arco asistido se resuelven con gravedad/resistencia del modelo discreto actual.
+- BasicShot (prioridad 20) usa estados IDLE/PREPARING/LOCKED/STRIKING/RECOVERING/MISSED después de mover la pelota. Soltar fija carga; una ventana cómoda de contacto elige el impacto automáticamente. Muestrea el direccional durante preparación y fija al jugador mediante PlayerMotor. Calidad combina posición, altura, estabilización y tiempo; modifica potencia y dirección con un mínimo defensivo. Sobrecarga extiende el objetivo sin RNG. Objetivo rival y arco asistido se resuelven con gravedad/resistencia del modelo discreto actual.
 - BallSimulation.strike conserva posición, reloj, historial y RNG; registra golpeador. launch limpia historial y habilita otra pelota. Contactos pasivos y golpes son eventos distintos.
 - PracticeHUD muestra instrucciones/estado sin intervenir en simulación. Root coordina alimentación, pausa, foco y alternancia E2/E3.
 - Capa de colisión: cancha 1, pelota 2, jugador 4. Jugador consulta cancha; pelota consulta cancha, no cuerpos. Evita introducir reglas de cuerpo antes de implementarlas.

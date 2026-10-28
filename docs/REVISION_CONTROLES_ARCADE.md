@@ -2,13 +2,13 @@
 
 ## Referencia y alcance
 
-El usuario propone un diseño inspirado en Virtua Tennis 1/2: anticipar → correr → posicionarse → preparar → impacto automático → recuperar. Es una referencia de experiencia deseada, no una comprobación histórica del funcionamiento exacto de esos juegos. El usuario confirmó el 28/10/2026 la selección de potencia al soltar, el objetivo de tiro perfecto cerca del 90% y la defensa tardía débil. El prototipo aún no implementa estos acuerdos.
+El usuario propone un diseño inspirado en Virtua Tennis 1/2: anticipar → correr → posicionarse → preparar → impacto automático → recuperar. Es una referencia de experiencia deseada, no una comprobación histórica del funcionamiento exacto de esos juegos. El usuario confirmó el 28/10/2026 la selección de potencia al soltar, el objetivo de tiro perfecto cerca del 90% y la defensa tardía débil. Implementados técnicamente en sesión 010; la sensación sigue pendiente de prueba humana.
 
 Es viable con la arquitectura actual de Godot. La dificultad principal es ajustar la sensación mediante juego humano, no agregar todas las animaciones o estados de una vez.
 
-## Diferencia con la versión actual
+## Diferencia con la versión anterior (sesión 007)
 
-Hoy Espacio carga y soltar abre la ventana de contacto; el jugador conserva 60% de movilidad preparando. La potencia depende del tiempo; posición y altura son filtros de contacto. Preparación menor a 0.10 s se rechaza. El objetivo de salida tiene asistencia fuerte.
+En sesión 007, Espacio cargaba y soltar abre la ventana de contacto; el jugador conserva 60% de movilidad preparando. La potencia depende del tiempo; posición y altura son filtros de contacto. Preparación menor a 0.10 s se rechaza. El objetivo de salida tiene asistencia fuerte.
 
 El diseño propuesto requiere plantarse, usar el direccional principalmente para apuntar y golpear automáticamente al llegar la pelota. La calidad deberá considerar preparación, posición, altura y equilibrio. Una llegada tardía alcanzable debería permitir defensa débil, sin garantizar devoluciones imposibles.
 
@@ -30,3 +30,7 @@ Mantener cámara y calibración de rebotes aceptadas. No añadir giro como efect
 ## Validación prevista
 
 Comparar misma pelota con jugador plantado, tarde y fuera de alcance. Comprobar que apuntar no permite correr a máxima velocidad, que soltar fija carga sin disparar, que solo existe un impacto por intento y que se recupera movimiento rápidamente. Probar máxima potencia con contacto bueno y malo sin errores aleatorios del golpe. Las pruebas automáticas verifican comportamiento; la satisfacción requiere prueba humana. No se ejecutaron pruebas del motor en esta revisión documental.
+
+## Implementación sesión 010
+
+El ciclo y los acuerdos ya están implementados. Provisionales: cancelación al pulsar de nuevo tras fijar, caducidad total 3 s, zona ideal 86–94%, preparación sin movimiento objetivo, ventana cómoda 0.06 s, recuperación 0.18/0.28 s. Emergencia comprime apuntado hacia el centro; sobrecarga extiende profundidad/ángulo según calidad. Ver PRACTICA.md y D46–D48 para los detalles actuales. La evaluación humana sigue pendiente; las propuestas previas de este documento se conservan como contexto.

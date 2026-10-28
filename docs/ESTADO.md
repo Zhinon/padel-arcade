@@ -1,34 +1,38 @@
 # Estado y próxima sesión
 
-Actualizado: 28/10/2026, zona America/Argentina/Mendoza. Sesión 009 (acuerdos de control).
+Actualizado: 28/10/2026, zona America/Argentina/Mendoza. Sesión 010.
 
 ## Dónde estamos
 
-**E3 implementada técnicamente; pendiente revisión humana P34.** El usuario aprobó la calibración de rebotes de E2 antes de avanzar. La escena abre en práctica: jugador naranja con aro, entrada por acciones, movimiento, preparación/soltar y golpe base con ayuda de dirección. Lanzador manual R, tres zonas con T y avisos en pantalla. Los otros personajes están estáticos.
+**E3 revisada con contacto automático; P34 de sensación humana pendiente.** Mantener Espacio planta/carga; soltar fija potencia; el direccional apunta y la pelota dispara el contacto al llegar. Zona ideal inicial 86–94%, con posición, altura y equilibrio favorables. Defensa tardía alcanzable débil y con menos dirección. Sobrecarga hacia fondo/lateral puede causar cerramiento directo sin pique.
 
-Godot 4.7.2.stable.official.ed1daf0bf portátil. Git local `main`, sin remoto. P06 (equipo objetivo/mando) pendiente.
+El lanzador espera R; T cambia entre tres zonas. Nueva pulsación tras fijar cancela; caducidad 3 s, pausa cancela preparación. Recuperación 0.18/0.28 s sin impedir movimiento después del contacto. Cámara y coeficientes de rebote E2 conservados.
 
-## Comprobado
+Godot 4.7.2.stable.official.ed1daf0bf portátil. Git local main, sin remoto. P06 (equipo objetivo/mando) pendiente.
 
-- Noventa trayectorias de devolución: red despejada y primer pique a menos de 0.4 m del objetivo.
-- Sin golpe remoto, preparación demasiado corta rechazada, altura limitada, una vez por intento y por pelota del jugador. Golpear preserva posición, reloj e historial; cambia velocidad/último golpeador.
-- Movimiento cardinal/diagonal equivalente, límites de cancha y preparación que reduce velocidad. Pausa/foco/F8 comprobados.
-- Integración automática de 30 s: diez contactos en tres zonas. Grabación de dos contactos mediante eventos de Godot. No es prueba humana.
-- Panel revisado en 720p y 360p; modo compacto en ventanas menores a 800 px.
-- Física E2 sin cambiar coeficientes: 13 regresiones, calibración, recorrido y comparación 30/60/120 FPS programados siguen aprobados.
+## Comprobado en esta sesión
 
-Todavía no hay rival, reglas de partido, giro ni tiros avanzados del jugador. La pala tiene animación procedural provisional. La pelota aún no interactúa con cuerpos de jugadores. Mando configurado pero no probado físicamente. Render local por CPU: sin afirmaciones de rendimiento del equipo objetivo.
+- Importación del proyecto sin errores de scripts después de corregir un tipo explícito.
+- Carga fijada sin impacto remoto, apuntado tras fijar, tiro perfecto preparado, defensa mínima, frenado en carrera, cancelación, caducidad, contacto mientras se mantiene y un solo golpe por pelota. Conservación de posición/reloj/RNG. Pausa/foco/F8.
+- Dos casos de sobrecarga con mala calidad simulados hasta primer impacto: cerramiento de fondo y lateral antes del piso, sin RNG del tiro.
+- 90 trayectorias de ayuda base, diez devoluciones en 30 s de integración sintética. No son pruebas humanas.
+- Regresiones E2: 13 escenarios de pelota, calibración de veinte semillas y 22 recorridos hasta reposo aprobados; globo 2.00 m y reja máximo 4.25 m de retorno.
+- Demostración de seis segundos mediante entradas de Godot con dos contactos. Capturas 720p/360p inspeccionadas; render llvmpipe CPU, sin afirmación de rendimiento objetivo.
+
+## Límites
+
+No hay rival activo, arbitraje, puntos, giro ni tiros avanzados. El mensaje de sobrecarga informa riesgo, no declara falta sin resolver la secuencia. Los otros tres personajes están estáticos. Pala procedural provisional; pelota sin colisión con cuerpos. Mando solo comprobado sintéticamente. No se repitió comparación FPS antigua: simulación pasiva y coeficientes no se modificaron.
 
 ## Próximo paso
 
-**Revisar E3 con la referencia de control aportada por el usuario.** Acuerdos D43–D45 documentados en REVISION_CONTROLES_ARCADE.md: soltar fija carga, contacto automático, tiro ideal cerca del 90%, riesgo al 100% de cerramiento directo y defensa tardía débil con menos dirección. Definir cancelación/caducidad e implementar por partes; luego P34 de sensación humana. El ejecutable sigue siendo sesión 007: soltar ejecuta el intento. E4 queda después de validar este núcleo.
+**P34: probar el nuevo ciclo con el usuario.** Evaluar plantado, apuntado, velocidad de carga, zona del 90%, alcance, defensa y recuperación. Ajustar aquí antes de E4. Los detalles técnicos provisionales están en D46–D48 y PRACTICA.md.
 
 ## Abrir
 
-`./tools/run-godot.sh`. R recibe; WASD/flechas mueve; mantener/soltar Espacio golpea; T cambia zona; P pausa; F8 laboratorio. Si al cambiar de ventana se pausa, P continúa. Guía PRACTICA.md.
+`./tools/run-godot.sh`. R recibe; WASD/flechas mueve o apunta preparando; Espacio carga/soltar fija; pulsar de nuevo tras fijar cancela; T cambia zona; P pausa/continúa; F8 laboratorio.
 
-El laboratorio anterior se inicia con `-- --lab` o `-- --scenario=7`. Coeficientes y límites en LABORATORIO_PELOTA.md.
+Laboratorio anterior: `-- --lab` o `-- --scenario=7`. Reglas y límites de física en LABORATORIO_PELOTA.md.
 
 ## Cierre
 
-Actualizar plan, pruebas y bitácora, registrar decisiones y guardar un punto de recuperación en Git.
+Actualizar plan, pruebas y bitácora, registrar decisiones y guardar punto de recuperación Git.

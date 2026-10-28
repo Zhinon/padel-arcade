@@ -2,7 +2,8 @@ class_name PadelPlayerMotor
 extends CharacterBody3D
 @export var speed: float = 5.2
 @export var acceleration: float = 25.0
-@export var preparation_speed_factor: float = 0.6
+@export var preparation_speed_factor: float = 0.0
+@export var preparation_brake: float = 60.0
 var enabled: bool = false
 var grounded: bool = false
 var preparing: bool = false
@@ -53,7 +54,7 @@ func _physics_process(delta: float) -> void:
 func move_player(direction: Vector2, delta: float) -> void:
 	direction = direction.limit_length(1.0)
 	var target_speed := speed * (preparation_speed_factor if preparing else 1.0)
-	var horizontal := Vector2(velocity.x, velocity.z).move_toward(direction * target_speed, acceleration * delta)
+	var horizontal := Vector2(velocity.x, velocity.z).move_toward(direction * target_speed, (preparation_brake if preparing else acceleration) * delta)
 	velocity.x = horizontal.x
 	velocity.z = horizontal.y
 	velocity.y = 0.0 if grounded else velocity.y - 9.81 * delta

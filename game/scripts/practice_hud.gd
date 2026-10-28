@@ -44,7 +44,7 @@ func _ready() -> void:
 	status.add_theme_font_size_override("font_size", 18)
 	column.add_child(status)
 	controls = Label.new()
-	controls.text = "WASD / flechas: mover · Espacio: mantener y soltar · R: pelota · T: zona · P: pausa · F8: laboratorio"
+	controls.text = "WASD / flechas: mover · Espacio: cargar / soltar fija · R: pelota · T: zona · P: pausa · F8: laboratorio"
 	controls.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	controls.add_theme_font_size_override("font_size", 16)
 	controls.add_theme_color_override("font_color", Color("d0dde0"))
@@ -70,11 +70,15 @@ func _process(_delta: float) -> void:
 	if not visible or controller == null:
 		return
 	counter.text = "Contactos: %d" % controller.hits
+	status.remove_theme_color_override("font_color")
+	if controller.is_preparing():
+		var near_ideal: bool = absf(controller.shot_charge - controller.perfect_charge) <= controller.perfect_tolerance
+		status.add_theme_color_override("font_color", Color("ddff74") if near_ideal else (Color("ffb38a") if controller.shot_charge > 0.94 else Color("ffffff")))
 	if paused:
 		status.text = "PAUSA · P para continuar"
 	elif controller.charging:
-		status.text = ("Preparando %d%% · soltá al llegar la pelota" if compact else "Preparando %d%% · soltá Espacio cuando llegue la pelota") % roundi(100.0 * controller.charge_time / controller.full_preparation)
+		status.text = ("Carga %d%% · ideal 90%% · direccional apunta" if compact else "Carga %d%% · soltá cerca del 90%% para fijar · direccional apunta") % roundi(100.0 * controller.charge_time / controller.full_preparation)
 	elif controller.armed_time > 0.0:
-		status.text = "Golpe en curso"
+		status.text = "Fijada %d%% · apuntá · Espacio cancela" % roundi(controller.shot_charge * 100.0)
 	else:
-		status.text = "WASD: mover · R: pelota · Espacio: preparar/soltar" if compact and last_message.begins_with("R para") else last_message
+		status.text = "WASD: mover · R: pelota · Espacio: cargar/fijar" if compact and last_message.begins_with("R para") else last_message

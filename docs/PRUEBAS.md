@@ -135,3 +135,14 @@ Motor 4.7.2.stable.official.ed1daf0bf; código posterior a 9d03459, anterior al 
 **Regresiones E2:** 13 casos de pelota, veinte semillas de calibración y recorrido completo aprobados. Se mantienen 2.00 m de retorno del globo y máximo 4.25 m de reja de esos fixtures. Comparación de caso de reja a 30/60/120 FPS programados coincide tras dos segundos; cámara aprobada de E1 conservada.
 
 **Informe:** previews/player-checks.json. Comando de reproducción en PRACTICA.md. Sigue pendiente P34 con el usuario. Sin giro, golpes avanzados, rivales ni partido.
+
+
+## Sesión 010 — 28/10/2026: controles de preparación automática
+
+Motor 4.7.2.stable.official.ed1daf0bf, estado de trabajo de sesión 010; física 120 Hz. `player_checks.gd` aprobado: carga aproximadamente 90% fijada conserva valor tras 0.4 s; llegada a distancia 0.65 m/altura 0.9 produce tiro perfecto; cambiar dirección tras fijar modifica destino. Defensa de un tick devuelve con menos potencia y dirección limitada. Frenado desde carrera detiene en menos de 0.25 m; apuntado plantado no desplaza. Cancelación, caducidad, altura, contacto mientras mantiene, sin repetición y conservación de posición/reloj/RNG aprobados. Prueba de pausa/foco/F8 e interfaz conserva aprobación.
+
+Dos escenarios deterministas: jugador (0,0,6.8), pelota (1.1,0.3,6.8), preparación 0.02 s y carga 1.0, direcciones adelante/derecha. Se calcula salida y simula hasta primer contacto: vidrio/reja antes del piso en ambos casos. No se declara cobertura de todos los ángulos/alturas ni arbitraje implementado. Informe `previews/player-checks.json` incluye potencia preparada/defensiva y primeras superficies.
+
+90 trayectorias de ayuda nominal (sin aplicar sobrecarga al objetivo de esas pruebas) pasan red y aterrizan a menos de 0.4 m del destino. Integración sintética de 30 s: diez contactos en tres zonas. Captura real de seis segundos con eventos de teclado/action: dos contactos. Interfaz 1280×720 y 640×360 renderizada e inspeccionada. Mesa llvmpipe; sin validación de rendimiento o mando físico ni prueba humana de diversión.
+
+Regresiones ejecutadas: ball_checks (13 escenarios), surface_calibration_checks (veinte semillas) y travel_checks (22 recorridos), todas aprobadas. Retornos globo 2.00 m/reja máximo 4.25 m. Importación editor sin errores de scripts tras corregir inferencia bool. Sin cambios en simulación pasiva; no repetida comparación FPS anterior.

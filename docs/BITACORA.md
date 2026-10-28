@@ -122,3 +122,16 @@
 **Usuario:** acepta soltar para fijar potencia; define tiro perfecto llegando a tiempo y soltando cerca del 90%. Precisa que el riesgo al 100% es tocar directo el cerramiento rival de fondo o lateral sin pique. Confirma devolución tardía alcanzable con poca potencia y menos dirección.
 
 **Registro:** D43–D45, revisión de controles, plan y estado actualizados para distinguir acuerdos de propuestas. Cancelación/caducidad y calibración siguen pendientes. Sin cambios de código ni pruebas del motor en esta sesión documental.
+
+
+## 28/10/2026 — Sesión 010: preparación, fijación y contacto automático
+
+**Pedido:** avanzar con los acuerdos de control D43–D45.
+
+**Implementación:** estados de golpe, plantado con frenado, apuntado continuo, fijación de carga al soltar, impacto por llegada también si sigue manteniendo, recuperación rápida. Calidad por tiempo/posición/altura/equilibrio y defensa tardía débil con dirección central. Zona ideal 86–94%; sobrecarga reduce margen hacia fondo/lateral sin RNG. Cancelación al pulsar tras fijar y caducidad 3 s como decisiones técnicas provisionales. Sin alterar cámara o simulación pasiva.
+
+**Correcciones:** tipo bool explícito tras error del compilador; prueba de carga con tolerancia por paso fijo; conductor de prueba espera alinearse antes de plantarse; se ajustó exceso lateral al detectar que aún picaba primero en piso. No se sustituyeron expectativas por resultados para aceptar ese caso: se corrigió la trayectoria.
+
+**Validación:** importación, control/90 trayectorias/diez contactos sintéticos, dos sobrecargas hasta primer cerramiento y regresiones E2 aprobadas. Demostración de dos contactos y capturas 720p/360p actualizadas e inspeccionadas. Avisos Mesa/VSync del render CPU; sin errores de scripts. Se concedió acceso de red para servidor gráfico/puertos locales de Godot.
+
+**Continuidad:** P35/P36 completados técnicamente; P34 pendiente de juego humano. Ajustar carga, alcance, defensa, plantado y recuperación antes de ampliar tiros/IA. Guía, estado, plan, arquitectura y decisiones actualizados; punto Git de cierre.

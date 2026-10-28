@@ -162,7 +162,7 @@ func _process(delta: float) -> void:
 
 func _physics_process(_delta: float) -> void:
 	if practice_mode and aim_marker != null:
-		aim_marker.position = shot_controller.target_for_aim(input_adapter.movement()) if simulation.last_hitter != 0 and shot_controller.armed_time <= 0.0 else shot_controller.target
+		aim_marker.position = shot_controller.target_for_aim(input_adapter.movement()) if simulation.last_hitter != 0 else shot_controller.target
 		aim_marker.position.y = 0.025
 	if camera_preview or preview_paused:
 		return
@@ -333,7 +333,7 @@ func feed_practice_ball() -> void:
 	resting_notified = false
 	trail_points.clear()
 	trail.mesh = null
-	hud.show_feedback("Pelota en camino · prepará el golpe y soltá cerca del contacto")
+	hud.show_feedback("Pelota en camino · llegá, cargá y soltá cerca del 90%")
 
 func _next_feed_lane() -> void:
 	if not practice_mode or preview_paused:
