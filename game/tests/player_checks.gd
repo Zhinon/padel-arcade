@@ -150,6 +150,27 @@ func _run() -> void:
 				break
 		overload_cases.append({"aim": direction, "target": risky.target, "first_surface": first_surface})
 		_check(first_surface in ["glass", "fence"], "Poor maximum charge reaches rival enclosure before floor: %s, goal %s, direction %s" % [first_surface, risky.target, direction])
+	# Short aim at overload flattens the actual arc; safe preparation still clears.
+	for charge: float in [0.9, 1.0]:
+		shot.reset_cycle()
+		ball.launch(Vector3(1.1, 0.3, 6.8), Vector3.ZERO)
+		shot.aim = Vector2.DOWN
+		shot.preparation_elapsed = 0.02
+		shot.shot_charge = charge
+		var result: Dictionary = shot.result_for_contact()
+		_check(result == shot.result_for_contact(), "Short overload is repeatable without RNG")
+		shot.state = shot.State.LOCKED
+		shot.contact_wait = 0.06
+		shot.step(DT)
+		_check(ball.strikes.size() == 1, "Short aim uses automatic contact pipeline")
+		var first_surface := ""
+		for tick in range(500):
+			ball.step(DT)
+			if not ball.contacts.is_empty():
+				first_surface = ball.contacts[0].surface
+				break
+		_check(first_surface == ("net" if charge == 1.0 else "floor"), "Short aim charge %.2f first contact: %s" % [charge, first_surface])
+		overload_cases.append({"aim": Vector2.DOWN, "charge": charge, "quality": result.quality, "net_risk": result.net_risk, "first_surface": first_surface})
 	# Validate real trajectories and first landing against the intended target.
 	for z: float in [0.7, 5.0, 9.0]:
 		for height: float in [0.3, 0.9, 1.8]:

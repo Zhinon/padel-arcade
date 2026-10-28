@@ -2,7 +2,7 @@
 
 ## Estado actual
 
-Sesión 007: primer jugador y golpe base implementados y probados técnicamente (T30/T31 y trayectorias). P34 de comodidad/diversión sigue pendiente de usuario. E2 conserva sus regresiones aprobadas. Parejas, reglas y partido continúan pendientes.
+Sesión 011: preparación/contacto automático y riesgo direccional implementados y probados técnicamente. Usuario conforme con versión 010; ajuste de red pendiente de revisión humana. P34 de evaluación completa sigue pendiente. E2 conserva sus regresiones aprobadas. Parejas, reglas y partido continúan pendientes.
 
 ## Escenarios mínimos
 
@@ -146,3 +146,10 @@ Dos escenarios deterministas: jugador (0,0,6.8), pelota (1.1,0.3,6.8), preparaci
 90 trayectorias de ayuda nominal (sin aplicar sobrecarga al objetivo de esas pruebas) pasan red y aterrizan a menos de 0.4 m del destino. Integración sintética de 30 s: diez contactos en tres zonas. Captura real de seis segundos con eventos de teclado/action: dos contactos. Interfaz 1280×720 y 640×360 renderizada e inspeccionada. Mesa llvmpipe; sin validación de rendimiento o mando físico ni prueba humana de diversión.
 
 Regresiones ejecutadas: ball_checks (13 escenarios), surface_calibration_checks (veinte semillas) y travel_checks (22 recorridos), todas aprobadas. Retornos globo 2.00 m/reja máximo 4.25 m. Importación editor sin errores de scripts tras corregir inferencia bool. Sin cambios en simulación pasiva; no repetida comparación FPS anterior.
+
+
+## Sesión 011 — 28/10/2026: sobrecarga hacia abajo
+
+Godot 4.7.2.stable.official.ed1daf0bf, paso 1/120 s. Jugador (0,0,6.8), pelota (1.1,0.3,6.8), preparación 0.02 s, dirección abajo. Dos cargas: 0.9 y 1.0. Se entra en LOCKED con contacto válido y se ejecuta `step`, luego se simula pelota hasta primer contacto. Esperado/observado: 90% → piso rival; 100% → red. Resultado reproducible sin RNG del golpe; registro en previews/player-checks.json. La asistencia nominal no anula el aplanamiento del arco.
+
+`player_checks.gd`: dos casos nuevos, casos de fondo/lateral anteriores, 90 trayectorias nominales, diez contactos en 30 s y comprobaciones de control aprobadas. `ball_checks.gd`: 13 escenarios aprobados. Importación sin errores de scripts (avisos de puertos bloqueados por sandbox). No se cambió simulación pasiva ni coeficientes; sin nuevo render o evaluación humana del ajuste. La prueba de contacto exigido al 90% es defensa segura, no se etiqueta como tiro perfecto.

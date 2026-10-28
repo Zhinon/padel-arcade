@@ -1,4 +1,4 @@
-# Práctica de preparación y contacto automático — sesión 010
+# Práctica de preparación y contacto automático — sesión 011
 
 Un jugador se mueve y devuelve pelotas de un lanzador. Se mantiene la cámara aprobada y la física calibrada de E2. Los otros tres personajes siguen estáticos; no hay rival, marcador ni partido.
 
@@ -50,7 +50,7 @@ Si la pelota llega antes de soltar, se usa la carga disponible. Una llegada tard
 
 Después de fijar, una nueva pulsación cancela y devuelve el movimiento. La preparación caduca a los 3 s desde su inicio o cuando la pelota queda atrás. Cada golpe exige nueva pulsación; mantener no encadena devoluciones. Pausar cancela la preparación.
 
-Por encima del 94% se pierde margen progresivamente: al 100%, buscar profundidad o ángulo con mala posición puede producir un impacto directo en vidrio/reja rival antes del piso. La desviación se calcula con carga, dirección y calidad, sin sorteo de fallo. Todavía no hay árbitro ni marcador: la práctica muestra la trayectoria y el aviso de sobrecarga, no resuelve puntos.
+Por encima del 94% se pierde margen progresivamente: al 100%, buscar profundidad o ángulo con mala posición puede producir un impacto directo en vidrio/reja rival antes del piso. Si apuntás hacia abajo (tiro corto), la sobrecarga reduce el margen de altura y puede tocar la red, especialmente con contacto exigido. Esta bajada del arco se aplica después de la ayuda de trayectoria para que no se corrija sola. La desviación se calcula con carga, dirección y calidad, sin sorteo de fallo. Todavía no hay árbitro ni marcador: la práctica muestra la trayectoria y el aviso de sobrecarga, no resuelve puntos.
 
 La recuperación impide otro intento durante 0.18 s (0.28 s defensivo), pero devuelve el movimiento inmediatamente después del contacto. Todos estos tiempos y coeficientes son provisionales para probar la sensación.
 

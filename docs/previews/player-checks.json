@@ -15,6 +15,20 @@
 			"aim": "(1.0, 0.0)",
 			"first_surface": "glass",
 			"target": "(5.4162, 0.105, -9.80758)"
+		},
+		{
+			"aim": "(0.0, 1.0)",
+			"charge": 0.9,
+			"first_surface": "floor",
+			"net_risk": 0.0,
+			"quality": 0.311230765342712
+		},
+		{
+			"aim": "(0.0, 1.0)",
+			"charge": 1.0,
+			"first_surface": "net",
+			"net_risk": 0.797700002527237,
+			"quality": 0.311230765342712
 		}
 	],
 	"prepared_power": 0.895825755868386,

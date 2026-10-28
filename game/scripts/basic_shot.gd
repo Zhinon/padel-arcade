@@ -18,6 +18,8 @@ enum State { IDLE, PREPARING, LOCKED, STRIKING, RECOVERING, MISSED }
 @export var emergency_power: float = 0.32
 @export var overload_depth: float = 9.0
 @export var overload_width: float = 6.0
+@export var overload_net_clearance: float = 0.45
+@export var overload_net_risk_strength: float = 1.6
 var player: CharacterBody3D
 var ball: CharacterBody3D
 var enabled: bool = false
@@ -143,9 +145,10 @@ func result_for_contact() -> Dictionary:
 	var overload := clampf((shot_charge - perfect_charge - perfect_tolerance) / maxf(0.001, 1.0 - perfect_charge - perfect_tolerance), 0.0, 1.0)
 	# Deterministic loss of margin, especially when deep/angled and unbalanced.
 	var risk := overload * lerpf(1.0, 0.35, contact_quality_value)
-	goal.z -= overload_depth * risk * lerpf(0.6, 1.0, maxf(0.0, -aim.y))
+	var short_aim := maxf(0.0, aim.y)
+	goal.z -= overload_depth * risk * lerpf(0.6, 1.0, maxf(0.0, -aim.y)) * (1.0 - short_aim)
 	goal.x += aim.x * overload_width * risk
-	return {"quality": contact_quality_value, "power": power, "target": goal, "defensive": defensive, "overload": overload}
+	return {"quality": contact_quality_value, "power": power, "target": goal, "defensive": defensive, "overload": overload, "net_risk": risk * short_aim}
 
 func _execute_contact() -> void:
 	state = State.STRIKING
@@ -153,7 +156,7 @@ func _execute_contact() -> void:
 	quality = result.quality
 	effective_power = result.power
 	target = result.target
-	var outgoing := solve_velocity(ball.position, target, effective_power)
+	var outgoing := solve_velocity(ball.position, target, effective_power, result.net_risk)
 	ball.strike(outgoing, 0)
 	hits += 1
 	charging = false
@@ -163,8 +166,15 @@ func _execute_contact() -> void:
 	recovery = emergency_recovery if result.defensive else recovery_duration
 	state = State.RECOVERING
 	var perfect: bool = absf(shot_charge - perfect_charge) <= perfect_tolerance and quality >= 0.85 and not result.defensive
-	feedback.emit("Defensa exigida · poca potencia y dirección" if result.defensive else ("¡Golpe perfecto!" if perfect else ("Sobrecarga · menos margen al cerramiento" if result.overload > 0.0 else "Buen contacto · recuperá posición")))
-	hit.emit({"position": ball.position, "velocity": outgoing, "target": target, "charge": shot_charge, "quality": quality, "effective_power": effective_power, "defensive": result.defensive, "perfect": perfect})
+	var message := "Buen contacto · recuperá posición"
+	if perfect:
+		message = "¡Golpe perfecto!"
+	elif result.overload > 0.0:
+		message = "Sobrecarga · menos margen sobre la red" if result.net_risk > 0.0 else "Sobrecarga · menos margen al cerramiento"
+	elif result.defensive:
+		message = "Defensa exigida · poca potencia y dirección"
+	feedback.emit(message)
+	hit.emit({"position": ball.position, "velocity": outgoing, "target": target, "charge": shot_charge, "quality": quality, "effective_power": effective_power, "defensive": result.defensive, "perfect": perfect, "net_risk": result.net_risk})
 
 func _finish_miss(message: String) -> void:
 	misses += 1
@@ -192,7 +202,7 @@ func contact_reason() -> String:
 		return "Fuera de alcance · acercate a la pelota"
 	return ""
 
-func solve_velocity(at: Vector3, goal: Vector3, power: float) -> Vector3:
+func solve_velocity(at: Vector3, goal: Vector3, power: float, net_risk: float = 0.0) -> Vector3:
 	var duration := lerpf(1.55, 1.10, clampf(power, 0.0, 1.0))
 	var outgoing := Vector3.ZERO
 	for iteration in range(10):
@@ -200,6 +210,13 @@ func solve_velocity(at: Vector3, goal: Vector3, power: float) -> Vector3:
 		if _net_height(at, outgoing, duration) >= 1.3:
 			break
 		duration += 0.10
+	if net_risk > 0.0:
+		# Apply after the safe-arc assistance, so it cannot erase the risk.
+		var normal_height := _net_height(at, outgoing, duration)
+		var vertical_response := _net_height(at, outgoing + Vector3.UP, duration) - normal_height
+		if is_finite(normal_height) and vertical_response > 0.001:
+			var height_loss := maxf(0.0, normal_height - overload_net_clearance) * clampf(net_risk * overload_net_risk_strength, 0.0, 1.0)
+			outgoing.y -= height_loss / vertical_response
 	return outgoing
 
 func _velocity_for_duration(at: Vector3, goal: Vector3, duration: float) -> Vector3:

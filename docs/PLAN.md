@@ -57,6 +57,8 @@ Depende de E2. Objetivo: devolver con intención.
 - [x] P36 Implementar y verificar contraste preparado/emergencia, calidad de contacto y recuperación antes de ampliar tiros. No modificar física aceptada sin evidencia.
 - [ ] P34 Probar 30 segundos con el usuario y registrar sensaciones. Integración automática de 30 s aprobada en sesión 007; no reemplaza esa prueba humana.
 
+**Avance sesión 011:** usuario conforme con control; agregado riesgo de red para apuntado corto sobrecargado, verificado con contacto automático y física. Pendiente revisar este ajuste jugando.
+
 **Avance sesión 010:** P35/P36 implementados y verificados técnicamente: plantado, carga/fijación, apuntado continuo, contacto automático, defensa y riesgo determinista. P34 de sensación humana continúa pendiente.
 
 **Avance sesión 007:** movimiento, mapa de acciones, preparación/alcance y devolución física implementados. Noventa trayectorias y diez contactos en 30 s de integración automática aprobados; dos contactos mediante eventos grabados. Guía PRACTICA.md.

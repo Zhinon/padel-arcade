@@ -135,3 +135,14 @@
 **Validación:** importación, control/90 trayectorias/diez contactos sintéticos, dos sobrecargas hasta primer cerramiento y regresiones E2 aprobadas. Demostración de dos contactos y capturas 720p/360p actualizadas e inspeccionadas. Avisos Mesa/VSync del render CPU; sin errores de scripts. Se concedió acceso de red para servidor gráfico/puertos locales de Godot.
 
 **Continuidad:** P35/P36 completados técnicamente; P34 pendiente de juego humano. Ajustar carga, alcance, defensa, plantado y recuperación antes de ampliar tiros/IA. Guía, estado, plan, arquitectura y decisiones actualizados; punto Git de cierre.
+
+
+## 28/10/2026 — Sesión 011: sobrecarga corta que puede tocar red
+
+**Pedido:** usuario conforme con control; solicita posibilidad de red al apuntar hacia abajo con 100%.
+
+**Cambio:** menor altura de salida de tiro corto sobrecargado según carga/dirección/calidad. La ayuda de arco se calcula antes de la penalización, evitando que elimine el riesgo. Menos extensión profunda cuando apunta abajo. Aviso de sobrecarga específico. Cámara y rebotes sin cambios.
+
+**Pruebas:** mismo contacto exigido 90% llega a piso rival, 100% toca red, ejecutados por contacto automático y física. Pruebas anteriores de control, fondo/lateral, 90 trayectorias y diez devoluciones aprobadas; 13 regresiones de pelota aprobadas. Importación sin errores de scripts con avisos del sandbox sobre puertos del editor. Sin nueva prueba visual/humana. Ajuste de altura calibrado tras detectar que una reducción fija inicial todavía pasaba la red.
+
+**Continuidad:** probar este riesgo jugando; mantener P34 antes de avanzar a tiros/IA. Estado, plan, guía, decisiones y pruebas actualizados.
