@@ -180,6 +180,8 @@ func _build_articulated_avatar(avatar: Node3D, shirt: Color) -> void:
 	var nose := _sphere("Nose", 0.055, Color("d8ad88"), torso)
 	nose.position = Vector3(0, 0.66, -0.17)
 	for side: float in [-1.0, 1.0]:
+		var shoulder := _sphere("ShoulderLeft" if side < 0 else "ShoulderRight", 0.105, shirt, torso)
+		shoulder.position = Vector3(side * 0.275, 0.25, 0)
 		var eye := _sphere("Eye", 0.022, Color("263338"), torso)
 		eye.position = Vector3(side * 0.065, 0.72, -0.155)
 		for part: String in ["Upper", "Fore"]:

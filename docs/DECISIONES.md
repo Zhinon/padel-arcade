@@ -118,3 +118,9 @@ Para cambiar una decisión: añadir fecha, contexto, alternativas relevantes, el
 - **D54, pedido del usuario:** el revés debe girar al personaje de costado; brazo/pala no deben atravesar el torso. Se mejora el muñeco actual antes del globo, manteniendo control y contacto aceptados.
 - **D55, implementación provisional:** avatar controlado diestro con torso/cadera independientes, pies orientados y brazos de dos segmentos. Lado por x relativo de pelota con banda de estabilidad ±0.15 m; torso de costado en preparación/contacto y mano de apoyo en revés. Trayectoria de pala proyectada fuera del volumen del torso durante preparación/seguimiento; codos por delante y fuera de sus bordes. No modifica colisión física del jugador ni mueve pelota/cuerpo para alcanzar.
 - **D56, alcance de validación:** 18 casos representativos, tres alturas y preparación corta/larga en ambos lados, con muestras de brazo y pala fuera del volumen conservador del torso. Exactitud de impacto, giro y recuperación verificados; revisión de capturas cercana. No equivale a rig final, límites biomecánicos completos o garantía para todas las pelotas dentro del collider del personaje. Personajes estáticos restantes no se rehicieron.
+
+
+## 28/10/2026 — sesión 015: reposo relajado
+
+- **D57, feedback del usuario:** golpes de derecha/revés quedaron bien; conservarlos. Corregir brazos con aspecto quebrado en reposo.
+- **D58:** reposo separado del codo adelantado de golpe: brazos caen al costado con flexión suave, pala a derecha y mano libre baja. Retorno se mezcla en el último 40% del acompañamiento existente, relajando codo cuando la mano vuelve al mismo costado para evitar atravesar torso durante transición. Dos uniones visuales de hombro cubren separación entre manga y cuerpo. Sin cambio de poses de preparación/contacto, controles, duración de recuperación o física.

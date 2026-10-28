@@ -1,6 +1,6 @@
 # Estado y próxima sesión
 
-Actualizado: 28/10/2026, zona America/Argentina/Mendoza. Sesión 014.
+Actualizado: 28/10/2026, zona America/Argentina/Mendoza. Sesión 015.
 
 ## Dónde estamos
 
@@ -35,6 +35,12 @@ Regresiones ejecutadas: 13 escenarios de pelota, 90 trayectorias/diez devolucion
 A pedido del usuario se revisó el brazo que atravesaba el torso. Avatar controlado con pivotes de torso/cadera, brazos de dos segmentos y codos, apoyos y pies. Selección automática diestra de derecha/revés por lado de pelota con banda de estabilidad de 0.15 m. Revés con giro de costado y mano de apoyo; pala y antebrazos rodean el frente del torso. Seguimiento vuelve al reposo en los mismos 0.24 s. No cambia controles, alcance, carga, recuperación o instante de impacto.
 
 Verificados 18 casos (ambos lados, tres alturas y dos preparaciones): contacto de pala <0.0001 m, brazos/pala fuera del torso en muestras de recorrido, giro de cadera/torso y regreso a reposo. Regresiones de impacto/audio y 90 trayectorias/diez devoluciones aprobadas. Capturas cercanas de preparación/contacto/seguimiento revisadas; cámara de acercamiento solo en ejecutor, no en juego. Animación sigue geométrica provisional; no se promete ausencia de clipping en todas las posiciones posibles. Evaluación visual humana pendiente.
+
+## Reposo — sesión 015
+
+El usuario aprobó los golpes de derecha/revés y señaló brazos con aspecto quebrado al descansar. Reposo ahora usa codos bajos y relajados, pala al costado y mano libre baja, separado del recorrido de golpe. La recuperación mezcla a esta pose al final y espera que las manos vuelvan a su lado antes de relajar el codo. Se agregaron uniones de hombro para evitar huecos visibles entre manga y torso.
+
+Dieciocho casos de golpes conservan aprobación; reposo inicial y posterior a cada uno verificado con codos de aproximadamente 170°/166°, manos bajo codos y sin estiramiento de segmentos. Tres clases de impacto/audio aprobadas. Capturas de reposo frontal y lateral revisadas. Los golpes, controles y simulación no se modificaron; evaluación humana del reposo nuevo pendiente.
 
 ## Próximo paso
 

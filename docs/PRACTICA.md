@@ -1,4 +1,4 @@
-# Práctica de preparación y contacto automático — sesión 014
+# Práctica de preparación y contacto automático — sesión 015
 
 Un jugador se mueve y devuelve pelotas de un lanzador. Se mantiene la cámara aprobada y la física calibrada de E2. Los otros tres personajes siguen estáticos; no hay rival, marcador ni partido.
 
@@ -82,9 +82,11 @@ La pala coincide con el contacto, el brazo acompaña y el gesto vuelve al reposo
 
 El muñeco controlado es **diestro** en este prototipo. Pelota a su derecha: derecha; a su izquierda: revés. La selección es automática, sin botón adicional. Cerca del centro conserva el lado elegido para que no cambie de pose continuamente.
 
-Torso y cadera se giran, los pies adoptan apoyo de costado y el brazo flexiona por el codo. En revés, la mano libre acompaña el agarre. La preparación aproxima la pala a la zona de contacto y el seguimiento rodea el frente del cuerpo. La pala sigue contactando en el evento físico original, sin esperar que termine una animación. Son poses geométricas provisionales, no un esqueleto deportivo final.
+Torso y cadera se giran, los pies adoptan apoyo de costado y el brazo flexiona por el codo. En revés, la mano libre acompaña el agarre. La preparación aproxima la pala a la zona de contacto y el seguimiento rodea el frente del cuerpo. La pala sigue contactando en el evento físico original, sin esperar que termine una animación. En reposo, los codos bajan y los brazos quedan relajados al costado; la pala permanece a la derecha. Al terminar el golpe vuelve gradualmente a esa postura. Son poses geométricas provisionales, no un esqueleto deportivo final.
 
 **Para probar el revés:** recibí con R y ubicá al jugador un poco a la derecha de la trayectoria de la pelota antes de preparar. No necesitás apuntar hacia la izquierda para elegir revés: el apuntado sigue seleccionando destino del tiro.
+
+Reposo revisado: [frente](previews/pose-rest-front.png) y [perfil](previews/pose-rest-side.png).
 
 Capturas de revisión cercana: [revés preparado](previews/pose-backhand-preparation.png), [contacto de revés](previews/pose-backhand-contact.png), [derecha](previews/pose-forehand-contact.png). Solo el ejecutor usa cámara cercana; el encuadre de juego aprobado no cambia.
 

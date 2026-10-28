@@ -74,7 +74,7 @@ Depende de E3. Objetivo: elegir un tiro cambia el intercambio.
 
 - [ ] P40 Añadir globo, remate contextual y volea con resultados distintos.
 - [ ] P41 Ajustar tiempos, potencia, precisión y asistencia.
-- [x] P42 Integrar animaciones y sonido provisionales para golpe base normal/perfecto/defensivo, sin cambiar autoridad del contacto. Sesión 014: poses derecha/revés, giro de torso/cadera, codos y apoyos; 18 casos y capturas verificados. Extender a nuevos tiros cuando se incorporen. Revisión auditiva/visual del usuario pendiente.
+- [x] P42 Integrar animaciones y sonido provisionales para golpe base normal/perfecto/defensivo, sin cambiar autoridad del contacto. Sesión 014: poses derecha/revés, giro de torso/cadera, codos y apoyos; 18 casos y capturas verificados. Sesión 015: reposo relajado separado, recuperación al costado y uniones de hombro; verificación frontal/lateral. Extender a nuevos tiros cuando se incorporen. Revisión auditiva/visual del usuario pendiente.
 - [ ] P43 Añadir rival simple de laboratorio y revisar diversión con el usuario.
 - [ ] P44 Diseñar e implementar giro de pelota (topspin, slice y lateral) con pruebas separadas de vuelo y contacto; todavía no implementado.
 

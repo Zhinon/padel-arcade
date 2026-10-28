@@ -181,3 +181,12 @@
 **Revisión:** pruebas de 18 casos y capturas próximas; se ajustó posición del codo para evitar brazo excesivamente estirado, se definió silueta de torso para hacer visible giro y se agregó cuello. La cámara de juego permanece igual. Aprobadas regresiones de impacto/audio y jugador (90 trayectorias/diez contactos). No prueba humana ni rig final.
 
 **Continuación:** usuario revisa derecha/revés y su recuperación; después globo. Documentación e informe de poses guardados, punto Git al cierre. Al abrir la práctica aparecieron errores X11 BadShmSeg; se detuvo y se reabrió con LIBGL_ALWAYS_SOFTWARE=1, sin repetición observada. OpenGL indirecto no funcionó y se detuvo. Sin cambios globales de driver/lanzador.
+
+
+## 28/10/2026 — Sesión 015: brazos de reposo
+
+**Pedido:** usuario conforme con golpes; brazos se veían quebrados en reposo.
+
+**Causa:** la postura exterior del codo usada para evitar torso durante golpe se reutilizaba con mano/pala bajas, creando un quiebre poco natural. Se separó descanso y se mezcló al finalizar gesto; el primer retorno directo rozaba envolvente conservadora del torso, por lo que se difiere relajación de codo hasta que la mano vuelve al mismo lado. Revisión visual añadió uniones de hombro para cerrar huecos.
+
+**Validación:** 18 casos de golpes y reposo inicial/posterior, codos aproximadamente 170° y 166°, sin inversión de flexión o estiramiento de segmentos. Capturas frontales/laterales inspeccionadas. Regresión de tres impactos/audio aprobada e importación sin errores de scripts. Sin cambios en control ni física; no prueba humana del nuevo reposo. Documentación actualizada y punto Git de cierre.

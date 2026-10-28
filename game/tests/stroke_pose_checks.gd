@@ -6,6 +6,7 @@ var lab: Node3D
 var pose: Node
 var player: CharacterBody3D
 var minimum_clearance: float = INF
+var rest_checks: Array[Dictionary] = []
 func _initialize() -> void:
 	call_deferred("_run")
 func _check(ok: bool, message: String) -> void:
@@ -24,8 +25,23 @@ func _arm_clearance(label: String) -> void:
 	var racket_local: Vector3 = pose.torso.to_local(player.racket.global_position)
 	var racket_axis := Vector3(0, clampf(racket_local.y, -0.01, 0.21), 0)
 	_check(racket_local.distance_to(racket_axis) >= 0.445, label + ": racket stays outside torso")
+func _rest_pose(label: String) -> void:
+	var angles: Array[float] = []
+	for bones: Array in [[pose.arm, pose.forearm, pose.elbow], [pose.off_upper, pose.off_fore, pose.off_elbow]]:
+		var upper: MeshInstance3D = bones[0]
+		var lower: MeshInstance3D = bones[1]
+		var joint: MeshInstance3D = bones[2]
+		var shoulder: Vector3 = upper.position - upper.basis.y * 0.2
+		var hand: Vector3 = lower.position + lower.basis.y * 0.2
+		var angle := rad_to_deg((shoulder - joint.position).angle_to(hand - joint.position))
+		angles.append(angle)
+		_check(angle > 145.0 and angle < 179.9, label + ": relaxed elbow without acute/reversed bend")
+		_check(joint.position.y < shoulder.y - 0.2 and hand.y < joint.position.y - 0.2, label + ": arm hangs down at rest")
+		_check(shoulder.distance_to(joint.position) < 0.5 and hand.distance_to(joint.position) < 0.5, label + ": no stretched limb at rest")
+	rest_checks.append({"label": label, "elbow_angles_degrees": angles})
 func _capture(label: String) -> void:
-	if not "--capture" in OS.get_cmdline_user_args(): return
+	var required_flag := "--rest-capture" if label.begins_with("rest-") else "--capture"
+	if not required_flag in OS.get_cmdline_user_args(): return
 	lab._process(0.0)
 	await process_frame
 	RenderingServer.force_draw()
@@ -44,6 +60,18 @@ func _run() -> void:
 	var shot = lab.shot_controller
 	pose = lab.impact_feedback
 	for node in [lab, player, ball, shot, pose]: node.set_physics_process(false)
+	player.reset_position(Vector3(0, 0, 6.8))
+	pose.reset_presentation()
+	_rest_pose("initial")
+	if "--rest-capture" in OS.get_cmdline_user_args():
+		var original_camera: Transform3D = lab.camera.transform
+		lab.camera.position = Vector3(0.0, 2.3, 3.4)
+		lab.camera.look_at(Vector3(0, 1.0, 6.8))
+		await _capture("rest-front")
+		lab.camera.position = Vector3(3.4, 2.2, 6.8)
+		lab.camera.look_at(Vector3(0, 1.0, 6.8))
+		await _capture("rest-side")
+		lab.camera.transform = original_camera
 	# Test close-up camera only; the runtime camera presets are untouched.
 	if "--capture" in OS.get_cmdline_user_args():
 		lab.camera.position = Vector3(-0.3, 2.7, 10.0)
@@ -85,8 +113,9 @@ func _run() -> void:
 					if tick == 10 and height == 0.9 and charge_ticks == 86: await _capture(expected + "-follow")
 				_check(ball.velocity.is_equal_approx(outgoing) and player.position.is_equal_approx(start), "Animation does not change gameplay")
 				_check(absf(pose.torso.rotation.y) < 0.001 and absf(pose.hips.rotation.y) < 0.001, "Returns to neutral stance")
+				_rest_pose("after_" + expected)
 				cases.append({"side": expected, "height": height, "preparation_ticks": charge_ticks, "contact_error_m": error})
-	var report := {"engine": Engine.get_version_info().string, "failures": failures, "cases": cases, "minimum_forearm_clearance_m": minimum_clearance, "note": "Procedural right-handed placeholder rig. Samples representative preparation/contact/follow paths, not full production skeletal collision guarantees."}
+	var report := {"engine": Engine.get_version_info().string, "failures": failures, "cases": cases, "minimum_forearm_clearance_m": minimum_clearance, "rest_checks": rest_checks, "note": "Procedural right-handed placeholder rig. Samples representative preparation/contact/follow paths, not full production skeletal collision guarantees."}
 	var file := FileAccess.open("res://../docs/previews/stroke-pose-checks.json", FileAccess.WRITE)
 	file.store_string(JSON.stringify(report, "\t"))
 	file.close()

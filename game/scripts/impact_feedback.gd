@@ -199,13 +199,23 @@ func _update_arm() -> void:
 	# The right elbow stays outside the right/front edge, including on backhand.
 	var elbow_local := Vector3(maxf(0.36, (hand_local.x + 0.3) * 0.5), clampf((hand_local.y + 0.28) * 0.5 - 0.08, -0.25, 0.28), minf(-elbow_clearance, hand_local.z * 0.55))
 	var shoulder: Vector3 = player.visual.to_local(torso.to_global(Vector3(0.3, 0.28, 0)))
-	elbow.position = player.visual.to_local(torso.to_global(elbow_local))
-	_limb(arm, shoulder, elbow.position)
-	_limb(forearm, elbow.position, hand)
 	var support := Vector3(-0.45, -0.10, -0.24)
 	if shot_side == "backhand" and (player.preparing or elapsed < follow_duration):
 		support = hand_local + Vector3(-0.07, 0.04, -0.04)
 	var off_elbow_local := Vector3(minf(-0.36, support.x - 0.12), clampf((support.y + 0.28) * 0.5 - 0.08, -0.25, 0.28), minf(-elbow_clearance, support.z * 0.55))
+	# Rest is a relaxed hanging arm, not the clearance pose used for a stroke.
+	# Blend during the end of follow-through so the elbows do not snap back.
+	var rest_weight := 0.0
+	if not player.preparing:
+		rest_weight = smoothstep(0.6, 1.0, elapsed / follow_duration)
+	support = support.lerp(Vector3(-0.37, -0.35, -0.08), rest_weight)
+	var right_relax := rest_weight * smoothstep(0.2, 0.4, hand_local.x)
+	var left_relax := rest_weight * smoothstep(0.2, 0.36, -support.x)
+	elbow_local = elbow_local.lerp(Vector3(0.38, -0.04, -0.04), right_relax)
+	off_elbow_local = off_elbow_local.lerp(Vector3(-0.36, -0.04, -0.01), left_relax)
+	elbow.position = player.visual.to_local(torso.to_global(elbow_local))
+	_limb(arm, shoulder, elbow.position)
+	_limb(forearm, elbow.position, hand)
 	var off_shoulder: Vector3 = player.visual.to_local(torso.to_global(Vector3(-0.3, 0.28, 0)))
 	off_elbow.position = player.visual.to_local(torso.to_global(off_elbow_local))
 	_limb(off_upper, off_shoulder, off_elbow.position)

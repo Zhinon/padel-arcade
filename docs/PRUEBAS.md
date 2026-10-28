@@ -182,3 +182,12 @@ Regresiones ejecutadas: `ball_checks.gd` (13), `player_checks.gd` (90 trayectori
 En preparación/contacto/40 pasos de seguimiento se muestrean 13 puntos de cada segmento de ambos brazos contra envolvente conservadora de torso (cápsula radio 0.24 m, eje local y [-0.01,0.21]). Margen adicional de radio de cada brazo; tolerancia de unión del hombro 0.008 m. Se verifica además separación de centro de pala ≥0.445 m respecto al eje. Mínimo margen de antebrazo observado 0.0591 m, sin fallos. No cubre toda combinación de altura/distancia ni reemplaza observación humana de biomecánica.
 
 Capturas cercanas de preparación/contacto/seguimiento de ambos lados renderizadas e inspeccionadas: se mejoró flexión de codo, silueta de torso y unión del cuello tras revisión. Seis PNG pose-*.png; el zoom es exclusivo de prueba. `impact_checks.gd` (tres clases/audio/silencio/pausa) y `player_checks.gd` (90 trayectorias/diez devoluciones/controles) siguen aprobados. Importación sin errores de scripts. No se modificaron simulación de pelota ni materiales de cancha; no se repitieron recorridos/FPS pasivos.
+
+
+## Sesión 015 — postura de descanso
+
+`stroke_pose_checks.gd`: se amplía con reposo inicial y posterior a cada uno de los 18 casos existentes. Ambas manos quedan al menos 0.2 m debajo de codos y codos al menos 0.2 m debajo de hombros. Ángulos de codo entre 145° y 179.9° (observados 169.65° y 166.02°), segmentos menores a 0.5 m: detecta postura invertida o plegada hacia adelante que antes pasaba comprobación de separación.
+
+Los 18 casos de preparación/contacto/retorno, exactitud de impacto y aislamiento de física conservan aprobación. Margen mínimo de antebrazo frente a envolvente conservadora de torso -0.0007 m, dentro de tolerancia de unión de 0.008 m y torso real aplanado; no se afirma margen estrictamente positivo durante toda transición. Informe stroke-pose-checks.json actualizado. Impact_checks: tres clases, audio/silencio/pausa, sin fallos.
+
+Capturas pose-rest-front.png y pose-rest-side.png inspeccionadas con render llvmpipe forzado por LIBGL_ALWAYS_SOFTWARE=1. Cámara cercana solo en ejecutor. Uniones de hombro revisadas para evitar separación visible. Importación sin errores de scripts. Gameplay/pelota sin cambios; no se repitieron recorridos/FPS pasivos. Nuevo reposo pendiente de valoración del usuario.

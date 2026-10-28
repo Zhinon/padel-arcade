@@ -111,6 +111,141 @@
 	],
 	"engine": "4.7.2-stable (official)",
 	"failures": [],
-	"minimum_forearm_clearance_m": 0.0591243374347687,
-	"note": "Procedural right-handed placeholder rig. Samples representative preparation/contact/follow paths, not full production skeletal collision guarantees."
+	"minimum_forearm_clearance_m": -0.000697685480117782,
+	"note": "Procedural right-handed placeholder rig. Samples representative preparation/contact/follow paths, not full production skeletal collision guarantees.",
+	"rest_checks": [
+		{
+			"elbow_angles_degrees": [
+				169.649386076557,
+				166.015260985247
+			],
+			"label": "initial"
+		},
+		{
+			"elbow_angles_degrees": [
+				169.649386076557,
+				166.015260985247
+			],
+			"label": "after_backhand"
+		},
+		{
+			"elbow_angles_degrees": [
+				169.649386076557,
+				166.015260985247
+			],
+			"label": "after_backhand"
+		},
+		{
+			"elbow_angles_degrees": [
+				169.649386076557,
+				166.015260985247
+			],
+			"label": "after_backhand"
+		},
+		{
+			"elbow_angles_degrees": [
+				169.649386076557,
+				166.015260985247
+			],
+			"label": "after_backhand"
+		},
+		{
+			"elbow_angles_degrees": [
+				169.649386076557,
+				166.015260985247
+			],
+			"label": "after_backhand"
+		},
+		{
+			"elbow_angles_degrees": [
+				169.649386076557,
+				166.015260985247
+			],
+			"label": "after_backhand"
+		},
+		{
+			"elbow_angles_degrees": [
+				169.649386076557,
+				166.015260985247
+			],
+			"label": "after_forehand"
+		},
+		{
+			"elbow_angles_degrees": [
+				169.649386076557,
+				166.015260985247
+			],
+			"label": "after_forehand"
+		},
+		{
+			"elbow_angles_degrees": [
+				169.649386076557,
+				166.015260985247
+			],
+			"label": "after_forehand"
+		},
+		{
+			"elbow_angles_degrees": [
+				169.649386076557,
+				166.015260985247
+			],
+			"label": "after_forehand"
+		},
+		{
+			"elbow_angles_degrees": [
+				169.649386076557,
+				166.015260985247
+			],
+			"label": "after_forehand"
+		},
+		{
+			"elbow_angles_degrees": [
+				169.649386076557,
+				166.015260985247
+			],
+			"label": "after_forehand"
+		},
+		{
+			"elbow_angles_degrees": [
+				169.649386076557,
+				166.015260985247
+			],
+			"label": "after_forehand"
+		},
+		{
+			"elbow_angles_degrees": [
+				169.649386076557,
+				166.015260985247
+			],
+			"label": "after_forehand"
+		},
+		{
+			"elbow_angles_degrees": [
+				169.649386076557,
+				166.015260985247
+			],
+			"label": "after_forehand"
+		},
+		{
+			"elbow_angles_degrees": [
+				169.649386076557,
+				166.015260985247
+			],
+			"label": "after_forehand"
+		},
+		{
+			"elbow_angles_degrees": [
+				169.649386076557,
+				166.015260985247
+			],
+			"label": "after_forehand"
+		},
+		{
+			"elbow_angles_degrees": [
+				169.649386076557,
+				166.015260985247
+			],
+			"label": "after_forehand"
+		}
+	]
 }
