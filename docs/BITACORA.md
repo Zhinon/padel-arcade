@@ -106,3 +106,12 @@
 **Pruebas:** 90 trayectorias por red/aterrizaje, alcance/preparación/altura, una sola strike, movimiento diagonal, límites, pausa/foco/F8 e interfaz 720p/360p. Conductor de 30 s: diez contactos. Grabación de seis segundos con eventos de Godot: dos contactos. Regresiones de pelota/calibración/recorrido/FPS aprobadas, mismos 2.00/4.25 m de E2. Sin prueba de mando físico ni comodidad humana.
 
 **Continuidad:** P30–P33 completados técnicamente, P34 pendiente con usuario. Después ajustar control antes de E4. Sin giro, tiros avanzados del jugador, rival, reglas ni marcador. Documentación y evidencia guardadas; punto de recuperación Git al cierre.
+
+
+## 28/10/2026 — Sesión 008: revisión del diseño de golpes
+
+**Pedido:** evaluar viabilidad de la descripción extensa inspirada en Virtua Tennis.
+
+**Resultado:** viable; identificadas diferencias con el prototipo (soltar frente a contacto automático, movilidad preparando y calidad dependiente de contexto). Propuesta de liberar para fijar potencia, sin disparar; pendiente de definir con cancelación/caducidad. Riesgo de profundidad revisado contra reglas FIP 12–13 para evitar trasladar líneas de tenis al pádel.
+
+**Registro:** REVISION_CONTROLES_ARCADE.md, tareas P35/P36 y estado actualizados. Sin modificaciones de código ni ejecución de pruebas del motor. Próxima porción: definir semántica de control y validar plantado/apuntado/contacto automático antes de ampliar tipos de tiro.

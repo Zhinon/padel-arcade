@@ -72,3 +72,9 @@ Para cambiar una decisión: añadir fecha, contexto, alternativas relevantes, el
 - **D39:** jugador con cápsula y barridos explícitos con delta, límites a su mitad y velocidad diagonal normalizada. Todavía sin choque pelota/cuerpo ni colisiones entre personajes; esas reglas no se infieren del movimiento.
 - **D40:** panel nativo Godot con texto de controles/feedback y contador de contactos, compacto por debajo de 800 px. La búsqueda UX local no dio una guía específica de juego; se aplicaron criterios generales de legibilidad, contraste y feedback, no recomendaciones web de formularios como si fueran del motor.
 - **D41:** las pruebas automáticas y la grabación no sustituyen la validación humana de comodidad/diversión. P34 queda pendiente hasta que el usuario juegue esta versión.
+
+
+## 28/10/2026 — sesión 008: revisión del control deseado
+
+- **D42, dirección propuesta por el usuario:** priorizar anticipación, posición y preparación con contacto automático, usando Virtua Tennis 1/2 como referencia de sensación. Requiere revisar D35/D37; la versión ejecutable todavía conserva esos controles.
+- **Pendiente de definir:** soltar para fijar potencia sin ejecutar, cancelación y caducidad. Es una recomendación de esta revisión, no un acuerdo cerrado. Riesgo de tiro adaptado a paredes de pádel; detalle en REVISION_CONTROLES_ARCADE.md.

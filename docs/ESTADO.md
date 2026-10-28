@@ -1,6 +1,6 @@
 # Estado y próxima sesión
 
-Actualizado: 27/10/2026, zona America/Argentina/Mendoza. Sesión 007.
+Actualizado: 28/10/2026, zona America/Argentina/Mendoza. Sesión 008 (revisión de diseño).
 
 ## Dónde estamos
 
@@ -21,7 +21,7 @@ Todavía no hay rival, reglas de partido, giro ni tiros avanzados del jugador. L
 
 ## Próximo paso
 
-**P34: probar práctica con el usuario.** Confirmar si moverse, preparar y soltar se sienten cómodos y si el alcance es claro. Ajustar antes de E4 (variedad de tiros, animación/sonido, efectos y rival de laboratorio).
+**Revisar E3 con la referencia de control aportada por el usuario.** Propuesta documentada en REVISION_CONTROLES_ARCADE.md: preparación que planta al jugador, apuntado y contacto automático. Resolver selección de potencia/cancelación antes de implementar; luego P34 de sensación humana. El ejecutable sigue siendo sesión 007: soltar ejecuta el intento. E4 queda después de validar este núcleo.
 
 ## Abrir
 
