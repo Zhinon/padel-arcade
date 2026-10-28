@@ -138,3 +138,9 @@ Para cambiar una decisión: añadir fecha, contexto, alternativas relevantes, el
 - **D61, feedback del usuario:** drive ajustado bueno; sumar abanicazo cuando pulsa e intenta golpear sin llegar a pelota.
 - **D62:** `missed` como evento separado de contacto. Activa gesto al pasar pelota preparada fuera de alcance/altura, al caducar, en pulsación tardía y sin pelota disponible (incluida pelota ya golpeada, sin permitir segundo impacto). No requiere soltar otro botón. Cancelación de preparación conserva función previa y no es fallo.
 - **D63, presentación provisional:** abanicazo de 0.28 s, avance hasta zona local cómoda y acompañamiento de derecha/revés. No estirar brazo hasta pelota remota, no modificar simulación ni marcar contacto, no sonido/destello de impacto. Movimiento libre, recuperación corta existente y un solo gesto por intento. Pausa/R/F8 limpian presentación.
+
+
+## 28/10/2026 — sesión 018: intención de chiquita
+
+- **D64, orientación aceptada:** usuario quiere distinguir poca potencia deliberada de devolución débil por mala preparación; propone investigar la chiquita.
+- **D65, propuesta pendiente de prueba:** carga baja fijada temprano más dirección corta permite buscar pies del rival. Calidad independiente de cantidad de carga; no exigir 90% para todo golpe excelente. Sin botón adicional inicialmente. Detalle y límites en CHIQUITA.md; no implementado ni calibrado.

@@ -82,3 +82,8 @@ Parámetros de diseño ajustados por feedback, sin nuevas mediciones empíricas 
 ## Poses de derecha/revés — sesión 014
 
 Pivotes, geometría articulada, codos, zapatos, cara y animación generados como código del proyecto, sin modelos/animaciones externos. Capturas pose-*.png provienen del ejecutor stroke_pose_checks con cámara cercana de prueba; no representan cambio de encuadre de juego.
+
+
+## Chiquita — sesión 018
+
+Referencias de técnica consultadas el 28/10/2026: [Use the Chiquita!](https://thepadelschool.com/resources/padel-tips/use-the-chiquita) y [The Perfect Padel Return](https://thepadelschool.com/resources/blog/the-perfect-padel-return), The Padel School. Orientan objetivo táctico y colocación; los controles propuestos son diseño del proyecto. No se incorporaron imágenes, videos ni assets externos.

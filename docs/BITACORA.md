@@ -214,3 +214,10 @@
 **Pruebas:** cinco gestos (vacío, lateral izquierdo/derecho, altura, tardío), sin sonido/destello/strike ni cambio de pelota, un gesto y vuelta al reposo. Cancelación/caducidad/pausa/laboratorio probados. Revisión gráfica de cuatro gestos; caso tardío adicional sin ventana. Dieciocho poses válidas, tres impactos/audio y jugador (90 trayectorias/diez devoluciones) siguen aprobados. Dos variables de ejecutor tipadas tras error inicial de inferencia; importación final sin errores. Geometría de antebrazos en recorrido comprobada con tolerancia previa.
 
 **Continuidad:** usuario prueba nuevo abanicazo; luego globo. Plan, guía, arquitectura, decisiones, estado e informes actualizados. Punto Git al cierre.
+
+
+## 28/10/2026 — Sesión 018: investigación de chiquita
+
+**Pedido:** usuario propone chiquita para representar golpe suave intencional. Se consultaron dos referencias primarias de The Padel School y se documentó propuesta de control/ trayectoria en CHIQUITA.md. Calidad de preparación independiente de carga, profundidad corta y asistencia limitada; porcentajes abiertos. P45 pendiente y continuidad actualizada.
+
+**Validación:** revisión documental y de fuentes. Sin cambios de código, ejecución del motor o nuevas pruebas de gameplay.

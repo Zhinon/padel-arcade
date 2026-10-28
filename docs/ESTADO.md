@@ -58,7 +58,7 @@ Cinco gestos comprobados: vacío, fuera de alcance izquierda/derecha, altura exc
 
 ## Próximo paso
 
-**Probar presentación con el usuario:** distinguir tres impactos, volumen, claridad de preparación y gesto. Mantener sensación de control aceptada. Después P40, comenzando por globo del jugador, antes de remate/volea y rival de laboratorio.
+**Prioridad propuesta tras consulta del usuario:** P45, chiquita y carga baja, antes de retomar globo/remate/volea. Diseño investigado en CHIQUITA.md; todavía sin implementación. Mantener sensación de control aceptada y comprobar con el usuario el abanicazo pendiente. La evaluación táctica de la chiquita requiere rival activo posterior.
 
 ## Abrir
 
