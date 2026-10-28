@@ -227,3 +227,12 @@ Mismo motor 4.7.2, paso 1/120 s y condiciones de chiquita_checks. Antes de modif
 54 casos y 24 mezclas siguen pasando primer destino. Caso cómodo y tres feeds exigen separación 1.5–3.0 m como calibración del prototipo, sin paredes; altura del feed ~0.73 m. Casos variados no tienen un tope universal de separación (rango observado 0.51–3.64 m).
 
 surface_calibration_checks compara caída con/sin agarre: pierde más horizontal, no invierte velocidad ni cambia restitución vertical; impacto rápido rasante conserva respuesta previa. Regresiones de superficies/veinte semillas, 22 recorridos, 13 escenarios físicos y energía, player_checks 90/diez y net_tape 35 aprobados. Primera variante sin límite fallaba globo: el límite adicional restaura piso/vidrio/piso. Comparación separada a 30/60/120 FPS de render con 120 Hz físicos coincide en posición, velocidad y eventos a 2 s. Informes actualizados. Importación sin errores de scripts y captura nativa revisada hasta segundo pique; evaluación humana pendiente.
+
+
+## Sesión 021 — botones plano/globo
+
+Godot 4.7.2.stable.official.ed1daf0bf, 120 Hz, escena main. lob_checks.gd envía eventos físicos de teclado E/Space a PracticeInput conectado al controlador. 54 casos: z jugador=2/5/9; pelota relativa (0,h,-0.65), h=0.3/0.9/1.8; tres direcciones (-0.6,-0.8)/(0,0)/(0.6,0.8); cargas 30/90%, luego 80 ticks plantado. Primer contacto piso rival, error <0.25 m, altura máxima 3.6–5.6 m y apex en frustum de cámara. Tres lanzamientos de práctica reales con E también llegan profundo al piso rival. Informe previews/lob-checks.json.
+
+Verificado E/B en mapa; cambio plano→globo durante carga y globo→plano fijado, carga reinicia sin perder preparación, soltar botón anterior no fija el nuevo. Cancelación mismo botón, autoimpacto manteniendo, un strike por intento, pérdida de foco/pausa/R/laboratorio comprobados. Globo tardío limita dirección y profundidad; 100% puede contactar vidrio antes del piso. Comparación cómoda: 25% apex 3.649 m y profundidad 5.00 m; ~90% apex 5.247 m y profundidad 7.583 m.
+
+Regresiones: player_checks 90/diez, chiquita_checks 54/24/tres feeds con segundo pique, impact_checks tres clases/audio y missed_swing_checks cinco gestos, aprobadas. Importación sin errores de scripts. Captura nativa lob.png/mp4 y HUD pequeño revisados; sin prueba humana/mando físico o rival real. Física pasiva sin cambios, no se repiten escenarios/FPS ya validados en sesión 020.

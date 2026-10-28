@@ -72,7 +72,7 @@ Depende de E2. Objetivo: devolver con intención.
 
 Depende de E3. Objetivo: elegir un tiro cambia el intercambio.
 
-- [ ] P40 Añadir globo, remate contextual y volea con resultados distintos.
+- [ ] P40 Añadir globo, remate contextual y volea con resultados distintos. Sesión 021: globo implementado con E/B, separado de plano Espacio/A; 54 trayectorias/tres feeds y controles verificados. Remate/volea pendientes y calibración humana de globo en P41.
 - [ ] P41 Ajustar tiempos, potencia, precisión y asistencia. Sesión 020: calibrado segundo pique mediante agarre general del piso; feed 3.70→2.47 m entre piques. Pruebas técnicas aprobadas; valoración humana pendiente.
 - [x] P42 Integrar animaciones y sonido provisionales para golpe base normal/perfecto/defensivo, sin cambiar autoridad del contacto. Sesión 014: poses derecha/revés, giro de torso/cadera, codos y apoyos; 18 casos y capturas verificados. Sesión 015: reposo relajado separado, recuperación al costado y uniones de hombro; verificación frontal/lateral. Sesión 016: drive prepara al costado y abre torso antes del impacto; codos y contrapeso revisados, revés conservado en comparación de seis casos. Sesión 017: abanicazo sin contacto ante fallo o pulsación vacía; cinco gestos y regresiones aprobados. Extender a nuevos tiros cuando se incorporen. Revisión auditiva/visual del usuario pendiente.
 - [ ] P43 Añadir rival simple de laboratorio y revisar diversión con el usuario.

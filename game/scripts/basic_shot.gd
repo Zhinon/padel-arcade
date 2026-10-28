@@ -4,6 +4,12 @@ signal feedback(message: String)
 signal hit(event: Dictionary)
 signal missed(event: Dictionary)
 enum State { IDLE, PREPARING, LOCKED, STRIKING, RECOVERING, MISSED }
+enum ShotType { FLAT, LOB }
+var shot_kind: ShotType = ShotType.FLAT
+@export var lob_min_apex: float = 3.0
+@export var lob_max_apex: float = 5.5
+@export var lob_min_depth: float = 4.0
+@export var lob_max_depth: float = 8.0
 @export var reach: float = 1.25
 @export var ideal_contact_distance: float = 0.65
 @export var minimum_height: float = 0.22
@@ -56,14 +62,25 @@ func _ready() -> void:
 func is_preparing() -> bool:
 	return state in [State.PREPARING, State.LOCKED]
 
-func begin_prepare() -> void:
+func begin_prepare(kind: int = ShotType.FLAT) -> void:
 	if not enabled or paused or recovery > 0.0:
+		return
+	if is_preparing() and kind != shot_kind:
+		# Switching buttons changes intent, retaining stance but not stored charge.
+		shot_kind = kind as ShotType
+		charge_time = 0.0
+		shot_charge = 0.0
+		charging = true
+		state = State.PREPARING
+		target = target_for_aim(aim)
+		feedback.emit("Globo · nueva carga" if shot_kind == ShotType.LOB else "Plano · nueva carga")
 		return
 	if state == State.LOCKED:
 		cancel_prepare()
 		return
 	if state != State.IDLE:
 		return
+	shot_kind = kind as ShotType
 	if not ball.active or ball.last_hitter == 0:
 		attempts += 1
 		_finish_miss("Abanicazo · R para recibir otra pelota")
@@ -79,10 +96,10 @@ func begin_prepare() -> void:
 	aim = Vector2.ZERO
 	previous_ball_position = ball.position
 	player.preparing = true
-	feedback.emit("Preparando · poca carga + abajo: chiquita · 90%: potencia")
+	feedback.emit("Preparando globo · carga elige altura y profundidad" if shot_kind == ShotType.LOB else "Preparando plano · poca carga + abajo: chiquita · 90%: potencia")
 
-func release_shot(direction: Vector2) -> void:
-	if not enabled or paused or state != State.PREPARING:
+func release_shot(direction: Vector2, kind: int = -1) -> void:
+	if not enabled or paused or state != State.PREPARING or (kind >= 0 and kind != shot_kind):
 		return
 	charging = false
 	state = State.LOCKED
@@ -96,12 +113,17 @@ func cancel_prepare() -> void:
 	feedback.emit("Preparación cancelada · podés moverte")
 
 func target_for_aim(direction: Vector2) -> Vector3:
+	if shot_kind == ShotType.LOB:
+		return _lob_target(direction, shot_charge)
 	var depth := lerpf(-5.5 + direction.y * 1.8, -touch_depth, touch_weight(direction, shot_charge))
 	return Vector3(clampf(player.position.x + direction.x * 4.0, -3.8, 3.8), ball.radius, depth)
 
 func touch_weight(direction: Vector2, charge: float) -> float:
 	# Blend continuously into a short shot; charge is intent, not contact quality.
 	return smoothstep(0.2, 0.8, direction.y) * (1.0 - smoothstep(touch_charge_limit, touch_charge_fade, charge))
+
+func _lob_target(direction: Vector2, power: float) -> Vector3:
+	return Vector3(clampf(player.position.x + direction.x * 4.0, -3.8, 3.8), ball.radius, clampf(-lerpf(lob_min_depth, lob_max_depth, power) + direction.y * 1.8, -9.0, -3.0))
 
 func _physics_process(delta: float) -> void:
 	if enabled and not paused:
@@ -159,15 +181,17 @@ func result_for_contact() -> Dictionary:
 	if defensive:
 		direction_control = minf(direction_control, 0.35)
 	var goal := target_for_aim(aim * direction_control)
+	if shot_kind == ShotType.LOB:
+		goal = _lob_target(aim * direction_control, power)
 	if defensive:
 		goal.x = lerpf(0.0, goal.x, 0.45)
 	var overload := clampf((shot_charge - perfect_charge - perfect_tolerance) / maxf(0.001, 1.0 - perfect_charge - perfect_tolerance), 0.0, 1.0)
 	# Deterministic loss of margin, especially when deep/angled and unbalanced.
 	var risk := overload * lerpf(1.0, 0.35, contact_quality_value)
 	var short_aim := maxf(0.0, aim.y)
-	goal.z -= overload_depth * risk * lerpf(0.6, 1.0, maxf(0.0, -aim.y)) * (1.0 - short_aim)
+	goal.z -= overload_depth * risk * lerpf(0.6, 1.0, maxf(0.0, -aim.y)) * (1.0 if shot_kind == ShotType.LOB else (1.0 - short_aim))
 	goal.x += aim.x * overload_width * risk
-	return {"quality": contact_quality_value, "power": power, "target": goal, "defensive": defensive, "overload": overload, "net_risk": risk * short_aim, "touch": touch_weight(aim, shot_charge)}
+	return {"quality": contact_quality_value, "power": power, "target": goal, "defensive": defensive, "overload": overload, "net_risk": 0.0 if shot_kind == ShotType.LOB else risk * short_aim, "touch": 0.0 if shot_kind == ShotType.LOB else touch_weight(aim, shot_charge)}
 
 func _execute_contact() -> void:
 	state = State.STRIKING
@@ -175,7 +199,11 @@ func _execute_contact() -> void:
 	quality = result.quality
 	effective_power = result.power
 	target = result.target
-	var outgoing := solve_velocity(ball.position, target, effective_power, result.net_risk, result.touch, quality)
+	var outgoing: Vector3
+	if shot_kind == ShotType.LOB:
+		outgoing = solve_lob_velocity(ball.position, target, effective_power)
+	else:
+		outgoing = solve_velocity(ball.position, target, effective_power, result.net_risk, result.touch, quality)
 	ball.strike(outgoing, 0)
 	hits += 1
 	charging = false
@@ -187,7 +215,10 @@ func _execute_contact() -> void:
 	var ideal_charge: bool = shot_charge >= 0.12 and shot_charge <= touch_charge_limit if touch_shot else absf(shot_charge - perfect_charge) <= perfect_tolerance
 	var perfect: bool = ideal_charge and quality >= 0.85 and not result.defensive
 	var message := "Buen contacto · recuperá posición"
-	if touch_shot:
+	if shot_kind == ShotType.LOB:
+		message = "Globo exigido · corto y con menos dirección" if result.defensive else ("¡Globo bien preparado!" if perfect else "Globo · recuperá posición")
+		if result.overload > 0.0: message = "Globo sobrecargado · riesgo de cerramiento directo"
+	elif touch_shot:
 		message = "¡Chiquita bien colocada!" if perfect else "Chiquita · suave a los pies"
 	elif perfect:
 		message = "¡Golpe perfecto!"
@@ -196,7 +227,7 @@ func _execute_contact() -> void:
 	elif result.defensive:
 		message = "Defensa exigida · poca potencia y dirección"
 	feedback.emit(message)
-	hit.emit({"position": ball.position, "velocity": outgoing, "target": target, "charge": shot_charge, "quality": quality, "effective_power": effective_power, "defensive": result.defensive, "perfect": perfect, "net_risk": result.net_risk, "touch": result.touch, "shot_type": "chiquita" if touch_shot else ("defense" if result.defensive else "drive")})
+	hit.emit({"position": ball.position, "velocity": outgoing, "target": target, "charge": shot_charge, "quality": quality, "effective_power": effective_power, "defensive": result.defensive, "perfect": perfect, "net_risk": result.net_risk, "touch": result.touch, "shot_type": "lob" if shot_kind == ShotType.LOB else ("chiquita" if touch_shot else ("defense" if result.defensive else "flat"))})
 
 func _finish_miss(message: String) -> void:
 	misses += 1
@@ -269,6 +300,28 @@ func solve_velocity(at: Vector3, goal: Vector3, power: float, net_risk: float = 
 			outgoing.y -= height_loss / vertical_response
 	return outgoing
 
+func solve_lob_velocity(at: Vector3, goal: Vector3, power: float) -> Vector3:
+	var apex := maxf(at.y + 0.15, lerpf(lob_min_apex, lob_max_apex, clampf(power, 0.0, 1.0)))
+	var low := 0.3
+	var high := 3.5
+	for iteration in range(22):
+		var duration := (low + high) * 0.5
+		var candidate := _velocity_for_duration(at, goal, duration)
+		var point := at
+		var speed := candidate
+		var highest := at.y
+		var dt := 1.0 / Engine.physics_ticks_per_second
+		for tick in range(ceili(duration / dt)):
+			speed.y -= ball.gravity_strength * dt
+			speed *= exp(-ball.air_drag * dt)
+			point += speed * dt
+			highest = maxf(highest, point.y)
+		if highest < apex:
+			low = duration
+		else:
+			high = duration
+	return _velocity_for_duration(at, goal, high)
+
 func _velocity_for_duration(at: Vector3, goal: Vector3, duration: float) -> Vector3:
 	# Solve the same fixed-step gravity/linear-drag model used by the ball.
 	var dt := 1.0 / Engine.physics_ticks_per_second
@@ -299,6 +352,7 @@ func _net_height(at: Vector3, outgoing: Vector3, duration: float) -> float:
 
 func reset_cycle() -> void:
 	state = State.IDLE
+	shot_kind = ShotType.FLAT
 	charging = false
 	charge_time = 0.0
 	shot_charge = 0.0

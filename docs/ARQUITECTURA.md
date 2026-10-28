@@ -93,3 +93,10 @@ BasicShot.touch_weight mezcla intención corta según carga y componente abajo. 
 ## Agarre efectivo de piso — sesión 020
 
 BallSimulation mantiene responsabilidad del rebote. En piso calcula pendiente approach/|tangent| y mezcla fricción base hacia floor_grip_friction entre floor_grip_slope_start/end. Limita impulso aumentado con floor_grip_max_loss, conserva base si era mayor y aplica retención previa. No consulta BasicShot, estado de preparación ni etiqueta chiquita. Parámetros exportados; restitución y rama de rodadura independientes. Modelo aproximado sin velocidad angular.
+
+
+## Tipo de golpe — sesión 021
+
+BasicShot.ShotType distingue FLAT/LOB. PracticeInput emite prepare_requested(kind) y release_requested(aim,kind), con acciones padel_shot/padel_lob separadas del dispositivo. Begin_prepare acepta tipo (por defecto plano para consumidores previos); release filtra botón anterior. Cambio de tipo preparando conserva stance/preparation_elapsed/stable_time, reinicia carga y pasa PREPARING. Reset vuelve a FLAT.
+
+Globo usa solve_lob_velocity: búsqueda de duración para apex solicitado, _velocity_for_duration conserva integrador físico existente. Destino y sobrecarga propios; contacto/reach/recuperación y autoridad de pelota compartidos. Hit.shot_type usa flat/lob/chiquita/defense; defensive sigue booleano incluso para lob. No mezclar categoría con lado de golpe (derecha/revés) en presentación. HUD lee tipo para instrucciones/cancelación. No nuevo motor, colisión o sistema de animación.

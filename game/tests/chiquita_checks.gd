@@ -101,7 +101,7 @@ func _run() -> void:
 	var good_flight := _flight(good)
 	var drive := _contact(6.8, 0.9, Vector2.DOWN, 0.9)
 	var drive_flight := _flight(drive)
-	_check(good.perfect and drive.perfect and drive.shot_type == "drive", "Excellent soft shot and 90 percent drive both recognized")
+	_check(good.perfect and drive.perfect and drive.shot_type == "flat", "Excellent soft shot and 90 percent flat both recognized")
 	_check(good.velocity.length() < drive.velocity.length() and good_flight.landing.z > drive_flight.landing.z + 1.0, "Chiquita slower and shorter than prepared drive")
 	_check(good_flight.net_height >= 1.10 and good_flight.net_height < 1.25, "Comfortable chiquita passes low above net")
 	if not "--baseline" in OS.get_cmdline_user_args():

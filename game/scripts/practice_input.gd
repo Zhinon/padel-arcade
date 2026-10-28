@@ -1,8 +1,8 @@
 class_name PadelPracticeInput
 extends Node
 ## Device input -> game actions; movement/shot code has no physical key names.
-signal prepare_requested
-signal release_requested(aim: Vector2)
+signal prepare_requested(kind: int)
+signal release_requested(aim: Vector2, kind: int)
 signal feed_requested
 signal next_lane_requested
 signal pause_requested
@@ -14,7 +14,7 @@ static func install_actions() -> void:
 	var keys := {
 		"padel_left": [KEY_A, KEY_LEFT], "padel_right": [KEY_D, KEY_RIGHT],
 		"padel_forward": [KEY_W, KEY_UP], "padel_back": [KEY_S, KEY_DOWN],
-		"padel_shot": [KEY_SPACE], "padel_feed": [KEY_R],
+		"padel_shot": [KEY_SPACE], "padel_lob": [KEY_E], "padel_feed": [KEY_R],
 		"padel_next_lane": [KEY_T], "padel_mute": [KEY_M], "padel_pause": [KEY_P, KEY_ESCAPE],
 	}
 	for action: String in keys:
@@ -25,7 +25,7 @@ static func install_actions() -> void:
 			var key := InputEventKey.new()
 			key.physical_keycode = code
 			InputMap.action_add_event(action, key)
-	var buttons := {"padel_shot": JOY_BUTTON_A, "padel_feed": JOY_BUTTON_X, "padel_next_lane": JOY_BUTTON_Y, "padel_pause": JOY_BUTTON_START}
+	var buttons := {"padel_shot": JOY_BUTTON_A, "padel_lob": JOY_BUTTON_B, "padel_feed": JOY_BUTTON_X, "padel_next_lane": JOY_BUTTON_Y, "padel_pause": JOY_BUTTON_START}
 	for action: String in buttons:
 		var button := InputEventJoypadButton.new()
 		button.button_index = buttons[action]
@@ -51,9 +51,13 @@ func _unhandled_input(event: InputEvent) -> void:
 	elif paused:
 		return
 	elif event.is_action_pressed("padel_shot"):
-		prepare_requested.emit()
+		prepare_requested.emit(PadelBasicShot.ShotType.FLAT)
 	elif event.is_action_released("padel_shot"):
-		release_requested.emit(movement())
+		release_requested.emit(movement(), PadelBasicShot.ShotType.FLAT)
+	elif event.is_action_pressed("padel_lob"):
+		prepare_requested.emit(PadelBasicShot.ShotType.LOB)
+	elif event.is_action_released("padel_lob"):
+		release_requested.emit(movement(), PadelBasicShot.ShotType.LOB)
 	elif event.is_action_pressed("padel_feed"):
 		feed_requested.emit()
 	elif event.is_action_pressed("padel_next_lane"):

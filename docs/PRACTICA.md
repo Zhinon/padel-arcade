@@ -1,4 +1,4 @@
-# Práctica de preparación y contacto automático — sesión 019
+# Práctica de preparación y contacto automático — sesión 021
 
 Un jugador se mueve y devuelve pelotas de un lanzador. Se mantiene la cámara aprobada y la física calibrada de E2. Los otros tres personajes siguen estáticos; no hay rival, marcador ni partido.
 
@@ -17,7 +17,7 @@ Desde la raíz del proyecto en Linux:
 1. El jugador naranja con aro es el que controlás. Al abrir, la pelota espera en el lanzador.
 2. Pulsá **R**. La primera pelota llega por tu zona inicial, a la izquierda.
 3. Movete con **WASD o flechas**. Llegá antes de preparar: al preparar el personaje frena y se planta.
-4. Mantené **Espacio** para cargar y soltalo cerca del **90%** para un golpe potente, o **20–40% + abajo** para probar una chiquita. El contacto ocurre automáticamente al llegar la pelota, incluso si todavía estás manteniendo el botón. Apuntá con WASD/flechas mientras estás plantado.
+4. Mantené **Espacio para plano** o **E para globo** y soltá para fijar carga. Probá cerca del **90%** para un golpe preparado, o **20–40% + abajo con Espacio** para una chiquita. El contacto ocurre automáticamente al llegar la pelota, incluso si todavía estás manteniendo el botón. Apuntá con WASD/flechas mientras estás plantado.
 5. **R** repite esa pelota. **T** cambia la zona de alimentación entre izquierda, centro y derecha y lanza.
 
 Si aparece PAUSA al cambiar de ventana, pulsá **P** para continuar.
@@ -27,8 +27,9 @@ Si aparece PAUSA al cambiar de ventana, pulsá **P** para continuar.
 | Acción | Teclado | Mando preparado en el mapa de acciones |
 | --- | --- | --- |
 | Moverse | WASD / flechas | Stick izquierdo |
-| Cargar / fijar potencia | Mantener / soltar Espacio | Mantener / soltar A |
-| Cancelar preparación fijada | Volver a pulsar Espacio | Volver a pulsar A |
+| Plano: cargar / fijar | Mantener / soltar Espacio | A |
+| Globo: cargar / fijar | Mantener / soltar E | B |
+| Cancelar preparación fijada | Repetir Espacio (plano) o E (globo) | Repetir A o B del golpe elegido |
 | Recibir pelota | R | X |
 | Cambiar zona y recibir | T | Y |
 | Silenciar / reactivar impactos | M | Sin asignación todavía |
@@ -70,7 +71,7 @@ El cuerpo del jugador colisiona con la cancha. La pelota no rebota contra los cu
 
 El golpe base calcula una velocidad de salida para aterrizar cerca del aro rival usando el mismo paso de gravedad y resistencia de E2. Ajusta duración si hace falta para intentar pasar la red con margen (altura de centro de pelota al cruzar: al menos 1.3 m en la predicción). Esto es asistencia arcade explícita.
 
-La pelota sigue recorriendo la trayectoria mediante física y colisiones. Si hay un impacto intermedio, ya no se garantiza el destino previsto. No se implementaron globo/remate del jugador ni giro de pelota. Los lanzamientos F1–F7 siguen siendo pruebas del laboratorio.
+La pelota sigue recorriendo la trayectoria mediante física y colisiones. Si hay un impacto intermedio, ya no se garantiza el destino previsto. El globo del jugador está disponible con E; remate/volea contextual y giro de pelota siguen pendientes. Los lanzamientos F1–F7 siguen siendo pruebas del laboratorio.
 
 ## Presentación del impacto
 
@@ -111,7 +112,7 @@ F8 abre el laboratorio E2. También se puede iniciar con:
 ./tools/run-godot.sh -- --scenario=7
 ```
 
-F1–F7 desde práctica entran al laboratorio y seleccionan escenario. Allí Espacio pausa, R repite, N cambia semilla y L controla repetición. En práctica Espacio golpea y P pausa. F8 vuelve a práctica con el jugador en posición inicial y la pelota esperando R.
+F1–F7 desde práctica entran al laboratorio y seleccionan escenario. Allí Espacio pausa, R repite, N cambia semilla y L controla repetición. En práctica Espacio prepara plano, E prepara globo y P pausa. F8 vuelve a práctica con el jugador en posición inicial y la pelota esperando R.
 
 ## Comprobaciones y límites
 
@@ -138,3 +139,10 @@ Compará con pulsar tarde: perdés dirección y una carga mínima exigida puede 
 
 
 Segundo pique revisado (sesión 020): misma carga/controles, con mayor pérdida horizontal al caer con pendiente pronunciada. Feed habitual pasa de unos 3.70 a 2.47 m entre piques; afecta también otras pelotas en esas condiciones. Es calibración provisional: revisar sensación y comparar con golpe potente. [Video anterior](previews/chiquita-bounce-before.mp4) y [actual](previews/chiquita.mp4), sin audio y con entradas sintéticas. Reiniciar el juego para cargar esta versión.
+
+
+## Probar el globo
+
+Recibí con R, llegá antes y mantené E. Soltá cerca del 90% y elegí dirección mientras esperás el contacto automático. Más carga da un globo más alto y profundo; abajo acorta, arriba profundiza. Compará con 25–30% para uno más corto/bajo. Llegada tardía pierde profundidad y colocación. Al 100% existe riesgo de cerramiento directo.
+
+Volver a pulsar E cancela globo fijado. Pulsar Espacio cambia a plano y reinicia carga; soltar E después no fija el plano. Al cambiar de plano a globo sucede lo mismo. [Diseño y pruebas](GLOBOS.md) y [demostración](previews/lob.mp4). Reiniciá el juego para cargar controles nuevos.

@@ -1,6 +1,6 @@
 # Estado y próxima sesión
 
-Actualizado: 28/10/2026, zona America/Argentina/Mendoza. Sesión 020.
+Actualizado: 28/10/2026, zona America/Argentina/Mendoza. Sesión 021.
 
 ## Dónde estamos
 
@@ -68,13 +68,19 @@ Feedback del usuario: chiquita avanza demasiado tras primer pique. Medido hasta 
 
 Nueva comprobación de segundo pique, 54 trayectorias/24 transiciones/tres feeds, superficies, 22 recorridos, 13 escenarios, 90 trayectorias/diez devoluciones, 35 casos de cinta y comparación 30/60/120 FPS aprobados. Primera variante frenaba globo antes de vidrio; corregida con pérdida extra acotada. Captura revisada y video regenerado. Falta valoración humana; las distancias son calibración, no datos reales de chiquita.
 
+## Plano y globo — sesión 021
+
+Espacio/A prepara plano, E/B prepara globo. Ambos cargan/fijan al soltar y golpean al llegar pelota. Chiquita se mantiene en plano. Otro botón cambia tipo y reinicia carga conservando preparación; soltar anterior no afecta al nuevo, mismo botón tras fijar cancela. R/pausa/laboratorio limpian.
+
+Globo tiene arco/profundidad propios, con calidad y sobrecarga al cerramiento. Ejemplo 25%: apex 3.65 m/profundidad 5 m; ~90%: 5.25 m/7.58 m. Cámara/física pasiva sin cambios, poses/sonidos provisionales compartidos. 54 trayectorias/tres feeds y controles probados; regresiones de plano, chiquita, impacto y abanicazo aprobadas. Captura nativa y HUD pequeño revisados. GLOBOS.md contiene parámetros, límites y evidencia; prueba humana/mando físico pendientes.
+
 ## Próximo paso
 
-**Probar nuevo segundo pique con el usuario (P41):** llegar temprano, fijar 20–40% y apuntar abajo o diagonal abajo; comparar recorrido y resto de golpes con nueva respuesta de piso. Comparar con llegada tardía y 90% potente. Ajustar según sensación, conservando el control aceptado. Después retomar P40 globo/remate/volea. Evaluación táctica requiere rival activo posterior.
+**Probar dos botones y globos con el usuario (P41):** comparar plano/Espacio y globo/E; 25–30% frente a 90%, dirección y cambio de botón. Conservar sensación aceptada y revisar segundo pique calibrado. Después continuar P40 remate contextual/volea; rival activo sigue pendiente.
 
 ## Abrir
 
-`./tools/run-godot.sh`. R recibe; WASD/flechas mueve o apunta preparando; Espacio carga/soltar fija; nueva pulsación tras fijar cancela; T cambia zona; P pausa/continúa; M audio; F8 laboratorio. Guía PRACTICA.md.
+`./tools/run-godot.sh`. R recibe; WASD/flechas mueve o apunta preparando; Espacio plano y E globo, mantener carga/soltar fija; repetir botón elegido tras fijar cancela; T cambia zona; P pausa/continúa; M audio; F8 laboratorio. Guía PRACTICA.md.
 
 ## Cierre
 

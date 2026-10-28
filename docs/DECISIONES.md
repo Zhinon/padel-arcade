@@ -158,3 +158,10 @@ Para cambiar una decisión: añadir fecha, contexto, alternativas relevantes, el
 - **D69, feedback:** segundo pique de chiquita demasiado largo. Ampliar validación más allá del primer pique y contrastar referencia deportiva, sin inventar distancia oficial.
 - **D70, calibración provisional:** agarre efectivo por pendiente en toda colisión de piso. Fricción 0.18→0.42 al variar pendiente 0.35→0.85; pérdida extra limitada al 50% tangencial para no anular globos. Base y retención existentes conservadas. No excepción por tipo de golpe. La fricción también cambia otras caídas pronunciadas; prueba humana pendiente.
 - **D71, alcance:** se conserva restitución vertical, arco de salida, gravedad y rodadura. Referencia de fricción/agarre no equivale a simular giro. Spin completo sigue P44 pendiente. Metas de segundo pique son criterios arcade para casos conocidos, no regla ni medición real.
+
+
+## 28/10/2026 — sesión 021: dos botones de golpe
+
+- **D72, pedido del usuario:** un botón para plano y otro para globo. Asignación provisional Espacio/A para plano, E/B para globo, conservando chiquita en plano con carga baja y abajo.
+- **D73:** ambos mantienen preparación/fijación/contacto automático. Otro botón cambia tipo, reinicia carga y conserva tiempo de preparación/equilibrio. Liberación solo del botón seleccionado fija; repetir mismo botón tras fijar cancela. Sin contactos duplicados ni golpe por soltar.
+- **D74, globo provisional:** apex 3.0–5.5 m y profundidad 4.0–8.0 m según potencia efectiva; dirección desplaza destino, limitado nominalmente a 3–9 m. Sobrecarga agrega riesgo de cerramiento antes del piso, sin bajar arco como plano. Sin cambio de física pasiva/cámara. Poses/sonidos existentes reutilizados; remate y volea aún pendientes.

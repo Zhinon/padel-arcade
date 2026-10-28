@@ -95,3 +95,8 @@ Referencias de técnica consultadas el 28/10/2026: [Use the Chiquita!](https://t
 - [The Padel School: The Perfect Padel Return](https://thepadelschool.com/resources/blog/the-perfect-padel-return): colocación/control, sin exigir un tipo de efecto. Consultadas 28/10/2026.
 - [Rod Cross: Tennis physics, anyone?, Physics Today, 2008](https://physicstoday.aip.org/quick-study/tennis-physics-anyone): fricción, deslizamiento, agarre y separación entre respuesta horizontal/vertical. Referencia primaria de física de tenis; no medir directamente parámetros de césped de pádel a partir de ella. Nuestra curva de agarre es calibración arcade propia.
 - Videos antes/ahora generados en motor, sin imágenes o audio externos. No se descargaron videos de entrenamiento.
+
+
+## Globo — sesión 021
+
+Trayectoria, geometría de prueba y capturas lob.png/lob-controls-640x360.png/lob.mp4 generadas con código del proyecto y Godot. Video sin audio; presentación reutiliza sonidos sintéticos ya registrados. Sin modelos, videos de terceros o animaciones externas nuevas.

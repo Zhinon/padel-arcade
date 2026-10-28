@@ -317,7 +317,7 @@ func _unhandled_key_input(event: InputEvent) -> void:
 
 func _update_title(last_contact: String = "—") -> void:
 	if practice_mode:
-		DisplayServer.window_set_title("Pádel · Práctica · WASD/flechas mover · Espacio preparar/soltar · R pelota · T zona · P pausa · F8 laboratorio")
+		DisplayServer.window_set_title("Pádel · Práctica · WASD/flechas mover · Espacio plano · E globo · R pelota · T zona · P pausa · F8 laboratorio")
 	elif camera_preview:
 		DisplayServer.window_set_title("Pádel · Prueba visual de cámara · 1/2/3 vistas · G vidrio · Espacio pausa · R reinicio")
 	else:

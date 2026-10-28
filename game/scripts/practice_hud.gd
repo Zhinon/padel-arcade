@@ -32,7 +32,7 @@ func _ready() -> void:
 	var top := HBoxContainer.new()
 	column.add_child(top)
 	title = Label.new()
-	title.text = "PRÁCTICA · GOLPE BASE"
+	title.text = "PRÁCTICA · PLANO / GLOBO"
 	title.add_theme_font_size_override("font_size", 18)
 	title.add_theme_color_override("font_color", Color("ddff74"))
 	title.size_flags_horizontal = Control.SIZE_EXPAND_FILL
@@ -45,7 +45,7 @@ func _ready() -> void:
 	status.add_theme_font_size_override("font_size", 18)
 	column.add_child(status)
 	controls = Label.new()
-	controls.text = "WASD / flechas: mover · Espacio: cargar / soltar fija · R: pelota · T: zona · P: pausa · M: audio · F8: laboratorio"
+	controls.text = "WASD / flechas: mover y apuntar · Espacio: plano · E: globo · soltar fija · R: pelota · T: zona · P: pausa · M: audio · F8: laboratorio"
 	controls.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	controls.add_theme_font_size_override("font_size", 16)
 	controls.add_theme_color_override("font_color", Color("d0dde0"))
@@ -56,7 +56,7 @@ func _ready() -> void:
 func _resize() -> void:
 	compact = get_window().size.x < 800
 	if title != null:
-		title.text = "PRÁCTICA · P pausa · M audio" if compact else "PRÁCTICA · GOLPE BASE"
+		title.text = "Espacio: plano · E: globo · P: pausa" if compact else "PRÁCTICA · PLANO / GLOBO"
 		title.add_theme_font_size_override("font_size", 16 if compact else 18)
 		status.add_theme_font_size_override("font_size", 16 if compact else 18)
 		controls.visible = not compact
@@ -78,9 +78,15 @@ func _process(_delta: float) -> void:
 	if paused:
 		status.text = "PAUSA · P para continuar"
 	elif controller.charging:
-		status.text = ("Carga %d%% · suave + abajo: chiquita" if compact else "Carga %d%% · suave + abajo: chiquita · 90%%: golpe potente · soltar fija") % roundi(100.0 * controller.charge_time / controller.full_preparation)
+		if controller.shot_kind == controller.ShotType.LOB:
+			status.text = "Globo %d%% · soltar fija altura y profundidad" % roundi(controller.shot_charge * 100.0)
+		else:
+			status.text = ("Plano %d%% · suave + abajo: chiquita" if compact else "Plano %d%% · suave + abajo: chiquita · 90%%: golpe potente · soltar fija") % roundi(100.0 * controller.charge_time / controller.full_preparation)
 	elif controller.armed_time > 0.0:
-		var short_hint: String = " · abajo: chiquita" if controller.shot_charge <= controller.touch_charge_limit else ""
-		status.text = "Fijada %d%%%s · apuntá · Espacio cancela" % [roundi(controller.shot_charge * 100.0), short_hint]
+		if controller.shot_kind == controller.ShotType.LOB:
+			status.text = "Globo fijado %d%% · apuntá · E cancela" % roundi(controller.shot_charge * 100.0)
+		else:
+			var short_hint: String = " · abajo: chiquita" if controller.shot_charge <= controller.touch_charge_limit else ""
+			status.text = "Plano fijado %d%%%s · apuntá · Espacio cancela" % [roundi(controller.shot_charge * 100.0), short_hint]
 	else:
 		status.text = "WASD: mover · R: pelota · Espacio: cargar/fijar" if compact and last_message.begins_with("R para") else last_message

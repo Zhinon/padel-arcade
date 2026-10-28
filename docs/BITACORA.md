@@ -241,3 +241,12 @@
 **Cambio:** agarre efectivo por pendiente de entrada, compartido por todas las pelotas. Fricción 0.18→0.42; primer intento detenía globo antes del vidrio y falló regresiones. Se acotó pérdida adicional a 50% tangencial para conservar secuencia de globo. Resultado cómodo 2.65 m, feed 2.47 m; drive corto también pasa de 5.10 a 3.35 m. No se cambian restitución vertical, salida, rodadura o controles; no spin ni freno exclusivo de chiquita.
 
 **Verificación:** 54 trayectorias, 24 transiciones y tres feeds, ahora con segundo pique. Trece escenarios de pelota, superficies (incluidos agarre/caída rasante), 22 recorridos/veinte semillas, 90 trayectorias/diez devoluciones y 35 contactos de cinta aprobados. Caso canónico coincide en posición/velocidad/eventos a 30/60/120 FPS. Importación sin errores de scripts, render llvmpipe y captura ambos piques inspeccionada. Video actualizado, documentación y punto Git. Calibración humana pendiente.
+
+
+## 28/10/2026 — Sesión 021: plano y globo separados
+
+**Pedido:** botones distintos para plano y globo. Se mantuvo Espacio/A plano y se añadió E/B globo. Tipo de golpe explícito, misma preparación/soltar fija/contacto automático. Cambio de botón reinicia carga del tipo nuevo, conserva preparación y filtra liberación vieja. Chiquita conservada en plano.
+
+**Implementación:** destino y apex de globo según potencia efectiva, dirección limitada por calidad y sobrecarga al cerramiento. Solver usa integrador existente; no modifica cámara/pelota física ni añade spin. Presentación derecha/revés y audio reutilizados. HUD/guía actualizados.
+
+**Verificación:** 54 trayectorias y tres feeds reales con E, mapa B, cambios/cancelación/liberaciones, mantener sin repetir, foco/pausa/R/laboratorio aprobados. Plano/control 90/diez, chiquita 54/24/tres feeds y segundo pique, tres impactos/audio y cinco abanicazos aprobados. Importación sin errores de scripts; vista nativa y HUD 640×360 revisados. Video de tres segundos generado, sin audio. Valoración humana y mando físico pendientes; documentación y punto Git al cierre.
