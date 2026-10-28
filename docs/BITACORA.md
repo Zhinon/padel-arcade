@@ -159,3 +159,14 @@
 **Validación:** tres clases de golpe real, coincidencia de pala, sonido solicitado, silencio, vuelta neutral, movimiento durante seguimiento y física intacta. Regresión jugador (90 trayectorias/diez contactos/riesgos) y 13 escenarios de pelota aprobados. Importación y capturas 720p/360p revisadas. Formato/contenido/energía WAV comprobados; escucha humana pendiente. Demostración actualizada con audio mezclado por eventos de captura, sin grabación del audio del sistema.
 
 **Continuación:** probar presentación con usuario y ajustar volumen/claridad; después globo del jugador (P40). Plan, guía, fuentes, arquitectura, decisiones y estado actualizados; punto Git al cierre.
+
+
+## 28/10/2026 — Sesión 013: equilibrio sobre la red
+
+**Reporte:** carga 100% hacia abajo, toque en red y pelota queda arriba.
+
+**Diagnóstico:** collider superior plano puede actuar como repisa. Se reprodujo equilibrio aislado: 15/33 casos sin piso después de 5 s, antes de cambiar código. No se reconstruyeron entradas exactas del usuario.
+
+**Cambio:** asistencia localizada de caída para contactos superiores de escaso impulso transversal. Redirige fracción de energía vertical entrante, con tope de rapidez; no mueve posición ni usa RNG. Cara frontal y roces de cruce con impulso quedan intactos.
+
+**Pruebas:** 35 casos después (incluye 15 caídas, 18 tiros al 100% y dos roces), todos llegan al piso; energía, finitud y presupuesto de impactos verificados. Regresiones de pelota/jugador/recorrido aprobadas, valores vidrio/reja conservados. Sin ventana o nueva valoración humana. Documentación e informes antes/después guardados; punto Git al cierre.

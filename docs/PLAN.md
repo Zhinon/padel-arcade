@@ -54,6 +54,7 @@ Depende de E2. Objetivo: devolver con intención.
 - [x] P32 Añadir alcance, preparación y ventana de contacto del golpe base.
 - [x] P33 Dirigir devolución con ayuda ajustable y un solo impacto por golpe.
 - [x] P35 Revisar control según documento del usuario: potencia/liberación aprobadas en D43–D45 (ideal cerca del 90%, riesgo al 100%, defensa débil). Definir cancelación/caducidad y revisar plantado, apuntado y contacto automático. Ver REVISION_CONTROLES_ARCADE.md.
+- [x] P37 Corregir equilibrio indefinido sobre cinta: contactos superiores lentos caen sin ganancia de energía; 35 casos y regresiones aprobados (sesión 013).
 - [x] P36 Implementar y verificar contraste preparado/emergencia, calidad de contacto y recuperación antes de ampliar tiros. No modificar física aceptada sin evidencia.
 - [x] P34 Validar sensación con el usuario: expresó «yo creo que la sensacion de juego está buena» tras probar la versión con riesgo de red. Aceptación cualitativa; no se midió duración de esa prueba humana.
 

@@ -162,3 +162,14 @@ Motor 4.7.2.stable.official.ed1daf0bf; `impact_checks.gd` crea golpes reales nor
 Capturas gráficas de preparación y tres clases inspeccionadas a 720p; brazo conectado y destello legible. HUD compacto 640×360 revisado. WAV propios: tres hashes distintos, mono PCM16 44.1 kHz, duraciones 0.12/0.14/0.18 s, sin saturación. Nivel del reproductor -8 dB. Informe audio-checks.json. Se verifican archivos y solicitud de reproducción; no se afirma evaluación auditiva humana ni latencia medida del equipo final.
 
 `player_checks.gd`: 90 trayectorias nominales y diez devoluciones en conductor de 30 s, riesgos de fondo/lateral/red y controles aprobados. `ball_checks.gd`: 13 regresiones aprobadas. Importación sin errores después de tipar dos vectores explícitos. Render llvmpipe CPU con avisos Mesa/VSync conocidos. E3 aceptada por testimonio del usuario; presentación nueva pendiente de su valoración.
+
+
+## Sesión 013 — pelota equilibrada sobre la cinta
+
+Motor 4.7.2.stable.official.ed1daf0bf, física 120 Hz, semilla por defecto 42. Ejecutor `tests/net_tape_checks.gd`. Antes del cambio: 15 de 33 escenarios no llegaban al piso después de 5 s, todos caídas casi verticales sobre parte superior. Informe `previews/net-tape-before.json`, tomado antes de modificar respuesta.
+
+Quince caídas: x [-4.25,-2.25,0.25,2.25,4.25], z [-0.006,0,0.006], centro a altura del panel + radio + 0.15 m, velocidad (0,-0.3,0). Dieciocho tiros reales calculados por controlador: tres posiciones x, alturas 0.3/0.9/1.8 y distancias de contacto 0.65/1.1, carga 1.0, dirección abajo, preparación/equilibrio 0.8 s. Dos roces adicionales con velocidad z ±2 m/s verifican conservación del sentido de cruce.
+
+Después: 35/35 llegan al piso antes de 5 s, máximo 1.941 s desde lanzamiento; sin estado no finito ni agotamiento de impactos. Energía saliente de cada contacto ≤ entrante +0.001 m/s de tolerancia en rapidez. Primer contacto y sentido de ambos roces conservados. Informe `previews/net-tape-checks.json`. No se afirma captura exacta de la jugada del usuario ni validación visual de este ajuste.
+
+Regresiones ejecutadas: `ball_checks.gd` (13), `player_checks.gd` (90 trayectorias, diez devoluciones/control/riesgos) y `travel_checks.gd` (22 recorridos), sin fallos. Retorno de globo 2.00 m y reja máximo 4.25 m conservados. Cambia solo respuesta de contactos superiores de red, sin modificar coeficientes de piso/vidrio/reja.

@@ -124,3 +124,8 @@ Se mide desplazamiento hacia el interior desde el primer impacto hasta reposo. L
 Para comprobar rodadura se lanzó una pelota ya apoyada a 3 m/s y se comparó la distancia con v²/(2a), tolerancia 0.03 m. Se verificó reposo sin deriva ni contactos adicionales. La repetición automática está apagada al abrir; R/F1–F7 relanzan, y L permite repetir si se desea. El título muestra “detenida” al terminar.
 
 Informes: `previews/travel-checks.json` y `travel-comparison.json`. Los videos históricos anteriores no representan esta nueva fricción; los de globo/reja sesión 006 muestran el final de cada lanzamiento.
+
+
+## Cinta de red — sesión 013
+
+La red no funciona como repisa permanente. En contacto superior casi equilibrado se redirige una parte acotada de velocidad vertical hacia un lado para permitir caída; nunca se supera rapidez entrante. Es asistencia arcade sobre collider simplificado, sin deformación real de malla ni giro. Rebotes frontales y pelotas que ya cruzan la cinta no se alteran. Reproducción: `./tools/run-godot.sh --headless --script res://tests/net_tape_checks.gd`. Los informes antes/después se conservan en previews/net-tape-before.json y net-tape-checks.json; no ejecutar --baseline sobre código nuevo para comparar con el estado anterior.

@@ -105,3 +105,9 @@ Para cambiar una decisión: añadir fecha, contexto, alternativas relevantes, el
 - **D50, confirmado por el usuario:** sensación de juego buena tras probar versión con riesgo de red. E3/P34 aceptados cualitativamente; conservar sus parámetros al mejorar presentación. No se atribuye una duración medida a esa prueba humana.
 - **D51:** presentación separada en ImpactFeedback (prioridad física 30), consumiendo BasicShot.hit después del impacto. Preparación geométrica, pala en posición de contacto, brazo conectado y acompañamiento 0.24 s; destello 0.18 s como ayuda visual. No retemporizar pelota ni bloquear movimiento. Personajes y animación siguen provisionales.
 - **D52:** impactos normal/perfecto/defensivo con WAV propios de síntesis determinista, sin muestras/licencias externas; volumen inicial -8 dB. Colores celeste/verde/ámbar. M silencia; pausa/alimentación/F8 limpian efectos y voces, silencio persiste en sesión. Sonido comunica clase de contacto, no resultado de punto; no suena en fallo sin contacto. Escucha y valoración del usuario pendientes.
+
+
+## 28/10/2026 — sesión 013: evitar pelota sostenida sobre cinta
+
+- **D53:** la cara superior plana de los paneles de red no debe sostener indefinidamente una pelota. Asistencia arcade localizada: si normal.y ≥ 0.5 y velocidad transversal reflejada ≤ 0.05 m/s, redirigir hasta 45% de la velocidad vertical entrante hacia z, máximo 0.35 m/s y siempre limitado por rapidez total entrante. Elegir lado por posición; en simetría exacta usar sentido entrante o +z. Sin RNG ni salto de posición. Conservar rebote frontal y roce que ya atraviesa con impulso. Valores provisionales, no modelo de deformación real de una red.
+- **Límite de reproducción:** reproducido el equilibrio sobre cinta aislado; el usuario no proporcionó entradas/posición exactas de su tiro. Se ensayaron además 18 trayectorias generadas por carga 100% apuntando abajo.

@@ -1,6 +1,6 @@
 # Estado y próxima sesión
 
-Actualizado: 28/10/2026, zona America/Argentina/Mendoza. Sesión 012.
+Actualizado: 28/10/2026, zona America/Argentina/Mendoza. Sesión 013.
 
 ## Dónde estamos
 
@@ -21,6 +21,14 @@ Godot 4.7.2.stable.official.ed1daf0bf portátil. Git local main, sin remoto. P06
 ## Límites
 
 Animación geométrica provisional sin esqueleto ni biomecánica final; no hay rival, arbitraje, puntos, giro o tiros avanzados. Otros personajes estáticos; pelota sin colisión con cuerpos. Sonidos sintéticos sin muestras externas; no equivalen a grabaciones de pádel. Mando solo probado sintéticamente. No se repitieron recorridos/FPS pasivos porque no se cambió esa física.
+
+## Corrección de red — sesión 013
+
+El usuario vio una pelota quedarse sobre la red tras cargar 100% apuntando abajo. Reproducido el equilibrio sobre la cara superior plana del collider: 15 de 33 escenarios iniciales no llegaban al piso tras 5 s. No se dispone de la secuencia exacta de entradas del usuario.
+
+Se desvía una parte acotada de velocidad de impacto hacia un costado solo en contactos superiores casi equilibrados. Sin desplazar posición artificialmente, sin RNG y sin superar energía entrante. Contactos frontales y pelotas que cruzan con impulso conservan respuesta anterior. 35 casos corregidos llegan al piso, incluidos 18 tiros cortos al 100% y dos roces que siguen cruzando. Sin agotamiento del presupuesto de impactos.
+
+Regresiones ejecutadas: 13 escenarios de pelota, 90 trayectorias/diez devoluciones y 22 recorridos; globo 2.00 m y reja máximo 4.25 m conservados. Validación sin ventana; no nueva revisión visual/humana del ajuste. Pruebas reproducibles en net_tape_checks.gd e informes net-tape-before/checks.json.
 
 ## Próximo paso
 

@@ -21,6 +21,9 @@ signal struck(event: Dictionary)
 @export var fence_seed: int = 42
 var fence_rng := RandomNumberGenerator.new()
 @export var net_bounce: float = 0.12
+@export var net_tape_shed_fraction: float = 0.45
+@export var net_tape_shed_max_speed: float = 0.35
+@export var net_tape_balance_speed: float = 0.05
 @export var floor_retention: float = 0.94
 @export var floor_impact_friction: float = 0.18
 @export var rolling_deceleration: float = 2.8
@@ -103,6 +106,8 @@ func step(delta: float) -> void:
 			if surface == "fence":
 				deflection = Vector2(fence_rng.randf_range(-fence_yaw_degrees, fence_yaw_degrees), fence_rng.randf_range(-fence_pitch_degrees, fence_pitch_degrees))
 				velocity = _deflect_fence(velocity, normal, deflection)
+			if surface == "net":
+				velocity = _shed_net_tape(velocity, incoming, normal)
 			# Below this speed, settle instead of emitting endless floor micro-bounces.
 			if surface == "floor" and approach < 0.8 and normal.y > 0.9:
 				velocity.y = 0.0
@@ -131,6 +136,20 @@ func step(delta: float) -> void:
 			break # Drop remaining time conservatively; do not tunnel.
 	elapsed += delta
 	stepped.emit()
+
+func _shed_net_tape(reflected: Vector3, incoming: Vector3, normal: Vector3) -> Vector3:
+	# Arcade approximation of a yielding/rounded tape: a flat box must not
+	# become a shelf. Preserve ordinary face rebounds and cross-net momentum.
+	if normal.y < 0.5 or absf(reflected.z) > net_tape_balance_speed:
+		return reflected
+	var side := signf(position.z) if absf(position.z) > 0.0005 else signf(incoming.z)
+	if side == 0.0:
+		side = 1.0 # Exact symmetric drop: deterministic tie-break, not RNG.
+	var shed_speed := minf(net_tape_shed_max_speed, absf(incoming.y) * net_tape_shed_fraction)
+	var result := reflected
+	result.z = side * maxf(absf(result.z), shed_speed)
+	# Redirect a portion of the lost incoming energy, never create impact energy.
+	return result.limit_length(incoming.length())
 
 func _restitution(surface: String) -> float:
 	match surface:
