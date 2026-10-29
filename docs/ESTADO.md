@@ -1,6 +1,6 @@
 # Estado y próxima sesión
 
-Actualizado: 28/10/2026, zona America/Argentina/Mendoza. Sesión 025.
+Actualizado: 28/10/2026, zona America/Argentina/Mendoza. Sesión 026.
 
 ## Dónde estamos
 
@@ -102,3 +102,8 @@ Actualizar plan, pruebas y bitácora, registrar decisiones y guardar punto de re
 ## Controles actualizados — sesión 025
 
 Por incomodidad del combo anterior, J prepara plano/smash y K prepara globo; J+K arma el especial. WASD/flechas conservados; mando A/B sin cambios. Espacio sigue pausando en laboratorio. Las secciones históricas y videos anteriores muestran los botones previos. Reiniciar el juego para cargar este cambio.
+
+
+## Práctica del especial — sesión 026
+
+Usuario no consigue globo corto usando R. R es pelota normal: para globo usar H, después de colocarse a 1–2 m de red. H ahora se alinea lateralmente con el jugador (hasta ±4 m), conservando profundidad adaptada. Antes seguía el carril de R/T, incluso con jugador desplazado. Mensajes inicial y de lanzamiento explican H y J+K. Tres feeds reales en distintos carriles permiten esperar 0.65 s antes de cargar J+K y fijar 90%, sin mover al jugador ni cambiar carga/física. Comodidad humana pendiente.

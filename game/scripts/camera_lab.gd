@@ -388,7 +388,7 @@ func set_practice_mode(enabled: bool) -> void:
 		simulation.active = false
 		trail_points.clear()
 		trail.mesh = null
-		hud.show_feedback("R para recibir una pelota · el aro marca a tu jugador")
+		hud.show_feedback("R: pelota normal · H: globo para rematar · el aro marca a tu jugador")
 	_update_title()
 
 func feed_practice_ball() -> void:
@@ -403,6 +403,8 @@ func _feed_practice(overhead: bool) -> void:
 	var start := Vector3(FEED_LANES[feed_lane], 1.6, -5.8)
 	var speed := Vector3(0, 4.2, 10)
 	if overhead:
+		# Training feed follows the player laterally, independent of the R/T lane.
+		start.x = clampf(controlled_player.position.x, -4.0, 4.0)
 		var landing_z: float = controlled_player.position.z+1.15 if controlled_player.position.z <= 3.0 else 9.0
 		speed = shot_controller.solve_lob_velocity(start, Vector3(start.x, simulation.radius, landing_z), 0.55)
 	simulation.launch(start, speed, launch_seed)
@@ -412,7 +414,10 @@ func _feed_practice(overhead: bool) -> void:
 	resting_notified = false
 	trail_points.clear()
 	trail.mesh = null
-	hud.show_feedback("Globo en camino · ubicáte debajo y prepará con J" if overhead else "Pelota en camino · llegá, cargá y soltá cerca del 90%")
+	var message := "Pelota en camino · llegá, cargá y soltá cerca del 90%"
+	if overhead:
+		message = "Globo corto · J+K, soltá al 90% · lateral x3 / adelante x4" if controlled_player.position.z <= 3.0 else "Globo en camino · prepará con J · para especial acercate a la red"
+	hud.show_feedback(message)
 
 func _next_feed_lane() -> void:
 	if not practice_mode or preview_paused:

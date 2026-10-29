@@ -263,3 +263,8 @@ Regresiones: player_checks 90/diez, lob_checks 54/tres, smash_checks 54/tres, ch
 ## Sesión 025 — remapeo J/K
 
 Mismo motor, escena y escenarios de sesión 024. Ejecutores lob_checks, smash_checks y special_smash_checks ahora inyectan J/K en lugar de Espacio/E; captura de práctica actualizada. Añadidas comprobaciones de J plano, K globo y ausencia de acciones de golpe con Espacio/E. Globo 54 trayectorias, smash 54/tres feeds, especiales 36/tres feeds y jugador 90/diez devoluciones: cero fallos. Verifica carga, fijación, cambio/cancelación y combo con nuevas entradas. Importación completada sin errores de scripts; socket del editor bloqueado por sandbox. Sin nueva prueba visual, humana o mando físico. Capturas/videos previos conservan etiquetas históricas.
+
+
+## Sesión 026 — globo de práctica alineado
+
+Godot 4.7.2, main, escena principal, paso 1/120 s. H alinea origen/destino lateral al jugador (limitado a ±4 m), manteniendo solver y profundidad anteriores. special_smash_checks: 36 casos y tres H reales a x=-2.4/0/2.4, z=1.6, carril normal fijo 0; esperar 78 ticks (0.65 s), pulsar J+K, soltar al 90%, apuntar izquierda/derecha/adelante. Los tres producen especial con cuerpo inmóvil y carga dentro de banda. R conserva carril/velocidad y mensaje normal. Primera comprobación de R falló por igualdad exacta entre float del carril y componente Vector3: corregida con tolerancia, sin cambiar lanzamiento. Smash 54/tres feeds y jugador 90/diez devoluciones sin fallos. Importación completada sin errores de scripts; errores de socket del editor por sandbox. Sin nueva captura visual o valoración humana.

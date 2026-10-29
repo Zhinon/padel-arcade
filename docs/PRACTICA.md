@@ -168,3 +168,8 @@ Avanzá hasta quedar aproximadamente a 1–2 m de la red y pulsá **H**. Prepar�
 Mando: A+B. Primera liberación fija; la segunda no golpea otra vez. Si falta posición/calidad/carga, no hay dirección válida o no se encuentra salida, se devuelve de forma ordinaria. 100% no activa especial. Un botón tarde conserva cambio de plano/globo previo. El HUD identifica «Especial» para saber que reconoció el combo.
 
 Primera aproximación arcade sin liftado real ni punto automático. [Diseño y fuentes](SMASH_ESPECIALES.md) · [video x3](previews/x3.mp4) · [video x4](previews/x4.mp4). Reiniciar para cargar versión nueva.
+
+
+### Globo corto para practicar (sesión 026)
+
+Primero acercate con W hasta 1–2 m de la red y frená. Después pulsá **H**, que lanza un globo hacia tu posición lateral; R sigue siendo la pelota normal. Con J+K juntos prepará, soltá ambos al 90% y apuntá lateral para x3 o adelante para x4. No hace falta correr desde el fondo después de lanzar H. El globo se decide según dónde estás al lanzarlo.

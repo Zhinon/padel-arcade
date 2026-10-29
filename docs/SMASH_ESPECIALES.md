@@ -40,3 +40,8 @@ Regresiones de plano/control (90/diez), globo (54/tres), smash (54/tres), chiqui
 
 
 Controles actualizados en sesión 025 a J/K. Las capturas y videos de sesiones previas pueden mostrar Espacio/E.
+
+
+### Globo corto para practicar (sesión 026)
+
+Primero acercate con W hasta 1–2 m de la red y frená. Después pulsá **H**, que lanza un globo hacia tu posición lateral; R sigue siendo la pelota normal. Con J+K juntos prepará, soltá ambos al 90% y apuntá lateral para x3 o adelante para x4. No hace falta correr desde el fondo después de lanzar H. El globo se decide según dónde estás al lanzarlo.

@@ -145,15 +145,22 @@ func _run() -> void:
 	_check(not lab.input_adapter.flat_down and not lab.input_adapter.lob_down,"Pause clears chord flags")
 	lab._set_practice_paused(false)
 	var feeds: Array[Dictionary]=[]
-	for aim: Vector2 in [Vector2.LEFT,Vector2.RIGHT,Vector2.UP]:
-		player.reset_position(Vector3(-2.4,0,1.6))
+	for lane in range(3):
+		var aim: Vector2 = [Vector2.LEFT, Vector2.RIGHT, Vector2.UP][lane]
+		player.reset_position(Vector3(lab.FEED_LANES[lane],0,1.6))
 		lab.feed_lane=0
+		_key(KEY_R,true)
+		_key(KEY_R,false)
+		_check(is_equal_approx(ball.position.x, lab.FEED_LANES[0]) and ball.velocity.is_equal_approx(Vector3(0,4.2,10)), "R keeps normal feed lane and speed near net: %s %s" % [ball.position, ball.velocity])
+		_check(lab.hud.last_message.begins_with("Pelota en camino"), "R feedback identifies normal feed")
 		_key(KEY_H,true)
 		_key(KEY_H,false)
+		var initial_player_position: Vector3 = player.position
+		_check(is_equal_approx(ball.position.x, player.position.x), "H follows player x even when normal feed lane differs")
 		var before: int=events.size()
 		for tick in range(400):
 			ball.step(DT)
-			if tick==30:
+			if tick==78:
 				_key(KEY_J,true)
 				_key(KEY_K,true)
 			if shot.charging and shot.shot_charge>=0.9:
@@ -162,8 +169,10 @@ func _run() -> void:
 			shot.aim=aim
 			shot.step(DT)
 			if events.size()>before: break
-		_check(events.size()>before and events.back().shot_type in ["x3","x4"],"Near-net H feed produces special shot")
+		_check(events.size()>before and events.back().shot_type in ["x3","x4"],"Near-net H feed allows 0.65 s reaction plus 90 percent charge")
 		if events.size()>before:
+			_check(player.position == initial_player_position, "Training feed never repositions player")
+			_check(events.back().charge >= 0.86 and events.back().charge <= 0.94, "Release reaches special charge band before automatic contact")
 			ball.contacts.clear()
 			feeds.append(_flight(events.back()))
 	if "--capture" in OS.get_cmdline_user_args():

@@ -192,3 +192,8 @@ Para cambiar una decisión: añadir fecha, contexto, alternativas relevantes, el
 ## 28/10/2026 — sesión 025: botones contiguos
 
 - **D85, feedback y elección:** usuario considera incómodo Espacio+E y propone pares contiguos. Se elige J/K para usar con la mano derecha mientras WASD mueve/apunta con la izquierda. J plano/smash, K globo, J+K especial. Se conservan carga, liberación, ventana de combo y mando A/B. Espacio mantiene pausa de laboratorio.
+
+
+## 28/10/2026 — sesión 026: globo de entrenamiento accesible
+
+- **D86:** usuario no logra probar especial con R. Se conserva R normal y H globo; H sigue lateralmente al jugador hasta ±4 m, además de adaptar profundidad cerca de red. No recoloca jugador ni cambia carga, tolerancias o física. Mensajes explican diferencia y pasos; prueba humana pendiente.

@@ -282,3 +282,8 @@ Usuario indica «lo sentí bien». Registrada aceptación cualitativa, sin infer
 **Pedido:** sustituir Espacio+E por botones contiguos. Elegidos J para plano/smash y K para globo; J+K especial. Actualizados adaptador, HUD, título, instrucciones de H, guías y ejecutores de pruebas. Espacio conserva pausa en laboratorio, mando A/B conservado. No cambia física ni tiempos.
 
 **Verificación:** Godot 4.7.2, pruebas sin ventana: globo 54 trayectorias, smash 54/tres feeds, especiales 36/tres feeds y jugador 90/diez devoluciones, todas sin fallos. Verificado mapa J/K y ausencia de bindings viejos para golpes. Importación completada sin errores de scripts, con errores de socket del editor por sandbox; los ejecutores no los presentan. Sin nueva inspección visual o prueba humana. Reiniciar para cargar controles; comodidad del par y combo pendiente de usuario.
+
+
+## 28/10/2026 — Sesión 026: facilitar prueba del especial
+
+Usuario no consigue globo corto con R. Aclarado H y detectada desalineación lateral: H seguía carril fijo aun al moverse el jugador. Se alinea H con su posición lateral, sin mover cuerpo; R conserva trayectoria. Mensajes inicial y de feed explican normal/globo/carga especial. Documentados pasos: acercarse primero y después lanzar H. Pruebas de especiales 36/tres feeds con 0.65 s de reacción, smash 54/tres y jugador 90/diez aprobadas. Importación sin errores de scripts, socket de editor bloqueado por sandbox. Comodidad humana pendiente.
