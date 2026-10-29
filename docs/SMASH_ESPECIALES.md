@@ -14,7 +14,7 @@ En nuestra cancha, extremos laterales de 2 m tienen altura total 4 m; los x3 bus
 2. **H/RB** recibe globo de práctica. Cerca de red, H adapta profundidad para ofrecer contacto alto delante del jugador; no mueve al personaje.
 3. Apretá **J + K** juntos; en mando, **A + B**. Ventana inicial de 0.10 s de carga; se conserva lo cargado por el primer botón. No se exige coincidencia exacta de frames.
 4. Soltá cerca de **90%**. La primera liberación fija la carga; la segunda no ejecuta ni reinicia nada. El impacto continúa automático.
-5. **Izquierda/derecha** intenta x3 por ese lateral. **Adelante sin componente lateral fuerte** intenta x4. Diagonal lateral fuerte elige x3. Centro/abajo conserva golpe normal.
+5. **W+A / W+D (diagonal hacia adelante)** intenta x3 por ese lateral. **S (atrás)** intenta x4. Con flechas o mando, usá las mismas direcciones. Centro, lateral solo, adelante solo y diagonales hacia atrás conservan golpe normal.
 
 Carga admitida: banda existente 86–94%. Requiere calidad >=0.85, jugador a <=2.8 m de la red y contacto válido de smash. Fallar condiciones no concede un especial: usa remate/devolución según situación. El buscador también puede rechazar una salida si no encuentra trayectoria segura para esa geometría; no teletransporta ni garantiza el resultado.
 
@@ -30,9 +30,9 @@ x4 mantiene piso rival → salida sobre fondo sin tocar vidrio/reja. x3 mantiene
 
 ## Verificación
 
-special_smash_checks.gd: 36 contactos, x de jugador -2.4/0/2.4 m, z=1.2/1.8 m, altura=2.4/2.6 m, offset de pelota (0.25,h,-0.35), direcciones izquierda/derecha/adelante y carga ~90%. Preparación por eventos de teclado reales al adaptador; fixture de pelota estática hasta el contacto y vuelo físico barrido posterior. Salida x3 comprobada por encima de 3 m + radio en sección lateral de 3 m, con contactos exactamente piso/vidrio; x4 por encima de 4 m + radio, contactos solo piso. Pala coincide con pelota, búsqueda conserva posición, reloj y RNG.
+special_smash_checks.gd: 36 contactos, x de jugador -2.4/0/2.4 m, z=1.2/1.8 m, altura=2.4/2.6 m, offset de pelota (0.25,h,-0.35), direcciones diagonal adelante izquierda/derecha y atrás y carga ~90%. Preparación por eventos de teclado reales al adaptador; fixture de pelota estática hasta el contacto y vuelo físico barrido posterior. Salida x3 comprobada por encima de 3 m + radio en sección lateral de 3 m, con contactos exactamente piso/vidrio; x4 por encima de 4 m + radio, contactos solo piso. Pala coincide con pelota, búsqueda conserva posición, reloj y RNG.
 
-Tres feeds H reales cerca de red, sin colocar pelota en impacto, completan izquierda/derecha/x4. Condiciones negativas: lejos, bajo, 50%, 100%, centro/abajo y mala calidad a 90% no dan especial. Orden de botones invertido, segundo botón tardío, liberación vieja, contacto único y limpieza al pausar comprobados. Coste de búsqueda registrado por caso: dato local, no benchmark del equipo objetivo.
+Tres feeds H reales cerca de red, sin colocar pelota en impacto, completan izquierda/derecha/x4. Condiciones negativas: lejos, bajo, 50%, 100%, centro/adelante y mala calidad a 90% no dan especial. Orden de botones invertido, segundo botón tardío, liberación vieja, contacto único y limpieza al pausar comprobados. Coste de búsqueda registrado por caso: dato local, no benchmark del equipo objetivo.
 
 Regresiones de plano/control (90/diez), globo (54/tres), smash (54/tres), chiquita (54/24/tres y segundo pique), pelota (13), superficies, 18 poses, tres impactos/audio y cinco abanicazos aprobadas. Impulso de piso extraído a helper sin variar cálculo; no nueva física de materiales. Capturas de juego y videos de tres segundos por tipo revisados; render llvmpipe, no prueba de diversión, mando físico o juego exterior.
 
@@ -44,4 +44,7 @@ Controles actualizados en sesión 025 a J/K. Las capturas y videos de sesiones p
 
 ### Globo corto para practicar (sesión 026)
 
-Primero acercate con W hasta 1–2 m de la red y frená. Después pulsá **H**, que lanza un globo hacia tu posición lateral; R sigue siendo la pelota normal. Con J+K juntos prepará, soltá ambos al 90% y apuntá lateral para x3 o adelante para x4. No hace falta correr desde el fondo después de lanzar H. El globo se decide según dónde estás al lanzarlo.
+Primero acercate con W hasta 1–2 m de la red y frená. Después pulsá **H**, que lanza un globo hacia tu posición lateral; R sigue siendo la pelota normal. Con J+K juntos prepará, soltá ambos al 90% y apuntá W+A o W+D para x3, o S para x4. No hace falta correr desde el fondo después de lanzar H. El globo se decide según dónde estás al lanzarlo.
+
+
+Sesión 027: mapeo vigente W+A/W+D x3 y S x4, a partir de la intuición del usuario. Videos previos muestran dirección anterior.

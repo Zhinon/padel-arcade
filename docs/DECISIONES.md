@@ -197,3 +197,8 @@ Para cambiar una decisión: añadir fecha, contexto, alternativas relevantes, el
 ## 28/10/2026 — sesión 026: globo de entrenamiento accesible
 
 - **D86:** usuario no logra probar especial con R. Se conserva R normal y H globo; H sigue lateralmente al jugador hasta ±4 m, además de adaptar profundidad cerca de red. No recoloca jugador ni cambia carga, tolerancias o física. Mensajes explican diferencia y pasos; prueba humana pendiente.
+
+
+## 28/10/2026 — sesión 027: dirección de especiales
+
+- **D87:** usuario valora práctica y explica intuición W+D para x3 y S para x4. Se adopta diagonal adelante con lateral (W+A/W+D) para x3 y atrás sin lateral fuerte (S) para x4; mismos ejes con flechas/stick. Las demás direcciones dan golpe ordinario. Reemplaza mapeo D81; no cambia trayectoria física, combo/carga o posición requerida.

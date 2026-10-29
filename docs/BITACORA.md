@@ -287,3 +287,8 @@ Usuario indica «lo sentí bien». Registrada aceptación cualitativa, sin infer
 ## 28/10/2026 — Sesión 026: facilitar prueba del especial
 
 Usuario no consigue globo corto con R. Aclarado H y detectada desalineación lateral: H seguía carril fijo aun al moverse el jugador. Se alinea H con su posición lateral, sin mover cuerpo; R conserva trayectoria. Mensajes inicial y de feed explican normal/globo/carga especial. Documentados pasos: acercarse primero y después lanzar H. Pruebas de especiales 36/tres feeds con 0.65 s de reacción, smash 54/tres y jugador 90/diez aprobadas. Importación sin errores de scripts, socket de editor bloqueado por sandbox. Comodidad humana pendiente.
+
+
+## 28/10/2026 — Sesión 027: dirección según intuición del usuario
+
+Usuario valora práctica y esperaba W+D x3, S x4. Se implementa diagonal adelante (W+A/W+D) para x3 por lateral correspondiente y atrás (S) para x4; equivalentes en flechas/stick. HUD y guías actualizados. Sin cambios en físicas, carga o combo. Especiales 36/tres feeds, negativos de dirección, smash 54/tres y jugador 90/diez aprobados. Importación sin errores de scripts, socket de editor bloqueado por sandbox. Validación humana pendiente.

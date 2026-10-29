@@ -79,7 +79,7 @@ func _process(_delta: float) -> void:
 		status.text = "PAUSA · P para continuar"
 	elif controller.charging:
 		if controller.shot_kind == controller.ShotType.SPECIAL:
-			status.text = "Especial %d%% · fijá ~90%% · lateral: x3 · adelante: x4" % roundi(controller.shot_charge * 100.0)
+			status.text = "Especial %d%% · fijá ~90%% · W+A/D: x3 · S: x4" % roundi(controller.shot_charge * 100.0)
 		elif controller.shot_kind == controller.ShotType.LOB:
 			status.text = "Globo %d%% · soltar fija altura y profundidad" % roundi(controller.shot_charge * 100.0)
 		else:
@@ -90,7 +90,7 @@ func _process(_delta: float) -> void:
 	elif controller.armed_time > 0.0:
 		if controller.shot_kind == controller.ShotType.SPECIAL:
 			var choice: String = controller.special_direction()
-			status.text = "Especial %d%% · %s · cerca de red" % [roundi(controller.shot_charge * 100.0),choice if choice != "" else "lateral x3 / adelante x4"]
+			status.text = "Especial %d%% · %s · cerca de red" % [roundi(controller.shot_charge * 100.0),choice if choice != "" else "W+A/D: x3 / S: x4"]
 		elif controller.shot_kind == controller.ShotType.LOB:
 			status.text = "Globo fijado %d%% · apuntá · K cancela" % roundi(controller.shot_charge * 100.0)
 		elif controller.is_smash_preparation():

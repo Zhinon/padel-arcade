@@ -1,6 +1,6 @@
 # Estado y próxima sesión
 
-Actualizado: 28/10/2026, zona America/Argentina/Mendoza. Sesión 026.
+Actualizado: 28/10/2026, zona America/Argentina/Mendoza. Sesión 027.
 
 ## Dónde estamos
 
@@ -88,7 +88,7 @@ Búsqueda pura elige velocidad inicial para piso/vidrio/salida lateral o piso/sa
 
 ## Próximo paso
 
-**Probar combo x3/x4 con el usuario (P41):** avanzar hasta 1–2 m de red, H, preparar J+K juntos, fijar ~90%; lateral x3/adelante x4. Revisar claridad de carga y oportunidad, sin alterar base aceptada. Después P40 volea contextual y rival pendiente.
+**Probar combo x3/x4 con el usuario (P41):** avanzar hasta 1–2 m de red, H, preparar J+K juntos, fijar ~90%; W+A/D x3, S x4. Revisar claridad de carga y oportunidad, sin alterar base aceptada. Después P40 volea contextual y rival pendiente.
 
 ## Abrir
 
@@ -107,3 +107,8 @@ Por incomodidad del combo anterior, J prepara plano/smash y K prepara globo; J+K
 ## Práctica del especial — sesión 026
 
 Usuario no consigue globo corto usando R. R es pelota normal: para globo usar H, después de colocarse a 1–2 m de red. H ahora se alinea lateralmente con el jugador (hasta ±4 m), conservando profundidad adaptada. Antes seguía el carril de R/T, incluso con jugador desplazado. Mensajes inicial y de lanzamiento explican H y J+K. Tres feeds reales en distintos carriles permiten esperar 0.65 s antes de cargar J+K y fijar 90%, sin mover al jugador ni cambiar carga/física. Comodidad humana pendiente.
+
+
+## Direcciones intuitivas — sesión 027
+
+Usuario dice «ta bueno» y señala que esperaba W+D para x3 y S para x4. Se adopta W+A/W+D para x3 hacia ese lateral, S para x4; equivalentes en flechas y stick. Dirección lateral sola, adelante solo, centro o diagonal atrás conservan golpe ordinario. Cambia selección de especial, no trayectoria ni carga. HUD/guías actualizados; videos antiguos reflejan mapeo anterior. Pendiente probar comodidad de este cambio.

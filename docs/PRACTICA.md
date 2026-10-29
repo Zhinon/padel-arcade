@@ -162,8 +162,8 @@ Tarde o mal ubicado, el remate pierde potencia/dirección o queda fuera de alcan
 
 Avanzá hasta quedar aproximadamente a 1–2 m de la red y pulsá **H**. Prepará con **J + K juntos** (ventana 0.10 s), soltá cerca del **90%** y elegí dirección mientras estás plantado:
 
-- **Izquierda/derecha:** x3 hacia ese lateral, pasando primero por piso y vidrio de fondo.
-- **Adelante (W/flecha arriba), sin lateral fuerte:** x4 por encima del fondo tras picar.
+- **W+A / W+D (diagonal adelante):** x3 hacia ese lateral, pasando primero por piso y vidrio de fondo.
+- **S (atrás/flecha abajo):** x4 por encima del fondo tras picar.
 
 Mando: A+B. Primera liberación fija; la segunda no golpea otra vez. Si falta posición/calidad/carga, no hay dirección válida o no se encuentra salida, se devuelve de forma ordinaria. 100% no activa especial. Un botón tarde conserva cambio de plano/globo previo. El HUD identifica «Especial» para saber que reconoció el combo.
 
@@ -172,4 +172,4 @@ Primera aproximación arcade sin liftado real ni punto automático. [Diseño y f
 
 ### Globo corto para practicar (sesión 026)
 
-Primero acercate con W hasta 1–2 m de la red y frená. Después pulsá **H**, que lanza un globo hacia tu posición lateral; R sigue siendo la pelota normal. Con J+K juntos prepará, soltá ambos al 90% y apuntá lateral para x3 o adelante para x4. No hace falta correr desde el fondo después de lanzar H. El globo se decide según dónde estás al lanzarlo.
+Primero acercate con W hasta 1–2 m de la red y frená. Después pulsá **H**, que lanza un globo hacia tu posición lateral; R sigue siendo la pelota normal. Con J+K juntos prepará, soltá ambos al 90% y apuntá W+A o W+D para x3, o S para x4. No hace falta correr desde el fondo después de lanzar H. El globo se decide según dónde estás al lanzarlo.

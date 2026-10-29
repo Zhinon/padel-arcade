@@ -113,21 +113,24 @@ func _run() -> void:
 	for x: float in [-2.4,0,2.4]:
 		for z: float in [1.2,1.8]:
 			for height: float in [2.4,2.6]:
-				for aim: Vector2 in [Vector2.LEFT,Vector2.RIGHT,Vector2.UP]:
+				for aim: Vector2 in [Vector2(-1,-1).normalized(),Vector2(1,-1).normalized(),Vector2.DOWN]:
 					var event:=_contact(x,z,height,aim)
 					var result:=_flight(event)
 					cases.append(result)
-					var expected:="x4" if aim.y<0 else "x3"
+					var expected:="x4" if aim.y>0 else "x3"
 					_check(event.shot_type==expected and result.exit_kind==expected,"Direction selects and physically completes "+expected+": "+str(result))
 					_check(result.surfaces==(["floor"] if expected=="x4" else ["floor","glass"]),"Correct physical contact order before exit: "+str(result))
 					_check(result.exit.y > (4.0 if expected=="x4" else 3.0)+ball.radius,"Ball clears actual enclosure height")
 					if expected=="x3": _check(result.exit.z<0 and result.exit.z > -8 and result.exit_side==signf(aim.x),"Chosen lateral exit occurs above 3m section")
-	for condition: Dictionary in [{"z":6.8,"h":2.4,"charge":0.9,"aim":Vector2.RIGHT},{"z":1.5,"h":0.9,"charge":0.9,"aim":Vector2.RIGHT},{"z":1.5,"h":2.4,"charge":0.5,"aim":Vector2.RIGHT},{"z":1.5,"h":2.4,"charge":1.0,"aim":Vector2.RIGHT},{"z":1.5,"h":2.4,"charge":0.9,"aim":Vector2.ZERO},{"z":1.5,"h":2.4,"charge":0.9,"aim":Vector2.DOWN}]:
+	for condition: Dictionary in [{"z":6.8,"h":2.4,"charge":0.9,"aim":Vector2(1,-1).normalized()},{"z":1.5,"h":0.9,"charge":0.9,"aim":Vector2(1,-1).normalized()},{"z":1.5,"h":2.4,"charge":0.5,"aim":Vector2(1,-1).normalized()},{"z":1.5,"h":2.4,"charge":1.0,"aim":Vector2(1,-1).normalized()},{"z":1.5,"h":2.4,"charge":0.9,"aim":Vector2.ZERO},{"z":1.5,"h":2.4,"charge":0.9,"aim":Vector2.UP}]:
 		var event:=_contact(0,condition.z,condition.h,condition.aim,condition.charge)
 		_check(event.shot_type not in ["x3","x4"],"Unqualified attempt falls back to ordinary shot")
-	var poor:=_contact(0,1.5,2.16,Vector2.RIGHT,0.9,0.6)
+	for direction: Vector2 in [Vector2.LEFT, Vector2.RIGHT, Vector2.UP, Vector2.ZERO, Vector2(-1,1).normalized(), Vector2(1,1).normalized()]:
+		var ordinary := _contact(0,1.5,2.4,direction)
+		_check(ordinary.shot_type not in ["x3","x4"], "Only forward diagonals or straight back request a special")
+	var poor:=_contact(0,1.5,2.16,Vector2(1,-1).normalized(),0.9,0.6)
 	_check(poor.quality < shot.special_quality and poor.shot_type=="smash","90 percent alone cannot override poor positioning/contact")
-	var reversed:=_contact(0,1.5,2.4,Vector2.UP,0.9,0.25,true)
+	var reversed:=_contact(0,1.5,2.4,Vector2.DOWN,0.9,0.25,true)
 	_check(reversed.shot_type=="x4","Chord works when lob button arrives first")
 	_key(KEY_J,true)
 	_check(not shot.is_preparing(),"New press during recovery cannot repeat special contact")
@@ -146,7 +149,7 @@ func _run() -> void:
 	lab._set_practice_paused(false)
 	var feeds: Array[Dictionary]=[]
 	for lane in range(3):
-		var aim: Vector2 = [Vector2.LEFT, Vector2.RIGHT, Vector2.UP][lane]
+		var aim: Vector2 = [Vector2(-1,-1).normalized(), Vector2(1,-1).normalized(), Vector2.DOWN][lane]
 		player.reset_position(Vector3(lab.FEED_LANES[lane],0,1.6))
 		lab.feed_lane=0
 		_key(KEY_R,true)
@@ -176,8 +179,8 @@ func _run() -> void:
 			ball.contacts.clear()
 			feeds.append(_flight(events.back()))
 	if "--capture" in OS.get_cmdline_user_args():
-		await _capture_demo("x3",Vector2.RIGHT)
-		await _capture_demo("x4",Vector2.UP)
+		await _capture_demo("x3",Vector2(1,-1).normalized())
+		await _capture_demo("x4",Vector2.DOWN)
 	var file:=FileAccess.open("res://../docs/previews/special-smash-checks.json",FileAccess.WRITE)
 	file.store_string(JSON.stringify({"engine":Engine.get_version_info().string,"dt":DT,"failures":failures,"cases":cases,"feeds":feeds,"note":"Physical swept exits and actual contacts; launch prediction only, no spin simulation, no automatic point award or external play."},"\t"))
 	file.close()

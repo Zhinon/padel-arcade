@@ -416,7 +416,7 @@ func _feed_practice(overhead: bool) -> void:
 	trail.mesh = null
 	var message := "Pelota en camino · llegá, cargá y soltá cerca del 90%"
 	if overhead:
-		message = "Globo corto · J+K, soltá al 90% · lateral x3 / adelante x4" if controlled_player.position.z <= 3.0 else "Globo en camino · prepará con J · para especial acercate a la red"
+		message = "Globo corto · J+K, soltá al 90% · W+A/D: x3 / S: x4" if controlled_player.position.z <= 3.0 else "Globo en camino · prepará con J · para especial acercate a la red"
 	hud.show_feedback(message)
 
 func _next_feed_lane() -> void:

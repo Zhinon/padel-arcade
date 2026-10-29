@@ -5,7 +5,7 @@
 			"exit": "(-5.0, 3.849094, -4.723499)",
 			"exit_kind": "x3",
 			"exit_side": -1.0,
-			"plan_ms": 2.7,
+			"plan_ms": 0.978,
 			"position": "(-2.15, 2.4, 0.85)",
 			"quality": 0.987953452330369,
 			"surfaces": [
@@ -20,7 +20,7 @@
 			"exit": "(5.0, 3.693069, -2.012472)",
 			"exit_kind": "x3",
 			"exit_side": 1.0,
-			"plan_ms": 6.882,
+			"plan_ms": 6.226,
 			"position": "(-2.15, 2.4, 0.85)",
 			"quality": 0.987953452330369,
 			"surfaces": [
@@ -35,7 +35,7 @@
 			"exit": "(-2.15, 4.819049, -10.0)",
 			"exit_kind": "x4",
 			"exit_side": 0.0,
-			"plan_ms": 0.16,
+			"plan_ms": 0.124,
 			"position": "(-2.15, 2.4, 0.85)",
 			"quality": 0.987953452330369,
 			"surfaces": [
@@ -49,7 +49,7 @@
 			"exit": "(-5.0, 3.901444, -4.723737)",
 			"exit_kind": "x3",
 			"exit_side": -1.0,
-			"plan_ms": 2.208,
+			"plan_ms": 1.206,
 			"position": "(-2.15, 2.6, 0.85)",
 			"quality": 0.926415049479558,
 			"surfaces": [
@@ -64,7 +64,7 @@
 			"exit": "(5.0, 3.672881, -2.013202)",
 			"exit_kind": "x3",
 			"exit_side": 1.0,
-			"plan_ms": 4.843,
+			"plan_ms": 5.378,
 			"position": "(-2.15, 2.6, 0.85)",
 			"quality": 0.926415049479558,
 			"surfaces": [
@@ -79,7 +79,7 @@
 			"exit": "(-2.15, 4.858344, -10.0)",
 			"exit_kind": "x4",
 			"exit_side": 0.0,
-			"plan_ms": 0.13,
+			"plan_ms": 0.158,
 			"position": "(-2.15, 2.6, 0.85)",
 			"quality": 0.926415049479558,
 			"surfaces": [
@@ -93,7 +93,7 @@
 			"exit": "(-5.0, 3.648682, -0.64347)",
 			"exit_kind": "x3",
 			"exit_side": -1.0,
-			"plan_ms": 2.358,
+			"plan_ms": 1.989,
 			"position": "(-2.15, 2.4, 1.45)",
 			"quality": 0.987953452330369,
 			"surfaces": [
@@ -108,7 +108,7 @@
 			"exit": "(5.0, 3.751648, -2.466704)",
 			"exit_kind": "x3",
 			"exit_side": 1.0,
-			"plan_ms": 4.732,
+			"plan_ms": 4.957,
 			"position": "(-2.15, 2.4, 1.45)",
 			"quality": 0.987953452330369,
 			"surfaces": [
@@ -123,7 +123,7 @@
 			"exit": "(-2.15, 5.012252, -10.0)",
 			"exit_kind": "x4",
 			"exit_side": 0.0,
-			"plan_ms": 0.135,
+			"plan_ms": 0.098,
 			"position": "(-2.15, 2.4, 1.45)",
 			"quality": 0.987953452330369,
 			"surfaces": [
@@ -137,7 +137,7 @@
 			"exit": "(-5.0, 3.722916, -0.644829)",
 			"exit_kind": "x3",
 			"exit_side": -1.0,
-			"plan_ms": 2.536,
+			"plan_ms": 2.062,
 			"position": "(-2.15, 2.6, 1.45)",
 			"quality": 0.926415049479558,
 			"surfaces": [
@@ -152,7 +152,7 @@
 			"exit": "(5.0, 3.809983, -2.466797)",
 			"exit_kind": "x3",
 			"exit_side": 1.0,
-			"plan_ms": 5.903,
+			"plan_ms": 5.147,
 			"position": "(-2.15, 2.6, 1.45)",
 			"quality": 0.926415049479558,
 			"surfaces": [
@@ -167,7 +167,7 @@
 			"exit": "(-2.15, 5.069628, -10.0)",
 			"exit_kind": "x4",
 			"exit_side": 0.0,
-			"plan_ms": 0.138,
+			"plan_ms": 0.093,
 			"position": "(-2.15, 2.6, 1.45)",
 			"quality": 0.926415049479558,
 			"surfaces": [
@@ -181,7 +181,7 @@
 			"exit": "(-5.0, 3.882989, -4.409398)",
 			"exit_kind": "x3",
 			"exit_side": -1.0,
-			"plan_ms": 3.494,
+			"plan_ms": 3.501,
 			"position": "(0.25, 2.4, 0.85)",
 			"quality": 0.987953452330369,
 			"surfaces": [
@@ -196,7 +196,7 @@
 			"exit": "(5.0, 3.83955, -5.704628)",
 			"exit_kind": "x3",
 			"exit_side": 1.0,
-			"plan_ms": 3.353,
+			"plan_ms": 2.736,
 			"position": "(0.25, 2.4, 0.85)",
 			"quality": 0.987953452330369,
 			"surfaces": [
@@ -211,7 +211,7 @@
 			"exit": "(0.25, 4.819049, -10.0)",
 			"exit_kind": "x4",
 			"exit_side": 0.0,
-			"plan_ms": 0.137,
+			"plan_ms": 0.088,
 			"position": "(0.25, 2.4, 0.85)",
 			"quality": 0.987953452330369,
 			"surfaces": [
@@ -225,7 +225,7 @@
 			"exit": "(-5.0, 3.842186, -6.266476)",
 			"exit_kind": "x3",
 			"exit_side": -1.0,
-			"plan_ms": 4.267,
+			"plan_ms": 3.812,
 			"position": "(0.25, 2.6, 0.85)",
 			"quality": 0.926415049479558,
 			"surfaces": [
@@ -240,7 +240,7 @@
 			"exit": "(5.0, 3.881279, -5.704524)",
 			"exit_kind": "x3",
 			"exit_side": 1.0,
-			"plan_ms": 3.984,
+			"plan_ms": 2.546,
 			"position": "(0.25, 2.6, 0.85)",
 			"quality": 0.926415049479558,
 			"surfaces": [
@@ -255,7 +255,7 @@
 			"exit": "(0.25, 4.858344, -10.0)",
 			"exit_kind": "x4",
 			"exit_side": 0.0,
-			"plan_ms": 0.163,
+			"plan_ms": 0.091,
 			"position": "(0.25, 2.6, 0.85)",
 			"quality": 0.926415049479558,
 			"surfaces": [
@@ -269,7 +269,7 @@
 			"exit": "(-5.0, 3.730991, -2.415647)",
 			"exit_kind": "x3",
 			"exit_side": -1.0,
-			"plan_ms": 5.085,
+			"plan_ms": 2.893,
 			"position": "(0.25, 2.4, 1.45)",
 			"quality": 0.987953452330369,
 			"surfaces": [
@@ -284,7 +284,7 @@
 			"exit": "(5.0, 3.667507, -0.877995)",
 			"exit_kind": "x3",
 			"exit_side": 1.0,
-			"plan_ms": 4.846,
+			"plan_ms": 2.652,
 			"position": "(0.25, 2.4, 1.45)",
 			"quality": 0.987953452330369,
 			"surfaces": [
@@ -299,7 +299,7 @@
 			"exit": "(0.25, 5.012252, -10.0)",
 			"exit_kind": "x4",
 			"exit_side": 0.0,
-			"plan_ms": 0.184,
+			"plan_ms": 0.084,
 			"position": "(0.25, 2.4, 1.45)",
 			"quality": 0.987953452330369,
 			"surfaces": [
@@ -313,7 +313,7 @@
 			"exit": "(-5.0, 3.775781, -2.415526)",
 			"exit_kind": "x3",
 			"exit_side": -1.0,
-			"plan_ms": 6.946,
+			"plan_ms": 3.475,
 			"position": "(0.25, 2.6, 1.45)",
 			"quality": 0.926415049479558,
 			"surfaces": [
@@ -328,7 +328,7 @@
 			"exit": "(5.0, 3.741769, -0.877468)",
 			"exit_kind": "x3",
 			"exit_side": 1.0,
-			"plan_ms": 6.434,
+			"plan_ms": 3.121,
 			"position": "(0.25, 2.6, 1.45)",
 			"quality": 0.926415049479558,
 			"surfaces": [
@@ -343,7 +343,7 @@
 			"exit": "(0.25, 5.069628, -10.0)",
 			"exit_kind": "x4",
 			"exit_side": 0.0,
-			"plan_ms": 0.169,
+			"plan_ms": 0.159,
 			"position": "(0.25, 2.6, 1.45)",
 			"quality": 0.926415049479558,
 			"surfaces": [
@@ -357,7 +357,7 @@
 			"exit": "(-5.0, 3.709094, -3.028096)",
 			"exit_kind": "x3",
 			"exit_side": -1.0,
-			"plan_ms": 9.35,
+			"plan_ms": 9.056,
 			"position": "(2.65, 2.4, 0.85)",
 			"quality": 0.987953452330369,
 			"surfaces": [
@@ -372,7 +372,7 @@
 			"exit": "(5.0, 3.813238, -3.318184)",
 			"exit_kind": "x3",
 			"exit_side": 1.0,
-			"plan_ms": 1.171,
+			"plan_ms": 1.86,
 			"position": "(2.65, 2.4, 0.85)",
 			"quality": 0.987953452330369,
 			"surfaces": [
@@ -387,7 +387,7 @@
 			"exit": "(2.65, 4.819049, -10.0)",
 			"exit_kind": "x4",
 			"exit_side": 0.0,
-			"plan_ms": 0.073,
+			"plan_ms": 0.15,
 			"position": "(2.65, 2.4, 0.85)",
 			"quality": 0.987953452330369,
 			"surfaces": [
@@ -401,7 +401,7 @@
 			"exit": "(-5.0, 3.362449, -0.893921)",
 			"exit_kind": "x3",
 			"exit_side": -1.0,
-			"plan_ms": 5.01,
+			"plan_ms": 5.904,
 			"position": "(2.65, 2.6, 0.85)",
 			"quality": 0.926415049479558,
 			"surfaces": [
@@ -416,7 +416,7 @@
 			"exit": "(5.0, 3.880839, -3.318283)",
 			"exit_kind": "x3",
 			"exit_side": 1.0,
-			"plan_ms": 1.774,
+			"plan_ms": 1.959,
 			"position": "(2.65, 2.6, 0.85)",
 			"quality": 0.926415049479558,
 			"surfaces": [
@@ -431,7 +431,7 @@
 			"exit": "(2.65, 4.858344, -10.0)",
 			"exit_kind": "x4",
 			"exit_side": 0.0,
-			"plan_ms": 0.128,
+			"plan_ms": 0.167,
 			"position": "(2.65, 2.6, 0.85)",
 			"quality": 0.926415049479558,
 			"surfaces": [
@@ -445,7 +445,7 @@
 			"exit": "(-5.0, 3.761022, -3.482607)",
 			"exit_kind": "x3",
 			"exit_side": -1.0,
-			"plan_ms": 5.034,
+			"plan_ms": 4.392,
 			"position": "(2.65, 2.4, 1.45)",
 			"quality": 0.987953452330369,
 			"surfaces": [
@@ -460,7 +460,7 @@
 			"exit": "(5.0, 3.631306, -3.771098)",
 			"exit_kind": "x3",
 			"exit_side": 1.0,
-			"plan_ms": 1.901,
+			"plan_ms": 2.139,
 			"position": "(2.65, 2.4, 1.45)",
 			"quality": 0.987953452330369,
 			"surfaces": [
@@ -475,7 +475,7 @@
 			"exit": "(2.65, 5.012252, -10.0)",
 			"exit_kind": "x4",
 			"exit_side": 0.0,
-			"plan_ms": 0.124,
+			"plan_ms": 0.101,
 			"position": "(2.65, 2.4, 1.45)",
 			"quality": 0.987953452330369,
 			"surfaces": [
@@ -489,7 +489,7 @@
 			"exit": "(-5.0, 3.806458, -3.482471)",
 			"exit_kind": "x3",
 			"exit_side": -1.0,
-			"plan_ms": 6.427,
+			"plan_ms": 6.078,
 			"position": "(2.65, 2.6, 1.45)",
 			"quality": 0.926415049479558,
 			"surfaces": [
@@ -504,7 +504,7 @@
 			"exit": "(5.0, 3.656147, -3.772483)",
 			"exit_kind": "x3",
 			"exit_side": 1.0,
-			"plan_ms": 2.523,
+			"plan_ms": 1.616,
 			"position": "(2.65, 2.6, 1.45)",
 			"quality": 0.926415049479558,
 			"surfaces": [
@@ -519,7 +519,7 @@
 			"exit": "(2.65, 5.069628, -10.0)",
 			"exit_kind": "x4",
 			"exit_side": 0.0,
-			"plan_ms": 0.123,
+			"plan_ms": 0.078,
 			"position": "(2.65, 2.6, 1.45)",
 			"quality": 0.926415049479558,
 			"surfaces": [
@@ -538,7 +538,7 @@
 			"exit": "(-5.0, 3.620412, -2.045702)",
 			"exit_kind": "x3",
 			"exit_side": -1.0,
-			"plan_ms": 1.885,
+			"plan_ms": 0.906,
 			"position": "(-2.4, 2.44668, 1.234445)",
 			"quality": 0.971858656956599,
 			"surfaces": [
@@ -553,7 +553,7 @@
 			"exit": "(5.0, 3.657266, -3.016835)",
 			"exit_kind": "x3",
 			"exit_side": 1.0,
-			"plan_ms": 6.901,
+			"plan_ms": 2.666,
 			"position": "(0.0, 2.44668, 1.234445)",
 			"quality": 0.971858656956599,
 			"surfaces": [
@@ -568,7 +568,7 @@
 			"exit": "(2.4, 5.020381, -10.0)",
 			"exit_kind": "x4",
 			"exit_side": 0.0,
-			"plan_ms": 0.168,
+			"plan_ms": 0.07,
 			"position": "(2.4, 2.44668, 1.234445)",
 			"quality": 0.971858656956599,
 			"surfaces": [

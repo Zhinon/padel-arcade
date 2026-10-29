@@ -268,3 +268,8 @@ Mismo motor, escena y escenarios de sesión 024. Ejecutores lob_checks, smash_ch
 ## Sesión 026 — globo de práctica alineado
 
 Godot 4.7.2, main, escena principal, paso 1/120 s. H alinea origen/destino lateral al jugador (limitado a ±4 m), manteniendo solver y profundidad anteriores. special_smash_checks: 36 casos y tres H reales a x=-2.4/0/2.4, z=1.6, carril normal fijo 0; esperar 78 ticks (0.65 s), pulsar J+K, soltar al 90%, apuntar izquierda/derecha/adelante. Los tres producen especial con cuerpo inmóvil y carga dentro de banda. R conserva carril/velocidad y mensaje normal. Primera comprobación de R falló por igualdad exacta entre float del carril y componente Vector3: corregida con tolerancia, sin cambiar lanzamiento. Smash 54/tres feeds y jugador 90/diez devoluciones sin fallos. Importación completada sin errores de scripts; errores de socket del editor por sandbox. Sin nueva captura visual o valoración humana.
+
+
+## Sesión 027 — dirección de especiales
+
+Godot 4.7.2, main, escena principal, paso 1/120 s. special_smash_checks usa diagonales normalizadas (-1,-1)/(1,-1) para x3 y (0,1) para x4. 36 contactos y tres H reales a distintos carriles: cero fallos, conservando secuencias piso/vidrio/salida lateral y piso/salida por fondo. Casos negativos de izquierda/derecha solas, arriba, neutro y diagonales hacia atrás: golpe ordinario. Condiciones negativas de carga/alcance/calidad y orden invertido de botones conservadas. Smash 54/tres feeds y jugador 90/diez devoluciones: cero fallos. Importación sin errores de scripts, con socket del editor bloqueado por sandbox. Sin nueva captura ni validación humana del mapeo.

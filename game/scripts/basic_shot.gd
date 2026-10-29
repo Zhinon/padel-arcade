@@ -77,7 +77,7 @@ func begin_prepare(kind: int = ShotType.FLAT, combine: bool = false) -> void:
 		return
 	if combine and is_preparing() and charging and charge_time <= special_chord_window:
 		shot_kind = ShotType.SPECIAL
-		feedback.emit("Especial · lateral: x3 · adelante: x4 · fijá ~90%")
+		feedback.emit("Especial · diagonal adelante: x3 · atrás: x4 · fijá ~90%")
 		return
 	if state == State.LOCKED and shot_kind == ShotType.SPECIAL:
 		cancel_prepare()
@@ -141,8 +141,8 @@ func is_smash_preparation() -> bool:
 	return shot_kind in [ShotType.FLAT,ShotType.SPECIAL] and ball.active and ball.last_hitter != 0 and ball.position.y >= smash_min_height and ball.position.z >= 0.25 and ball.position.z <= player.position.z + 0.1
 
 func special_direction() -> String:
-	if absf(aim.x) >= special_direction_threshold: return "x3"
-	if aim.y <= -special_direction_threshold: return "x4"
+	if aim.y <= -special_direction_threshold and absf(aim.x) >= special_direction_threshold: return "x3"
+	if aim.y >= special_direction_threshold and absf(aim.x) < special_direction_threshold: return "x4"
 	return ""
 
 func is_smash_context() -> bool:
