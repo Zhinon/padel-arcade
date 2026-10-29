@@ -9,14 +9,14 @@
 		},
 		{
 			"case": "backhand",
-			"max_racket_motion_m": 0.695280253887177,
+			"max_racket_motion_m": 0.756771683692932,
 			"miss_count_delta": 1,
 			"sound_requests_delta": 0,
 			"strikes": 0
 		},
 		{
 			"case": "forehand",
-			"max_racket_motion_m": 1.22941184043884,
+			"max_racket_motion_m": 1.06110346317291,
 			"miss_count_delta": 1,
 			"sound_requests_delta": 0,
 			"strikes": 0

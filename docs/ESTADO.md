@@ -1,6 +1,6 @@
 # Estado y próxima sesión
 
-Actualizado: 28/10/2026, zona America/Argentina/Mendoza. Sesión 027.
+Actualizado: 28/10/2026, zona America/Argentina/Mendoza. Sesión 028.
 
 ## Dónde estamos
 
@@ -20,7 +20,7 @@ Godot 4.7.2.stable.official.ed1daf0bf portátil. Git local main, sin remoto. P06
 
 ## Límites
 
-Animación geométrica provisional sin esqueleto ni biomecánica final; no hay rival, arbitraje, puntos o giro; chiquita, globo y smash contextual disponibles; volea contextual pendiente. Otros personajes estáticos; pelota sin colisión con cuerpos. Sonidos sintéticos sin muestras externas; no equivalen a grabaciones de pádel. Mando solo probado sintéticamente. No se repitieron recorridos/FPS pasivos porque no se cambió esa física.
+Animación geométrica provisional sin esqueleto ni biomecánica final; no hay rival, arbitraje, puntos o giro; chiquita, globo, smash y volea contextual disponibles. Otros personajes estáticos; pelota sin colisión con cuerpos. Sonidos sintéticos sin muestras externas; no equivalen a grabaciones de pádel. Mando solo probado sintéticamente. No se repitieron recorridos/FPS pasivos porque no se cambió esa física.
 
 ## Corrección de red — sesión 013
 
@@ -88,7 +88,7 @@ Búsqueda pura elige velocidad inicial para piso/vidrio/salida lateral o piso/sa
 
 ## Próximo paso
 
-**Probar combo x3/x4 con el usuario (P41):** avanzar hasta 1–2 m de red, H, preparar J+K juntos, fijar ~90%; W+A/D x3, S x4. Revisar claridad de carga y oportunidad, sin alterar base aceptada. Después P40 volea contextual y rival pendiente.
+**Probar volea contextual con el usuario (P41):** colocarse a unos 3 m de red en carril de recepción, R y preparar J enseguida, fijar ~90%, apuntar. Comprobar gesto corto, respuesta y diferencia con defensa. Después P43 rival simple para encadenar intercambios; calibración humana de especiales sigue abierta.
 
 ## Abrir
 
@@ -112,3 +112,10 @@ Usuario no consigue globo corto usando R. R es pelota normal: para globo usar H,
 ## Direcciones intuitivas — sesión 027
 
 Usuario dice «ta bueno» y señala que esperaba W+D para x3 y S para x4. Se adopta W+A/W+D para x3 hacia ese lateral, S para x4; equivalentes en flechas y stick. Dirección lateral sola, adelante solo, centro o diagonal atrás conservan golpe ordinario. Cambia selección de especial, no trayectoria ni carga. HUD/guías actualizados; videos antiguos reflejan mapeo anterior. Pendiente probar comodidad de este cambio.
+
+
+## Volea contextual — sesión 028
+
+J/A intercepta antes del pique propio en vuelo entrante de 0.45–2.1 m; alcance 1 m, ideal 1.25 m. Trayectoria propia 10–17 m/s nominales con asistencia de red, gesto compacto y recuperación preparada 0.14 s. Llegada exigida conserva devolución suave/menos colocada y 0.28 s; 100% conserva riesgo. K/globo, pelota alta/smash y después del pique/plano-chiquita conservados. No efecto cortado ni cambios físicos. 54 trayectorias/tres R reales y regresiones aprobadas; render nativo/capturas revisados, valoración humana pendiente. Ver VOLEA.md.
+
+Riesgos de volea verificados tras pedido del usuario: poca fuerza/contacto bajo puede tocar red; suave cómoda pasa; 100% profundo o abierto puede tocar directamente vidrio de fondo o cerramiento lateral rival antes del piso. Seis casos específicos guardados en informe.

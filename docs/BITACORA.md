@@ -292,3 +292,14 @@ Usuario no consigue globo corto con R. Aclarado H y detectada desalineación lat
 ## 28/10/2026 — Sesión 027: dirección según intuición del usuario
 
 Usuario valora práctica y esperaba W+D x3, S x4. Se implementa diagonal adelante (W+A/W+D) para x3 por lateral correspondiente y atrás (S) para x4; equivalentes en flechas/stick. HUD y guías actualizados. Sin cambios en físicas, carga o combo. Especiales 36/tres feeds, negativos de dirección, smash 54/tres y jugador 90/diez aprobados. Importación sin errores de scripts, socket de editor bloqueado por sandbox. Validación humana pendiente.
+
+
+## 28/10/2026 — Sesión 028: volea contextual
+
+**Pedido:** implementar volea como siguiente variedad antes de rival de entrenamiento. Selección contextual con J/A y pelota entrante aún sin pique propio desde último golpe. Altura 0.45–2.1 m y alcance 1 m; solver más directo para preparada, defensa suave existente para exigida, sobrecarga conservada. Globo, smash y golpes tras pique conservados. R no cambia; prueba desde unos 3 m de red.
+
+**Presentación:** preparación delante del cuerpo y acompañamiento compacto 0.16 s, recuperación preparada 0.14 s. Contacto visual mantiene evento físico, audio/destello por calidad. HUD reconoce volea. Sin nuevas físicas/spin, botones o rival. Error de indentación inicial del HUD corregido antes de ejecutar pruebas.
+
+**Verificación:** 54 trayectorias/tres feeds R, selección por historial/altura/botón, defensa/carga/riesgo, contacto y geometría corporal aprobados. Regresiones jugador, globo, smash, especiales, chiquita, poses, audio e intento fallido aprobadas. Importación final sin errores de scripts; render llvmpipe, capturas revisadas y video 2 s. Primer intento gráfico no pudo acceder a display, resuelto con permiso de red local. Sin prueba humana ni rendimiento objetivo. Plan/documentación actualizados; siguiente P41 valoración de volea y P43 rival simple.
+
+**Ajuste del usuario durante el desarrollo:** pidió aclarar volea suave/red y permitir sobrecarga a pared/laterales sin pique. Se añadió pérdida determinista de margen con potencia insuficiente y contacto bajo/mala calidad, aplicada después de asistencia. Se comprobaron seis vuelos específicos de debilidad, control y sobrecarga, incluidos ambos laterales y vidrio de fondo. Riesgos/documentación actualizados; no aleatoriedad.

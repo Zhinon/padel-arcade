@@ -8,7 +8,7 @@ Juego de pádel 3D para PC, con jugabilidad arcade inspirada en Virtua Tennis y 
 
 La vista cercana es de revisión; el juego conserva la cámara general de cancha.
 
-En Linux: `./tools/run-godot.sh`. **WASD/flechas:** mover; **R:** recibir pelota; **H:** recibir globo para rematar; **J:** plano/smash contextual; **K:** globo; **J+K juntos:** especial x3 W+A/D / x4 S cerca de red al ~90%; mantener carga y soltar fija (referencia 90%); contacto automático; **T:** cambiar zona; **P:** pausa; **F8:** laboratorio.
+En Linux: `./tools/run-godot.sh`. **WASD/flechas:** mover; **R:** recibir pelota; **H:** recibir globo para rematar; **J:** plano/volea/smash contextual; **K:** globo; **J+K juntos:** especial x3 W+A/D / x4 S cerca de red al ~90%; mantener carga y soltar fija (referencia 90%); contacto automático; **T:** cambiar zona; **P:** pausa; **F8:** laboratorio.
 
 [Guía y video de práctica](docs/PRACTICA.md). [Laboratorio de rebotes](docs/LABORATORIO_PELOTA.md).
 

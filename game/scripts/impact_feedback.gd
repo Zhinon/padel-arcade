@@ -42,6 +42,8 @@ var contact_local := Vector3.ZERO
 var follow_side: float = 1.0
 var last_kind: String = "normal"
 var overhead_stroke: bool = false
+var volley_stroke: bool = false
+@export var volley_follow_duration: float = 0.16
 var presented_hits: int = 0
 var sound_requests: int = 0
 
@@ -80,6 +82,7 @@ func present_hit(event: Dictionary) -> void:
 	if not enabled or paused:
 		return
 	miss_animation = false
+	volley_stroke = event.get("shot_type", "") == "volley"
 	overhead_stroke = event.get("shot_type", "") in ["smash","x3","x4"]
 	last_kind = "perfect" if event.perfect else ("defense" if event.defensive else "normal")
 	presented_hits += 1
@@ -113,6 +116,7 @@ func present_miss(event: Dictionary) -> void:
 		return
 	presented_misses += 1
 	overhead_stroke = false
+	volley_stroke = false
 	if shot_side == "overhead": shot_side = "forehand"
 	if event.ball_available:
 		_select_side(event.ball_position)
@@ -130,12 +134,12 @@ func present_miss(event: Dictionary) -> void:
 	flash.visible = false
 
 func _stroke_active() -> bool:
-	return elapsed < (miss_swing_duration if miss_animation else follow_duration)
+	return elapsed < (miss_swing_duration if miss_animation else (volley_follow_duration if volley_stroke else follow_duration))
 
 func _follow_progress() -> float:
 	if miss_animation:
 		return clampf((elapsed / miss_swing_duration - 0.35) / 0.65, 0.0, 1.0)
-	return clampf(elapsed / follow_duration, 0.0, 1.0)
+	return clampf(elapsed / (volley_follow_duration if volley_stroke else follow_duration), 0.0, 1.0)
 
 func _color() -> Color:
 	return Color("c7ff64") if last_kind == "perfect" else (Color("ffb76b") if last_kind == "defense" else Color("a5e9ff"))
@@ -173,6 +177,8 @@ func step(delta: float) -> void:
 			var waypoint: Vector3 = player.visual.to_local(torso.to_global(Vector3(0.55, 0.95, -0.45)))
 			desired = contact_local.lerp(waypoint, smoothstep(0.0, 0.25, t))
 			desired = desired.lerp(follow, smoothstep(0.25, 0.55, t))
+		if volley_stroke and not miss_animation:
+			desired = contact_local.lerp(contact_local + Vector3(0, 0.06, -0.18), smoothstep(0.0, 0.4, t))
 		desired = desired.lerp(racket_rest.origin, smoothstep(0.6, 1.0, t))
 		player.racket.position = _outside_torso(desired, 0.46)
 		player.racket.rotation = Vector3(0, follow_side * sin(t * PI) * 0.8, 0)
@@ -180,6 +186,7 @@ func step(delta: float) -> void:
 			player.selection_ring.material_override.albedo_color = _color()
 	elif player.preparing:
 		var overhead: bool = controller.is_smash_preparation()
+		var volley: bool = controller.is_volley_context()
 		if overhead:
 			shot_side = "overhead"
 		else:
@@ -189,6 +196,7 @@ func step(delta: float) -> void:
 		var arrival := clampf((2.0 - distance) / 1.2, 0.0, 1.0)
 		var prepared_yaw := _desired_yaw(controller.ball.position)
 		if overhead: prepared_yaw = -0.75
+		if volley: prepared_yaw *= 0.55
 		if shot_side == "forehand":
 			prepared_yaw = lerp_angle(prepared_yaw, _contact_yaw(controller.ball.position), smoothstep(0.0, 1.0, arrival))
 		stance_yaw = lerp_angle(stance_yaw, prepared_yaw, minf(delta * stance_turn_speed, 1.0))
@@ -198,6 +206,8 @@ func step(delta: float) -> void:
 		var windup_torso := Vector3(side * 0.50, 0.02 + charge * 0.12, -0.48)
 		if shot_side == "forehand":
 			windup_torso = Vector3(0.56, 0.04 + charge * 0.12, 0.12)
+		if volley:
+			windup_torso = Vector3(side * 0.4, 0.18, -0.48)
 		if overhead:
 			windup_torso = Vector3(0.42, 0.95 + charge * 0.12, 0.10)
 		var windup: Vector3 = player.visual.to_local(torso.to_global(windup_torso))
@@ -337,6 +347,7 @@ func reset_presentation() -> void:
 	elapsed = 1.0
 	miss_animation = false
 	overhead_stroke = false
+	volley_stroke = false
 	pending_contact = false
 	flash.visible = false
 	audio.stop()

@@ -202,3 +202,11 @@ Para cambiar una decisión: añadir fecha, contexto, alternativas relevantes, el
 ## 28/10/2026 — sesión 027: dirección de especiales
 
 - **D87:** usuario valora práctica y explica intuición W+D para x3 y S para x4. Se adopta diagonal adelante con lateral (W+A/W+D) para x3 y atrás sin lateral fuerte (S) para x4; mismos ejes con flechas/stick. Las demás direcciones dan golpe ordinario. Reemplaza mapeo D81; no cambia trayectoria física, combo/carga o posición requerida.
+
+
+## 28/10/2026 — sesión 028: volea contextual
+
+- **D88, autorización:** usuario pide implementar volea contextual. J/A antes del pique en mitad propia, pelota entrante de 0.45–2.1 m y alcance 1 m; ventana/altura/velocidad abiertas a calibración. K conserva globo, altura de smash y golpe después del pique conservan rutas anteriores. Historial de piso se consulta desde último golpe, no desde inicio de toda la pelota.
+- **D89, provisional:** volea preparada con destino y velocidad propios (10–17 m/s nominales), asistencia de red previa al riesgo, preparación y gesto cortos, recuperación 0.14 s. Exigida usa devolución suave y limitada existente. Sin efecto cortado real ni cambios de rebotes; prueba mediante R desde z=3 m, sin modificar feed. Sonidos por calidad reutilizados. Validación humana pendiente.
+
+- **D90, ajuste solicitado durante implementación:** usuario pregunta por volea corta sin fuerza y pide riesgo de cerramiento directo al sobrecargar. Potencia insuficiente + contacto bajo/mala calidad reduce margen de red después de asistencia; suave bien preparada sigue siendo viable. Sobrecarga conserva pérdida de profundidad/ángulo y se verifican contactos directos con vidrio de fondo o cerramiento lateral rival antes del pique. No errores aleatorios ni fallos garantizados por un porcentaje de carga.

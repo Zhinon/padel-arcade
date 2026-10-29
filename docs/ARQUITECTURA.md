@@ -116,3 +116,8 @@ PracticeInput mantiene flat_down/lob_down y emite prepare_requested(kind,combine
 SpecialSmash (RefCounted) es predictor puro: enumera velocidades bajo max_speed, integra a paso físico, descarta net/fence/segundo pique y exige margen sobre el cerramiento correcto. Comparte BallSimulation.floor_tangent, extraído sin cambiar impulso de piso. Filtrado por coste/ángulo evita trazas innecesarias. Resultado contiene velocidad, destino de primer pique, salida prevista, tipo y coste temporal local. Si no hay solución se conserva remate normal. No se cambia simulación para adaptar rebotes a etiqueta de golpe ni se usa RNG de reja. Hit.shot_type=x3/x4 solo si elegido un plan; la trayectoria real se comprueba en tests, no se adjudica punto.
 
 ImpactFeedback reconoce x3/x4 como overhead. HUD anuncia combo, carga y dirección. H cercano usa landing_z=player.z+1.15 para ofrecer globo delante de jugador; H de fondo conserva destino z=9. Cámara y colliders sin cambio.
+
+
+## Volea contextual — sesión 028
+
+BasicShot consulta historial de contactos desde el último strike para distinguir vuelo entrante de golpe tras pique, resuelve calidad y velocidad inicial, y emite shot_type volley con flag defensive independiente. No añade intención de botón: FLAT elige volea por contexto. ImpactFeedback consume el evento para gesto compacto/acompañamiento corto; sigue sin modificar cuerpo o pelota. Práctica R/H conservada; no sistema de rival ni efecto cortado añadido.

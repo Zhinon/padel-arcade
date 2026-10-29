@@ -273,3 +273,14 @@ Godot 4.7.2, main, escena principal, paso 1/120 s. H alinea origen/destino later
 ## Sesión 027 — dirección de especiales
 
 Godot 4.7.2, main, escena principal, paso 1/120 s. special_smash_checks usa diagonales normalizadas (-1,-1)/(1,-1) para x3 y (0,1) para x4. 36 contactos y tres H reales a distintos carriles: cero fallos, conservando secuencias piso/vidrio/salida lateral y piso/salida por fondo. Casos negativos de izquierda/derecha solas, arriba, neutro y diagonales hacia atrás: golpe ordinario. Condiciones negativas de carga/alcance/calidad y orden invertido de botones conservadas. Smash 54/tres feeds y jugador 90/diez devoluciones: cero fallos. Importación sin errores de scripts, con socket del editor bloqueado por sandbox. Sin nueva captura ni validación humana del mapeo.
+
+
+## Sesión 028 — volea contextual
+
+Godot 4.7.2.stable.official.ed1daf0bf, main modificado, escena principal, 120 Hz. `volley_checks.gd`: 54 trayectorias y tres R reales; parámetros, fixture/feeds y tolerancias en VOLEA.md, informe previews/volley-checks.json. Preparadas: primer contacto piso rival y error <0.25 m; contactos a ambos lados, alturas 0.5/1.25/2 y jugador z=1.5/3/5. Defensa tardía devuelve más lento/menos dirigida; carga baja más suave; 100% abajo choca red. Historial propio desde último golpe decide volea, no historial de toda la pelota. K, smash, baja y saliente no se confunden con volea. Alcance/pausa/cancelación existentes compartidos.
+
+Pala coincide en contacto <0.0001 m; brazos/cabeza/torso muestreados con tolerancia -0.008 m, mínimo actual ~0.00302 m. Acompañamiento y reset no cambian cuerpo ni velocidad de pelota. Recuperación preparada configurada 0.14 s. Tres feeds reales R a z=3 m, preparación tras 10 ticks, fijación 90.625%, altura real 1.706 m y calidad ~0.880. No se recoloca pelota al contacto en los feeds.
+
+Regresiones aprobadas: player 90/diez devoluciones, lob 54, smash 54/tres feeds, especiales 36/tres, chiquita 54, poses 18, impacto tres clases y abanicazos cinco. Error inicial de edición/indentación de HUD detectado por importación y corregido. Importación final sin errores de scripts, render nativo llvmpipe ejecutado; capturas preparación/contacto inspeccionadas y video 60 frames a 30 fps (2 s), sin audio. Primer intento de ventana bloqueado por acceso a display; ejecutado después con permiso de red local. Sin benchmark ni validación humana de comodidad/animación.
+
+**Riesgos solicitados durante la sesión:** añadidos seis vuelos específicos al informe risk_checks: sobrecarga abajo/red, 5% con contacto a 0.5 m/red, 30% a 1.25 m/piso rival, 100% profundo con alcance lateral 0.8 m/vidrio de fondo directo, y 100% hacia cada lado/cerramiento lateral rival antes de piso. Todos aprobados; matriz preparada 54/tres feeds conservada.

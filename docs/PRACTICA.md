@@ -74,7 +74,7 @@ El cuerpo del jugador colisiona con la cancha. La pelota no rebota contra los cu
 
 El golpe base calcula una velocidad de salida para aterrizar cerca del aro rival usando el mismo paso de gravedad y resistencia de E2. Ajusta duración si hace falta para intentar pasar la red con margen (altura de centro de pelota al cruzar: al menos 1.3 m en la predicción). Esto es asistencia arcade explícita.
 
-La pelota sigue recorriendo la trayectoria mediante física y colisiones. Si hay un impacto intermedio, ya no se garantiza el destino previsto. Globo con K y smash contextual con J están disponibles; volea contextual y giro de pelota siguen pendientes. Los lanzamientos F1–F7 siguen siendo pruebas del laboratorio.
+La pelota sigue recorriendo la trayectoria mediante física y colisiones. Si hay un impacto intermedio, ya no se garantiza el destino previsto. Globo con K y smash contextual con J están disponibles; volea contextual disponible antes del pique; giro de pelota pendiente. Los lanzamientos F1–F7 siguen siendo pruebas del laboratorio.
 
 ## Presentación del impacto
 
@@ -173,3 +173,10 @@ Primera aproximación arcade sin liftado real ni punto automático. [Diseño y f
 ### Globo corto para practicar (sesión 026)
 
 Primero acercate con W hasta 1–2 m de la red y frená. Después pulsá **H**, que lanza un globo hacia tu posición lateral; R sigue siendo la pelota normal. Con J+K juntos prepará, soltá ambos al 90% y apuntá W+A o W+D para x3, o S para x4. No hace falta correr desde el fondo después de lanzar H. El globo se decide según dónde estás al lanzarlo.
+
+
+## Volea contextual con J
+
+Colocate en tu carril a unos **3 metros de la red**, pulsá **R** y prepará enseguida con **J**. Soltá cerca del 90% y apuntá. Si interceptás antes del pique entre 0.45–2.1 m, sale volea de gesto corto; llegada tardía devuelve más suave y con menos dirección. Después del pique sigue plano/chiquita; K conserva globo y pelota alta conserva smash. [Diseño, límites y demostración](VOLEA.md).
+
+En volea, **muy poca carga con contacto bajo o exigido** puede quedar en la red. Una suave bien colocada puede pasar. Al **100%**, apuntar profundo o muy abierto puede pegar directo al vidrio de fondo o cerramiento lateral rival antes del pique; abajo conserva riesgo de red.

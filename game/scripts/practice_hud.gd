@@ -45,7 +45,7 @@ func _ready() -> void:
 	status.add_theme_font_size_override("font_size", 18)
 	column.add_child(status)
 	controls = Label.new()
-	controls.text = "WASD/flechas: mover/apuntar · J: plano/smash · K: globo · juntos: especial x3/x4 · R: pelota · H: globo recibido · T: zona · P: pausa · M: audio · F8: lab"
+	controls.text = "WASD/flechas: mover/apuntar · J: plano/volea/smash · K: globo · juntos: especial x3/x4 · R: pelota · H: globo recibido · T: zona · P: pausa · M: audio · F8: lab"
 	controls.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	controls.add_theme_font_size_override("font_size", 16)
 	controls.add_theme_color_override("font_color", Color("d0dde0"))
@@ -83,7 +83,9 @@ func _process(_delta: float) -> void:
 		elif controller.shot_kind == controller.ShotType.LOB:
 			status.text = "Globo %d%% · soltar fija altura y profundidad" % roundi(controller.shot_charge * 100.0)
 		else:
-			if controller.is_smash_preparation():
+			if controller.is_volley_context():
+				status.text = "Volea %d%% · soltá y apuntá" % roundi(controller.shot_charge * 100.0)
+			elif controller.is_smash_preparation():
 				status.text = "Smash %d%% · soltá cerca del 90%% · apuntá" % roundi(controller.shot_charge * 100.0)
 			else:
 				status.text = ("Plano %d%% · suave + abajo: chiquita" if compact else "Plano %d%% · suave + abajo: chiquita · 90%%: golpe potente · soltar fija") % roundi(100.0 * controller.charge_time / controller.full_preparation)
@@ -93,6 +95,8 @@ func _process(_delta: float) -> void:
 			status.text = "Especial %d%% · %s · cerca de red" % [roundi(controller.shot_charge * 100.0),choice if choice != "" else "W+A/D: x3 / S: x4"]
 		elif controller.shot_kind == controller.ShotType.LOB:
 			status.text = "Globo fijado %d%% · apuntá · K cancela" % roundi(controller.shot_charge * 100.0)
+		elif controller.is_volley_context():
+			status.text = "Volea fijada %d%% · apuntá · J cancela" % roundi(controller.shot_charge * 100.0)
 		elif controller.is_smash_preparation():
 			status.text = "Smash fijado %d%% · apuntá · J cancela" % roundi(controller.shot_charge * 100.0)
 		else:
