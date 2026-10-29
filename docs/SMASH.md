@@ -6,8 +6,8 @@ Primera versión, 28/10/2026. Pendiente valoración jugable del usuario; plano/g
 
 1. **H** recibe un globo por la zona seleccionada; en mando configurado, **RB**. **T** cambia zona y lanza pelota normal; después H permite probar allí.
 2. Ubicate en la trayectoria. En la zona inicial el globo llega al jugador sin tener que correr.
-3. Prepará con **Espacio/A** con anticipación y soltá cerca del **90%**. Direccional apunta mientras estás plantado.
-4. Cuando la pelota desciende a altura alcanzable sobre la cabeza, sale smash automáticamente. **E/B** conserva globo y no se convierte en smash.
+3. Prepará con **J/A** con anticipación y soltá cerca del **90%**. Direccional apunta mientras estás plantado.
+4. Cuando la pelota desciende a altura alcanzable sobre la cabeza, sale smash automáticamente. **K/B** conserva globo y no se convierte en smash.
 5. **R** vuelve a recibir pelota normal. H no es un botón de golpe, solo un lanzamiento de práctica.
 
 ## Condiciones y compromiso
@@ -30,10 +30,13 @@ Preparación con pala arriba/detrás de cabeza, torso de costado y brazo libre e
 
 ## Evidencia
 
-smash_checks.gd: 54 trayectorias, jugador z=2/5/8.5, alturas 2.2/2.4/2.6, x relativo ±0.35, z relativo -0.35, tres apuntados, carga ~90%. Contactos reales automáticos con eventos de Espacio; pelota estática de prueba se coloca en ventana antes de simular vuelo. Primer contacto piso rival, error <0.25 m, velocidad vertical inicial negativa. Tres feeds H reales sin colocar pelota en el impacto completan remate: altura ~2.447 m, calidad ~0.976, salida horizontal ~24.40 m/s y primer pique a 5.5 m de red rival.
+smash_checks.gd: 54 trayectorias, jugador z=2/5/8.5, alturas 2.2/2.4/2.6, x relativo ±0.35, z relativo -0.35, tres apuntados, carga ~90%. Contactos reales automáticos con eventos de J; pelota estática de prueba se coloca en ventana antes de simular vuelo. Primer contacto piso rival, error <0.25 m, velocidad vertical inicial negativa. Tres feeds H reales sin colocar pelota en el impacto completan remate: altura ~2.447 m, calidad ~0.976, salida horizontal ~24.40 m/s y primer pique a 5.5 m de red rival.
 
-También comparadas llegada tardía, cuatro situaciones imposibles/prematuras, E que conserva globo y riesgo 100% corto/profundo. Pose muestreada contra torso/cabeza en preparación, contacto y acompañamiento; mínimo registrado ~0.0031 m y tolerancia de penetración conservadora 0.008 m. Contacto de pala <0.0001 m y presentación no cambia cuerpo/pelota. No garantía exhaustiva de todas las geometrías posibles.
+También comparadas llegada tardía, cuatro situaciones imposibles/prematuras, K que conserva globo y riesgo 100% corto/profundo. Pose muestreada contra torso/cabeza en preparación, contacto y acompañamiento; mínimo registrado ~0.0031 m y tolerancia de penetración conservadora 0.008 m. Contacto de pala <0.0001 m y presentación no cambia cuerpo/pelota. No garantía exhaustiva de todas las geometrías posibles.
 
 Regresiones: jugador 90/diez, globo 54/tres feeds, chiquita 54/24/tres feeds y segundo pique, tres impactos/audio, cinco abanicazos y 18 poses anteriores aprobadas. Importación sin errores de scripts. Capturas cercanas de preparación/contacto/acompañamiento y cámara de juego revisadas. Video de cinco segundos con H y entradas sintéticas, sin audio. Sin prueba humana del smash ni mando físico; llvmpipe no representa rendimiento objetivo.
 
 [Demostración](previews/smash.mp4) · [Preparación cercana](previews/smash-preparation-close.png) · [Contacto](previews/smash-contact-close.png) · [Acompañamiento](previews/smash-follow-close.png). Informe en previews/smash-checks.json.
+
+
+Controles actualizados en sesión 025 a J/K. Las capturas y videos de sesiones previas pueden mostrar Espacio/E.

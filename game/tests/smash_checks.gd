@@ -35,12 +35,12 @@ func _contact(z: float, height: float, dx: float, direction: Vector2, charge: fl
 	shot.reset_cycle()
 	pose.reset_presentation()
 	ball.launch(Vector3(3, 3.5, 1), Vector3.ZERO)
-	_key(KEY_SPACE, true)
+	_key(KEY_J, true)
 	for tick in range(roundi(charge * shot.full_preparation / DT)):
 		shot.step(DT)
 		pose.step(DT)
 		_pose_check("windup")
-	_key(KEY_SPACE, false)
+	_key(KEY_J, false)
 	if early:
 		for tick in range(30):
 			shot.step(DT)
@@ -140,7 +140,7 @@ func _run() -> void:
 	_check(ball.strikes.is_empty(), "Rising high ball waits instead of premature smash")
 	shot.reset_cycle()
 	ball.launch(player.position + Vector3(0.25,2.4,-0.35),Vector3(0,-4,0))
-	_key(KEY_E,true)
+	_key(KEY_K,true)
 	shot.step(DT)
 	_check(ball.strikes.is_empty() and shot.shot_kind == shot.ShotType.LOB, "Globo button never becomes smash")
 	shot.reset_cycle()
@@ -153,8 +153,8 @@ func _run() -> void:
 		var before: int = events.size()
 		for tick in range(400):
 			ball.step(DT)
-			if tick == 40: _key(KEY_SPACE,true)
-			if shot.charging and shot.shot_charge >= 0.9: _key(KEY_SPACE,false)
+			if tick == 40: _key(KEY_J,true)
+			if shot.charging and shot.shot_charge >= 0.9: _key(KEY_J,false)
 			shot.step(DT)
 			pose.step(DT)
 			if events.size() > before: break
@@ -176,8 +176,8 @@ func _run() -> void:
 		for frame in range(150):
 			for tick in range(4):
 				ball.step(DT)
-				if frame == 10 and tick == 0: _key(KEY_SPACE,true)
-				if shot.charging and shot.shot_charge >= 0.9: _key(KEY_SPACE,false)
+				if frame == 10 and tick == 0: _key(KEY_J,true)
+				if shot.charging and shot.shot_charge >= 0.9: _key(KEY_J,false)
 				shot.step(DT)
 				if shot.hits > 0 and not captured_contact:
 					captured_contact = true

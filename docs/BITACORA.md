@@ -275,3 +275,10 @@ Usuario indica «lo sentí bien». Registrada aceptación cualitativa, sin infer
 **Ajustes:** tipo de Array del predictor corregido tras error inicial de ejecución; primer barrido angular no encontraba x3 hacia lateral cercano desde x=2.65, refinado y podado por velocidad/ángulo para evitar exceso de coste. 36 salidas barridas y tres H reales completan secuencias. H se centró más delante para mejorar calidad de contacto cerca de red.
 
 **Pruebas:** casos negativos de carga/posición/calidad/dirección, orden de botones invertido, liberación/switch/pausa y preservación de reloj/RNG aprobados. Regresiones de plano, globo, smash, chiquita/segundo pique, pelota, superficies, poses, audio y fallo aprobadas. Capturas juego x3/x4 y videos revisados. Documentación y punto Git; evaluación humana y mando físico pendientes.
+
+
+## 28/10/2026 — Sesión 025: teclado J/K
+
+**Pedido:** sustituir Espacio+E por botones contiguos. Elegidos J para plano/smash y K para globo; J+K especial. Actualizados adaptador, HUD, título, instrucciones de H, guías y ejecutores de pruebas. Espacio conserva pausa en laboratorio, mando A/B conservado. No cambia física ni tiempos.
+
+**Verificación:** Godot 4.7.2, pruebas sin ventana: globo 54 trayectorias, smash 54/tres feeds, especiales 36/tres feeds y jugador 90/diez devoluciones, todas sin fallos. Verificado mapa J/K y ausencia de bindings viejos para golpes. Importación completada sin errores de scripts, con errores de socket del editor por sandbox; los ejecutores no los presentan. Sin nueva inspección visual o prueba humana. Reiniciar para cargar controles; comodidad del par y combo pendiente de usuario.

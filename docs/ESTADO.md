@@ -1,6 +1,6 @@
 # Estado y próxima sesión
 
-Actualizado: 28/10/2026, zona America/Argentina/Mendoza. Sesión 024.
+Actualizado: 28/10/2026, zona America/Argentina/Mendoza. Sesión 025.
 
 ## Dónde estamos
 
@@ -88,12 +88,17 @@ Búsqueda pura elige velocidad inicial para piso/vidrio/salida lateral o piso/sa
 
 ## Próximo paso
 
-**Probar combo x3/x4 con el usuario (P41):** avanzar hasta 1–2 m de red, H, preparar Espacio+E juntos, fijar ~90%; lateral x3/adelante x4. Revisar claridad de carga y oportunidad, sin alterar base aceptada. Después P40 volea contextual y rival pendiente.
+**Probar combo x3/x4 con el usuario (P41):** avanzar hasta 1–2 m de red, H, preparar J+K juntos, fijar ~90%; lateral x3/adelante x4. Revisar claridad de carga y oportunidad, sin alterar base aceptada. Después P40 volea contextual y rival pendiente.
 
 ## Abrir
 
-`./tools/run-godot.sh`. R recibe; WASD/flechas mueve o apunta preparando; Espacio plano y E globo, mantener carga/soltar fija; repetir botón elegido tras fijar cancela; H recibe globo para smash; T cambia zona; P pausa/continúa; M audio; F8 laboratorio. Guía PRACTICA.md.
+`./tools/run-godot.sh`. R recibe; WASD/flechas mueve o apunta preparando; J plano y K globo, mantener carga/soltar fija; repetir botón elegido tras fijar cancela; H recibe globo para smash; T cambia zona; P pausa/continúa; M audio; F8 laboratorio. Guía PRACTICA.md.
 
 ## Cierre
 
 Actualizar plan, pruebas y bitácora, registrar decisiones y guardar punto de recuperación Git.
+
+
+## Controles actualizados — sesión 025
+
+Por incomodidad del combo anterior, J prepara plano/smash y K prepara globo; J+K arma el especial. WASD/flechas conservados; mando A/B sin cambios. Espacio sigue pausando en laboratorio. Las secciones históricas y videos anteriores muestran los botones previos. Reiniciar el juego para cargar este cambio.

@@ -258,3 +258,8 @@ Tres H reales a z jugador 1.6 sin teletransporte completan ambos laterales y fon
 Problemas corregidos: Array tipado de rama ternaria; barrido angular insuficiente para lateral cercano, ampliado con poda. Predictor tiene margen por aproximación; validación es sobre CharacterBody3D real, no solo su estimación.
 
 Regresiones: player_checks 90/diez, lob_checks 54/tres, smash_checks 54/tres, chiquita_checks 54/24/tres/segundo pique, ball_checks 13 y surface_calibration, 18 poses, tres impactos/audio, cinco abanicazos aprobados. Floor_tangent es extracción sin cambio de fórmula. Importación sin errores de scripts. Capturas nativas y videos de tres segundos revisados; sin benchmark objetivo ni mando físico/prueba humana/reglas completas.
+
+
+## Sesión 025 — remapeo J/K
+
+Mismo motor, escena y escenarios de sesión 024. Ejecutores lob_checks, smash_checks y special_smash_checks ahora inyectan J/K en lugar de Espacio/E; captura de práctica actualizada. Añadidas comprobaciones de J plano, K globo y ausencia de acciones de golpe con Espacio/E. Globo 54 trayectorias, smash 54/tres feeds, especiales 36/tres feeds y jugador 90/diez devoluciones: cero fallos. Verifica carga, fijación, cambio/cancelación y combo con nuevas entradas. Importación completada sin errores de scripts; socket del editor bloqueado por sandbox. Sin nueva prueba visual, humana o mando físico. Capturas/videos previos conservan etiquetas históricas.

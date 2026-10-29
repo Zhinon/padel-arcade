@@ -47,9 +47,9 @@ func _run() -> void:
 		Input.action_release("padel_right")
 		if absf(error) > 0.04:
 			Input.action_press("padel_right" if error > 0 else "padel_left", minf(1.0, absf(error) * 3))
-		if frame in [18, 108]: _key(KEY_SPACE, true)
+		if frame in [18, 108]: _key(KEY_J, true)
 		if lab.shot_controller.charging and lab.shot_controller.charge_time >= lab.shot_controller.full_preparation * 0.9:
-			_key(KEY_SPACE, false)
+			_key(KEY_J, false)
 		await process_frame
 		RenderingServer.force_draw()
 		var image := root.get_texture().get_image()

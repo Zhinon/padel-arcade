@@ -6,8 +6,8 @@ Primera versión jugable, 28/10/2026. Parámetros provisionales; valoración hum
 
 | Golpe | Teclado | Mando configurado |
 | --- | --- | --- |
-| Plano | Mantener/soltar Espacio | A |
-| Globo | Mantener/soltar E | B |
+| Plano | Mantener/soltar J | A |
+| Globo | Mantener/soltar K | B |
 
 Ambos plantan al jugador, permiten apuntar con el mismo direccional, cargan mientras mantenés y fijan al soltar. Contacto automático al llegar pelota, incluso manteniendo. La chiquita sigue siendo variación del plano: 20–40% y abajo.
 
@@ -25,7 +25,7 @@ Presentación reutiliza poses provisionales derecha/revés y sonidos de clases n
 
 `./tools/run-godot.sh --headless --script res://tests/lob_checks.gd`.
 
-54 contactos: jugador z=2/5/9 m, pelota relativa (0,h,-0.65), h=0.3/0.9/1.8 m, apuntado (±0.6,∓0.8) y neutro, cargas 30/90%. Se usan eventos de teclado E y contacto físico automático. Todos llegan primero a piso rival con error <0.25 m, apex visible en cámara actual. También tres feeds reales sin mover pelota al contacto; comparación de carga, defensa tardía y sobrecarga al cerramiento. Cambio de botones durante carga/fijada, liberación vieja, cancelación, mantener sin repetir, foco, pausa, R y laboratorio comprobados. No prueba humana ni mando físico.
+54 contactos: jugador z=2/5/9 m, pelota relativa (0,h,-0.65), h=0.3/0.9/1.8 m, apuntado (±0.6,∓0.8) y neutro, cargas 30/90%. Se usan eventos de teclado K y contacto físico automático. Todos llegan primero a piso rival con error <0.25 m, apex visible en cámara actual. También tres feeds reales sin mover pelota al contacto; comparación de carga, defensa tardía y sobrecarga al cerramiento. Cambio de botones durante carga/fijada, liberación vieja, cancelación, mantener sin repetir, foco, pausa, R y laboratorio comprobados. No prueba humana ni mando físico.
 
 Regresiones de plano/control (90 trayectorias/diez devoluciones), chiquita (54/24/tres feeds y segundo pique), impactos/audio (tres) y abanicazos (cinco) aprobadas. Importación sin errores de scripts; capturas nativas de vuelo y controles a 640×360 revisadas. El render usa llvmpipe y no mide rendimiento objetivo.
 
@@ -35,3 +35,6 @@ Regresiones de plano/control (90 trayectorias/diez devoluciones), chiquita (54/2
 ## Valoración humana — sesión 022
 
 Tras la implementación, el usuario dijo «lo sentí bien». Sensación general aceptada como base; no se registraron duración de prueba, dispositivo o casos particulares. Mantener esta base al añadir remate/volea.
+
+
+Controles actualizados en sesión 025 a J/K. Las capturas y videos de sesiones previas pueden mostrar Espacio/E.

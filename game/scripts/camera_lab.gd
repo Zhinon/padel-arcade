@@ -317,7 +317,7 @@ func _unhandled_key_input(event: InputEvent) -> void:
 
 func _update_title(last_contact: String = "—") -> void:
 	if practice_mode:
-		DisplayServer.window_set_title("Pádel · Práctica · WASD/flechas mover · Espacio plano · E globo · R pelota · T zona · P pausa · F8 laboratorio")
+		DisplayServer.window_set_title("Pádel · Práctica · WASD/flechas mover · J plano · K globo · R pelota · T zona · P pausa · F8 laboratorio")
 	elif camera_preview:
 		DisplayServer.window_set_title("Pádel · Prueba visual de cámara · 1/2/3 vistas · G vidrio · Espacio pausa · R reinicio")
 	else:
@@ -412,7 +412,7 @@ func _feed_practice(overhead: bool) -> void:
 	resting_notified = false
 	trail_points.clear()
 	trail.mesh = null
-	hud.show_feedback("Globo en camino · ubicáte debajo y prepará con Espacio" if overhead else "Pelota en camino · llegá, cargá y soltá cerca del 90%")
+	hud.show_feedback("Globo en camino · ubicáte debajo y prepará con J" if overhead else "Pelota en camino · llegá, cargá y soltá cerca del 90%")
 
 func _next_feed_lane() -> void:
 	if not practice_mode or preview_paused:

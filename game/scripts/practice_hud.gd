@@ -45,7 +45,7 @@ func _ready() -> void:
 	status.add_theme_font_size_override("font_size", 18)
 	column.add_child(status)
 	controls = Label.new()
-	controls.text = "WASD/flechas: mover/apuntar · Espacio: plano/smash · E: globo · juntos: especial x3/x4 · R: pelota · H: globo recibido · T: zona · P: pausa · M: audio · F8: lab"
+	controls.text = "WASD/flechas: mover/apuntar · J: plano/smash · K: globo · juntos: especial x3/x4 · R: pelota · H: globo recibido · T: zona · P: pausa · M: audio · F8: lab"
 	controls.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	controls.add_theme_font_size_override("font_size", 16)
 	controls.add_theme_color_override("font_color", Color("d0dde0"))
@@ -56,7 +56,7 @@ func _ready() -> void:
 func _resize() -> void:
 	compact = get_window().size.x < 800
 	if title != null:
-		title.text = "Espacio: plano · E: globo · P: pausa" if compact else "PRÁCTICA · PLANO / GLOBO"
+		title.text = "J: plano · K: globo · P: pausa" if compact else "PRÁCTICA · PLANO / GLOBO"
 		title.add_theme_font_size_override("font_size", 16 if compact else 18)
 		status.add_theme_font_size_override("font_size", 16 if compact else 18)
 		controls.visible = not compact
@@ -92,11 +92,11 @@ func _process(_delta: float) -> void:
 			var choice: String = controller.special_direction()
 			status.text = "Especial %d%% · %s · cerca de red" % [roundi(controller.shot_charge * 100.0),choice if choice != "" else "lateral x3 / adelante x4"]
 		elif controller.shot_kind == controller.ShotType.LOB:
-			status.text = "Globo fijado %d%% · apuntá · E cancela" % roundi(controller.shot_charge * 100.0)
+			status.text = "Globo fijado %d%% · apuntá · K cancela" % roundi(controller.shot_charge * 100.0)
 		elif controller.is_smash_preparation():
-			status.text = "Smash fijado %d%% · apuntá · Espacio cancela" % roundi(controller.shot_charge * 100.0)
+			status.text = "Smash fijado %d%% · apuntá · J cancela" % roundi(controller.shot_charge * 100.0)
 		else:
 			var short_hint: String = " · abajo: chiquita" if controller.shot_charge <= controller.touch_charge_limit else ""
-			status.text = "Plano fijado %d%%%s · apuntá · Espacio cancela" % [roundi(controller.shot_charge * 100.0), short_hint]
+			status.text = "Plano fijado %d%%%s · apuntá · J cancela" % [roundi(controller.shot_charge * 100.0), short_hint]
 	else:
 		status.text = "WASD: mover · R: pelota · H: globo recibido" if compact and last_message.begins_with("R para") else last_message

@@ -12,13 +12,13 @@ En nuestra cancha, extremos laterales de 2 m tienen altura total 4 m; los x3 bus
 
 1. Acercate a la red, aproximadamente a 1–2 m, en la trayectoria del globo.
 2. **H/RB** recibe globo de práctica. Cerca de red, H adapta profundidad para ofrecer contacto alto delante del jugador; no mueve al personaje.
-3. Apretá **Espacio + E** juntos; en mando, **A + B**. Ventana inicial de 0.10 s de carga; se conserva lo cargado por el primer botón. No se exige coincidencia exacta de frames.
+3. Apretá **J + K** juntos; en mando, **A + B**. Ventana inicial de 0.10 s de carga; se conserva lo cargado por el primer botón. No se exige coincidencia exacta de frames.
 4. Soltá cerca de **90%**. La primera liberación fija la carga; la segunda no ejecuta ni reinicia nada. El impacto continúa automático.
 5. **Izquierda/derecha** intenta x3 por ese lateral. **Adelante sin componente lateral fuerte** intenta x4. Diagonal lateral fuerte elige x3. Centro/abajo conserva golpe normal.
 
 Carga admitida: banda existente 86–94%. Requiere calidad >=0.85, jugador a <=2.8 m de la red y contacto válido de smash. Fallar condiciones no concede un especial: usa remate/devolución según situación. El buscador también puede rechazar una salida si no encuentra trayectoria segura para esa geometría; no teletransporta ni garantiza el resultado.
 
-Si el segundo botón llega después de 0.10 s de carga, sigue funcionando como cambio de tipo plano/globo y reinicia carga. Una pulsación de Espacio o E cancela el especial fijado. Pausa, R/H y cambio de modo limpian flags para evitar combos fantasma.
+Si el segundo botón llega después de 0.10 s de carga, sigue funcionando como cambio de tipo plano/globo y reinicia carga. Una pulsación de J o K cancela el especial fijado. Pausa, R/H y cambio de modo limpian flags para evitar combos fantasma.
 
 ## Trayectoria y límites
 
@@ -37,3 +37,6 @@ Tres feeds H reales cerca de red, sin colocar pelota en impacto, completan izqui
 Regresiones de plano/control (90/diez), globo (54/tres), smash (54/tres), chiquita (54/24/tres y segundo pique), pelota (13), superficies, 18 poses, tres impactos/audio y cinco abanicazos aprobadas. Impulso de piso extraído a helper sin variar cálculo; no nueva física de materiales. Capturas de juego y videos de tres segundos por tipo revisados; render llvmpipe, no prueba de diversión, mando físico o juego exterior.
 
 [Video x3](previews/x3.mp4) · [Video x4](previews/x4.mp4) · Informe previews/special-smash-checks.json. Videos sin audio, con H y entradas sintéticas; cámara de juego conservada.
+
+
+Controles actualizados en sesión 025 a J/K. Las capturas y videos de sesiones previas pueden mostrar Espacio/E.

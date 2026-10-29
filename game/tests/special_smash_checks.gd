@@ -21,14 +21,14 @@ func _contact(x: float,z: float,height: float,aim: Vector2,charge: float=0.9,dx:
 	lab.input_adapter.reset_buttons()
 	lab.impact_feedback.reset_presentation()
 	ball.launch(Vector3(4,3.5,0.3),Vector3.ZERO)
-	_key(KEY_E if lob_first else KEY_SPACE,true)
+	_key(KEY_K if lob_first else KEY_J,true)
 	shot.step(0.025)
 	var initial: float = shot.charge_time
-	_key(KEY_SPACE if lob_first else KEY_E,true)
+	_key(KEY_J if lob_first else KEY_K,true)
 	_check(shot.shot_kind == shot.ShotType.SPECIAL and shot.charge_time == initial,"Chord preserves first button charge")
 	while shot.shot_charge < charge and shot.charging: shot.step(DT)
-	_key(KEY_SPACE,false)
-	_key(KEY_E,false)
+	_key(KEY_J,false)
+	_key(KEY_K,false)
 	_check(shot.state == shot.State.LOCKED,"First chord release fixes charge; second cannot restart")
 	for tick in range(30): shot.step(DT)
 	ball.position=player.position+Vector3(dx,height,-0.35)
@@ -79,11 +79,11 @@ func _capture_demo(kind: String,direction: Vector2) -> void:
 		for tick in range(4):
 			ball.step(DT)
 			if frame==10 and tick==0:
-				_key(KEY_SPACE,true)
-				_key(KEY_E,true)
+				_key(KEY_J,true)
+				_key(KEY_K,true)
 			if shot.charging and shot.shot_charge>=0.9:
-				_key(KEY_SPACE,false)
-				_key(KEY_E,false)
+				_key(KEY_J,false)
+				_key(KEY_K,false)
 			shot.aim=direction
 			shot.step(DT)
 			lab.impact_feedback.step(DT)
@@ -129,17 +129,17 @@ func _run() -> void:
 	_check(poor.quality < shot.special_quality and poor.shot_type=="smash","90 percent alone cannot override poor positioning/contact")
 	var reversed:=_contact(0,1.5,2.4,Vector2.UP,0.9,0.25,true)
 	_check(reversed.shot_type=="x4","Chord works when lob button arrives first")
-	_key(KEY_SPACE,true)
+	_key(KEY_J,true)
 	_check(not shot.is_preparing(),"New press during recovery cannot repeat special contact")
 	# Late second button retains existing type-switch behavior, not special chord.
 	shot.reset_cycle()
 	lab.input_adapter.reset_buttons()
 	ball.launch(Vector3(4,3.5,0.3),Vector3.ZERO)
-	_key(KEY_SPACE,true)
+	_key(KEY_J,true)
 	shot.step(0.2)
-	_key(KEY_E,true)
+	_key(KEY_K,true)
 	_check(shot.shot_kind==shot.ShotType.LOB and shot.shot_charge==0,"Late second button switches to fresh lob")
-	_key(KEY_SPACE,false)
+	_key(KEY_J,false)
 	_check(shot.charging,"Old release does not lock switched lob")
 	lab._set_practice_paused(true)
 	_check(not lab.input_adapter.flat_down and not lab.input_adapter.lob_down,"Pause clears chord flags")
@@ -154,11 +154,11 @@ func _run() -> void:
 		for tick in range(400):
 			ball.step(DT)
 			if tick==30:
-				_key(KEY_SPACE,true)
-				_key(KEY_E,true)
+				_key(KEY_J,true)
+				_key(KEY_K,true)
 			if shot.charging and shot.shot_charge>=0.9:
-				_key(KEY_SPACE,false)
-				_key(KEY_E,false)
+				_key(KEY_J,false)
+				_key(KEY_K,false)
 			shot.aim=aim
 			shot.step(DT)
 			if events.size()>before: break

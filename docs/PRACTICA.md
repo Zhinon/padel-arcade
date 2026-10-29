@@ -17,7 +17,7 @@ Desde la raíz del proyecto en Linux:
 1. El jugador naranja con aro es el que controlás. Al abrir, la pelota espera en el lanzador.
 2. Pulsá **R**. La primera pelota llega por tu zona inicial, a la izquierda.
 3. Movete con **WASD o flechas**. Llegá antes de preparar: al preparar el personaje frena y se planta.
-4. Mantené **Espacio para plano** o **E para globo** y soltá para fijar carga. Probá cerca del **90%** para un golpe preparado, o **20–40% + abajo con Espacio** para una chiquita. El contacto ocurre automáticamente al llegar la pelota, incluso si todavía estás manteniendo el botón. Apuntá con WASD/flechas mientras estás plantado.
+4. Mantené **J para plano** o **K para globo** y soltá para fijar carga. Probá cerca del **90%** para un golpe preparado, o **20–40% + abajo con J** para una chiquita. El contacto ocurre automáticamente al llegar la pelota, incluso si todavía estás manteniendo el botón. Apuntá con WASD/flechas mientras estás plantado.
 5. **R** repite esa pelota. **T** cambia la zona de alimentación entre izquierda, centro y derecha y lanza.
 
 Si aparece PAUSA al cambiar de ventana, pulsá **P** para continuar.
@@ -27,11 +27,11 @@ Si aparece PAUSA al cambiar de ventana, pulsá **P** para continuar.
 | Acción | Teclado | Mando preparado en el mapa de acciones |
 | --- | --- | --- |
 | Moverse | WASD / flechas | Stick izquierdo |
-| Plano: cargar / fijar | Mantener / soltar Espacio | A |
-| Globo: cargar / fijar | Mantener / soltar E | B |
-| Smash contextual | Espacio con pelota alta alcanzable | A |
-| Especial x3/x4 | Espacio + E juntos, fijar ~90% | A + B |
-| Cancelar preparación fijada | Repetir Espacio (plano) o E (globo) | Repetir A o B del golpe elegido |
+| Plano: cargar / fijar | Mantener / soltar J | A |
+| Globo: cargar / fijar | Mantener / soltar K | B |
+| Smash contextual | J con pelota alta alcanzable | A |
+| Especial x3/x4 | J + K juntos, fijar ~90% | A + B |
+| Cancelar preparación fijada | Repetir J (plano) o K (globo) | Repetir A o B del golpe elegido |
 | Recibir pelota | R | X |
 | Recibir globo para rematar | H | RB |
 | Cambiar zona y recibir | T | Y |
@@ -74,7 +74,7 @@ El cuerpo del jugador colisiona con la cancha. La pelota no rebota contra los cu
 
 El golpe base calcula una velocidad de salida para aterrizar cerca del aro rival usando el mismo paso de gravedad y resistencia de E2. Ajusta duración si hace falta para intentar pasar la red con margen (altura de centro de pelota al cruzar: al menos 1.3 m en la predicción). Esto es asistencia arcade explícita.
 
-La pelota sigue recorriendo la trayectoria mediante física y colisiones. Si hay un impacto intermedio, ya no se garantiza el destino previsto. Globo con E y smash contextual con Espacio están disponibles; volea contextual y giro de pelota siguen pendientes. Los lanzamientos F1–F7 siguen siendo pruebas del laboratorio.
+La pelota sigue recorriendo la trayectoria mediante física y colisiones. Si hay un impacto intermedio, ya no se garantiza el destino previsto. Globo con K y smash contextual con J están disponibles; volea contextual y giro de pelota siguen pendientes. Los lanzamientos F1–F7 siguen siendo pruebas del laboratorio.
 
 ## Presentación del impacto
 
@@ -100,11 +100,11 @@ Capturas de sesión 012 (presentación anterior, históricas): [preparación](pr
 
 ## Abanicazo al errar
 
-Si preparás y la pelota se te pasa fuera del alcance o de la altura del golpe base, el personaje da un golpe al aire. También responde si pulsás Espacio sin pelota disponible o llegás tarde. El gesto sigue el lado de la pelota; sin pelota usa el lado de golpe que tenía preparado.
+Si preparás y la pelota se te pasa fuera del alcance o de la altura del golpe base, el personaje da un golpe al aire. También responde si pulsás J sin pelota disponible o llegás tarde. El gesto sigue el lado de la pelota; sin pelota usa el lado de golpe que tenía preparado.
 
 El abanicazo dura aproximadamente 0.28 s, permite moverse y vuelve al reposo. No suena como impacto, no produce destello ni cambia pelota o contador de contactos. Un intento fallado no engancha la pelota después durante su animación. Cancelar una preparación fijada sigue cancelando sin abanicazo.
 
-Para probarlo rápido, **pulsá Espacio antes de lanzar con R**. Para probar un fallo real, prepará lejos de la trayectoria recibida. [Ejemplo de derecha al aire](previews/miss-forehand-forward.png).
+Para probarlo rápido, **pulsá J antes de lanzar con R**. Para probar un fallo real, prepará lejos de la trayectoria recibida. [Ejemplo de derecha al aire](previews/miss-forehand-forward.png).
 
 ## Laboratorio anterior
 
@@ -115,7 +115,7 @@ F8 abre el laboratorio E2. También se puede iniciar con:
 ./tools/run-godot.sh -- --scenario=7
 ```
 
-F1–F7 desde práctica entran al laboratorio y seleccionan escenario. Allí Espacio pausa, R repite, N cambia semilla y L controla repetición. En práctica Espacio prepara plano, E prepara globo y P pausa. F8 vuelve a práctica con el jugador en posición inicial y la pelota esperando R.
+F1–F7 desde práctica entran al laboratorio y seleccionan escenario. Allí Espacio pausa, R repite, N cambia semilla y L controla repetición. En práctica J prepara plano, K prepara globo y P pausa. F8 vuelve a práctica con el jugador en posición inicial y la pelota esperando R.
 
 ## Comprobaciones y límites
 
@@ -134,7 +134,7 @@ Informe: `previews/player-checks.json`. Coeficientes de rebote anteriores conser
 
 ## Probar la chiquita
 
-Recibí con R y llegá temprano. Prepará con Espacio, soltá al 20–40% para fijar poca potencia y mantené S/flecha abajo hasta el contacto automático. A/D permite colocación lateral; diagonal abajo también sirve. Seguir plantado después de soltar mejora preparación sin aumentar potencia. La pelota busca un pique corto cerca de la red rival; el aro indica destino aproximado. Un contacto preparado puede mostrar «¡Chiquita bien colocada!» y usar feedback de golpe excelente, aunque no tenga 90% de carga.
+Recibí con R y llegá temprano. Prepará con J, soltá al 20–40% para fijar poca potencia y mantené S/flecha abajo hasta el contacto automático. A/D permite colocación lateral; diagonal abajo también sirve. Seguir plantado después de soltar mejora preparación sin aumentar potencia. La pelota busca un pique corto cerca de la red rival; el aro indica destino aproximado. Un contacto preparado puede mostrar «¡Chiquita bien colocada!» y usar feedback de golpe excelente, aunque no tenga 90% de carga.
 
 Compará con pulsar tarde: perdés dirección y una carga mínima exigida puede quedarse en red. Más de 40% se mezcla hacia golpe base (65% ya es base); 90% y 100% conservan comportamiento previo. Parámetros provisionales: ajustar según comodidad. Los rivales siguen estáticos, por lo que todavía no prueban la ventaja táctica de subir a la red.
 
@@ -146,21 +146,21 @@ Segundo pique revisado (sesión 020): misma carga/controles, con mayor pérdida 
 
 ## Probar el globo
 
-Recibí con R, llegá antes y mantené E. Soltá cerca del 90% y elegí dirección mientras esperás el contacto automático. Más carga da un globo más alto y profundo; abajo acorta, arriba profundiza. Compará con 25–30% para uno más corto/bajo. Llegada tardía pierde profundidad y colocación. Al 100% existe riesgo de cerramiento directo.
+Recibí con R, llegá antes y mantené K. Soltá cerca del 90% y elegí dirección mientras esperás el contacto automático. Más carga da un globo más alto y profundo; abajo acorta, arriba profundiza. Compará con 25–30% para uno más corto/bajo. Llegada tardía pierde profundidad y colocación. Al 100% existe riesgo de cerramiento directo.
 
-Volver a pulsar E cancela globo fijado. Pulsar Espacio cambia a plano y reinicia carga; soltar E después no fija el plano. Al cambiar de plano a globo sucede lo mismo. [Diseño y pruebas](GLOBOS.md) y [demostración](previews/lob.mp4). Reiniciá el juego para cargar controles nuevos.
+Volver a pulsar K cancela globo fijado. Pulsar J cambia a plano y reinicia carga; soltar K después no fija el plano. Al cambiar de plano a globo sucede lo mismo. [Diseño y pruebas](GLOBOS.md) y [demostración](previews/lob.mp4). Reiniciá el juego para cargar controles nuevos.
 
 
 ## Probar el smash
 
-Pulsá **H** para recibir un globo por tu zona. Llegá antes y prepará con **Espacio**, soltando cerca del **90%**. La pelota alta y alcanzable se remata automáticamente con pala arriba. No necesitás otro botón; E sigue preparando globo. Para empezar, probalo en la posición inicial del jugador.
+Pulsá **H** para recibir un globo por tu zona. Llegá antes y prepará con **J**, soltando cerca del **90%**. La pelota alta y alcanzable se remata automáticamente con pala arriba. No necesitás otro botón; K sigue preparando globo. Para empezar, probalo en la posición inicial del jugador.
 
 Tarde o mal ubicado, el remate pierde potencia/dirección o queda fuera de alcance. Al 100%, dirección corta puede ir a red y profunda al cerramiento. H es entrenamiento, no un botón para ejecutar remate: R conserva pelota normal. [Guía completa](SMASH.md) y [video de cinco segundos](previews/smash.mp4). Reiniciar juego para cargar versión nueva.
 
 
 ## Probar x3 y x4
 
-Avanzá hasta quedar aproximadamente a 1–2 m de la red y pulsá **H**. Prepará con **Espacio + E juntos** (ventana 0.10 s), soltá cerca del **90%** y elegí dirección mientras estás plantado:
+Avanzá hasta quedar aproximadamente a 1–2 m de la red y pulsá **H**. Prepará con **J + K juntos** (ventana 0.10 s), soltá cerca del **90%** y elegí dirección mientras estás plantado:
 
 - **Izquierda/derecha:** x3 hacia ese lateral, pasando primero por piso y vidrio de fondo.
 - **Adelante (W/flecha arriba), sin lateral fuerte:** x4 por encima del fondo tras picar.

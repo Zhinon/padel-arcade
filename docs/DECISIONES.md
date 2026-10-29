@@ -187,3 +187,8 @@ Para cambiar una decisión: añadir fecha, contexto, alternativas relevantes, el
 - **D82, provisional:** segundo botón dentro de primeros 0.10 s cargando promueve a SPECIAL sin perder carga del primero. Primera liberación fija; la otra no repite. Botón tardío sigue cambio de tipo previo. Requiere smash alcanzable, z jugador <=2.8 m, calidad >=0.85 y banda 86–94%. Condición no satisfecha o trayectoria no encontrada: golpe ordinario, no especial automático.
 - **D83:** reproducir secuencias físicas piso/vidrio/salida lateral y piso/salida de fondo con buscador de velocidad inicial; no fuerzas/teletransporte después de impacto ni cambios de rebote exclusivos del especial. Sigue pendiente liftado real/P44. Respeta laterales elevados de esquina; sin puntos o juego exterior automático.
 - **D84:** H conserva pelota alta de fondo y adapta destino al jugador cercano (hasta 3 m de red) para práctica. No recoloca jugador. Registra resultado técnico y requiere evaluación humana del combo/colocación.
+
+
+## 28/10/2026 — sesión 025: botones contiguos
+
+- **D85, feedback y elección:** usuario considera incómodo Espacio+E y propone pares contiguos. Se elige J/K para usar con la mano derecha mientras WASD mueve/apunta con la izquierda. J plano/smash, K globo, J+K especial. Se conservan carga, liberación, ventana de combo y mando A/B. Espacio mantiene pausa de laboratorio.

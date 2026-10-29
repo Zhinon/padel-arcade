@@ -17,7 +17,7 @@ static func install_actions() -> void:
 	var keys := {
 		"padel_left": [KEY_A, KEY_LEFT], "padel_right": [KEY_D, KEY_RIGHT],
 		"padel_forward": [KEY_W, KEY_UP], "padel_back": [KEY_S, KEY_DOWN],
-		"padel_shot": [KEY_SPACE], "padel_lob": [KEY_E], "padel_feed": [KEY_R], "padel_smash_feed": [KEY_H],
+		"padel_shot": [KEY_J], "padel_lob": [KEY_K], "padel_feed": [KEY_R], "padel_smash_feed": [KEY_H],
 		"padel_next_lane": [KEY_T], "padel_mute": [KEY_M], "padel_pause": [KEY_P, KEY_ESCAPE],
 	}
 	for action: String in keys:
