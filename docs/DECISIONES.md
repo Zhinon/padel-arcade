@@ -210,3 +210,11 @@ Para cambiar una decisión: añadir fecha, contexto, alternativas relevantes, el
 - **D89, provisional:** volea preparada con destino y velocidad propios (10–17 m/s nominales), asistencia de red previa al riesgo, preparación y gesto cortos, recuperación 0.14 s. Exigida usa devolución suave y limitada existente. Sin efecto cortado real ni cambios de rebotes; prueba mediante R desde z=3 m, sin modificar feed. Sonidos por calidad reutilizados. Validación humana pendiente.
 
 - **D90, ajuste solicitado durante implementación:** usuario pregunta por volea corta sin fuerza y pide riesgo de cerramiento directo al sobrecargar. Potencia insuficiente + contacto bajo/mala calidad reduce margen de red después de asistencia; suave bien preparada sigue siendo viable. Sobrecarga conserva pérdida de profundidad/ángulo y se verifican contactos directos con vidrio de fondo o cerramiento lateral rival antes del pique. No errores aleatorios ni fallos garantizados por un porcentaje de carga.
+
+
+## 28/10/2026 — sesión 029: rival antes de más golpes
+
+- **D91, acuerdo:** usuario considera jugable el prototipo y acepta priorizar rival de entrenamiento sobre más tipos de golpe. Implementación acotada a un rival; parejas, árbitro completo, puntos, online y giro siguen pendientes.
+- **D92:** modo opcional I/LB conserva práctica individual R/H/T. Usa mismo motor y BasicShot con mitad/identidad configurables; geometría de avatar también compartida. No espejo de la pelota real ni fuerzas extra. AI elige posición/intención y comparte alcance/carga/calidad/contacto.
+- **D93, provisional:** reacción 0.24 s, recálculo 0.12 s, forecast aproximado 2.8 s, carga buscada 70%. Devuelve al carril del humano y busca globo si sube cerca de red. No lee RNG de reja ni garantiza devoluciones. Ajustar con prueba humana.
+- **D94:** fin de jugada de entrenamiento por segundo pique, piso en mitad errónea, cerramiento receptor directo, detención o salida; espera 1.8 s y nueva pelota. Posiciones iniciales se restablecen solo al iniciar jugada; R hace reinicio manual. Mostrar contactos/mejor racha, sin puntos reglamentarios. Dos decorativos ocultos en peloteo para identificar al rival activo.

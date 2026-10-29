@@ -232,14 +232,14 @@ func step(delta: float) -> void:
 
 func _select_side(ball_at: Vector3) -> void:
 	# Fixed right-handed prototype, with a dead zone to prevent pose flicker.
-	var dx := ball_at.x - player.position.x
+	var dx: float = controller.court_vector(ball_at - player.position).x
 	if dx < -0.15:
 		shot_side = "backhand"
 	elif dx > 0.15:
 		shot_side = "forehand"
 
 func _desired_yaw(ball_at: Vector3) -> float:
-	var delta := ball_at - player.position
+	var delta: Vector3 = controller.court_vector(ball_at - player.position)
 	var facing := atan2(-delta.x, -delta.z)
 	var side_angle := -0.95 if shot_side == "forehand" else 1.15
 	return facing if delta.z > 0.0 else lerp_angle(side_angle, facing, 0.3)
@@ -247,7 +247,7 @@ func _desired_yaw(ball_at: Vector3) -> float:
 func _contact_yaw(ball_at: Vector3) -> float:
 	var closed := _desired_yaw(ball_at)
 	# Forehand uncoils before impact; the backhand keeps its approved side-on pose.
-	return closed * 0.2 if shot_side == "forehand" and ball_at.z <= player.position.z else closed
+	return closed * 0.2 if shot_side == "forehand" and controller.court_vector(ball_at - player.position).z <= 0.0 else closed
 
 func _forehand_elbow(shoulder: Vector3, hand: Vector3) -> Vector3:
 	var reach_vector := hand - shoulder

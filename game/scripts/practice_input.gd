@@ -6,6 +6,7 @@ signal release_requested(aim: Vector2, kind: int)
 signal feed_requested
 signal smash_feed_requested
 signal next_lane_requested
+signal training_requested
 signal pause_requested
 signal focus_lost
 var enabled: bool = false
@@ -18,7 +19,7 @@ static func install_actions() -> void:
 		"padel_left": [KEY_A, KEY_LEFT], "padel_right": [KEY_D, KEY_RIGHT],
 		"padel_forward": [KEY_W, KEY_UP], "padel_back": [KEY_S, KEY_DOWN],
 		"padel_shot": [KEY_J], "padel_lob": [KEY_K], "padel_feed": [KEY_R], "padel_smash_feed": [KEY_H],
-		"padel_next_lane": [KEY_T], "padel_mute": [KEY_M], "padel_pause": [KEY_P, KEY_ESCAPE],
+		"padel_training": [KEY_I], "padel_next_lane": [KEY_T], "padel_mute": [KEY_M], "padel_pause": [KEY_P, KEY_ESCAPE],
 	}
 	for action: String in keys:
 		if InputMap.has_action(action):
@@ -28,7 +29,7 @@ static func install_actions() -> void:
 			var key := InputEventKey.new()
 			key.physical_keycode = code
 			InputMap.action_add_event(action, key)
-	var buttons := {"padel_shot": JOY_BUTTON_A, "padel_lob": JOY_BUTTON_B, "padel_feed": JOY_BUTTON_X, "padel_smash_feed": JOY_BUTTON_RIGHT_SHOULDER, "padel_next_lane": JOY_BUTTON_Y, "padel_pause": JOY_BUTTON_START}
+	var buttons := {"padel_training": JOY_BUTTON_LEFT_SHOULDER, "padel_shot": JOY_BUTTON_A, "padel_lob": JOY_BUTTON_B, "padel_feed": JOY_BUTTON_X, "padel_smash_feed": JOY_BUTTON_RIGHT_SHOULDER, "padel_next_lane": JOY_BUTTON_Y, "padel_pause": JOY_BUTTON_START}
 	for action: String in buttons:
 		var button := InputEventJoypadButton.new()
 		button.button_index = buttons[action]
@@ -65,6 +66,8 @@ func _unhandled_input(event: InputEvent) -> void:
 	elif event.is_action_released("padel_lob"):
 		lob_down = false
 		release_requested.emit(movement(), PadelBasicShot.ShotType.LOB)
+	elif event.is_action_pressed("padel_training"):
+		training_requested.emit()
 	elif event.is_action_pressed("padel_feed"):
 		feed_requested.emit()
 	elif event.is_action_pressed("padel_smash_feed"):

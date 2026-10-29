@@ -12,6 +12,9 @@ const PRACTICE_INPUT = preload("res://scripts/practice_input.gd")
 const BASIC_SHOT = preload("res://scripts/basic_shot.gd")
 const IMPACT_FEEDBACK = preload("res://scripts/impact_feedback.gd")
 const PRACTICE_HUD = preload("res://scripts/practice_hud.gd")
+const TRAINING_RIVAL = preload("res://scripts/training_rival.gd")
+var opponent_player: CharacterBody3D
+var trainer: Node
 var controlled_player: CharacterBody3D
 var input_adapter: Node
 var shot_controller: Node
@@ -106,9 +109,13 @@ func _build_players() -> void:
 	var positions: Array[Vector3] = [Vector3(-2.4, 0, 6.8), Vector3(2.2, 0, 7.6), Vector3(-2.2, 0, -6.3), Vector3(2.5, 0, -7.3)]
 	for i in range(positions.size()):
 		var actor: Node3D
-		if i == 0:
-			controlled_player = PLAYER_MOTOR.new()
-			actor = controlled_player
+		if i in [0, 2]:
+			var motor := PLAYER_MOTOR.new()
+			actor = motor
+			if i == 0: controlled_player = motor
+			else:
+				opponent_player = motor
+				motor.court_sign = -1.0
 		else:
 			actor = Node3D.new()
 		actor.name = "Player%d" % (i + 1)
@@ -117,11 +124,12 @@ func _build_players() -> void:
 		var player := Node3D.new()
 		player.name = "Avatar"
 		actor.add_child(player)
-		if i == 0:
-			controlled_player.visual = player
+		if i in [0, 2]:
+			actor.visual = player
 		var shirt := Color("ed8255") if i < 2 else Color("c8e4ef")
-		if i == 0:
-			_build_articulated_avatar(player, shirt)
+		if i in [0, 2]:
+			actor.racket = _build_articulated_avatar(player, shirt)
+			if i == 2: player.rotation.y = PI
 			continue
 		var torso := CapsuleMesh.new()
 		torso.radius = 0.24
@@ -145,7 +153,7 @@ func _build_players() -> void:
 		if i == 0:
 			controlled_player.racket = racket
 
-func _build_articulated_avatar(avatar: Node3D, shirt: Color) -> void:
+func _build_articulated_avatar(avatar: Node3D, shirt: Color) -> MeshInstance3D:
 	var hips := Node3D.new()
 	hips.name = "HipsPivot"
 	avatar.add_child(hips)
@@ -193,7 +201,7 @@ func _build_articulated_avatar(avatar: Node3D, shirt: Color) -> void:
 	var racket := _sphere("Racket", 0.21, Color("d3e457"), avatar)
 	racket.scale = Vector3(0.75, 1.0, 0.12)
 	racket.position = Vector3(0.5, 0.85, -0.12)
-	controlled_player.racket = racket
+	return racket
 
 func set_camera_preset(index: int) -> void:
 	preset_index = clampi(index, 0, PRESETS.size() - 1)
@@ -280,6 +288,14 @@ func _update_preview() -> void:
 	ball.position = preview_point(elapsed / preview_duration)
 	ball_shadow.position = Vector3(ball.position.x, 0.022, ball.position.z)
 
+func _input(event: InputEvent) -> void:
+	# M controls both sound sources before either presentation consumes it.
+	if practice_mode and impact_feedback != null and event.is_action_pressed("padel_mute") and not event.is_echo():
+		var muted: bool = not impact_feedback.muted
+		impact_feedback.set_muted(muted)
+		if trainer != null: trainer.presentation.set_muted(muted)
+		get_viewport().set_input_as_handled()
+
 func _unhandled_key_input(event: InputEvent) -> void:
 	if not event is InputEventKey or not event.pressed or event.echo:
 		return
@@ -316,7 +332,9 @@ func _unhandled_key_input(event: InputEvent) -> void:
 			_update_title()
 
 func _update_title(last_contact: String = "—") -> void:
-	if practice_mode:
+	if practice_mode and trainer != null and trainer.enabled:
+		DisplayServer.window_set_title("Pádel · Peloteo con rival · J/K golpes · R reiniciar · I práctica individual · P pausa")
+	elif practice_mode:
 		DisplayServer.window_set_title("Pádel · Práctica · WASD/flechas mover · J plano · K globo · R pelota · T zona · P pausa · F8 laboratorio")
 	elif camera_preview:
 		DisplayServer.window_set_title("Pádel · Prueba visual de cámara · 1/2/3 vistas · G vidrio · Espacio pausa · R reinicio")
@@ -353,6 +371,15 @@ func _setup_practice() -> void:
 	impact_feedback.player = controlled_player
 	impact_feedback.controller = shot_controller
 	add_child(impact_feedback)
+	trainer = TRAINING_RIVAL.new()
+	trainer.name = "TrainingRival"
+	trainer.lab = self
+	trainer.player = opponent_player
+	trainer.human = controlled_player
+	trainer.ball = simulation
+	add_child(trainer)
+	input_adapter.training_requested.connect(func(): trainer.set_enabled(not trainer.enabled))
+	hud.trainer = trainer
 	hud.impact_feedback = impact_feedback
 	var mesh := TorusMesh.new()
 	mesh.inner_radius = 0.35
@@ -361,6 +388,7 @@ func _setup_practice() -> void:
 	aim_marker.position.y = 0.025
 
 func set_practice_mode(enabled: bool) -> void:
+	if not enabled and trainer != null: trainer.set_enabled(false)
 	practice_mode = enabled
 	preview_paused = false
 	camera_preview = false
@@ -388,11 +416,14 @@ func set_practice_mode(enabled: bool) -> void:
 		simulation.active = false
 		trail_points.clear()
 		trail.mesh = null
-		hud.show_feedback("R: pelota normal · H: globo para rematar · el aro marca a tu jugador")
+		hud.show_feedback("I: pelotear con rival · R: pelota normal · H: globo para rematar")
 	_update_title()
 
 func feed_practice_ball() -> void:
-	_feed_practice(false)
+	if trainer != null and trainer.enabled:
+		trainer.restart_rally()
+	else:
+		_feed_practice(false)
 
 func feed_smash_ball() -> void:
 	_feed_practice(true)
@@ -420,6 +451,9 @@ func _feed_practice(overhead: bool) -> void:
 	hud.show_feedback(message)
 
 func _next_feed_lane() -> void:
+	if trainer != null and trainer.enabled:
+		hud.show_feedback("Peloteo · R reinicia la jugada · I vuelve a práctica por carriles")
+		return
 	if not practice_mode or preview_paused:
 		return
 	feed_lane = (feed_lane + 1) % FEED_LANES.size()
@@ -440,3 +474,4 @@ func _set_practice_paused(paused: bool) -> void:
 	impact_feedback.paused = paused
 	impact_feedback.reset_presentation()
 	hud.paused = paused
+	if trainer != null: trainer.set_paused(paused)

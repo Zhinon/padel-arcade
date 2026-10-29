@@ -1,6 +1,6 @@
 # Estado y próxima sesión
 
-Actualizado: 28/10/2026, zona America/Argentina/Mendoza. Sesión 028.
+Actualizado: 28/10/2026, zona America/Argentina/Mendoza. Sesión 029.
 
 ## Dónde estamos
 
@@ -20,7 +20,7 @@ Godot 4.7.2.stable.official.ed1daf0bf portátil. Git local main, sin remoto. P06
 
 ## Límites
 
-Animación geométrica provisional sin esqueleto ni biomecánica final; no hay rival, arbitraje, puntos o giro; chiquita, globo, smash y volea contextual disponibles. Otros personajes estáticos; pelota sin colisión con cuerpos. Sonidos sintéticos sin muestras externas; no equivalen a grabaciones de pádel. Mando solo probado sintéticamente. No se repitieron recorridos/FPS pasivos porque no se cambió esa física.
+Animación geométrica provisional sin esqueleto ni biomecánica final; hay un rival de entrenamiento opcional; sin árbitro completo, puntos o giro; chiquita, globo, smash y volea contextual disponibles. Compañeros decorativos se ocultan durante peloteo; pelota sin colisión con cuerpos. Sonidos sintéticos sin muestras externas; no equivalen a grabaciones de pádel. Mando solo probado sintéticamente. No se repitieron recorridos/FPS pasivos porque no se cambió esa física.
 
 ## Corrección de red — sesión 013
 
@@ -88,7 +88,7 @@ Búsqueda pura elige velocidad inicial para piso/vidrio/salida lateral o piso/sa
 
 ## Próximo paso
 
-**Probar volea contextual con el usuario (P41):** colocarse a unos 3 m de red en carril de recepción, R y preparar J enseguida, fijar ~90%, apuntar. Comprobar gesto corto, respuesta y diferencia con defensa. Después P43 rival simple para encadenar intercambios; calibración humana de especiales sigue abierta.
+**Probar peloteo con el usuario (P43/P41):** reiniciar juego y pulsar I/LB. Devolver con J/K; rival responde y al fallar reinicia solo. R reinicia antes; I vuelve a práctica individual. Revisar tiempo para llegar/cargar, dificultad y lectura de golpes. Mantener variedad actual hasta valorar intercambios. Después decidir ajustes del rival antes de parejas E5.
 
 ## Abrir
 
@@ -119,3 +119,10 @@ Usuario dice «ta bueno» y señala que esperaba W+D para x3 y S para x4. Se ado
 J/A intercepta antes del pique propio en vuelo entrante de 0.45–2.1 m; alcance 1 m, ideal 1.25 m. Trayectoria propia 10–17 m/s nominales con asistencia de red, gesto compacto y recuperación preparada 0.14 s. Llegada exigida conserva devolución suave/menos colocada y 0.28 s; 100% conserva riesgo. K/globo, pelota alta/smash y después del pique/plano-chiquita conservados. No efecto cortado ni cambios físicos. 54 trayectorias/tres R reales y regresiones aprobadas; render nativo/capturas revisados, valoración humana pendiente. Ver VOLEA.md.
 
 Riesgos de volea verificados tras pedido del usuario: poca fuerza/contacto bajo puede tocar red; suave cómoda pasa; 100% profundo o abierto puede tocar directamente vidrio de fondo o cerramiento lateral rival antes del piso. Seis casos específicos guardados en informe.
+
+
+## Rival de entrenamiento — sesión 029
+
+Usuario considera jugable lo actual y acuerda seguir con rival antes de más golpes. I/LB activa peloteo; rival comparte motor/controlador desde mitad opuesta, reacción 0.24 s, forecast aproximado y carga buscada 70%. Plano contextual y globo cuando humano sube; alcance/velocidad sin ventajas. Tras devolución recupera posición. Fin de jugada básico y reinicio a 1.8 s, R manual; sin marcador reglamentario.
+
+60 s automáticos: 34 devoluciones del rival/68 contactos consecutivos. Quince recepciones y cinco pares espejados, pelota imposible, pausa/foco/modos y reinicios verificados; no equivale a prueba humana. Ver RIVAL.md e informe. Controles/golpes anteriores preservados en regresiones; pendiente valorar dificultad con usuario.

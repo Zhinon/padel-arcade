@@ -303,3 +303,12 @@ Usuario valora práctica y esperaba W+D x3, S x4. Se implementa diagonal adelant
 **Verificación:** 54 trayectorias/tres feeds R, selección por historial/altura/botón, defensa/carga/riesgo, contacto y geometría corporal aprobados. Regresiones jugador, globo, smash, especiales, chiquita, poses, audio e intento fallido aprobadas. Importación final sin errores de scripts; render llvmpipe, capturas revisadas y video 2 s. Primer intento gráfico no pudo acceder a display, resuelto con permiso de red local. Sin prueba humana ni rendimiento objetivo. Plan/documentación actualizados; siguiente P41 valoración de volea y P43 rival simple.
 
 **Ajuste del usuario durante el desarrollo:** pidió aclarar volea suave/red y permitir sobrecarga a pared/laterales sin pique. Se añadió pérdida determinista de margen con potencia insuficiente y contacto bajo/mala calidad, aplicada después de asistencia. Se comprobaron seis vuelos específicos de debilidad, control y sobrecarga, incluidos ambos laterales y vidrio de fondo. Riesgos/documentación actualizados; no aleatoriedad.
+
+
+## 28/10/2026 — Sesión 029: primer rival de peloteo
+
+**Acuerdo:** usuario considera jugable el prototipo y acepta rival de entrenamiento antes de más golpes. Modo opcional I/LB, mismos controles y práctica individual conservada. Compañeros decorativos ocultos durante peloteo, un rival activo.
+
+**Implementación:** motor/controlador de golpes adaptados a identidad y mitad opuesta mediante coordenadas locales, eventos físicos en mundo. Rival con reacción 0.24 s, replan 0.12 s, forecast aproximado sin modificar física/RNG, movimiento normal, plantado/carga/contacto comunes. Busca 70%, plano contextual y globo si humano sube. Fin de jugada básico y reinicio tras 1.8 s; R manual, pausa/foco/modos y audio conjunto. No dobles, árbitro completo o puntos.
+
+**Verificación:** 60 s sintéticos con 34 devoluciones/68 contactos, quince recepciones, cinco pares espejados y negativos de alcance/reacción/reinicio aprobados. Regresiones de golpes, poses, impactos, pelota y cámara aprobadas. Constante de foco y activación de presentación de fixture corregidas. Importación final limpia. Capturas y video 6 s revisados; HUD largo corregido y ventana pequeña verificada. Documentación y punto Git. Pendiente prueba humana de tiempo para posicionar/cargar y dificultad antes de avanzar a parejas.

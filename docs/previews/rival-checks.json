@@ -1,0 +1,2925 @@
+{
+	"best_rally": 68,
+	"engine": "4.7.2-stable (official)",
+	"events": [
+		{
+			"event": {
+				"charge": 0.34375,
+				"defensive": false,
+				"effective_power": 0.298145605520991,
+				"net_risk": 0.0,
+				"perfect": false,
+				"position": "(-2.4, 1.311721, 3.118827)",
+				"quality": 0.796181477188786,
+				"shot_type": "volley",
+				"special": {},
+				"target": "(-2.4, 0.105, -4.5)",
+				"touch": 0.0,
+				"velocity": "(0.0, 1.230582, -12.18478)"
+			},
+			"hitter": 0
+		},
+		{
+			"event": {
+				"charge": 0.427083333333334,
+				"defensive": false,
+				"effective_power": 0.374973099985062,
+				"net_risk": 0.0,
+				"perfect": false,
+				"position": "(-2.4, 0.558281, -6.347389)",
+				"quality": 0.830305888689481,
+				"shot_type": "flat",
+				"special": {},
+				"target": "(-2.4, 0.105, 5.5)",
+				"touch": 0.0,
+				"velocity": "(0.0, 6.551816, 8.804978)"
+			},
+			"hitter": 1
+		},
+		{
+			"event": {
+				"charge": 0.708333333333334,
+				"defensive": false,
+				"effective_power": 0.637753019631826,
+				"net_risk": 0.0,
+				"perfect": false,
+				"position": "(-2.4, 1.786661, 2.98608)",
+				"quality": 0.880033461130582,
+				"shot_type": "volley",
+				"special": {},
+				"target": "(-2.4, 0.105, -4.5)",
+				"touch": 0.0,
+				"velocity": "(0.0, -0.612443, -14.41185)"
+			},
+			"hitter": 0
+		},
+		{
+			"event": {
+				"charge": 0.28125,
+				"defensive": false,
+				"effective_power": 0.235418985889275,
+				"net_risk": 0.0,
+				"perfect": false,
+				"position": "(-2.4, 0.527737, -6.039306)",
+				"quality": 0.715776656677673,
+				"shot_type": "flat",
+				"special": {},
+				"target": "(-2.4, 0.105, 5.5)",
+				"touch": 0.0,
+				"velocity": "(0.0, 6.921741, 8.192524)"
+			},
+			"hitter": 1
+		},
+		{
+			"event": {
+				"charge": 0.708333333333334,
+				"defensive": false,
+				"effective_power": 0.616663084280186,
+				"net_risk": 0.0,
+				"perfect": false,
+				"position": "(-2.4, 1.981083, 2.971502)",
+				"quality": 0.844186545518728,
+				"shot_type": "volley",
+				"special": {},
+				"target": "(-2.4, 0.105, -4.5)",
+				"touch": 0.0,
+				"velocity": "(0.0, -0.986736, -14.38378)"
+			},
+			"hitter": 0
+		},
+		{
+			"event": {
+				"charge": 0.322916666666667,
+				"defensive": false,
+				"effective_power": 0.277857461597252,
+				"net_risk": 0.0,
+				"perfect": false,
+				"position": "(-2.4, 0.513591, -5.821729)",
+				"quality": 0.777942315879679,
+				"shot_type": "flat",
+				"special": {},
+				"target": "(-2.4, 0.105, 5.5)",
+				"touch": 0.0,
+				"velocity": "(0.0, 6.801866, 8.175021)"
+			},
+			"hitter": 1
+		},
+		{
+			"event": {
+				"charge": 0.708333333333334,
+				"defensive": false,
+				"effective_power": 0.620865516099563,
+				"net_risk": 0.0,
+				"perfect": false,
+				"position": "(-2.4, 1.940262, 2.974378)",
+				"quality": 0.85132948912107,
+				"shot_type": "volley",
+				"special": {},
+				"target": "(-2.4, 0.105, -4.5)",
+				"touch": 0.0,
+				"velocity": "(0.0, -0.908149, -14.38932)"
+			},
+			"hitter": 0
+		},
+		{
+			"event": {
+				"charge": 0.302083333333333,
+				"defensive": false,
+				"effective_power": 0.25715683395603,
+				"net_risk": 0.0,
+				"perfect": false,
+				"position": "(-2.4, 0.554042, -6.016542)",
+				"quality": 0.753264076646391,
+				"shot_type": "flat",
+				"special": {},
+				"target": "(-2.4, 0.105, 5.5)",
+				"touch": 0.0,
+				"velocity": "(0.0, 6.859612, 8.222268)"
+			},
+			"hitter": 1
+		},
+		{
+			"event": {
+				"charge": 0.708333333333334,
+				"defensive": false,
+				"effective_power": 0.615505484610949,
+				"net_risk": 0.0,
+				"perfect": false,
+				"position": "(-2.4, 1.974322, 2.961476)",
+				"quality": 0.842218954012944,
+				"shot_type": "volley",
+				"special": {},
+				"target": "(-2.4, 0.105, -4.5)",
+				"touch": 0.0,
+				"velocity": "(0.0, -0.97372, -14.36448)"
+			},
+			"hitter": 0
+		},
+		{
+			"event": {
+				"charge": 0.322916666666667,
+				"defensive": false,
+				"effective_power": 0.278208281688537,
+				"net_risk": 0.0,
+				"perfect": false,
+				"position": "(-2.4, 0.512707, -5.820233)",
+				"quality": 0.779671203393203,
+				"shot_type": "flat",
+				"special": {},
+				"target": "(-2.4, 0.105, 5.5)",
+				"touch": 0.0,
+				"velocity": "(0.0, 6.802505, 8.173941)"
+			},
+			"hitter": 1
+		},
+		{
+			"event": {
+				"charge": 0.708333333333334,
+				"defensive": false,
+				"effective_power": 0.620942096825747,
+				"net_risk": 0.0,
+				"perfect": false,
+				"position": "(-2.4, 1.940065, 2.974711)",
+				"quality": 0.851459654661325,
+				"shot_type": "volley",
+				"special": {},
+				"target": "(-2.4, 0.105, -4.5)",
+				"touch": 0.0,
+				"velocity": "(0.0, -0.90777, -14.38996)"
+			},
+			"hitter": 0
+		},
+		{
+			"event": {
+				"charge": 0.302083333333333,
+				"defensive": false,
+				"effective_power": 0.257250327415041,
+				"net_risk": 0.0,
+				"perfect": false,
+				"position": "(-2.4, 0.554009, -6.016655)",
+				"quality": 0.753777541867503,
+				"shot_type": "flat",
+				"special": {},
+				"target": "(-2.4, 0.105, 5.5)",
+				"touch": 0.0,
+				"velocity": "(0.0, 6.859637, 8.222348)"
+			},
+			"hitter": 1
+		},
+		{
+			"event": {
+				"charge": 0.708333333333334,
+				"defensive": false,
+				"effective_power": 0.615501712437777,
+				"net_risk": 0.0,
+				"perfect": false,
+				"position": "(-2.4, 1.974315, 2.961452)",
+				"quality": 0.842212542387155,
+				"shot_type": "volley",
+				"special": {},
+				"target": "(-2.4, 0.105, -4.5)",
+				"touch": 0.0,
+				"velocity": "(0.0, -0.973707, -14.36443)"
+			},
+			"hitter": 0
+		},
+		{
+			"event": {
+				"charge": 0.322916666666667,
+				"defensive": false,
+				"effective_power": 0.278526775244138,
+				"net_risk": 0.0,
+				"perfect": false,
+				"position": "(-2.4, 0.52806, -5.814883)",
+				"quality": 0.781240781490619,
+				"shot_type": "flat",
+				"special": {},
+				"target": "(-2.4, 0.105, 5.5)",
+				"touch": 0.0,
+				"velocity": "(0.0, 6.791419, 8.170078)"
+			},
+			"hitter": 1
+		},
+		{
+			"event": {
+				"charge": 0.708333333333334,
+				"defensive": false,
+				"effective_power": 0.620843431190956,
+				"net_risk": 0.0,
+				"perfect": false,
+				"position": "(-2.4, 1.94349, 2.975908)",
+				"quality": 0.851291951032785,
+				"shot_type": "volley",
+				"special": {},
+				"target": "(-2.4, 0.105, -4.5)",
+				"touch": 0.0,
+				"velocity": "(0.0, -0.914363, -14.39227)"
+			},
+			"hitter": 0
+		},
+		{
+			"event": {
+				"charge": 0.302083333333333,
+				"defensive": false,
+				"effective_power": 0.25720418681793,
+				"net_risk": 0.0,
+				"perfect": false,
+				"position": "(-2.4, 0.554532, -6.016512)",
+				"quality": 0.753524138130508,
+				"shot_type": "flat",
+				"special": {},
+				"target": "(-2.4, 0.105, 5.5)",
+				"touch": 0.0,
+				"velocity": "(0.0, 6.859263, 8.222246)"
+			},
+			"hitter": 1
+		},
+		{
+			"event": {
+				"charge": 0.708333333333334,
+				"defensive": false,
+				"effective_power": 0.615496770631962,
+				"net_risk": 0.0,
+				"perfect": false,
+				"position": "(-2.4, 1.97443, 2.961483)",
+				"quality": 0.842204142717215,
+				"shot_type": "volley",
+				"special": {},
+				"target": "(-2.4, 0.105, -4.5)",
+				"touch": 0.0,
+				"velocity": "(0.0, -0.973928, -14.36449)"
+			},
+			"hitter": 0
+		},
+		{
+			"event": {
+				"charge": 0.322916666666667,
+				"defensive": false,
+				"effective_power": 0.278244417380553,
+				"net_risk": 0.0,
+				"perfect": false,
+				"position": "(-2.4, 0.512567, -5.820264)",
+				"quality": 0.779849284832294,
+				"shot_type": "flat",
+				"special": {},
+				"target": "(-2.4, 0.105, 5.5)",
+				"touch": 0.0,
+				"velocity": "(0.0, 6.802606, 8.173964)"
+			},
+			"hitter": 1
+		},
+		{
+			"event": {
+				"charge": 0.708333333333334,
+				"defensive": false,
+				"effective_power": 0.620944014203243,
+				"net_risk": 0.0,
+				"perfect": false,
+				"position": "(-2.4, 1.940036, 2.974707)",
+				"quality": 0.851462913659903,
+				"shot_type": "volley",
+				"special": {},
+				"target": "(-2.4, 0.105, -4.5)",
+				"touch": 0.0,
+				"velocity": "(0.0, -0.907714, -14.38995)"
+			},
+			"hitter": 0
+		},
+		{
+			"event": {
+				"charge": 0.302083333333333,
+				"defensive": false,
+				"effective_power": 0.257465891283142,
+				"net_risk": 0.0,
+				"perfect": false,
+				"position": "(-2.4, 0.571702, -6.010734)",
+				"quality": 0.754961416657988,
+				"shot_type": "flat",
+				"special": {},
+				"target": "(-2.4, 0.105, 5.5)",
+				"touch": 0.0,
+				"velocity": "(0.0, 6.847005, 8.218121)"
+			},
+			"hitter": 1
+		},
+		{
+			"event": {
+				"charge": 0.708333333333334,
+				"defensive": false,
+				"effective_power": 0.61537897546108,
+				"net_risk": 0.0,
+				"perfect": false,
+				"position": "(-2.4, 1.978215, 2.962756)",
+				"quality": 0.842003924296453,
+				"shot_type": "volley",
+				"special": {},
+				"target": "(-2.4, 0.105, -4.5)",
+				"touch": 0.0,
+				"velocity": "(0.0, -0.981214, -14.36695)"
+			},
+			"hitter": 0
+		},
+		{
+			"event": {
+				"charge": 0.322916666666667,
+				"defensive": false,
+				"effective_power": 0.278292899047595,
+				"net_risk": 0.0,
+				"perfect": false,
+				"position": "(-2.4, 0.513288, -5.820037)",
+				"quality": 0.780088208858783,
+				"shot_type": "flat",
+				"special": {},
+				"target": "(-2.4, 0.105, 5.5)",
+				"touch": 0.0,
+				"velocity": "(0.0, 6.802085, 8.1738)"
+			},
+			"hitter": 1
+		},
+		{
+			"event": {
+				"charge": 0.708333333333334,
+				"defensive": false,
+				"effective_power": 0.620938565268884,
+				"net_risk": 0.0,
+				"perfect": false,
+				"position": "(-2.4, 1.940194, 2.974757)",
+				"quality": 0.851453652015099,
+				"shot_type": "volley",
+				"special": {},
+				"target": "(-2.4, 0.105, -4.5)",
+				"touch": 0.0,
+				"velocity": "(0.0, -0.908018, -14.39005)"
+			},
+			"hitter": 0
+		},
+		{
+			"event": {
+				"charge": 0.302083333333333,
+				"defensive": false,
+				"effective_power": 0.257208133307178,
+				"net_risk": 0.0,
+				"perfect": false,
+				"position": "(-2.4, 0.553969, -6.016667)",
+				"quality": 0.753545812213337,
+				"shot_type": "flat",
+				"special": {},
+				"target": "(-2.4, 0.105, 5.5)",
+				"touch": 0.0,
+				"velocity": "(0.0, 6.859665, 8.222357)"
+			},
+			"hitter": 1
+		},
+		{
+			"event": {
+				"charge": 0.708333333333334,
+				"defensive": false,
+				"effective_power": 0.615502110587634,
+				"net_risk": 0.0,
+				"perfect": false,
+				"position": "(-2.4, 1.974307, 2.961449)",
+				"quality": 0.842213219129122,
+				"shot_type": "volley",
+				"special": {},
+				"target": "(-2.4, 0.105, -4.5)",
+				"touch": 0.0,
+				"velocity": "(0.0, -0.97369, -14.36443)"
+			},
+			"hitter": 0
+		},
+		{
+			"event": {
+				"charge": 0.322916666666667,
+				"defensive": false,
+				"effective_power": 0.278480452922552,
+				"net_risk": 0.0,
+				"perfect": false,
+				"position": "(-2.4, 0.528058, -5.814885)",
+				"quality": 0.78101249900231,
+				"shot_type": "flat",
+				"special": {},
+				"target": "(-2.4, 0.105, 5.5)",
+				"touch": 0.0,
+				"velocity": "(0.0, 6.79142, 8.170079)"
+			},
+			"hitter": 1
+		},
+		{
+			"event": {
+				"charge": 0.708333333333334,
+				"defensive": false,
+				"effective_power": 0.620843315738287,
+				"net_risk": 0.0,
+				"perfect": false,
+				"position": "(-2.4, 1.94349, 2.975908)",
+				"quality": 0.851291754795955,
+				"shot_type": "volley",
+				"special": {},
+				"target": "(-2.4, 0.105, -4.5)",
+				"touch": 0.0,
+				"velocity": "(0.0, -0.914363, -14.39226)"
+			},
+			"hitter": 0
+		},
+		{
+			"event": {
+				"charge": 0.302083333333333,
+				"defensive": false,
+				"effective_power": 0.257229544731137,
+				"net_risk": 0.0,
+				"perfect": false,
+				"position": "(-2.4, 0.554531, -6.016512)",
+				"quality": 0.753663403557731,
+				"shot_type": "flat",
+				"special": {},
+				"target": "(-2.4, 0.105, 5.5)",
+				"touch": 0.0,
+				"velocity": "(0.0, 6.859263, 8.222246)"
+			},
+			"hitter": 1
+		},
+		{
+			"event": {
+				"charge": 0.708333333333334,
+				"defensive": false,
+				"effective_power": 0.615496708050141,
+				"net_risk": 0.0,
+				"perfect": false,
+				"position": "(-2.4, 1.97443, 2.961482)",
+				"quality": 0.842204036345849,
+				"shot_type": "volley",
+				"special": {},
+				"target": "(-2.4, 0.105, -4.5)",
+				"touch": 0.0,
+				"velocity": "(0.0, -0.973928, -14.36449)"
+			},
+			"hitter": 0
+		},
+		{
+			"event": {
+				"charge": 0.322916666666667,
+				"defensive": false,
+				"effective_power": 0.278274350499373,
+				"net_risk": 0.0,
+				"perfect": false,
+				"position": "(-2.4, 0.51266, -5.82024)",
+				"quality": 0.779996799175556,
+				"shot_type": "flat",
+				"special": {},
+				"target": "(-2.4, 0.105, 5.5)",
+				"touch": 0.0,
+				"velocity": "(0.0, 6.802539, 8.173945)"
+			},
+			"hitter": 1
+		},
+		{
+			"event": {
+				"charge": 0.708333333333334,
+				"defensive": false,
+				"effective_power": 0.620942907152421,
+				"net_risk": 0.0,
+				"perfect": false,
+				"position": "(-2.4, 1.940055, 2.974711)",
+				"quality": 0.851461031987117,
+				"shot_type": "volley",
+				"special": {},
+				"target": "(-2.4, 0.105, -4.5)",
+				"touch": 0.0,
+				"velocity": "(0.0, -0.907752, -14.38996)"
+			},
+			"hitter": 0
+		},
+		{
+			"event": {
+				"charge": 0.302083333333333,
+				"defensive": false,
+				"effective_power": 0.257212587383469,
+				"net_risk": 0.0,
+				"perfect": false,
+				"position": "(-2.4, 0.553946, -6.016673)",
+				"quality": 0.753570273959553,
+				"shot_type": "flat",
+				"special": {},
+				"target": "(-2.4, 0.105, 5.5)",
+				"touch": 0.0,
+				"velocity": "(0.0, 6.859681, 8.222362)"
+			},
+			"hitter": 1
+		},
+		{
+			"event": {
+				"charge": 0.708333333333334,
+				"defensive": false,
+				"effective_power": 0.615502386810841,
+				"net_risk": 0.0,
+				"perfect": false,
+				"position": "(-2.4, 1.974301, 2.961448)",
+				"quality": 0.842213688630324,
+				"shot_type": "volley",
+				"special": {},
+				"target": "(-2.4, 0.105, -4.5)",
+				"touch": 0.0,
+				"velocity": "(0.0, -0.973679, -14.36443)"
+			},
+			"hitter": 0
+		},
+		{
+			"event": {
+				"charge": 0.322916666666667,
+				"defensive": false,
+				"effective_power": 0.278264610892718,
+				"net_risk": 0.0,
+				"perfect": false,
+				"position": "(-2.4, 0.512579, -5.820265)",
+				"quality": 0.779948801114009,
+				"shot_type": "flat",
+				"special": {},
+				"target": "(-2.4, 0.105, 5.5)",
+				"touch": 0.0,
+				"velocity": "(0.0, 6.802597, 8.173964)"
+			},
+			"hitter": 1
+		},
+		{
+			"event": {
+				"charge": 0.708333333333334,
+				"defensive": false,
+				"effective_power": 0.620943640870315,
+				"net_risk": 0.0,
+				"perfect": false,
+				"position": "(-2.4, 1.940038, 2.974706)",
+				"quality": 0.851462279099684,
+				"shot_type": "volley",
+				"special": {},
+				"target": "(-2.4, 0.105, -4.5)",
+				"touch": 0.0,
+				"velocity": "(0.0, -0.907718, -14.38995)"
+			},
+			"hitter": 0
+		},
+		{
+			"event": {
+				"charge": 0.302083333333333,
+				"defensive": false,
+				"effective_power": 0.257455003140373,
+				"net_risk": 0.0,
+				"perfect": false,
+				"position": "(-2.4, 0.571702, -6.010733)",
+				"quality": 0.754901619077562,
+				"shot_type": "flat",
+				"special": {},
+				"target": "(-2.4, 0.105, 5.5)",
+				"touch": 0.0,
+				"velocity": "(0.0, 6.847004, 8.218121)"
+			},
+			"hitter": 1
+		},
+		{
+			"event": {
+				"charge": 0.708333333333334,
+				"defensive": false,
+				"effective_power": 0.615379040200894,
+				"net_risk": 0.0,
+				"perfect": false,
+				"position": "(-2.4, 1.978214, 2.962756)",
+				"quality": 0.842004034335797,
+				"shot_type": "volley",
+				"special": {},
+				"target": "(-2.4, 0.105, -4.5)",
+				"touch": 0.0,
+				"velocity": "(0.0, -0.981213, -14.36695)"
+			},
+			"hitter": 0
+		},
+		{
+			"event": {
+				"charge": 0.322916666666667,
+				"defensive": false,
+				"effective_power": 0.278280791097757,
+				"net_risk": 0.0,
+				"perfect": false,
+				"position": "(-2.4, 0.513287, -5.820038)",
+				"quality": 0.780028539290795,
+				"shot_type": "flat",
+				"special": {},
+				"target": "(-2.4, 0.105, 5.5)",
+				"touch": 0.0,
+				"velocity": "(0.0, 6.802086, 8.1738)"
+			},
+			"hitter": 1
+		},
+		{
+			"event": {
+				"charge": 0.708333333333334,
+				"defensive": false,
+				"effective_power": 0.620938353785491,
+				"net_risk": 0.0,
+				"perfect": false,
+				"position": "(-2.4, 1.940194, 2.974756)",
+				"quality": 0.851453292553241,
+				"shot_type": "volley",
+				"special": {},
+				"target": "(-2.4, 0.105, -4.5)",
+				"touch": 0.0,
+				"velocity": "(0.0, -0.908018, -14.39005)"
+			},
+			"hitter": 0
+		},
+		{
+			"event": {
+				"charge": 0.302083333333333,
+				"defensive": false,
+				"effective_power": 0.257214787238992,
+				"net_risk": 0.0,
+				"perfect": false,
+				"position": "(-2.4, 0.55397, -6.016666)",
+				"quality": 0.753582355545951,
+				"shot_type": "flat",
+				"special": {},
+				"target": "(-2.4, 0.105, 5.5)",
+				"touch": 0.0,
+				"velocity": "(0.0, 6.859664, 8.222357)"
+			},
+			"hitter": 1
+		},
+		{
+			"event": {
+				"charge": 0.708333333333334,
+				"defensive": false,
+				"effective_power": 0.615502175327448,
+				"net_risk": 0.0,
+				"perfect": false,
+				"position": "(-2.4, 1.974306, 2.961449)",
+				"quality": 0.842213329168466,
+				"shot_type": "volley",
+				"special": {},
+				"target": "(-2.4, 0.105, -4.5)",
+				"touch": 0.0,
+				"velocity": "(0.0, -0.973689, -14.36443)"
+			},
+			"hitter": 0
+		},
+		{
+			"event": {
+				"charge": 0.322916666666667,
+				"defensive": false,
+				"effective_power": 0.278487870927682,
+				"net_risk": 0.0,
+				"perfect": false,
+				"position": "(-2.4, 0.528058, -5.814885)",
+				"quality": 0.781049055906442,
+				"shot_type": "flat",
+				"special": {},
+				"target": "(-2.4, 0.105, 5.5)",
+				"touch": 0.0,
+				"velocity": "(0.0, 6.79142, 8.170079)"
+			},
+			"hitter": 1
+		},
+		{
+			"event": {
+				"charge": 0.708333333333334,
+				"defensive": false,
+				"effective_power": 0.62084318949565,
+				"net_risk": 0.0,
+				"perfect": false,
+				"position": "(-2.4, 1.94349, 2.975907)",
+				"quality": 0.851291540219234,
+				"shot_type": "volley",
+				"special": {},
+				"target": "(-2.4, 0.105, -4.5)",
+				"touch": 0.0,
+				"velocity": "(0.0, -0.914363, -14.39226)"
+			},
+			"hitter": 0
+		},
+		{
+			"event": {
+				"charge": 0.302083333333333,
+				"defensive": false,
+				"effective_power": 0.257225418849942,
+				"net_risk": 0.0,
+				"perfect": false,
+				"position": "(-2.4, 0.554531, -6.016512)",
+				"quality": 0.753640744255973,
+				"shot_type": "flat",
+				"special": {},
+				"target": "(-2.4, 0.105, 5.5)",
+				"touch": 0.0,
+				"velocity": "(0.0, 6.859263, 8.222246)"
+			},
+			"hitter": 1
+		},
+		{
+			"event": {
+				"charge": 0.708333333333334,
+				"defensive": false,
+				"effective_power": 0.6154967922119,
+				"net_risk": 0.0,
+				"perfect": false,
+				"position": "(-2.4, 1.97443, 2.961483)",
+				"quality": 0.842204179396996,
+				"shot_type": "volley",
+				"special": {},
+				"target": "(-2.4, 0.105, -4.5)",
+				"touch": 0.0,
+				"velocity": "(0.0, -0.973928, -14.36449)"
+			},
+			"hitter": 0
+		},
+		{
+			"event": {
+				"charge": 0.322916666666667,
+				"defensive": false,
+				"effective_power": 0.278270921388528,
+				"net_risk": 0.0,
+				"perfect": false,
+				"position": "(-2.4, 0.512722, -5.820223)",
+				"quality": 0.779979900066669,
+				"shot_type": "flat",
+				"special": {},
+				"target": "(-2.4, 0.105, 5.5)",
+				"touch": 0.0,
+				"velocity": "(0.0, 6.802494, 8.173934)"
+			},
+			"hitter": 1
+		},
+		{
+			"event": {
+				"charge": 0.708333333333334,
+				"defensive": false,
+				"effective_power": 0.62094215832857,
+				"net_risk": 0.0,
+				"perfect": false,
+				"position": "(-2.4, 1.94007, 2.974714)",
+				"quality": 0.851459759198702,
+				"shot_type": "volley",
+				"special": {},
+				"target": "(-2.4, 0.105, -4.5)",
+				"touch": 0.0,
+				"velocity": "(0.0, -0.90778, -14.38997)"
+			},
+			"hitter": 0
+		},
+		{
+			"event": {
+				"charge": 0.302083333333333,
+				"defensive": false,
+				"effective_power": 0.257215087182861,
+				"net_risk": 0.0,
+				"perfect": false,
+				"position": "(-2.4, 0.553948, -6.016672)",
+				"quality": 0.753584002834934,
+				"shot_type": "flat",
+				"special": {},
+				"target": "(-2.4, 0.105, 5.5)",
+				"touch": 0.0,
+				"velocity": "(0.0, 6.85968, 8.222361)"
+			},
+			"hitter": 1
+		},
+		{
+			"event": {
+				"charge": 0.708333333333334,
+				"defensive": false,
+				"effective_power": 0.615502556213355,
+				"net_risk": 0.0,
+				"perfect": false,
+				"position": "(-2.4, 1.9743, 2.961449)",
+				"quality": 0.842213976566608,
+				"shot_type": "volley",
+				"special": {},
+				"target": "(-2.4, 0.105, -4.5)",
+				"touch": 0.0,
+				"velocity": "(0.0, -0.973678, -14.36443)"
+			},
+			"hitter": 0
+		},
+		{
+			"event": {
+				"charge": 0.322916666666667,
+				"defensive": false,
+				"effective_power": 0.278269615376026,
+				"net_risk": 0.0,
+				"perfect": false,
+				"position": "(-2.4, 0.512703, -5.820231)",
+				"quality": 0.779973463865427,
+				"shot_type": "flat",
+				"special": {},
+				"target": "(-2.4, 0.105, 5.5)",
+				"touch": 0.0,
+				"velocity": "(0.0, 6.802507, 8.17394)"
+			},
+			"hitter": 1
+		},
+		{
+			"event": {
+				"charge": 0.708333333333334,
+				"defensive": false,
+				"effective_power": 0.620942487422626,
+				"net_risk": 0.0,
+				"perfect": false,
+				"position": "(-2.4, 1.940064, 2.974713)",
+				"quality": 0.851460318565369,
+				"shot_type": "volley",
+				"special": {},
+				"target": "(-2.4, 0.105, -4.5)",
+				"touch": 0.0,
+				"velocity": "(0.0, -0.907768, -14.38996)"
+			},
+			"hitter": 0
+		},
+		{
+			"event": {
+				"charge": 0.302083333333333,
+				"defensive": false,
+				"effective_power": 0.257215715588976,
+				"net_risk": 0.0,
+				"perfect": false,
+				"position": "(-2.4, 0.553947, -6.016673)",
+				"quality": 0.753587454035566,
+				"shot_type": "flat",
+				"special": {},
+				"target": "(-2.4, 0.105, 5.5)",
+				"touch": 0.0,
+				"velocity": "(0.0, 6.859681, 8.222362)"
+			},
+			"hitter": 1
+		},
+		{
+			"event": {
+				"charge": 0.708333333333334,
+				"defensive": false,
+				"effective_power": 0.615502451550655,
+				"net_risk": 0.0,
+				"perfect": false,
+				"position": "(-2.4, 1.9743, 2.961448)",
+				"quality": 0.842213798669668,
+				"shot_type": "volley",
+				"special": {},
+				"target": "(-2.4, 0.105, -4.5)",
+				"touch": 0.0,
+				"velocity": "(0.0, -0.973678, -14.36443)"
+			},
+			"hitter": 0
+		},
+		{
+			"event": {
+				"charge": 0.322916666666667,
+				"defensive": false,
+				"effective_power": 0.27848929208245,
+				"net_risk": 0.0,
+				"perfect": false,
+				"position": "(-2.4, 0.528057, -5.814886)",
+				"quality": 0.781056059543903,
+				"shot_type": "flat",
+				"special": {},
+				"target": "(-2.4, 0.105, 5.5)",
+				"touch": 0.0,
+				"velocity": "(0.0, 6.791421, 8.170079)"
+			},
+			"hitter": 1
+		},
+		{
+			"event": {
+				"charge": 0.708333333333334,
+				"defensive": false,
+				"effective_power": 0.620843126913829,
+				"net_risk": 0.0,
+				"perfect": false,
+				"position": "(-2.4, 1.943489, 2.975906)",
+				"quality": 0.851291433847868,
+				"shot_type": "volley",
+				"special": {},
+				"target": "(-2.4, 0.105, -4.5)",
+				"touch": 0.0,
+				"velocity": "(0.0, -0.914362, -14.39226)"
+			},
+			"hitter": 0
+		},
+		{
+			"event": {
+				"charge": 0.302083333333333,
+				"defensive": false,
+				"effective_power": 0.257224682848731,
+				"net_risk": 0.0,
+				"perfect": false,
+				"position": "(-2.4, 0.554531, -6.016512)",
+				"quality": 0.753636702144063,
+				"shot_type": "flat",
+				"special": {},
+				"target": "(-2.4, 0.105, 5.5)",
+				"touch": 0.0,
+				"velocity": "(0.0, 6.859263, 8.222246)"
+			},
+			"hitter": 1
+		},
+		{
+			"event": {
+				"charge": 0.708333333333334,
+				"defensive": false,
+				"effective_power": 0.615496813791838,
+				"net_risk": 0.0,
+				"perfect": false,
+				"position": "(-2.4, 1.97443, 2.961483)",
+				"quality": 0.842204216076778,
+				"shot_type": "volley",
+				"special": {},
+				"target": "(-2.4, 0.105, -4.5)",
+				"touch": 0.0,
+				"velocity": "(0.0, -0.973927, -14.36449)"
+			},
+			"hitter": 0
+		},
+		{
+			"event": {
+				"charge": 0.322916666666667,
+				"defensive": false,
+				"effective_power": 0.278270104898123,
+				"net_risk": 0.0,
+				"perfect": false,
+				"position": "(-2.4, 0.512722, -5.820223)",
+				"quality": 0.77997587629465,
+				"shot_type": "flat",
+				"special": {},
+				"target": "(-2.4, 0.105, 5.5)",
+				"touch": 0.0,
+				"velocity": "(0.0, 6.802494, 8.173934)"
+			},
+			"hitter": 1
+		},
+		{
+			"event": {
+				"charge": 0.708333333333334,
+				"defensive": false,
+				"effective_power": 0.62094215832857,
+				"net_risk": 0.0,
+				"perfect": false,
+				"position": "(-2.4, 1.94007, 2.974714)",
+				"quality": 0.851459759198702,
+				"shot_type": "volley",
+				"special": {},
+				"target": "(-2.4, 0.105, -4.5)",
+				"touch": 0.0,
+				"velocity": "(0.0, -0.90778, -14.38997)"
+			},
+			"hitter": 0
+		},
+		{
+			"event": {
+				"charge": 0.302083333333333,
+				"defensive": false,
+				"effective_power": 0.257215545614105,
+				"net_risk": 0.0,
+				"perfect": false,
+				"position": "(-2.4, 0.553948, -6.016672)",
+				"quality": 0.753586520535129,
+				"shot_type": "flat",
+				"special": {},
+				"target": "(-2.4, 0.105, 5.5)",
+				"touch": 0.0,
+				"velocity": "(0.0, 6.85968, 8.222361)"
+			},
+			"hitter": 1
+		},
+		{
+			"event": {
+				"charge": 0.708333333333334,
+				"defensive": false,
+				"effective_power": 0.615502556213355,
+				"net_risk": 0.0,
+				"perfect": false,
+				"position": "(-2.4, 1.9743, 2.961449)",
+				"quality": 0.842213976566608,
+				"shot_type": "volley",
+				"special": {},
+				"target": "(-2.4, 0.105, -4.5)",
+				"touch": 0.0,
+				"velocity": "(0.0, -0.973678, -14.36443)"
+			},
+			"hitter": 0
+		},
+		{
+			"event": {
+				"charge": 0.322916666666667,
+				"defensive": false,
+				"effective_power": 0.278270126259357,
+				"net_risk": 0.0,
+				"perfect": false,
+				"position": "(-2.4, 0.512703, -5.820231)",
+				"quality": 0.779975981565622,
+				"shot_type": "flat",
+				"special": {},
+				"target": "(-2.4, 0.105, 5.5)",
+				"touch": 0.0,
+				"velocity": "(0.0, 6.802507, 8.17394)"
+			},
+			"hitter": 1
+		},
+		{
+			"event": {
+				"charge": 0.708333333333334,
+				"defensive": false,
+				"effective_power": 0.620942487422626,
+				"net_risk": 0.0,
+				"perfect": false,
+				"position": "(-2.4, 1.940064, 2.974713)",
+				"quality": 0.851460318565369,
+				"shot_type": "volley",
+				"special": {},
+				"target": "(-2.4, 0.105, -4.5)",
+				"touch": 0.0,
+				"velocity": "(0.0, -0.907768, -14.38996)"
+			},
+			"hitter": 0
+		},
+		{
+			"event": {
+				"charge": 0.302083333333333,
+				"defensive": false,
+				"effective_power": 0.257215444697786,
+				"net_risk": 0.0,
+				"perfect": false,
+				"position": "(-2.4, 0.553947, -6.016673)",
+				"quality": 0.753585966303632,
+				"shot_type": "flat",
+				"special": {},
+				"target": "(-2.4, 0.105, 5.5)",
+				"touch": 0.0,
+				"velocity": "(0.0, 6.859681, 8.222362)"
+			},
+			"hitter": 1
+		},
+		{
+			"event": {
+				"charge": 0.708333333333334,
+				"defensive": false,
+				"effective_power": 0.615502451550655,
+				"net_risk": 0.0,
+				"perfect": false,
+				"position": "(-2.4, 1.9743, 2.961448)",
+				"quality": 0.842213798669668,
+				"shot_type": "volley",
+				"special": {},
+				"target": "(-2.4, 0.105, -4.5)",
+				"touch": 0.0,
+				"velocity": "(0.0, -0.973678, -14.36443)"
+			},
+			"hitter": 0
+		},
+		{
+			"event": {
+				"charge": 0.322916666666667,
+				"defensive": false,
+				"effective_power": 0.278488990196845,
+				"net_risk": 0.0,
+				"perfect": false,
+				"position": "(-2.4, 0.528057, -5.814886)",
+				"quality": 0.781054571811969,
+				"shot_type": "flat",
+				"special": {},
+				"target": "(-2.4, 0.105, 5.5)",
+				"touch": 0.0,
+				"velocity": "(0.0, 6.791421, 8.170079)"
+			},
+			"hitter": 1
+		},
+		{
+			"event": {
+				"charge": 0.708333333333334,
+				"defensive": false,
+				"effective_power": 0.620843126913829,
+				"net_risk": 0.0,
+				"perfect": false,
+				"position": "(-2.4, 1.943489, 2.975906)",
+				"quality": 0.851291433847868,
+				"shot_type": "volley",
+				"special": {},
+				"target": "(-2.4, 0.105, -4.5)",
+				"touch": 0.0,
+				"velocity": "(0.0, -0.914362, -14.39226)"
+			},
+			"hitter": 0
+		},
+		{
+			"event": {
+				"charge": 0.302083333333333,
+				"defensive": false,
+				"effective_power": 0.257224828713218,
+				"net_risk": 0.0,
+				"perfect": false,
+				"position": "(-2.4, 0.554531, -6.016512)",
+				"quality": 0.753637503230488,
+				"shot_type": "flat",
+				"special": {},
+				"target": "(-2.4, 0.105, 5.5)",
+				"touch": 0.0,
+				"velocity": "(0.0, 6.859263, 8.222246)"
+			},
+			"hitter": 1
+		},
+		{
+			"event": {
+				"charge": 0.895833333333333,
+				"defensive": false,
+				"effective_power": 0.891457332784518,
+				"net_risk": 0.0,
+				"perfect": true,
+				"position": "(0.3, 0.9, 4.45)",
+				"quality": 0.994359612611624,
+				"shot_type": "flat",
+				"special": {},
+				"target": "(-2.389848, 0.105, -5.5)",
+				"touch": 0.0,
+				"velocity": "(-2.393606, 5.017423, -8.854175)"
+			},
+			"hitter": 0
+		},
+		{
+			"event": {
+				"charge": 0.333333333333333,
+				"defensive": false,
+				"effective_power": 0.283541907417042,
+				"net_risk": 0.0,
+				"perfect": false,
+				"position": "(-1.988466, 1.055931, -4.015246)",
+				"quality": 0.766602691017387,
+				"shot_type": "volley",
+				"special": {},
+				"target": "(-2.029008, 0.105, 4.5)",
+				"touch": 0.0,
+				"velocity": "(-0.057395, 2.226703, 12.05487)"
+			},
+			"hitter": 1
+		},
+		{
+			"event": {
+				"charge": 0.895833333333333,
+				"defensive": false,
+				"effective_power": 0.891457332784518,
+				"net_risk": 0.0,
+				"perfect": true,
+				"position": "(0.3, 0.9, 4.45)",
+				"quality": 0.994359612611624,
+				"shot_type": "flat",
+				"special": {},
+				"target": "(0.0, 0.105, -5.5)",
+				"touch": 0.0,
+				"velocity": "(-0.26696, 5.017423, -8.854175)"
+			},
+			"hitter": 0
+		},
+		{
+			"event": {
+				"charge": 0.562500000000001,
+				"defensive": false,
+				"effective_power": 0.50040670929111,
+				"net_risk": 0.0,
+				"perfect": false,
+				"position": "(-0.011379, 0.448159, -5.877393)",
+				"quality": 0.859676179188949,
+				"shot_type": "flat",
+				"special": {},
+				"target": "(-0.025309, 0.105, 5.5)",
+				"touch": 0.0,
+				"velocity": "(-0.010796, 6.331448, 8.817739)"
+			},
+			"hitter": 1
+		},
+		{
+			"event": {
+				"charge": 0.895833333333333,
+				"defensive": false,
+				"effective_power": 0.891457332784518,
+				"net_risk": 0.0,
+				"perfect": true,
+				"position": "(0.3, 0.9, 4.45)",
+				"quality": 0.994359612611624,
+				"shot_type": "flat",
+				"special": {},
+				"target": "(2.389848, 0.105, -5.5)",
+				"touch": 0.0,
+				"velocity": "(1.859686, 5.017423, -8.854175)"
+			},
+			"hitter": 0
+		},
+		{
+			"event": {
+				"charge": 0.208333333333333,
+				"defensive": true,
+				"effective_power": 0.173518898627704,
+				"net_risk": 0.0,
+				"perfect": false,
+				"position": "(2.695136, 0.959466, -6.953498)",
+				"quality": 0.605874324087219,
+				"shot_type": "defense",
+				"special": {},
+				"target": "(1.238873, 0.105, 5.5)",
+				"touch": 0.0,
+				"velocity": "(-1.016878, 6.750231, 8.696018)"
+			},
+			"hitter": 1
+		},
+		{
+			"event": {
+				"charge": 0.895833333333333,
+				"defensive": false,
+				"effective_power": 0.891457332784518,
+				"net_risk": 0.0,
+				"perfect": true,
+				"position": "(0.3, 0.9, 4.45)",
+				"quality": 0.994359612611624,
+				"shot_type": "lob",
+				"special": {},
+				"target": "(-2.389848, 0.105, -7.565829)",
+				"touch": 0.0,
+				"velocity": "(-1.422458, 9.39342, -6.35427)"
+			},
+			"hitter": 0
+		},
+		{
+			"event": {
+				"charge": 0.708333333333334,
+				"defensive": false,
+				"effective_power": 0.620702733231814,
+				"net_risk": 0.0,
+				"perfect": false,
+				"position": "(-2.11483, 1.964165, -6.337298)",
+				"quality": 0.851052804360023,
+				"shot_type": "volley",
+				"special": {},
+				"target": "(-0.238446, 0.105, 4.633244)",
+				"touch": 0.0,
+				"velocity": "(2.433513, 1.492006, 14.22787)"
+			},
+			"hitter": 1
+		},
+		{
+			"event": {
+				"charge": 0.895833333333333,
+				"defensive": false,
+				"effective_power": 0.891457332784518,
+				"net_risk": 0.0,
+				"perfect": true,
+				"position": "(0.3, 0.9, 4.45)",
+				"quality": 0.994359612611624,
+				"shot_type": "lob",
+				"special": {},
+				"target": "(0.0, 0.105, -7.565829)",
+				"touch": 0.0,
+				"velocity": "(-0.158647, 9.39342, -6.35427)"
+			},
+			"hitter": 0
+		},
+		{
+			"event": {
+				"charge": 0.708333333333334,
+				"defensive": false,
+				"effective_power": 0.6210856476527,
+				"net_risk": 0.0,
+				"perfect": false,
+				"position": "(0.030673, 1.964165, -6.337298)",
+				"quality": 0.851703650401189,
+				"shot_type": "volley",
+				"special": {},
+				"target": "(0.130315, 0.105, 4.633317)",
+				"touch": 0.0,
+				"velocity": "(0.131993, 1.357811, 14.53245)"
+			},
+			"hitter": 1
+		},
+		{
+			"event": {
+				"charge": 0.895833333333333,
+				"defensive": false,
+				"effective_power": 0.891457332784518,
+				"net_risk": 0.0,
+				"perfect": true,
+				"position": "(0.3, 0.9, 4.45)",
+				"quality": 0.994359612611624,
+				"shot_type": "lob",
+				"special": {},
+				"target": "(2.389848, 0.105, -7.565829)",
+				"touch": 0.0,
+				"velocity": "(1.105163, 9.39342, -6.35427)"
+			},
+			"hitter": 0
+		},
+		{
+			"event": {
+				"charge": 0.708333333333334,
+				"defensive": false,
+				"effective_power": 0.624810428044124,
+				"net_risk": 0.0,
+				"perfect": false,
+				"position": "(2.18476, 1.897686, -6.386638)",
+				"quality": 0.858034721888029,
+				"shot_type": "volley",
+				"special": {},
+				"target": "(0.355727, 0.105, 4.634029)",
+				"touch": 0.0,
+				"velocity": "(-2.372102, 1.578224, 14.29288)"
+			},
+			"hitter": 1
+		},
+		{
+			"event": {
+				"charge": 0.302083333333333,
+				"defensive": false,
+				"effective_power": 0.301056312796366,
+				"net_risk": 0.0,
+				"perfect": true,
+				"position": "(0.3, 0.9, 4.45)",
+				"quality": 0.994359612611624,
+				"shot_type": "chiquita",
+				"special": {},
+				"target": "(0.0, 0.105, -1.6)",
+				"touch": 1.0,
+				"velocity": "(-0.324676, 3.828352, -6.547629)"
+			},
+			"hitter": 0
+		},
+		{
+			"event": {
+				"charge": 0.125,
+				"defensive": true,
+				"effective_power": 0.122347101178692,
+				"net_risk": 0.0,
+				"perfect": false,
+				"position": "(-0.037759, 0.708366, -2.361482)",
+				"quality": 0.469420235738332,
+				"shot_type": "defense",
+				"special": {},
+				"target": "(-0.03098, 0.105, 5.5)",
+				"touch": 0.0,
+				"velocity": "(0.004657, 7.057443, 5.40069)"
+			},
+			"hitter": 1
+		},
+		{
+			"event": {
+				"charge": 0.302083333333333,
+				"defensive": false,
+				"effective_power": 0.301056312796366,
+				"net_risk": 0.0,
+				"perfect": true,
+				"position": "(0.3, 0.9, 4.45)",
+				"quality": 0.994359612611624,
+				"shot_type": "chiquita",
+				"special": {},
+				"target": "(0.0, 0.105, -1.6)",
+				"touch": 1.0,
+				"velocity": "(-0.324676, 3.828352, -6.547629)"
+			},
+			"hitter": 0
+		},
+		{
+			"event": {
+				"charge": 0.125,
+				"defensive": true,
+				"effective_power": 0.122347101178692,
+				"net_risk": 0.0,
+				"perfect": false,
+				"position": "(-0.037759, 0.708366, -2.361482)",
+				"quality": 0.469420235738332,
+				"shot_type": "defense",
+				"special": {},
+				"target": "(-0.03098, 0.105, 5.5)",
+				"touch": 0.0,
+				"velocity": "(0.004657, 7.057443, 5.40069)"
+			},
+			"hitter": 1
+		},
+		{
+			"event": {
+				"charge": 0.302083333333333,
+				"defensive": false,
+				"effective_power": 0.301056312796366,
+				"net_risk": 0.0,
+				"perfect": true,
+				"position": "(0.3, 0.9, 4.45)",
+				"quality": 0.994359612611624,
+				"shot_type": "chiquita",
+				"special": {},
+				"target": "(0.0, 0.105, -1.6)",
+				"touch": 1.0,
+				"velocity": "(-0.324676, 3.828352, -6.547629)"
+			},
+			"hitter": 0
+		},
+		{
+			"event": {
+				"charge": 0.125,
+				"defensive": true,
+				"effective_power": 0.122347101178692,
+				"net_risk": 0.0,
+				"perfect": false,
+				"position": "(-0.037759, 0.708366, -2.361482)",
+				"quality": 0.469420235738332,
+				"shot_type": "defense",
+				"special": {},
+				"target": "(-0.03098, 0.105, 5.5)",
+				"touch": 0.0,
+				"velocity": "(0.004657, 7.057443, 5.40069)"
+			},
+			"hitter": 1
+		},
+		{
+			"event": {
+				"charge": 0.895833333333333,
+				"defensive": false,
+				"effective_power": 0.889665830462177,
+				"net_risk": 0.0,
+				"perfect": true,
+				"position": "(0.3, 1.25, 4.45)",
+				"quality": 0.992050479650497,
+				"shot_type": "volley",
+				"special": {},
+				"target": "(-2.385691, 0.105, -4.5)",
+				"touch": 0.0,
+				"velocity": "(-3.984902, 1.708994, -13.27959)"
+			},
+			"hitter": 0
+		},
+		{
+			"event": {
+				"charge": 0.520833333333334,
+				"defensive": false,
+				"effective_power": 0.463636898168723,
+				"net_risk": 0.0,
+				"perfect": false,
+				"position": "(-2.950392, 0.535041, -6.381854)",
+				"quality": 0.857306190857521,
+				"shot_type": "flat",
+				"special": {},
+				"target": "(-2.951231, 0.105, 5.5)",
+				"touch": 0.0,
+				"velocity": "(-0.000642, 6.351347, 9.097319)"
+			},
+			"hitter": 1
+		},
+		{
+			"event": {
+				"charge": 0.895833333333333,
+				"defensive": false,
+				"effective_power": 0.889665830462177,
+				"net_risk": 0.0,
+				"perfect": true,
+				"position": "(0.3, 1.25, 4.45)",
+				"quality": 0.992050479650497,
+				"shot_type": "volley",
+				"special": {},
+				"target": "(0.0, 0.105, -4.5)",
+				"touch": 0.0,
+				"velocity": "(-0.4618, 1.521635, -13.77702)"
+			},
+			"hitter": 0
+		},
+		{
+			"event": {
+				"charge": 0.895833333333333,
+				"defensive": false,
+				"effective_power": 0.889665830462177,
+				"net_risk": 0.0,
+				"perfect": true,
+				"position": "(0.3, 1.25, 4.45)",
+				"quality": 0.992050479650497,
+				"shot_type": "volley",
+				"special": {},
+				"target": "(2.385691, 0.105, -4.5)",
+				"touch": 0.0,
+				"velocity": "(3.170964, 1.584614, -13.60706)"
+			},
+			"hitter": 0
+		},
+		{
+			"event": {
+				"charge": 0.895833333333333,
+				"defensive": false,
+				"effective_power": 0.825543306739208,
+				"net_risk": 0.0,
+				"perfect": true,
+				"position": "(0.3, 2.4, 4.45)",
+				"quality": 0.909400610190171,
+				"shot_type": "smash",
+				"special": {},
+				"target": "(-2.236921, 0.105, -5.5)",
+				"touch": 0.0,
+				"velocity": "(-5.906303, -3.170564, -23.16497)"
+			},
+			"hitter": 0
+		},
+		{
+			"event": {
+				"charge": 0.895833333333333,
+				"defensive": false,
+				"effective_power": 0.825543306739208,
+				"net_risk": 0.0,
+				"perfect": true,
+				"position": "(0.3, 2.4, 4.45)",
+				"quality": 0.909400610190171,
+				"shot_type": "smash",
+				"special": {},
+				"target": "(0.0, 0.105, -5.5)",
+				"touch": 0.0,
+				"velocity": "(-0.712018, -3.315534, -23.61526)"
+			},
+			"hitter": 0
+		},
+		{
+			"event": {
+				"charge": 0.895833333333333,
+				"defensive": false,
+				"effective_power": 0.825543306739208,
+				"net_risk": 0.0,
+				"perfect": true,
+				"position": "(0.3, 2.4, 4.45)",
+				"quality": 0.909400610190171,
+				"shot_type": "smash",
+				"special": {},
+				"target": "(2.236921, 0.105, -5.5)",
+				"touch": 0.0,
+				"velocity": "(4.50942, -3.170564, -23.16497)"
+			},
+			"hitter": 0
+		},
+		{
+			"event": {
+				"charge": 0.895833333333333,
+				"defensive": false,
+				"effective_power": 0.891457332784518,
+				"net_risk": 0.0,
+				"perfect": true,
+				"position": "(0.3, 0.9, 4.45)",
+				"quality": 0.994359612611624,
+				"shot_type": "flat",
+				"special": {},
+				"target": "(2.389848, 0.105, -6.933908)",
+				"touch": 0.0,
+				"velocity": "(1.859686, 5.017423, -10.13016)"
+			},
+			"hitter": 0
+		},
+		{
+			"event": {
+				"charge": 0.895833333333333,
+				"defensive": false,
+				"effective_power": 0.891457332784518,
+				"net_risk": 0.0,
+				"perfect": true,
+				"position": "(-0.3, 0.9, -4.45)",
+				"quality": 0.994359612611624,
+				"shot_type": "flat",
+				"special": {},
+				"target": "(-2.389848, 0.105, 6.933908)",
+				"touch": 0.0,
+				"velocity": "(-1.859686, 5.017423, 10.13016)"
+			},
+			"hitter": 1
+		},
+		{
+			"event": {
+				"charge": 0.895833333333333,
+				"defensive": false,
+				"effective_power": 0.891457332784518,
+				"net_risk": 0.0,
+				"perfect": true,
+				"position": "(0.3, 0.9, 4.45)",
+				"quality": 0.994359612611624,
+				"shot_type": "lob",
+				"special": {},
+				"target": "(2.389848, 0.105, -8.999738)",
+				"touch": 0.0,
+				"velocity": "(1.105163, 9.39342, -7.112556)"
+			},
+			"hitter": 0
+		},
+		{
+			"event": {
+				"charge": 0.895833333333333,
+				"defensive": false,
+				"effective_power": 0.891457332784518,
+				"net_risk": 0.0,
+				"perfect": true,
+				"position": "(-0.3, 0.9, -4.45)",
+				"quality": 0.994359612611624,
+				"shot_type": "lob",
+				"special": {},
+				"target": "(-2.389848, 0.105, 8.999738)",
+				"touch": 0.0,
+				"velocity": "(-1.105163, 9.39342, 7.112556)"
+			},
+			"hitter": 1
+		},
+		{
+			"event": {
+				"charge": 0.302083333333333,
+				"defensive": false,
+				"effective_power": 0.301056312796366,
+				"net_risk": 0.0,
+				"perfect": true,
+				"position": "(0.3, 0.9, 4.45)",
+				"quality": 0.994359612611624,
+				"shot_type": "chiquita",
+				"special": {},
+				"target": "(0.0, 0.105, -1.6)",
+				"touch": 1.0,
+				"velocity": "(-0.324676, 3.828352, -6.547629)"
+			},
+			"hitter": 0
+		},
+		{
+			"event": {
+				"charge": 0.302083333333333,
+				"defensive": false,
+				"effective_power": 0.301056312796366,
+				"net_risk": 0.0,
+				"perfect": true,
+				"position": "(-0.3, 0.9, -4.45)",
+				"quality": 0.994359612611624,
+				"shot_type": "chiquita",
+				"special": {},
+				"target": "(0.0, 0.105, 1.6)",
+				"touch": 1.0,
+				"velocity": "(0.324676, 3.828352, 6.547629)"
+			},
+			"hitter": 1
+		},
+		{
+			"event": {
+				"charge": 0.895833333333333,
+				"defensive": false,
+				"effective_power": 0.889665830462177,
+				"net_risk": 0.0,
+				"perfect": true,
+				"position": "(0.3, 1.25, 4.45)",
+				"quality": 0.992050479650497,
+				"shot_type": "volley",
+				"special": {},
+				"target": "(2.385691, 0.105, -5.692845)",
+				"touch": 0.0,
+				"velocity": "(3.292868, 1.393996, -16.01342)"
+			},
+			"hitter": 0
+		},
+		{
+			"event": {
+				"charge": 0.895833333333333,
+				"defensive": false,
+				"effective_power": 0.889665830462177,
+				"net_risk": 0.0,
+				"perfect": true,
+				"position": "(-0.3, 1.25, -4.45)",
+				"quality": 0.992050479650497,
+				"shot_type": "volley",
+				"special": {},
+				"target": "(-2.385691, 0.105, 5.692845)",
+				"touch": 0.0,
+				"velocity": "(-3.292868, 1.393996, 16.01342)"
+			},
+			"hitter": 1
+		},
+		{
+			"event": {
+				"charge": 0.895833333333333,
+				"defensive": false,
+				"effective_power": 0.825543306739208,
+				"net_risk": 0.0,
+				"perfect": true,
+				"position": "(0.3, 2.4, 4.45)",
+				"quality": 0.909400610190171,
+				"shot_type": "smash",
+				"special": {},
+				"target": "(2.236921, 0.105, -6.842153)",
+				"touch": 0.0,
+				"velocity": "(4.046961, -2.375861, -23.59358)"
+			},
+			"hitter": 0
+		},
+		{
+			"event": {
+				"charge": 0.895833333333333,
+				"defensive": false,
+				"effective_power": 0.825543306739208,
+				"net_risk": 0.0,
+				"perfect": true,
+				"position": "(-0.3, 2.4, -4.45)",
+				"quality": 0.909400610190171,
+				"shot_type": "smash",
+				"special": {},
+				"target": "(-2.236921, 0.105, 6.842153)",
+				"touch": 0.0,
+				"velocity": "(-4.046961, -2.375861, 23.59358)"
+			},
+			"hitter": 1
+		},
+		{
+			"event": {
+				"charge": 0.708333333333334,
+				"defensive": false,
+				"effective_power": 0.649617984772218,
+				"net_risk": 0.0,
+				"perfect": false,
+				"position": "(-2.4, 0.682387, 5.873665)",
+				"quality": 0.900200540689322,
+				"shot_type": "flat",
+				"special": {},
+				"target": "(-2.4, 0.105, -5.5)",
+				"touch": 0.0,
+				"velocity": "(0.0, 5.794199, -9.2696)"
+			},
+			"hitter": 0
+		},
+		{
+			"event": {
+				"charge": 0.333333333333333,
+				"defensive": false,
+				"effective_power": 0.285149826865504,
+				"net_risk": 0.0,
+				"perfect": false,
+				"position": "(-2.4, 1.48179, -3.21149)",
+				"quality": 0.774139813432049,
+				"shot_type": "volley",
+				"special": {},
+				"target": "(-2.4, 0.105, 4.5)",
+				"touch": 0.0,
+				"velocity": "(0.0, 1.096787, 12.02073)"
+			},
+			"hitter": 1
+		},
+		{
+			"event": {
+				"charge": 0.708333333333334,
+				"defensive": false,
+				"effective_power": 0.663589660160848,
+				"net_risk": 0.0,
+				"perfect": false,
+				"position": "(-2.4, 0.575359, 6.041222)",
+				"quality": 0.923948430868295,
+				"shot_type": "flat",
+				"special": {},
+				"target": "(-2.4, 0.105, -5.5)",
+				"touch": 0.0,
+				"velocity": "(0.0, 5.881428, -9.40616)"
+			},
+			"hitter": 0
+		},
+		{
+			"event": {
+				"charge": 0.3125,
+				"defensive": false,
+				"effective_power": 0.266379112657217,
+				"net_risk": 0.0,
+				"perfect": false,
+				"position": "(-2.4, 1.426553, -3.253064)",
+				"quality": 0.760410974842685,
+				"shot_type": "volley",
+				"special": {},
+				"target": "(-2.4, 0.105, 4.5)",
+				"touch": 0.0,
+				"velocity": "(0.0, 1.249861, 11.93454)"
+			},
+			"hitter": 1
+		},
+		{
+			"event": {
+				"charge": 0.708333333333334,
+				"defensive": false,
+				"effective_power": 0.661694828736355,
+				"net_risk": 0.0,
+				"perfect": false,
+				"position": "(-2.4, 0.567092, 6.033102)",
+				"quality": 0.920727754226098,
+				"shot_type": "flat",
+				"special": {},
+				"target": "(-2.4, 0.105, -5.5)",
+				"touch": 0.0,
+				"velocity": "(0.0, 5.888165, -9.399543)"
+			},
+			"hitter": 0
+		},
+		{
+			"event": {
+				"charge": 0.3125,
+				"defensive": false,
+				"effective_power": 0.266389564139109,
+				"net_risk": 0.0,
+				"perfect": false,
+				"position": "(-2.4, 1.424943, -3.254646)",
+				"quality": 0.760465268255114,
+				"shot_type": "volley",
+				"special": {},
+				"target": "(-2.4, 0.105, 4.5)",
+				"touch": 0.0,
+				"velocity": "(0.0, 1.252339, 11.93697)"
+			},
+			"hitter": 1
+		}
+	],
+	"failures": [],
+	"frames": [
+		{
+			"ball": "(-2.4, 1.634307, -5.716695)",
+			"feedback": "Peloteo · devolvé con J/K · el rival responde · I: práctica individual",
+			"hits": 0,
+			"plan": "(-2.4, 0.0, -6.8)",
+			"player": "(-2.4, -0.000571, 6.798545)",
+			"rival": "(-2.4, -0.000571, -6.798545)",
+			"round": 1,
+			"state": 0,
+			"t": 0.0,
+			"valid": false,
+			"waiting": false
+		},
+		{
+			"ball": "(-2.4, 1.381458, 1.902986)",
+			"feedback": "Volea · recuperá posición",
+			"hits": 1,
+			"plan": "(-2.4, 0.0, -6.8)",
+			"player": "(-2.4, -0.001086, 3.860063)",
+			"rival": "(-2.4, -0.001086, -6.130669)",
+			"round": 1,
+			"state": 0,
+			"t": 1.0,
+			"valid": false,
+			"waiting": false
+		},
+		{
+			"ball": "(-2.4, 1.969161, -3.939688)",
+			"feedback": "Preparando plano · poca carga + abajo: chiquita · 90%: potencia",
+			"hits": 2,
+			"plan": "(-2.4, 0.0, -7.026812)",
+			"player": "(-2.4, -0.001086, 3.710757)",
+			"rival": "(-2.4, -0.001086, -6.224114)",
+			"round": 1,
+			"state": 0,
+			"t": 2.0,
+			"valid": false,
+			"waiting": false
+		},
+		{
+			"ball": "(-2.4, 1.48224, 0.234828)",
+			"feedback": "Volea · recuperá posición",
+			"hits": 3,
+			"plan": "(-2.4, 0.0, -7.026812)",
+			"player": "(-2.4, -0.001086, 3.710757)",
+			"rival": "(-2.4, -0.001086, -6.153266)",
+			"round": 1,
+			"state": 0,
+			"t": 3.0,
+			"valid": false,
+			"waiting": false
+		},
+		{
+			"ball": "(-2.4, 2.772964, -1.716952)",
+			"feedback": "Preparando plano · poca carga + abajo: chiquita · 90%: potencia",
+			"hits": 4,
+			"plan": "(-2.4, 0.0, -6.8305)",
+			"player": "(-2.4, -0.001086, 3.715966)",
+			"rival": "(-2.4, -0.001086, -6.147318)",
+			"round": 1,
+			"state": 0,
+			"t": 4.0,
+			"valid": false,
+			"waiting": false
+		},
+		{
+			"ball": "(-2.4, 0.751683, -2.853202)",
+			"feedback": "Volea · recuperá posición",
+			"hits": 5,
+			"plan": "(-2.4, 0.0, -6.609445)",
+			"player": "(-2.4, -0.001086, 3.715966)",
+			"rival": "(-2.4, -0.001086, -6.491398)",
+			"round": 1,
+			"state": 1,
+			"t": 5.0,
+			"valid": true,
+			"waiting": false
+		},
+		{
+			"ball": "(-2.4, 2.764174, 0.349639)",
+			"feedback": "Carga fijada · apuntá y esperá el contacto",
+			"hits": 6,
+			"plan": "(-2.4, 0.0, -6.609445)",
+			"player": "(-2.4, -0.001086, 3.715966)",
+			"rival": "(-2.4, -0.001086, -6.230443)",
+			"round": 1,
+			"state": 0,
+			"t": 6.0,
+			"valid": false,
+			"waiting": false
+		},
+		{
+			"ball": "(-2.4, 0.610506, -5.948046)",
+			"feedback": "Preparando plano · poca carga + abajo: chiquita · 90%: potencia",
+			"hits": 8,
+			"plan": "(-2.4, 0.0, -6.804945)",
+			"player": "(-2.4, -0.001086, 3.715966)",
+			"rival": "(-2.4, -0.001086, -6.726277)",
+			"round": 1,
+			"state": 4,
+			"t": 7.0,
+			"valid": false,
+			"waiting": false
+		},
+		{
+			"ball": "(-2.4, 2.371788, 2.107933)",
+			"feedback": "Carga fijada · apuntá y esperá el contacto",
+			"hits": 8,
+			"plan": "(-2.4, 0.0, -6.804945)",
+			"player": "(-2.4, -0.001086, 3.715966)",
+			"rival": "(-2.4, -0.001086, -6.165513)",
+			"round": 1,
+			"state": 0,
+			"t": 8.0,
+			"valid": false,
+			"waiting": false
+		},
+		{
+			"ball": "(-2.4, 1.888919, -3.787269)",
+			"feedback": "Preparando plano · poca carga + abajo: chiquita · 90%: potencia",
+			"hits": 10,
+			"plan": "(-2.4, 0.0, -6.607775)",
+			"player": "(-2.4, -0.001086, 3.715966)",
+			"rival": "(-2.4, -0.001086, -6.228395)",
+			"round": 1,
+			"state": 0,
+			"t": 9.0,
+			"valid": false,
+			"waiting": false
+		},
+		{
+			"ball": "(-2.4, 1.688095, 0.823038)",
+			"feedback": "Volea · recuperá posición",
+			"hits": 11,
+			"plan": "(-2.4, 0.0, -6.607775)",
+			"player": "(-2.4, -0.001086, 3.715966)",
+			"rival": "(-2.4, -0.001086, -6.228395)",
+			"round": 1,
+			"state": 0,
+			"t": 10.0,
+			"valid": false,
+			"waiting": false
+		},
+		{
+			"ball": "(-2.4, 2.695482, -2.014157)",
+			"feedback": "Preparando plano · poca carga + abajo: chiquita · 90%: potencia",
+			"hits": 12,
+			"plan": "(-2.4, 0.0, -6.805074)",
+			"player": "(-2.4, -0.001086, 3.715966)",
+			"rival": "(-2.4, -0.001086, -6.163465)",
+			"round": 1,
+			"state": 0,
+			"t": 11.0,
+			"valid": false,
+			"waiting": false
+		},
+		{
+			"ball": "(-2.4, 0.910535, -2.384126)",
+			"feedback": "Volea · recuperá posición",
+			"hits": 13,
+			"plan": "(-2.4, 0.0, -6.607768)",
+			"player": "(-2.4, -0.001086, 3.715966)",
+			"rival": "(-2.4, -0.001086, -6.425617)",
+			"round": 1,
+			"state": 0,
+			"t": 12.0,
+			"valid": true,
+			"waiting": false
+		},
+		{
+			"ball": "(-2.4, 2.793992, 0.088511)",
+			"feedback": "Carga fijada · apuntá y esperá el contacto",
+			"hits": 14,
+			"plan": "(-2.4, 0.0, -6.607768)",
+			"player": "(-2.4, -0.001086, 3.715966)",
+			"rival": "(-2.4, -0.001086, -6.229643)",
+			"round": 1,
+			"state": 0,
+			"t": 13.0,
+			"valid": false,
+			"waiting": false
+		},
+		{
+			"ball": "(-2.4, 0.483766, -5.732776)",
+			"feedback": "Volea · recuperá posición",
+			"hits": 15,
+			"plan": "(-2.4, 0.0, -6.804893)",
+			"player": "(-2.4, -0.001086, 3.715966)",
+			"rival": "(-2.4, -0.001086, -6.727212)",
+			"round": 1,
+			"state": 1,
+			"t": 14.0,
+			"valid": true,
+			"waiting": false
+		},
+		{
+			"ball": "(-2.4, 2.471401, 1.844568)",
+			"feedback": "Carga fijada · apuntá y esperá el contacto",
+			"hits": 16,
+			"plan": "(-2.4, 0.0, -6.804893)",
+			"player": "(-2.4, -0.001086, 3.715966)",
+			"rival": "(-2.4, -0.001086, -6.164712)",
+			"round": 1,
+			"state": 0,
+			"t": 15.0,
+			"valid": false,
+			"waiting": false
+		},
+		{
+			"ball": "(-2.4, 1.741476, -4.057184)",
+			"feedback": "Preparando plano · poca carga + abajo: chiquita · 90%: potencia",
+			"hits": 18,
+			"plan": "(-2.4, 0.0, -6.607759)",
+			"player": "(-2.4, -0.001086, 3.715966)",
+			"rival": "(-2.4, -0.001086, -6.228882)",
+			"round": 1,
+			"state": 0,
+			"t": 16.0,
+			"valid": false,
+			"waiting": false
+		},
+		{
+			"ball": "(-2.4, 1.762996, 1.300069)",
+			"feedback": "Volea · recuperá posición",
+			"hits": 19,
+			"plan": "(-2.4, 0.0, -6.607759)",
+			"player": "(-2.4, -0.001086, 3.715966)",
+			"rival": "(-2.4, -0.001086, -6.228882)",
+			"round": 1,
+			"state": 0,
+			"t": 17.0,
+			"valid": false,
+			"waiting": false
+		},
+		{
+			"ball": "(-2.4, 2.638294, -2.279032)",
+			"feedback": "Preparando plano · poca carga + abajo: chiquita · 90%: potencia",
+			"hits": 20,
+			"plan": "(-2.4, 0.0, -6.805077)",
+			"player": "(-2.4, -0.001086, 3.715966)",
+			"rival": "(-2.4, -0.001086, -6.163952)",
+			"round": 1,
+			"state": 0,
+			"t": 18.0,
+			"valid": false,
+			"waiting": false
+		},
+		{
+			"ball": "(-2.4, 1.061539, -1.91175)",
+			"feedback": "Volea · recuperá posición",
+			"hits": 21,
+			"plan": "(-2.4, 0.0, -6.717577)",
+			"player": "(-2.4, -0.001086, 3.715966)",
+			"rival": "(-2.4, -0.001086, -6.321939)",
+			"round": 1,
+			"state": 0,
+			"t": 19.0,
+			"valid": true,
+			"waiting": false
+		},
+		{
+			"ball": "(-2.4, 2.798942, -0.178672)",
+			"feedback": "Carga fijada · apuntá y esperá el contacto",
+			"hits": 22,
+			"plan": "(-2.4, 0.0, -6.607551)",
+			"player": "(-2.4, -0.001086, 3.715966)",
+			"rival": "(-2.4, -0.001086, -6.229347)",
+			"round": 1,
+			"state": 0,
+			"t": 20.0,
+			"valid": false,
+			"waiting": false
+		},
+		{
+			"ball": "(-2.4, 0.379443, -5.354107)",
+			"feedback": "Volea · recuperá posición",
+			"hits": 23,
+			"plan": "(-2.4, 0.0, -6.805068)",
+			"player": "(-2.4, -0.001086, 3.715966)",
+			"rival": "(-2.4, -0.001086, -6.726917)",
+			"round": 1,
+			"state": 1,
+			"t": 21.0,
+			"valid": true,
+			"waiting": false
+		},
+		{
+			"ball": "(-2.4, 2.559907, 1.580792)",
+			"feedback": "Carga fijada · apuntá y esperá el contacto",
+			"hits": 24,
+			"plan": "(-2.4, 0.0, -6.805068)",
+			"player": "(-2.4, -0.001086, 3.715966)",
+			"rival": "(-2.4, -0.001086, -6.164417)",
+			"round": 1,
+			"state": 0,
+			"t": 22.0,
+			"valid": false,
+			"waiting": false
+		},
+		{
+			"ball": "(-2.4, 1.596494, -4.322764)",
+			"feedback": "Preparando plano · poca carga + abajo: chiquita · 90%: potencia",
+			"hits": 26,
+			"plan": "(-2.4, 0.0, -6.607769)",
+			"player": "(-2.4, -0.001086, 3.715966)",
+			"rival": "(-2.4, -0.001086, -6.23658)",
+			"round": 1,
+			"state": 0,
+			"t": 23.0,
+			"valid": false,
+			"waiting": false
+		},
+		{
+			"ball": "(-2.4, 1.830013, 1.778748)",
+			"feedback": "Volea · recuperá posición",
+			"hits": 27,
+			"plan": "(-2.4, 0.0, -6.607769)",
+			"player": "(-2.4, -0.001086, 3.715966)",
+			"rival": "(-2.4, -0.001086, -6.229063)",
+			"round": 1,
+			"state": 0,
+			"t": 24.0,
+			"valid": false,
+			"waiting": false
+		},
+		{
+			"ball": "(-2.4, 2.546559, -2.552168)",
+			"feedback": "Preparando plano · poca carga + abajo: chiquita · 90%: potencia",
+			"hits": 28,
+			"plan": "(-2.4, 0.0, -6.804893)",
+			"player": "(-2.4, -0.001086, 3.715966)",
+			"rival": "(-2.4, -0.001086, -6.164133)",
+			"round": 1,
+			"state": 0,
+			"t": 25.0,
+			"valid": false,
+			"waiting": false
+		},
+		{
+			"ball": "(-2.4, 1.199179, -1.439638)",
+			"feedback": "Volea · recuperá posición",
+			"hits": 29,
+			"plan": "(-2.4, 0.0, -6.717784)",
+			"player": "(-2.4, -0.001086, 3.715966)",
+			"rival": "(-2.4, -0.001086, -6.242258)",
+			"round": 1,
+			"state": 0,
+			"t": 26.0,
+			"valid": true,
+			"waiting": false
+		},
+		{
+			"ball": "(-2.4, 2.799738, -0.443849)",
+			"feedback": "Carga fijada · apuntá y esperá el contacto",
+			"hits": 30,
+			"plan": "(-2.4, 0.0, -6.607759)",
+			"player": "(-2.4, -0.001086, 3.715966)",
+			"rival": "(-2.4, -0.001086, -6.229237)",
+			"round": 1,
+			"state": 0,
+			"t": 27.0,
+			"valid": false,
+			"waiting": false
+		},
+		{
+			"ball": "(-2.4, 0.264526, -4.974808)",
+			"feedback": "Volea · recuperá posición",
+			"hits": 31,
+			"plan": "(-2.4, 0.0, -6.805076)",
+			"player": "(-2.4, -0.001086, 3.715966)",
+			"rival": "(-2.4, -0.001086, -6.726806)",
+			"round": 1,
+			"state": 1,
+			"t": 28.0,
+			"valid": true,
+			"waiting": false
+		},
+		{
+			"ball": "(-2.4, 2.637795, 1.316709)",
+			"feedback": "Carga fijada · apuntá y esperá el contacto",
+			"hits": 32,
+			"plan": "(-2.4, 0.0, -6.805076)",
+			"player": "(-2.4, -0.001086, 3.715966)",
+			"rival": "(-2.4, -0.001086, -6.164306)",
+			"round": 1,
+			"state": 0,
+			"t": 29.0,
+			"valid": false,
+			"waiting": false
+		},
+		{
+			"ball": "(-2.4, 1.413509, -4.598044)",
+			"feedback": "Preparando plano · poca carga + abajo: chiquita · 90%: potencia",
+			"hits": 34,
+			"plan": "(-2.4, 0.0, -6.60777)",
+			"player": "(-2.4, -0.001086, 3.715966)",
+			"rival": "(-2.4, -0.001086, -6.270881)",
+			"round": 1,
+			"state": 4,
+			"t": 30.0,
+			"valid": false,
+			"waiting": false
+		},
+		{
+			"ball": "(-2.4, 1.880412, 2.256047)",
+			"feedback": "Volea · recuperá posición",
+			"hits": 35,
+			"plan": "(-2.4, 0.0, -6.60777)",
+			"player": "(-2.4, -0.001086, 3.715966)",
+			"rival": "(-2.4, -0.001086, -6.229131)",
+			"round": 1,
+			"state": 0,
+			"t": 31.0,
+			"valid": false,
+			"waiting": false
+		},
+		{
+			"ball": "(-2.4, 2.467823, -2.817582)",
+			"feedback": "Preparando plano · poca carga + abajo: chiquita · 90%: potencia",
+			"hits": 36,
+			"plan": "(-2.4, 0.0, -6.805077)",
+			"player": "(-2.4, -0.001086, 3.715966)",
+			"rival": "(-2.4, -0.001086, -6.164201)",
+			"round": 1,
+			"state": 0,
+			"t": 32.0,
+			"valid": false,
+			"waiting": false
+		},
+		{
+			"ball": "(-2.4, 1.329205, -0.965851)",
+			"feedback": "Volea · recuperá posición",
+			"hits": 37,
+			"plan": "(-2.4, 0.0, -6.717577)",
+			"player": "(-2.4, -0.001086, 3.715966)",
+			"rival": "(-2.4, -0.001086, -6.190243)",
+			"round": 1,
+			"state": 0,
+			"t": 33.0,
+			"valid": true,
+			"waiting": false
+		},
+		{
+			"ball": "(-2.4, 2.790289, -0.709166)",
+			"feedback": "Carga fijada · apuntá y esperá el contacto",
+			"hits": 38,
+			"plan": "(-2.4, 0.0, -6.607551)",
+			"player": "(-2.4, -0.001086, 3.715966)",
+			"rival": "(-2.4, -0.001086, -6.229195)",
+			"round": 1,
+			"state": 0,
+			"t": 34.0,
+			"valid": false,
+			"waiting": false
+		},
+		{
+			"ball": "(-2.4, 0.138564, -4.595001)",
+			"feedback": "Volea · recuperá posición",
+			"hits": 39,
+			"plan": "(-2.4, 0.0, -6.805068)",
+			"player": "(-2.4, -0.001086, 3.715966)",
+			"rival": "(-2.4, -0.001086, -6.726764)",
+			"round": 1,
+			"state": 1,
+			"t": 35.0,
+			"valid": true,
+			"waiting": false
+		},
+		{
+			"ball": "(-2.4, 2.704898, 1.05228)",
+			"feedback": "Carga fijada · apuntá y esperá el contacto",
+			"hits": 40,
+			"plan": "(-2.4, 0.0, -6.805068)",
+			"player": "(-2.4, -0.001086, 3.715966)",
+			"rival": "(-2.4, -0.001086, -6.164264)",
+			"round": 1,
+			"state": 0,
+			"t": 36.0,
+			"valid": false,
+			"waiting": false
+		},
+		{
+			"ball": "(-2.4, 1.247009, -4.864088)",
+			"feedback": "Preparando plano · poca carga + abajo: chiquita · 90%: potencia",
+			"hits": 42,
+			"plan": "(-2.4, 0.0, -6.60777)",
+			"player": "(-2.4, -0.001086, 3.715966)",
+			"rival": "(-2.4, -0.001086, -6.332901)",
+			"round": 1,
+			"state": 4,
+			"t": 37.0,
+			"valid": false,
+			"waiting": false
+		},
+		{
+			"ball": "(-2.4, 1.926215, 2.736156)",
+			"feedback": "Volea · recuperá posición",
+			"hits": 43,
+			"plan": "(-2.4, 0.0, -6.60777)",
+			"player": "(-2.4, -0.001086, 3.715966)",
+			"rival": "(-2.4, -0.001086, -6.229157)",
+			"round": 1,
+			"state": 0,
+			"t": 38.0,
+			"valid": false,
+			"waiting": false
+		},
+		{
+			"ball": "(-2.4, 2.353246, -3.091707)",
+			"feedback": "Preparando plano · poca carga + abajo: chiquita · 90%: potencia",
+			"hits": 44,
+			"plan": "(-2.4, 0.0, -6.804892)",
+			"player": "(-2.4, -0.001086, 3.715966)",
+			"rival": "(-2.4, -0.001086, -6.164227)",
+			"round": 1,
+			"state": 0,
+			"t": 39.0,
+			"valid": false,
+			"waiting": false
+		},
+		{
+			"ball": "(-2.4, 1.444911, -0.492639)",
+			"feedback": "Volea · recuperá posición",
+			"hits": 45,
+			"plan": "(-2.4, 0.0, -6.717784)",
+			"player": "(-2.4, -0.001086, 3.715966)",
+			"rival": "(-2.4, -0.001086, -6.165963)",
+			"round": 1,
+			"state": 0,
+			"t": 40.0,
+			"valid": true,
+			"waiting": false
+		},
+		{
+			"ball": "(-2.4, 2.769269, -0.97505)",
+			"feedback": "Carga fijada · apuntá y esperá el contacto",
+			"hits": 46,
+			"plan": "(-2.4, 0.0, -6.607759)",
+			"player": "(-2.4, -0.001086, 3.715966)",
+			"rival": "(-2.4, -0.001086, -6.229179)",
+			"round": 1,
+			"state": 0,
+			"t": 41.0,
+			"valid": false,
+			"waiting": false
+		},
+		{
+			"ball": "(-2.4, 0.252621, -4.147616)",
+			"feedback": "Volea · recuperá posición",
+			"hits": 47,
+			"plan": "(-2.4, 0.0, -6.805074)",
+			"player": "(-2.4, -0.001086, 3.715966)",
+			"rival": "(-2.4, -0.001086, -6.726749)",
+			"round": 1,
+			"state": 1,
+			"t": 42.0,
+			"valid": true,
+			"waiting": false
+		},
+		{
+			"ball": "(-2.4, 2.761168, 0.787493)",
+			"feedback": "Carga fijada · apuntá y esperá el contacto",
+			"hits": 48,
+			"plan": "(-2.4, 0.0, -6.805074)",
+			"player": "(-2.4, -0.001086, 3.715966)",
+			"rival": "(-2.4, -0.001086, -6.164249)",
+			"round": 1,
+			"state": 0,
+			"t": 43.0,
+			"valid": false,
+			"waiting": false
+		},
+		{
+			"ball": "(-2.4, 1.041122, -5.140316)",
+			"feedback": "Preparando plano · poca carga + abajo: chiquita · 90%: potencia",
+			"hits": 50,
+			"plan": "(-2.4, 0.0, -6.607771)",
+			"player": "(-2.4, -0.001086, 3.715966)",
+			"rival": "(-2.4, -0.001086, -6.414248)",
+			"round": 1,
+			"state": 4,
+			"t": 44.0,
+			"valid": false,
+			"waiting": false
+		},
+		{
+			"ball": "(-2.4, 2.006821, 2.844322)",
+			"feedback": "Carga fijada · apuntá y esperá el contacto",
+			"hits": 50,
+			"plan": "(-2.4, 0.0, -6.607771)",
+			"player": "(-2.4, -0.001086, 3.715966)",
+			"rival": "(-2.4, -0.001086, -6.229166)",
+			"round": 1,
+			"state": 0,
+			"t": 45.0,
+			"valid": false,
+			"waiting": false
+		},
+		{
+			"ball": "(-2.4, 2.239585, -3.362141)",
+			"feedback": "Preparando plano · poca carga + abajo: chiquita · 90%: potencia",
+			"hits": 52,
+			"plan": "(-2.4, 0.0, -6.805075)",
+			"player": "(-2.4, -0.001086, 3.715966)",
+			"rival": "(-2.4, -0.001086, -6.164235)",
+			"round": 1,
+			"state": 0,
+			"t": 46.0,
+			"valid": false,
+			"waiting": false
+		},
+		{
+			"ball": "(-2.4, 1.551584, -0.018211)",
+			"feedback": "Volea · recuperá posición",
+			"hits": 53,
+			"plan": "(-2.4, 0.0, -6.805075)",
+			"player": "(-2.4, -0.001086, 3.715966)",
+			"rival": "(-2.4, -0.001086, -6.164235)",
+			"round": 1,
+			"state": 0,
+			"t": 47.0,
+			"valid": false,
+			"waiting": false
+		},
+		{
+			"ball": "(-2.4, 2.746758, -1.238009)",
+			"feedback": "Preparando plano · poca carga + abajo: chiquita · 90%: potencia",
+			"hits": 54,
+			"plan": "(-2.4, 0.0, -6.60777)",
+			"player": "(-2.4, -0.001086, 3.715966)",
+			"rival": "(-2.4, -0.001086, -6.229174)",
+			"round": 1,
+			"state": 0,
+			"t": 48.0,
+			"valid": false,
+			"waiting": false
+		},
+		{
+			"ball": "(-2.4, 0.440513, -3.677082)",
+			"feedback": "Volea · recuperá posición",
+			"hits": 55,
+			"plan": "(-2.4, 0.0, -6.804892)",
+			"player": "(-2.4, -0.001086, 3.715966)",
+			"rival": "(-2.4, -0.001086, -6.726743)",
+			"round": 1,
+			"state": 1,
+			"t": 49.0,
+			"valid": true,
+			"waiting": false
+		},
+		{
+			"ball": "(-2.4, 2.806869, 0.522423)",
+			"feedback": "Carga fijada · apuntá y esperá el contacto",
+			"hits": 56,
+			"plan": "(-2.4, 0.0, -6.804892)",
+			"player": "(-2.4, -0.001086, 3.715966)",
+			"rival": "(-2.4, -0.001086, -6.164243)",
+			"round": 1,
+			"state": 0,
+			"t": 50.0,
+			"valid": false,
+			"waiting": false
+		},
+		{
+			"ball": "(-2.4, 0.838157, -5.412003)",
+			"feedback": "Preparando plano · poca carga + abajo: chiquita · 90%: potencia",
+			"hits": 58,
+			"plan": "(-2.4, 0.0, -6.607759)",
+			"player": "(-2.4, -0.001086, 3.715966)",
+			"rival": "(-2.4, -0.001086, -6.47327)",
+			"round": 1,
+			"state": 4,
+			"t": 51.0,
+			"valid": false,
+			"waiting": false
+		},
+		{
+			"ball": "(-2.4, 2.132295, 2.583283)",
+			"feedback": "Carga fijada · apuntá y esperá el contacto",
+			"hits": 58,
+			"plan": "(-2.4, 0.0, -6.607759)",
+			"player": "(-2.4, -0.001086, 3.715966)",
+			"rival": "(-2.4, -0.001086, -6.229169)",
+			"round": 1,
+			"state": 0,
+			"t": 52.0,
+			"valid": false,
+			"waiting": false
+		},
+		{
+			"ball": "(-2.4, 2.115304, -3.632814)",
+			"feedback": "Preparando plano · poca carga + abajo: chiquita · 90%: potencia",
+			"hits": 60,
+			"plan": "(-2.4, 0.0, -6.805074)",
+			"player": "(-2.4, -0.001086, 3.715966)",
+			"rival": "(-2.4, -0.001086, -6.164238)",
+			"round": 1,
+			"state": 0,
+			"t": 53.0,
+			"valid": false,
+			"waiting": false
+		},
+		{
+			"ball": "(-2.4, 1.647563, 0.456868)",
+			"feedback": "Volea · recuperá posición",
+			"hits": 61,
+			"plan": "(-2.4, 0.0, -6.805074)",
+			"player": "(-2.4, -0.001086, 3.715966)",
+			"rival": "(-2.4, -0.001086, -6.164238)",
+			"round": 1,
+			"state": 0,
+			"t": 54.0,
+			"valid": false,
+			"waiting": false
+		},
+		{
+			"ball": "(-2.4, 2.695024, -1.507683)",
+			"feedback": "Preparando plano · poca carga + abajo: chiquita · 90%: potencia",
+			"hits": 62,
+			"plan": "(-2.4, 0.0, -6.607771)",
+			"player": "(-2.4, -0.001086, 3.715966)",
+			"rival": "(-2.4, -0.001086, -6.229172)",
+			"round": 1,
+			"state": 0,
+			"t": 55.0,
+			"valid": false,
+			"waiting": false
+		},
+		{
+			"ball": "(-2.4, 0.616997, -3.206181)",
+			"feedback": "Volea · recuperá posición",
+			"hits": 63,
+			"plan": "(-2.4, 0.0, -6.805075)",
+			"player": "(-2.4, -0.001086, 3.715966)",
+			"rival": "(-2.4, -0.001086, -6.69063)",
+			"round": 1,
+			"state": 1,
+			"t": 56.0,
+			"valid": true,
+			"waiting": false
+		},
+		{
+			"ball": "(-2.4, 2.84122, 0.256861)",
+			"feedback": "Carga fijada · apuntá y esperá el contacto",
+			"hits": 64,
+			"plan": "(-2.4, 0.0, -6.805075)",
+			"player": "(-2.4, -0.001086, 3.715966)",
+			"rival": "(-2.4, -0.001086, -6.164241)",
+			"round": 1,
+			"state": 0,
+			"t": 57.0,
+			"valid": false,
+			"waiting": false
+		},
+		{
+			"ball": "(-2.4, 0.639148, -5.678786)",
+			"feedback": "Preparando plano · poca carga + abajo: chiquita · 90%: potencia",
+			"hits": 66,
+			"plan": "(-2.4, 0.0, -6.60777)",
+			"player": "(-2.4, -0.001086, 3.715966)",
+			"rival": "(-2.4, -0.001086, -6.504519)",
+			"round": 1,
+			"state": 4,
+			"t": 58.0,
+			"valid": false,
+			"waiting": false
+		},
+		{
+			"ball": "(-2.4, 2.25133, 2.323393)",
+			"feedback": "Carga fijada · apuntá y esperá el contacto",
+			"hits": 66,
+			"plan": "(-2.4, 0.0, -6.60777)",
+			"player": "(-2.4, -0.001086, 3.715966)",
+			"rival": "(-2.4, -0.001086, -6.22917)",
+			"round": 1,
+			"state": 0,
+			"t": 59.0,
+			"valid": false,
+			"waiting": false
+		}
+	],
+	"incoming_cases": [
+		{
+			"direction": "(-0.6, 0.0)",
+			"ended": false,
+			"kind": "flat",
+			"last_type": "volley",
+			"position": "(-2.029008, 0.000063, -4.770093)",
+			"returned": true
+		},
+		{
+			"direction": "(0.0, 0.0)",
+			"ended": false,
+			"kind": "flat",
+			"last_type": "flat",
+			"position": "(-0.025309, 0.000063, -6.65404)",
+			"returned": true
+		},
+		{
+			"direction": "(0.6, 0.0)",
+			"ended": false,
+			"kind": "flat",
+			"last_type": "defense",
+			"position": "(2.753052, 0.000063, -7.933521)",
+			"returned": true
+		},
+		{
+			"direction": "(-0.6, 0.0)",
+			"ended": false,
+			"kind": "lob",
+			"last_type": "volley",
+			"position": "(-2.134504, 0.000063, -7.067285)",
+			"returned": true
+		},
+		{
+			"direction": "(0.0, 0.0)",
+			"ended": false,
+			"kind": "lob",
+			"last_type": "volley",
+			"position": "(0.01426, 0.000063, -7.065196)",
+			"returned": true
+		},
+		{
+			"direction": "(0.6, 0.0)",
+			"ended": false,
+			"kind": "lob",
+			"last_type": "volley",
+			"position": "(2.173129, 0.000063, -7.127618)",
+			"returned": true
+		},
+		{
+			"direction": "(-0.6, 0.0)",
+			"ended": false,
+			"kind": "chiquita",
+			"last_type": "defense",
+			"position": "(-0.068844, 0.000063, -3.413809)",
+			"returned": true
+		},
+		{
+			"direction": "(0.0, 0.0)",
+			"ended": false,
+			"kind": "chiquita",
+			"last_type": "defense",
+			"position": "(-0.068844, 0.000063, -3.413809)",
+			"returned": true
+		},
+		{
+			"direction": "(0.6, 0.0)",
+			"ended": false,
+			"kind": "chiquita",
+			"last_type": "defense",
+			"position": "(-0.068844, 0.000063, -3.413809)",
+			"returned": true
+		},
+		{
+			"direction": "(-0.6, 0.0)",
+			"ended": false,
+			"kind": "volley",
+			"last_type": "flat",
+			"position": "(-2.951231, 0.000063, -7.144066)",
+			"returned": true
+		},
+		{
+			"direction": "(0.0, 0.0)",
+			"ended": true,
+			"kind": "volley",
+			"last_type": "volley",
+			"position": "(-2.4, 0.000063, -6.8)",
+			"returned": false
+		},
+		{
+			"direction": "(0.6, 0.0)",
+			"ended": true,
+			"kind": "volley",
+			"last_type": "volley",
+			"position": "(-2.4, 0.000063, -6.8)",
+			"returned": false
+		},
+		{
+			"direction": "(-0.6, 0.0)",
+			"ended": true,
+			"kind": "smash",
+			"last_type": "smash",
+			"position": "(-4.556665, 0.000063, -7.152097)",
+			"returned": false
+		},
+		{
+			"direction": "(0.0, 0.0)",
+			"ended": true,
+			"kind": "smash",
+			"last_type": "smash",
+			"position": "(-0.131376, 0.000063, -6.667184)",
+			"returned": false
+		},
+		{
+			"direction": "(0.6, 0.0)",
+			"ended": true,
+			"kind": "smash",
+			"last_type": "smash",
+			"position": "(-2.4, 0.000063, -6.8)",
+			"returned": false
+		}
+	],
+	"max_step_m": 0.0433335304260254,
+	"mirrored": [
+		{
+			"far": {
+				"charge": 0.895833333333333,
+				"defensive": false,
+				"effective_power": 0.891457332784518,
+				"net_risk": 0.0,
+				"perfect": true,
+				"position": "(-0.3, 0.9, -4.45)",
+				"quality": 0.994359612611624,
+				"shot_type": "flat",
+				"special": {},
+				"target": "(2.389848, 0.105, -6.933908)",
+				"touch": 0.0,
+				"velocity": "(1.859686, 5.017423, -10.13016)"
+			},
+			"kind": "flat",
+			"near": {
+				"charge": 0.895833333333333,
+				"defensive": false,
+				"effective_power": 0.891457332784518,
+				"net_risk": 0.0,
+				"perfect": true,
+				"position": "(0.3, 0.9, 4.45)",
+				"quality": 0.994359612611624,
+				"shot_type": "flat",
+				"special": {},
+				"target": "(2.389848, 0.105, -6.933908)",
+				"touch": 0.0,
+				"velocity": "(1.859686, 5.017423, -10.13016)"
+			}
+		},
+		{
+			"far": {
+				"charge": 0.895833333333333,
+				"defensive": false,
+				"effective_power": 0.891457332784518,
+				"net_risk": 0.0,
+				"perfect": true,
+				"position": "(-0.3, 0.9, -4.45)",
+				"quality": 0.994359612611624,
+				"shot_type": "lob",
+				"special": {},
+				"target": "(2.389848, 0.105, -8.999738)",
+				"touch": 0.0,
+				"velocity": "(1.105163, 9.39342, -7.112556)"
+			},
+			"kind": "lob",
+			"near": {
+				"charge": 0.895833333333333,
+				"defensive": false,
+				"effective_power": 0.891457332784518,
+				"net_risk": 0.0,
+				"perfect": true,
+				"position": "(0.3, 0.9, 4.45)",
+				"quality": 0.994359612611624,
+				"shot_type": "lob",
+				"special": {},
+				"target": "(2.389848, 0.105, -8.999738)",
+				"touch": 0.0,
+				"velocity": "(1.105163, 9.39342, -7.112556)"
+			}
+		},
+		{
+			"far": {
+				"charge": 0.302083333333333,
+				"defensive": false,
+				"effective_power": 0.301056312796366,
+				"net_risk": 0.0,
+				"perfect": true,
+				"position": "(-0.3, 0.9, -4.45)",
+				"quality": 0.994359612611624,
+				"shot_type": "chiquita",
+				"special": {},
+				"target": "(0.0, 0.105, -1.6)",
+				"touch": 1.0,
+				"velocity": "(-0.324676, 3.828352, -6.547629)"
+			},
+			"kind": "chiquita",
+			"near": {
+				"charge": 0.302083333333333,
+				"defensive": false,
+				"effective_power": 0.301056312796366,
+				"net_risk": 0.0,
+				"perfect": true,
+				"position": "(0.3, 0.9, 4.45)",
+				"quality": 0.994359612611624,
+				"shot_type": "chiquita",
+				"special": {},
+				"target": "(0.0, 0.105, -1.6)",
+				"touch": 1.0,
+				"velocity": "(-0.324676, 3.828352, -6.547629)"
+			}
+		},
+		{
+			"far": {
+				"charge": 0.895833333333333,
+				"defensive": false,
+				"effective_power": 0.889665830462177,
+				"net_risk": 0.0,
+				"perfect": true,
+				"position": "(-0.3, 1.25, -4.45)",
+				"quality": 0.992050479650497,
+				"shot_type": "volley",
+				"special": {},
+				"target": "(2.385691, 0.105, -5.692845)",
+				"touch": 0.0,
+				"velocity": "(3.292868, 1.393996, -16.01342)"
+			},
+			"kind": "volley",
+			"near": {
+				"charge": 0.895833333333333,
+				"defensive": false,
+				"effective_power": 0.889665830462177,
+				"net_risk": 0.0,
+				"perfect": true,
+				"position": "(0.3, 1.25, 4.45)",
+				"quality": 0.992050479650497,
+				"shot_type": "volley",
+				"special": {},
+				"target": "(2.385691, 0.105, -5.692845)",
+				"touch": 0.0,
+				"velocity": "(3.292868, 1.393996, -16.01342)"
+			}
+		},
+		{
+			"far": {
+				"charge": 0.895833333333333,
+				"defensive": false,
+				"effective_power": 0.825543306739208,
+				"net_risk": 0.0,
+				"perfect": true,
+				"position": "(-0.3, 2.4, -4.45)",
+				"quality": 0.909400610190171,
+				"shot_type": "smash",
+				"special": {},
+				"target": "(2.236921, 0.105, -6.842153)",
+				"touch": 0.0,
+				"velocity": "(4.046961, -2.375861, -23.59358)"
+			},
+			"kind": "smash",
+			"near": {
+				"charge": 0.895833333333333,
+				"defensive": false,
+				"effective_power": 0.825543306739208,
+				"net_risk": 0.0,
+				"perfect": true,
+				"position": "(0.3, 2.4, 4.45)",
+				"quality": 0.909400610190171,
+				"shot_type": "smash",
+				"special": {},
+				"target": "(2.236921, 0.105, -6.842153)",
+				"touch": 0.0,
+				"velocity": "(4.046961, -2.375861, -23.59358)"
+			}
+		}
+	],
+	"returns": 34,
+	"rounds": 1,
+	"seconds": 60
+}

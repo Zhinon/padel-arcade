@@ -1,5 +1,6 @@
 class_name PadelPlayerMotor
 extends CharacterBody3D
+@export var court_sign: float = 1.0
 @export var speed: float = 5.2
 @export var acceleration: float = 25.0
 @export var preparation_speed_factor: float = 0.0
@@ -67,14 +68,14 @@ func move_player(direction: Vector2, delta: float) -> void:
 		velocity = velocity.slide(normal)
 		motion = collision.get_remainder().slide(normal)
 	var constrained_x := clampf(position.x, -4.6, 4.6)
-	var constrained_z := clampf(position.z, 0.6, 9.5)
+	var constrained_z := clampf(position.z * court_sign, 0.6, 9.5) * court_sign
 	if position.x != constrained_x: velocity.x = 0.0
 	if position.z != constrained_z: velocity.z = 0.0
 	position.x = constrained_x
 	position.z = constrained_z
 	if visual != null and direction.length() > 0.1 and not preparing:
 		# Small turn: retain a readable stance facing the opposing half.
-		visual.rotation.y = lerp_angle(visual.rotation.y, -direction.x * 0.35, minf(delta * 12, 1.0))
+		visual.rotation.y = lerp_angle(visual.rotation.y, (PI if court_sign < 0 else 0.0) - direction.x * 0.35 * court_sign, minf(delta * 12, 1.0))
 
 func reset_position(at: Vector3) -> void:
 	position = at
@@ -83,4 +84,4 @@ func reset_position(at: Vector3) -> void:
 	preparing = false
 	if visual != null:
 		visual.position.y = 0.0
-		visual.rotation = Vector3.ZERO
+		visual.rotation = Vector3(0, PI if court_sign < 0 else 0.0, 0)

@@ -121,3 +121,10 @@ ImpactFeedback reconoce x3/x4 como overhead. HUD anuncia combo, carga y direcci�
 ## Volea contextual — sesión 028
 
 BasicShot consulta historial de contactos desde el último strike para distinguir vuelo entrante de golpe tras pique, resuelve calidad y velocidad inicial, y emite shot_type volley con flag defensive independiente. No añade intención de botón: FLAT elige volea por contexto. ImpactFeedback consume el evento para gesto compacto/acompañamiento corto; sigue sin modificar cuerpo o pelota. Práctica R/H conservada; no sistema de rival ni efecto cortado añadido.
+
+
+## Rival y orientación — sesión 029
+
+BasicShot configura hitter_id/court_sign; transforma por media vuelta solo sus cálculos y convierte al mundo velocidad/eventos de salida. Nunca cambia la posición real de pelota para calcular. PlayerMotor limita la mitad mediante court_sign y conserva velocidad/aceleración. ImpactFeedback usa el mismo marco para lado/postura. Dos instancias comparten implementación de golpe/motor, con presentaciones independientes.
+
+TrainingRival decide movimiento/apuntado/intención con forecast de solo lectura y reacción limitada; controlador resuelve carga y contacto. Cámara y física de pelota conservadas. TrainingRival también coordina fin/reinicio de jugada de práctica a partir de eventos; no es módulo de reglas de partido. PracticeInput emite acción de modo I/LB. CameraLab centraliza M antes de que las dos presentaciones lo consuman; pausa/modos afectan ambos actores.

@@ -8,6 +8,7 @@ var controls: Label
 var compact: bool = false
 var impact_feedback: Node
 var controller: Node
+var trainer: Node
 var paused: bool = false
 var last_message: String = "R para recibir una pelota · el jugador marcado es tuyo"
 
@@ -45,7 +46,7 @@ func _ready() -> void:
 	status.add_theme_font_size_override("font_size", 18)
 	column.add_child(status)
 	controls = Label.new()
-	controls.text = "WASD/flechas: mover/apuntar · J: plano/volea/smash · K: globo · juntos: especial x3/x4 · R: pelota · H: globo recibido · T: zona · P: pausa · M: audio · F8: lab"
+	controls.text = "WASD: mover/apuntar · J: plano/volea/smash · K: globo · J+K: especial · I: rival · R: pelota · H: globo recibido · T: zona · P: pausa · M: audio · F8: lab"
 	controls.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	controls.add_theme_font_size_override("font_size", 16)
 	controls.add_theme_color_override("font_color", Color("d0dde0"))
@@ -71,6 +72,13 @@ func _process(_delta: float) -> void:
 	if not visible or controller == null:
 		return
 	counter.text = "Contactos: %d%s" % [controller.hits, " · sin audio" if impact_feedback != null and impact_feedback.muted else ""]
+	if trainer != null and trainer.enabled:
+		title.text = "RIVAL · J/K · P: pausa" if compact else "PELOTEO · RIVAL DE ENTRENAMIENTO"
+		controls.text = "WASD: mover/apuntar · J/K: golpes · J+K: especial · R: reiniciar · I: práctica individual · P: pausa · M: audio · F8: lab"
+		counter.text = "Peloteo: %d · mejor: %d%s" % [trainer.rally_hits, trainer.best_rally," · sin audio" if impact_feedback.muted else ""]
+	else:
+		title.text = "J: plano · K: globo · P: pausa" if compact else "PRÁCTICA · PLANO / GLOBO"
+		controls.text = "WASD: mover/apuntar · J: plano/volea/smash · K: globo · J+K: especial · I: rival · R: pelota · H: globo recibido · T: zona · P: pausa · M: audio · F8: lab"
 	status.remove_theme_color_override("font_color")
 	if controller.is_preparing():
 		var near_ideal: bool = absf(controller.shot_charge - controller.perfect_charge) <= controller.perfect_tolerance
@@ -103,4 +111,4 @@ func _process(_delta: float) -> void:
 			var short_hint: String = " · abajo: chiquita" if controller.shot_charge <= controller.touch_charge_limit else ""
 			status.text = "Plano fijado %d%%%s · apuntá · J cancela" % [roundi(controller.shot_charge * 100.0), short_hint]
 	else:
-		status.text = "WASD: mover · R: pelota · H: globo recibido" if compact and last_message.begins_with("R para") else last_message
+		status.text = "WASD: mover · I: rival · R: pelota · H: globo recibido" if compact and last_message.begins_with("R para") else last_message

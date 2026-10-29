@@ -180,3 +180,8 @@ Primero acercate con W hasta 1–2 m de la red y frená. Después pulsá **H**, 
 Colocate en tu carril a unos **3 metros de la red**, pulsá **R** y prepará enseguida con **J**. Soltá cerca del 90% y apuntá. Si interceptás antes del pique entre 0.45–2.1 m, sale volea de gesto corto; llegada tardía devuelve más suave y con menos dirección. Después del pique sigue plano/chiquita; K conserva globo y pelota alta conserva smash. [Diseño, límites y demostración](VOLEA.md).
 
 En volea, **muy poca carga con contacto bajo o exigido** puede quedar en la red. Una suave bien colocada puede pasar. Al **100%**, apuntar profundo o muy abierto puede pegar directo al vidrio de fondo o cerramiento lateral rival antes del pique; abajo conserva riesgo de red.
+
+
+## Pelotear con un rival
+
+Pulsá **I** (mando **LB**) para activar el rival blanco. Se lanza la primera pelota; devolvé con J/K y seguí jugando cuando el rival responda. Hay pausa de 1.8 s y nueva pelota al fallar; **R** reinicia antes y coloca a ambos en sus posiciones iniciales. El contador muestra contactos y mejor racha, sin puntos de partido. P/Escape y pérdida de foco pausan todo. **I** vuelve a práctica individual R/H/T. [Funcionamiento y pruebas](RIVAL.md).
