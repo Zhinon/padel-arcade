@@ -375,6 +375,7 @@ func set_practice_mode(enabled: bool) -> void:
 	shot_controller.reset_cycle()
 	input_adapter.enabled = enabled
 	input_adapter.paused = false
+	input_adapter.reset_buttons()
 	controlled_player.enabled = enabled
 	controlled_player.selection_ring.visible = enabled
 	hud.visible = enabled
@@ -402,9 +403,11 @@ func _feed_practice(overhead: bool) -> void:
 	var start := Vector3(FEED_LANES[feed_lane], 1.6, -5.8)
 	var speed := Vector3(0, 4.2, 10)
 	if overhead:
-		speed = shot_controller.solve_lob_velocity(start, Vector3(start.x, simulation.radius, 9.0), 0.55)
+		var landing_z: float = controlled_player.position.z+1.15 if controlled_player.position.z <= 3.0 else 9.0
+		speed = shot_controller.solve_lob_velocity(start, Vector3(start.x, simulation.radius, landing_z), 0.55)
 	simulation.launch(start, speed, launch_seed)
 	shot_controller.reset_cycle()
+	input_adapter.reset_buttons()
 	impact_feedback.reset_presentation()
 	resting_notified = false
 	trail_points.clear()
@@ -424,6 +427,7 @@ func _set_practice_paused(paused: bool) -> void:
 		resume_ball_active = simulation.active
 	preview_paused = paused
 	input_adapter.paused = paused
+	input_adapter.reset_buttons()
 	controlled_player.enabled = not paused
 	shot_controller.paused = paused
 	shot_controller.reset_cycle()

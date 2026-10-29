@@ -264,3 +264,14 @@ Usuario indica «lo sentí bien». Registrada aceptación cualitativa, sin infer
 **Presentación:** postura alta, pala arriba y apoyo libre; contacto exacto y seguimiento por waypoint sobre/lateral a cabeza. Primera versión rozaba cabeza y falló geometría; corregida sin cambiar tolerancia. Contacto inicialmente demasiado alto, ajustado a espera breve de altura cómoda; H ahora contacta a 2.447 m/calidad 0.976.
 
 **Verificación:** 54 trayectorias, tres H reales, límites, defensa, sobrecarga y E sin smash; geometría torso/cabeza y preservación de física. Plano/control 90/diez, globo 54/tres, chiquita 54/24/tres y segundo pique, tres impactos/audio, cinco abanicazos y 18 poses anteriores aprobados. Importación sin errores, capturas juego/cercanas revisadas y video de cinco segundos. Documentación y punto Git. Evaluación humana pendiente; sin rival, salto, spin o x3/x4 garantizado.
+
+
+## 28/10/2026 — Sesión 024: combo de smash x3/x4
+
+**Pedido:** investigar y añadir x3/x4 con ambos botones, carga 90% y dirección. NOX/Canada Padel/FIP confirman secuencias y cerramientos. Lateral se asigna a x3, adelante a x4. Ventana 0.10 s de carga permite combo manteniendo switch previo si segundo botón llega tarde. Gate por altura/alcance, cerca de red, calidad y banda de carga; falla vuelve a ordinario.
+
+**Implementación:** predictor puro de velocidad inicial, compartiendo impulso de piso sin modificarlo. Solo BallSimulation resuelve vuelo/rebotes reales. Sin liftado real, salto, juego exterior o puntos automáticos. H adapta globo cercano sin mover jugador. Presentación overhead y HUD integrados.
+
+**Ajustes:** tipo de Array del predictor corregido tras error inicial de ejecución; primer barrido angular no encontraba x3 hacia lateral cercano desde x=2.65, refinado y podado por velocidad/ángulo para evitar exceso de coste. 36 salidas barridas y tres H reales completan secuencias. H se centró más delante para mejorar calidad de contacto cerca de red.
+
+**Pruebas:** casos negativos de carga/posición/calidad/dirección, orden de botones invertido, liberación/switch/pausa y preservación de reloj/RNG aprobados. Regresiones de plano, globo, smash, chiquita/segundo pique, pelota, superficies, poses, audio y fallo aprobadas. Capturas juego x3/x4 y videos revisados. Documentación y punto Git; evaluación humana y mando físico pendientes.

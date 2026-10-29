@@ -1,0 +1,582 @@
+{
+	"cases": [
+		{
+			"charge": 0.90625,
+			"exit": "(-5.0, 3.849094, -4.723499)",
+			"exit_kind": "x3",
+			"exit_side": -1.0,
+			"plan_ms": 1.43,
+			"position": "(-2.15, 2.4, 0.85)",
+			"quality": 0.987953452330369,
+			"surfaces": [
+				"floor",
+				"glass"
+			],
+			"type": "x3",
+			"velocity": "(-4.16, -12.0, -25.66504)"
+		},
+		{
+			"charge": 0.90625,
+			"exit": "(5.0, 3.693069, -2.012472)",
+			"exit_kind": "x3",
+			"exit_side": 1.0,
+			"plan_ms": 6.882,
+			"position": "(-2.15, 2.4, 0.85)",
+			"quality": 0.987953452330369,
+			"surfaces": [
+				"floor",
+				"glass"
+			],
+			"type": "x3",
+			"velocity": "(9.6, -12.0, -28.42253)"
+		},
+		{
+			"charge": 0.90625,
+			"exit": "(-2.15, 4.819049, -10.0)",
+			"exit_kind": "x4",
+			"exit_side": 0.0,
+			"plan_ms": 0.121,
+			"position": "(-2.15, 2.4, 0.85)",
+			"quality": 0.987953452330369,
+			"surfaces": [
+				"floor"
+			],
+			"type": "x4",
+			"velocity": "(0.0, -14.0, -22.0)"
+		},
+		{
+			"charge": 0.90625,
+			"exit": "(-5.0, 3.901444, -4.723737)",
+			"exit_kind": "x3",
+			"exit_side": -1.0,
+			"plan_ms": 1.46,
+			"position": "(-2.15, 2.6, 0.85)",
+			"quality": 0.926415049479558,
+			"surfaces": [
+				"floor",
+				"glass"
+			],
+			"type": "x3",
+			"velocity": "(-4.16, -12.0, -25.66504)"
+		},
+		{
+			"charge": 0.90625,
+			"exit": "(5.0, 3.672881, -2.013202)",
+			"exit_kind": "x3",
+			"exit_side": 1.0,
+			"plan_ms": 4.229,
+			"position": "(-2.15, 2.6, 0.85)",
+			"quality": 0.926415049479558,
+			"surfaces": [
+				"floor",
+				"glass"
+			],
+			"type": "x3",
+			"velocity": "(8.32, -12.0, -24.63286)"
+		},
+		{
+			"charge": 0.90625,
+			"exit": "(-2.15, 4.858344, -10.0)",
+			"exit_kind": "x4",
+			"exit_side": 0.0,
+			"plan_ms": 0.093,
+			"position": "(-2.15, 2.6, 0.85)",
+			"quality": 0.926415049479558,
+			"surfaces": [
+				"floor"
+			],
+			"type": "x4",
+			"velocity": "(0.0, -14.0, -22.0)"
+		},
+		{
+			"charge": 0.90625,
+			"exit": "(-5.0, 3.648682, -0.64347)",
+			"exit_kind": "x3",
+			"exit_side": -1.0,
+			"plan_ms": 1.783,
+			"position": "(-2.15, 2.4, 1.45)",
+			"quality": 0.987953452330369,
+			"surfaces": [
+				"floor",
+				"glass"
+			],
+			"type": "x3",
+			"velocity": "(-3.6, -12.0, -29.78322)"
+		},
+		{
+			"charge": 0.90625,
+			"exit": "(5.0, 3.751648, -2.466704)",
+			"exit_kind": "x3",
+			"exit_side": 1.0,
+			"plan_ms": 3.716,
+			"position": "(-2.15, 2.4, 1.45)",
+			"quality": 0.987953452330369,
+			"surfaces": [
+				"floor",
+				"glass"
+			],
+			"type": "x3",
+			"velocity": "(9.6, -12.0, -28.42253)"
+		},
+		{
+			"charge": 0.90625,
+			"exit": "(-2.15, 5.012252, -10.0)",
+			"exit_kind": "x4",
+			"exit_side": 0.0,
+			"plan_ms": 0.105,
+			"position": "(-2.15, 2.4, 1.45)",
+			"quality": 0.987953452330369,
+			"surfaces": [
+				"floor"
+			],
+			"type": "x4",
+			"velocity": "(0.0, -14.0, -22.0)"
+		},
+		{
+			"charge": 0.90625,
+			"exit": "(-5.0, 3.722916, -0.644829)",
+			"exit_kind": "x3",
+			"exit_side": -1.0,
+			"plan_ms": 2.007,
+			"position": "(-2.15, 2.6, 1.45)",
+			"quality": 0.926415049479558,
+			"surfaces": [
+				"floor",
+				"glass"
+			],
+			"type": "x3",
+			"velocity": "(-3.6, -12.0, -29.78322)"
+		},
+		{
+			"charge": 0.90625,
+			"exit": "(5.0, 3.809983, -2.466797)",
+			"exit_kind": "x3",
+			"exit_side": 1.0,
+			"plan_ms": 4.343,
+			"position": "(-2.15, 2.6, 1.45)",
+			"quality": 0.926415049479558,
+			"surfaces": [
+				"floor",
+				"glass"
+			],
+			"type": "x3",
+			"velocity": "(9.6, -12.0, -28.42253)"
+		},
+		{
+			"charge": 0.90625,
+			"exit": "(-2.15, 5.069628, -10.0)",
+			"exit_kind": "x4",
+			"exit_side": 0.0,
+			"plan_ms": 0.116,
+			"position": "(-2.15, 2.6, 1.45)",
+			"quality": 0.926415049479558,
+			"surfaces": [
+				"floor"
+			],
+			"type": "x4",
+			"velocity": "(0.0, -14.0, -22.0)"
+		},
+		{
+			"charge": 0.90625,
+			"exit": "(-5.0, 3.882989, -4.409398)",
+			"exit_kind": "x3",
+			"exit_side": -1.0,
+			"plan_ms": 2.67,
+			"position": "(0.25, 2.4, 0.85)",
+			"quality": 0.987953452330369,
+			"surfaces": [
+				"floor",
+				"glass"
+			],
+			"type": "x3",
+			"velocity": "(-7.28, -12.0, -24.96)"
+		},
+		{
+			"charge": 0.90625,
+			"exit": "(5.0, 3.83955, -5.704628)",
+			"exit_kind": "x3",
+			"exit_side": 1.0,
+			"plan_ms": 2.263,
+			"position": "(0.25, 2.4, 0.85)",
+			"quality": 0.987953452330369,
+			"surfaces": [
+				"floor",
+				"glass"
+			],
+			"type": "x3",
+			"velocity": "(7.28, -12.0, -24.96)"
+		},
+		{
+			"charge": 0.90625,
+			"exit": "(0.25, 4.819049, -10.0)",
+			"exit_kind": "x4",
+			"exit_side": 0.0,
+			"plan_ms": 0.111,
+			"position": "(0.25, 2.4, 0.85)",
+			"quality": 0.987953452330369,
+			"surfaces": [
+				"floor"
+			],
+			"type": "x4",
+			"velocity": "(0.0, -14.0, -22.0)"
+		},
+		{
+			"charge": 0.90625,
+			"exit": "(-5.0, 3.842186, -6.266476)",
+			"exit_kind": "x3",
+			"exit_side": -1.0,
+			"plan_ms": 4.538,
+			"position": "(0.25, 2.6, 0.85)",
+			"quality": 0.926415049479558,
+			"surfaces": [
+				"floor",
+				"glass"
+			],
+			"type": "x3",
+			"velocity": "(-8.32, -12.0, -24.63286)"
+		},
+		{
+			"charge": 0.90625,
+			"exit": "(5.0, 3.881279, -5.704524)",
+			"exit_kind": "x3",
+			"exit_side": 1.0,
+			"plan_ms": 4.004,
+			"position": "(0.25, 2.6, 0.85)",
+			"quality": 0.926415049479558,
+			"surfaces": [
+				"floor",
+				"glass"
+			],
+			"type": "x3",
+			"velocity": "(7.28, -12.0, -24.96)"
+		},
+		{
+			"charge": 0.90625,
+			"exit": "(0.25, 4.858344, -10.0)",
+			"exit_kind": "x4",
+			"exit_side": 0.0,
+			"plan_ms": 0.161,
+			"position": "(0.25, 2.6, 0.85)",
+			"quality": 0.926415049479558,
+			"surfaces": [
+				"floor"
+			],
+			"type": "x4",
+			"velocity": "(0.0, -14.0, -22.0)"
+		},
+		{
+			"charge": 0.90625,
+			"exit": "(-5.0, 3.730991, -2.415647)",
+			"exit_kind": "x3",
+			"exit_side": -1.0,
+			"plan_ms": 4.161,
+			"position": "(0.25, 2.4, 1.45)",
+			"quality": 0.987953452330369,
+			"surfaces": [
+				"floor",
+				"glass"
+			],
+			"type": "x3",
+			"velocity": "(-7.2, -12.0, -29.12319)"
+		},
+		{
+			"charge": 0.90625,
+			"exit": "(5.0, 3.667507, -0.877995)",
+			"exit_kind": "x3",
+			"exit_side": 1.0,
+			"plan_ms": 4.331,
+			"position": "(0.25, 2.4, 1.45)",
+			"quality": 0.987953452330369,
+			"surfaces": [
+				"floor",
+				"glass"
+			],
+			"type": "x3",
+			"velocity": "(6.0, -12.0, -29.39388)"
+		},
+		{
+			"charge": 0.90625,
+			"exit": "(0.25, 5.012252, -10.0)",
+			"exit_kind": "x4",
+			"exit_side": 0.0,
+			"plan_ms": 0.164,
+			"position": "(0.25, 2.4, 1.45)",
+			"quality": 0.987953452330369,
+			"surfaces": [
+				"floor"
+			],
+			"type": "x4",
+			"velocity": "(0.0, -14.0, -22.0)"
+		},
+		{
+			"charge": 0.90625,
+			"exit": "(-5.0, 3.775781, -2.415526)",
+			"exit_kind": "x3",
+			"exit_side": -1.0,
+			"plan_ms": 4.323,
+			"position": "(0.25, 2.6, 1.45)",
+			"quality": 0.926415049479558,
+			"surfaces": [
+				"floor",
+				"glass"
+			],
+			"type": "x3",
+			"velocity": "(-7.2, -12.0, -29.12319)"
+		},
+		{
+			"charge": 0.90625,
+			"exit": "(5.0, 3.741769, -0.877468)",
+			"exit_kind": "x3",
+			"exit_side": 1.0,
+			"plan_ms": 4.65,
+			"position": "(0.25, 2.6, 1.45)",
+			"quality": 0.926415049479558,
+			"surfaces": [
+				"floor",
+				"glass"
+			],
+			"type": "x3",
+			"velocity": "(6.0, -12.0, -29.39388)"
+		},
+		{
+			"charge": 0.90625,
+			"exit": "(0.25, 5.069628, -10.0)",
+			"exit_kind": "x4",
+			"exit_side": 0.0,
+			"plan_ms": 0.099,
+			"position": "(0.25, 2.6, 1.45)",
+			"quality": 0.926415049479558,
+			"surfaces": [
+				"floor"
+			],
+			"type": "x4",
+			"velocity": "(0.0, -14.0, -22.0)"
+		},
+		{
+			"charge": 0.90625,
+			"exit": "(-5.0, 3.709094, -3.028096)",
+			"exit_kind": "x3",
+			"exit_side": -1.0,
+			"plan_ms": 7.112,
+			"position": "(2.65, 2.4, 0.85)",
+			"quality": 0.987953452330369,
+			"surfaces": [
+				"floor",
+				"glass"
+			],
+			"type": "x3",
+			"velocity": "(-10.8, -12.0, -27.98857)"
+		},
+		{
+			"charge": 0.90625,
+			"exit": "(5.0, 3.813238, -3.318184)",
+			"exit_kind": "x3",
+			"exit_side": 1.0,
+			"plan_ms": 1.183,
+			"position": "(2.65, 2.4, 0.85)",
+			"quality": 0.987953452330369,
+			"surfaces": [
+				"floor",
+				"glass"
+			],
+			"type": "x3",
+			"velocity": "(3.12, -12.0, -25.81212)"
+		},
+		{
+			"charge": 0.90625,
+			"exit": "(2.65, 4.819049, -10.0)",
+			"exit_kind": "x4",
+			"exit_side": 0.0,
+			"plan_ms": 0.095,
+			"position": "(2.65, 2.4, 0.85)",
+			"quality": 0.987953452330369,
+			"surfaces": [
+				"floor"
+			],
+			"type": "x4",
+			"velocity": "(0.0, -14.0, -22.0)"
+		},
+		{
+			"charge": 0.90625,
+			"exit": "(-5.0, 3.362449, -0.893921)",
+			"exit_kind": "x3",
+			"exit_side": -1.0,
+			"plan_ms": 5.404,
+			"position": "(2.65, 2.6, 0.85)",
+			"quality": 0.926415049479558,
+			"surfaces": [
+				"floor",
+				"glass"
+			],
+			"type": "x3",
+			"velocity": "(-8.32, -12.0, -24.63286)"
+		},
+		{
+			"charge": 0.90625,
+			"exit": "(5.0, 3.880839, -3.318283)",
+			"exit_kind": "x3",
+			"exit_side": 1.0,
+			"plan_ms": 1.118,
+			"position": "(2.65, 2.6, 0.85)",
+			"quality": 0.926415049479558,
+			"surfaces": [
+				"floor",
+				"glass"
+			],
+			"type": "x3",
+			"velocity": "(3.12, -12.0, -25.81212)"
+		},
+		{
+			"charge": 0.90625,
+			"exit": "(2.65, 4.858344, -10.0)",
+			"exit_kind": "x4",
+			"exit_side": 0.0,
+			"plan_ms": 0.095,
+			"position": "(2.65, 2.6, 0.85)",
+			"quality": 0.926415049479558,
+			"surfaces": [
+				"floor"
+			],
+			"type": "x4",
+			"velocity": "(0.0, -14.0, -22.0)"
+		},
+		{
+			"charge": 0.90625,
+			"exit": "(-5.0, 3.761022, -3.482607)",
+			"exit_kind": "x3",
+			"exit_side": -1.0,
+			"plan_ms": 4.005,
+			"position": "(2.65, 2.4, 1.45)",
+			"quality": 0.987953452330369,
+			"surfaces": [
+				"floor",
+				"glass"
+			],
+			"type": "x3",
+			"velocity": "(-10.8, -12.0, -27.98857)"
+		},
+		{
+			"charge": 0.90625,
+			"exit": "(5.0, 3.631306, -3.771098)",
+			"exit_kind": "x3",
+			"exit_side": 1.0,
+			"plan_ms": 1.325,
+			"position": "(2.65, 2.4, 1.45)",
+			"quality": 0.987953452330369,
+			"surfaces": [
+				"floor",
+				"glass"
+			],
+			"type": "x3",
+			"velocity": "(3.6, -12.0, -29.78322)"
+		},
+		{
+			"charge": 0.90625,
+			"exit": "(2.65, 5.012252, -10.0)",
+			"exit_kind": "x4",
+			"exit_side": 0.0,
+			"plan_ms": 0.088,
+			"position": "(2.65, 2.4, 1.45)",
+			"quality": 0.987953452330369,
+			"surfaces": [
+				"floor"
+			],
+			"type": "x4",
+			"velocity": "(0.0, -14.0, -22.0)"
+		},
+		{
+			"charge": 0.90625,
+			"exit": "(-5.0, 3.806458, -3.482471)",
+			"exit_kind": "x3",
+			"exit_side": -1.0,
+			"plan_ms": 4.663,
+			"position": "(2.65, 2.6, 1.45)",
+			"quality": 0.926415049479558,
+			"surfaces": [
+				"floor",
+				"glass"
+			],
+			"type": "x3",
+			"velocity": "(-10.8, -12.0, -27.98857)"
+		},
+		{
+			"charge": 0.90625,
+			"exit": "(5.0, 3.656147, -3.772483)",
+			"exit_kind": "x3",
+			"exit_side": 1.0,
+			"plan_ms": 3.12,
+			"position": "(2.65, 2.6, 1.45)",
+			"quality": 0.926415049479558,
+			"surfaces": [
+				"floor",
+				"glass"
+			],
+			"type": "x3",
+			"velocity": "(3.6, -12.0, -29.78322)"
+		},
+		{
+			"charge": 0.90625,
+			"exit": "(2.65, 5.069628, -10.0)",
+			"exit_kind": "x4",
+			"exit_side": 0.0,
+			"plan_ms": 0.108,
+			"position": "(2.65, 2.6, 1.45)",
+			"quality": 0.926415049479558,
+			"surfaces": [
+				"floor"
+			],
+			"type": "x4",
+			"velocity": "(0.0, -14.0, -22.0)"
+		}
+	],
+	"dt": 0.00833333333333333,
+	"engine": "4.7.2-stable (official)",
+	"failures": [],
+	"feeds": [
+		{
+			"charge": 0.90625,
+			"exit": "(-5.0, 3.620412, -2.045702)",
+			"exit_kind": "x3",
+			"exit_side": -1.0,
+			"plan_ms": 0.978,
+			"position": "(-2.4, 2.44668, 1.234445)",
+			"quality": 0.971858656956599,
+			"surfaces": [
+				"floor",
+				"glass"
+			],
+			"type": "x3",
+			"velocity": "(-3.12, -12.0, -25.81212)"
+		},
+		{
+			"charge": 0.90625,
+			"exit": "(5.0, 3.682452, -1.743566)",
+			"exit_kind": "x3",
+			"exit_side": 1.0,
+			"plan_ms": 8.421,
+			"position": "(-2.4, 2.44668, 1.234445)",
+			"quality": 0.971858656956599,
+			"surfaces": [
+				"floor",
+				"glass"
+			],
+			"type": "x3",
+			"velocity": "(9.6, -12.0, -28.42253)"
+		},
+		{
+			"charge": 0.90625,
+			"exit": "(-2.4, 5.020381, -10.0)",
+			"exit_kind": "x4",
+			"exit_side": 0.0,
+			"plan_ms": 0.163,
+			"position": "(-2.4, 2.44668, 1.234445)",
+			"quality": 0.971858656956599,
+			"surfaces": [
+				"floor"
+			],
+			"type": "x4",
+			"velocity": "(0.0, -14.0, -22.0)"
+		}
+	],
+	"note": "Physical swept exits and actual contacts; launch prediction only, no spin simulation, no automatic point award or external play."
+}

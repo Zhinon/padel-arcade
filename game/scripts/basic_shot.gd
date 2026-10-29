@@ -4,7 +4,11 @@ signal feedback(message: String)
 signal hit(event: Dictionary)
 signal missed(event: Dictionary)
 enum State { IDLE, PREPARING, LOCKED, STRIKING, RECOVERING, MISSED }
-enum ShotType { FLAT, LOB }
+enum ShotType { FLAT, LOB, SPECIAL }
+@export var special_chord_window: float = 0.10
+@export var special_net_distance: float = 2.8
+@export var special_quality: float = 0.85
+@export var special_direction_threshold: float = 0.55
 var shot_kind: ShotType = ShotType.FLAT
 @export var lob_min_apex: float = 3.0
 @export var lob_max_apex: float = 5.5
@@ -68,8 +72,15 @@ func _ready() -> void:
 func is_preparing() -> bool:
 	return state in [State.PREPARING, State.LOCKED]
 
-func begin_prepare(kind: int = ShotType.FLAT) -> void:
+func begin_prepare(kind: int = ShotType.FLAT, combine: bool = false) -> void:
 	if not enabled or paused or recovery > 0.0:
+		return
+	if combine and is_preparing() and charging and charge_time <= special_chord_window:
+		shot_kind = ShotType.SPECIAL
+		feedback.emit("Especial · lateral: x3 · adelante: x4 · fijá ~90%")
+		return
+	if state == State.LOCKED and shot_kind == ShotType.SPECIAL:
+		cancel_prepare()
 		return
 	if is_preparing() and kind != shot_kind:
 		# Switching buttons changes intent, retaining stance but not stored charge.
@@ -105,7 +116,7 @@ func begin_prepare(kind: int = ShotType.FLAT) -> void:
 	feedback.emit("Preparando globo · carga elige altura y profundidad" if shot_kind == ShotType.LOB else "Preparando plano · poca carga + abajo: chiquita · 90%: potencia")
 
 func release_shot(direction: Vector2, kind: int = -1) -> void:
-	if not enabled or paused or state != State.PREPARING or (kind >= 0 and kind != shot_kind):
+	if not enabled or paused or state != State.PREPARING or (kind >= 0 and kind != shot_kind and shot_kind != ShotType.SPECIAL):
 		return
 	charging = false
 	state = State.LOCKED
@@ -127,7 +138,12 @@ func target_for_aim(direction: Vector2) -> Vector3:
 	return Vector3(clampf(player.position.x + direction.x * 4.0, -3.8, 3.8), ball.radius, depth)
 
 func is_smash_preparation() -> bool:
-	return shot_kind == ShotType.FLAT and ball.active and ball.last_hitter != 0 and ball.position.y >= smash_min_height and ball.position.z >= 0.25 and ball.position.z <= player.position.z + 0.1
+	return shot_kind in [ShotType.FLAT,ShotType.SPECIAL] and ball.active and ball.last_hitter != 0 and ball.position.y >= smash_min_height and ball.position.z >= 0.25 and ball.position.z <= player.position.z + 0.1
+
+func special_direction() -> String:
+	if absf(aim.x) >= special_direction_threshold: return "x3"
+	if aim.y <= -special_direction_threshold: return "x4"
+	return ""
 
 func is_smash_context() -> bool:
 	return is_smash_preparation() and ball.position.y <= smash_max_height and ball.velocity.y <= 0.5
@@ -219,8 +235,14 @@ func _execute_contact() -> void:
 	quality = result.quality
 	effective_power = result.power
 	target = result.target
+	var special: Dictionary = {}
+	if shot_kind == ShotType.SPECIAL and result.smash and player.position.z <= special_net_distance and quality >= special_quality and absf(shot_charge-perfect_charge) <= perfect_tolerance and special_direction() != "":
+		special = PadelSpecialSmash.plan(ball,ball.position,special_direction(),signf(aim.x))
 	var outgoing: Vector3
-	if shot_kind == ShotType.LOB:
+	if special.has("velocity"):
+		outgoing = special.velocity
+		target = special.landing
+	elif shot_kind == ShotType.LOB:
 		outgoing = solve_lob_velocity(ball.position, target, effective_power)
 	elif result.smash and not result.defensive:
 		outgoing = solve_smash_velocity(ball.position, target, effective_power, result.net_risk)
@@ -237,7 +259,11 @@ func _execute_contact() -> void:
 	var ideal_charge: bool = shot_charge >= 0.12 and shot_charge <= touch_charge_limit if touch_shot else absf(shot_charge - perfect_charge) <= perfect_tolerance
 	var perfect: bool = ideal_charge and quality >= 0.85 and not result.defensive
 	var message := "Buen contacto · recuperá posición"
-	if shot_kind == ShotType.LOB:
+	if special.has("velocity"):
+		message = "¡Intento de smash %s!" % special.kind
+	elif shot_kind == ShotType.SPECIAL:
+		message = "Especial no disponible · remate normal" if result.smash else "Especial no disponible · devolución normal"
+	elif shot_kind == ShotType.LOB:
 		message = "Globo exigido · corto y con menos dirección" if result.defensive else ("¡Globo bien preparado!" if perfect else "Globo · recuperá posición")
 		if result.overload > 0.0: message = "Globo sobrecargado · riesgo de cerramiento directo"
 	elif result.smash:
@@ -252,7 +278,7 @@ func _execute_contact() -> void:
 	elif result.defensive:
 		message = "Defensa exigida · poca potencia y dirección"
 	feedback.emit(message)
-	hit.emit({"position": ball.position, "velocity": outgoing, "target": target, "charge": shot_charge, "quality": quality, "effective_power": effective_power, "defensive": result.defensive, "perfect": perfect, "net_risk": result.net_risk, "touch": result.touch, "shot_type": "smash" if result.smash else ("lob" if shot_kind == ShotType.LOB else ("chiquita" if touch_shot else ("defense" if result.defensive else "flat")))})
+	hit.emit({"position": ball.position, "velocity": outgoing, "target": target, "charge": shot_charge, "quality": quality, "effective_power": effective_power, "defensive": result.defensive, "perfect": perfect, "net_risk": result.net_risk, "touch": result.touch, "special":special,"shot_type": special.kind if special.has("velocity") else ("smash" if result.smash else ("lob" if shot_kind == ShotType.LOB else ("chiquita" if touch_shot else ("defense" if result.defensive else "flat"))))})
 
 func _finish_miss(message: String) -> void:
 	misses += 1

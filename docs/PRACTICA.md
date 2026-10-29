@@ -1,4 +1,4 @@
-# Práctica de preparación y contacto automático — sesión 023
+# Práctica de preparación y contacto automático — sesión 024
 
 Un jugador se mueve y devuelve pelotas de un lanzador. Se mantiene la cámara aprobada y la física calibrada de E2. Los otros tres personajes siguen estáticos; no hay rival, marcador ni partido.
 
@@ -30,6 +30,7 @@ Si aparece PAUSA al cambiar de ventana, pulsá **P** para continuar.
 | Plano: cargar / fijar | Mantener / soltar Espacio | A |
 | Globo: cargar / fijar | Mantener / soltar E | B |
 | Smash contextual | Espacio con pelota alta alcanzable | A |
+| Especial x3/x4 | Espacio + E juntos, fijar ~90% | A + B |
 | Cancelar preparación fijada | Repetir Espacio (plano) o E (globo) | Repetir A o B del golpe elegido |
 | Recibir pelota | R | X |
 | Recibir globo para rematar | H | RB |
@@ -155,3 +156,15 @@ Volver a pulsar E cancela globo fijado. Pulsar Espacio cambia a plano y reinicia
 Pulsá **H** para recibir un globo por tu zona. Llegá antes y prepará con **Espacio**, soltando cerca del **90%**. La pelota alta y alcanzable se remata automáticamente con pala arriba. No necesitás otro botón; E sigue preparando globo. Para empezar, probalo en la posición inicial del jugador.
 
 Tarde o mal ubicado, el remate pierde potencia/dirección o queda fuera de alcance. Al 100%, dirección corta puede ir a red y profunda al cerramiento. H es entrenamiento, no un botón para ejecutar remate: R conserva pelota normal. [Guía completa](SMASH.md) y [video de cinco segundos](previews/smash.mp4). Reiniciar juego para cargar versión nueva.
+
+
+## Probar x3 y x4
+
+Avanzá hasta quedar aproximadamente a 1–2 m de la red y pulsá **H**. Prepará con **Espacio + E juntos** (ventana 0.10 s), soltá cerca del **90%** y elegí dirección mientras estás plantado:
+
+- **Izquierda/derecha:** x3 hacia ese lateral, pasando primero por piso y vidrio de fondo.
+- **Adelante (W/flecha arriba), sin lateral fuerte:** x4 por encima del fondo tras picar.
+
+Mando: A+B. Primera liberación fija; la segunda no golpea otra vez. Si falta posición/calidad/carga, no hay dirección válida o no se encuentra salida, se devuelve de forma ordinaria. 100% no activa especial. Un botón tarde conserva cambio de plano/globo previo. El HUD identifica «Especial» para saber que reconoció el combo.
+
+Primera aproximación arcade sin liftado real ni punto automático. [Diseño y fuentes](SMASH_ESPECIALES.md) · [video x3](previews/x3.mp4) · [video x4](previews/x4.mp4). Reiniciar para cargar versión nueva.

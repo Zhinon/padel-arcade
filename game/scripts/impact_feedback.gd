@@ -80,7 +80,7 @@ func present_hit(event: Dictionary) -> void:
 	if not enabled or paused:
 		return
 	miss_animation = false
-	overhead_stroke = event.get("shot_type", "") == "smash"
+	overhead_stroke = event.get("shot_type", "") in ["smash","x3","x4"]
 	last_kind = "perfect" if event.perfect else ("defense" if event.defensive else "normal")
 	presented_hits += 1
 	elapsed = 0.0

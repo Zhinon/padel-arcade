@@ -20,7 +20,7 @@ Tiempo total de preparación y estabilidad siguen contando tras fijar potencia. 
 
 ## Trayectoria
 
-Smash preparado apunta a piso rival con destino del plano y velocidad horizontal nominal 13–26 m/s según potencia efectiva. Se calcula la velocidad con el mismo integrador de gravedad/arrastre; un golpe preparado fuerte desciende hacia el piso. Contactos de baja carga, profundos o exigidos pueden tener arco de devolución en vez de remate descendente. No se fuerza salida de cancha ni regreso al campo propio después del vidrio.
+Smash preparado apunta a piso rival con destino del plano y velocidad horizontal nominal 13–26 m/s según potencia efectiva. Se calcula la velocidad con el mismo integrador de gravedad/arrastre; un golpe preparado fuerte desciende hacia el piso. Contactos de baja carga, profundos o exigidos pueden tener arco de devolución en vez de remate descendente. El smash normal no fuerza salida ni regreso. Desde sesión 024, el combo especial permite intentar x3/x4; ver SMASH_ESPECIALES.md.
 
 Sobrecarga conserva pérdida de margen: apuntar corto puede tocar red, profundo/abierto puede llegar al cerramiento antes de piso. Sin sorteo arbitrario de error. Física pasiva, fricción de piso, vidrio, reja y red conservadas; giro pendiente. No hay puntos/arbitraje/rival activo.
 

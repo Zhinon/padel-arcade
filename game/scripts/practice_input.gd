@@ -1,7 +1,7 @@
 class_name PadelPracticeInput
 extends Node
 ## Device input -> game actions; movement/shot code has no physical key names.
-signal prepare_requested(kind: int)
+signal prepare_requested(kind: int, combine: bool)
 signal release_requested(aim: Vector2, kind: int)
 signal feed_requested
 signal smash_feed_requested
@@ -10,6 +10,8 @@ signal pause_requested
 signal focus_lost
 var enabled: bool = false
 var paused: bool = false
+var flat_down: bool = false
+var lob_down: bool = false
 
 static func install_actions() -> void:
 	var keys := {
@@ -52,12 +54,16 @@ func _unhandled_input(event: InputEvent) -> void:
 	elif paused:
 		return
 	elif event.is_action_pressed("padel_shot"):
-		prepare_requested.emit(PadelBasicShot.ShotType.FLAT)
+		flat_down = true
+		prepare_requested.emit(PadelBasicShot.ShotType.FLAT, lob_down)
 	elif event.is_action_released("padel_shot"):
+		flat_down = false
 		release_requested.emit(movement(), PadelBasicShot.ShotType.FLAT)
 	elif event.is_action_pressed("padel_lob"):
-		prepare_requested.emit(PadelBasicShot.ShotType.LOB)
+		lob_down = true
+		prepare_requested.emit(PadelBasicShot.ShotType.LOB, flat_down)
 	elif event.is_action_released("padel_lob"):
+		lob_down = false
 		release_requested.emit(movement(), PadelBasicShot.ShotType.LOB)
 	elif event.is_action_pressed("padel_feed"):
 		feed_requested.emit()
@@ -71,4 +77,9 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func _notification(what: int) -> void:
 	if what == NOTIFICATION_WM_WINDOW_FOCUS_OUT and enabled and not paused:
+		reset_buttons()
 		focus_lost.emit()
+
+func reset_buttons() -> void:
+	flat_down = false
+	lob_down = false

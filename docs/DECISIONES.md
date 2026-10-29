@@ -178,3 +178,12 @@ Para cambiar una decisión: añadir fecha, contexto, alternativas relevantes, el
 - **D77, provisional:** ventana 2.15–2.65 m, pelota bajando/casi apex, alcance 0.75 m y delante del jugador. Altura ideal 2.4 m, espera de contacto hasta 0.09 s para comodidad. Sin salto ni reposicionar automáticamente. Calidad se adapta a ventana alta, no penaliza por estar lejos de altura ideal de plano.
 - **D78:** smash preparado tiene trayectoria propia (13–26 m/s horizontales nominales según potencia efectiva), con integrador existente. Exigido devuelve suave y menos dirigido. Poca carga sobre cabeza no activa chiquita. Sobrecarga conserva riesgo red/cerramiento según dirección. No reglas/puntos ni garantía de x3/x4, retorno o ganador.
 - **D79:** H/RB lanza globo de práctica por zona; R conserva lanzamiento normal. Presentación overhead separada, sin cambios en poses aprobadas de plano/revés. Acompañamiento pasa por encima/al costado de cabeza. Nuevos parámetros siguen abiertos a calibración humana.
+
+
+## 28/10/2026 — sesión 024: especiales x3/x4
+
+- **D80, feedback:** usuario dice «me parece bien» sobre smash y pide x3/x4; no se infiere prueba exhaustiva ni duración.
+- **D81, pedido:** combinación de plano y globo cerca de red con carga ~90%, dirección distingue especial. Asignación implementada para probar: Espacio+E / A+B; lateral x3, adelante x4 (lateral fuerte tiene prioridad en diagonales), centro/abajo normal.
+- **D82, provisional:** segundo botón dentro de primeros 0.10 s cargando promueve a SPECIAL sin perder carga del primero. Primera liberación fija; la otra no repite. Botón tardío sigue cambio de tipo previo. Requiere smash alcanzable, z jugador <=2.8 m, calidad >=0.85 y banda 86–94%. Condición no satisfecha o trayectoria no encontrada: golpe ordinario, no especial automático.
+- **D83:** reproducir secuencias físicas piso/vidrio/salida lateral y piso/salida de fondo con buscador de velocidad inicial; no fuerzas/teletransporte después de impacto ni cambios de rebote exclusivos del especial. Sigue pendiente liftado real/P44. Respeta laterales elevados de esquina; sin puntos o juego exterior automático.
+- **D84:** H conserva pelota alta de fondo y adapta destino al jugador cercano (hasta 3 m de red) para práctica. No recoloca jugador. Registra resultado técnico y requiere evaluación humana del combo/colocación.

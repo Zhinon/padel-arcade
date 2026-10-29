@@ -247,3 +247,14 @@ Comparación tarde conserva devolución pero baja velocidad/dirección; bolas a 
 Pose exacta al contacto (<0.0001 m), recorrido de cuatro segmentos de brazo muestreado contra torso y cabeza; tolerancia conservadora anterior 0.008 m, mínimo actual ~0.0031 m. Primer seguimiento cruzaba cabeza (~0.074 m de penetración), corregido con waypoint alto/lateral sin relajar expectativa. Retorno al reposo y conservación de cuerpo/velocidad verificados. Capturas cercanas y juego revisadas; cámara cercana solo de ejecutor. Video de cinco segundos muestra H→preparación→smash con entradas sintéticas, sin audio.
 
 Regresiones aprobadas: jugador 90 trayectorias/diez devoluciones, globo 54/tres feeds, chiquita 54/24/tres feeds/segundo pique, impacto tres clases/audio, cinco abanicazos y 18 poses previas. Importación sin errores de scripts. No cambia física pasiva: sin repetir recorridos/FPS de sesión 020. Sensación humana del smash, mando físico y juego contra rival pendientes.
+
+
+## Sesión 024 — especiales y salidas barridas
+
+Godot 4.7.2.stable.official.ed1daf0bf, main, 120 Hz. special_smash_checks.gd: 36 casos (x=-2.4/0/2.4; jugador z=1.2/1.8; pelota relativa (0.25,h,-0.35), h=2.4/2.6; izquierda/derecha/adelante; carga ~90%). Input Space→0.025 s→E mantiene carga; soltar fija y esperar 30 ticks. Fixture estático hasta autoimpacto, vuelo real después. Registra superficies, salida interpolada en x=±5 o z=-10, altura y radio. x3 exige exactamente piso/vidrio y salida lateral rival en sección 3 m; x4 exige solo piso y salida sobre 4 m. No fence ni segundo pique intermedio.
+
+Tres H reales a z jugador 1.6 sin teletransporte completan ambos laterales y fondo. Negativos: lejos, bajo, 50/100%, sin dirección/abajo y calidad <0.85 aun al 90% vuelven a ordinario. E→Space también arma combo, segundo botón tardío cambia tipo y libera viejo sin fijar nuevo; un contacto, pausa limpia flags. Búsqueda no cambia posición/reloj/RNG y pala coincide en impacto <0.0001 m. Sin garantía exhaustiva de cualquier combinación de geometría o material.
+
+Problemas corregidos: Array tipado de rama ternaria; barrido angular insuficiente para lateral cercano, ampliado con poda. Predictor tiene margen por aproximación; validación es sobre CharacterBody3D real, no solo su estimación.
+
+Regresiones: player_checks 90/diez, lob_checks 54/tres, smash_checks 54/tres, chiquita_checks 54/24/tres/segundo pique, ball_checks 13 y surface_calibration, 18 poses, tres impactos/audio, cinco abanicazos aprobados. Floor_tangent es extracción sin cambio de fórmula. Importación sin errores de scripts. Capturas nativas y videos de tres segundos revisados; sin benchmark objetivo ni mando físico/prueba humana/reglas completas.

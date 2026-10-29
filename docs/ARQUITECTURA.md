@@ -107,3 +107,12 @@ Globo usa solve_lob_velocity: búsqueda de duración para apex solicitado, _velo
 BasicShot mantiene FLAT/LOB como intenciones de botón. is_smash_preparation comunica preparación alta; is_smash_context restringe altura, posición delante y descenso para contacto. contact_reason usa alcance alto menor, contact_quality usa referencia alta y step espera breve altura cómoda. Resultado añade smash, hit.shot_type=smash. Resuelve vuelo propio si preparado, reutiliza devolución suave si defensivo y comparte _apply_net_risk con plano sin cambiar cálculo anterior.
 
 ImpactFeedback.overhead_stroke y lado visual overhead separan preparación/codos/acompañamiento de derecha/revés. El brazo libre sube y la pala pasa por waypoint alto antes de bajar; reset/miss limpian flag. Físicas y contacto siguen siendo autoridad de BasicShot/BallSimulation. PracticeInput emite smash_feed_requested para H/RB; CameraLab._feed_practice factoriza limpieza y elige normal o globo con solver existente. No nuevo rival ni cambio de cámara de juego.
+
+
+## Combo y búsqueda de salidas — sesión 024
+
+PracticeInput mantiene flat_down/lob_down y emite prepare_requested(kind,combine). BasicShot admite ShotType.SPECIAL si segundo botón coincide dentro de primeros 0.10 s de carga. Se usa reloj de carga física, no frame de render; controles individuales siguen switch previo al llegar tarde. Release de cualquiera fija SPECIAL, solo un contacto. Reset de flags en feed/modo/pausa/foco.
+
+SpecialSmash (RefCounted) es predictor puro: enumera velocidades bajo max_speed, integra a paso físico, descarta net/fence/segundo pique y exige margen sobre el cerramiento correcto. Comparte BallSimulation.floor_tangent, extraído sin cambiar impulso de piso. Filtrado por coste/ángulo evita trazas innecesarias. Resultado contiene velocidad, destino de primer pique, salida prevista, tipo y coste temporal local. Si no hay solución se conserva remate normal. No se cambia simulación para adaptar rebotes a etiqueta de golpe ni se usa RNG de reja. Hit.shot_type=x3/x4 solo si elegido un plan; la trayectoria real se comprueba en tests, no se adjudica punto.
+
+ImpactFeedback reconoce x3/x4 como overhead. HUD anuncia combo, carga y dirección. H cercano usa landing_z=player.z+1.15 para ofrecer globo delante de jugador; H de fondo conserva destino z=9. Cámara y colliders sin cambio.

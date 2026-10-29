@@ -105,3 +105,13 @@ Trayectoria, geometría de prueba y capturas lob.png/lob-controls-640x360.png/lo
 ## Smash — sesión 023
 
 Posturas altas, trayectoria, H de práctica y capturas smash-*.png/mp4 creados en el proyecto. Video con entradas sintéticas, sin audio; reutiliza sonidos propios cuando se juega. Sin assets, modelos o animaciones externos nuevos. Parámetros son calibración arcade; no mediciones biomecánicas/deportivas reales.
+
+
+## x3 y x4 — sesión 024
+
+Consultadas 28/10/2026:
+- [NOX: Cómo hacer el remate por 3](https://noxsport.com/blogs/making-you-improve/como-hacer-el-remate-por-3-en-padel): secuencia y técnica del x3.
+- [Canada Padel: Learn Padel](https://canadapadel.ca/learn-padel/), sección Moving up against a Hard-Smash: salida por fondo x4.
+- [FIP, Rules of Padel 01.01.2026](https://www.padelfip.com/wp-content/uploads/2025/12/FIP_Rules-of-Padel.pdf), cerramientos y reglas 13/14/16: piso previo y distinción de salidas/juego exterior. No se implementa todavía sistema de reglas completo.
+
+Código, planificación, capturas x3/x4 y videos generados en proyecto, sin audio ni assets externos. La búsqueda es una asistencia arcade sin modelo de spin; no atribuir parámetros ajustados a estas fuentes.

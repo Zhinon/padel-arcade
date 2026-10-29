@@ -45,7 +45,7 @@ func _ready() -> void:
 	status.add_theme_font_size_override("font_size", 18)
 	column.add_child(status)
 	controls = Label.new()
-	controls.text = "WASD/flechas: mover y apuntar · Espacio: plano/smash · E: globo · soltar fija · R: pelota · H: globo recibido · T: zona · P: pausa · M: audio · F8: lab"
+	controls.text = "WASD/flechas: mover/apuntar · Espacio: plano/smash · E: globo · juntos: especial x3/x4 · R: pelota · H: globo recibido · T: zona · P: pausa · M: audio · F8: lab"
 	controls.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	controls.add_theme_font_size_override("font_size", 16)
 	controls.add_theme_color_override("font_color", Color("d0dde0"))
@@ -78,7 +78,9 @@ func _process(_delta: float) -> void:
 	if paused:
 		status.text = "PAUSA · P para continuar"
 	elif controller.charging:
-		if controller.shot_kind == controller.ShotType.LOB:
+		if controller.shot_kind == controller.ShotType.SPECIAL:
+			status.text = "Especial %d%% · fijá ~90%% · lateral: x3 · adelante: x4" % roundi(controller.shot_charge * 100.0)
+		elif controller.shot_kind == controller.ShotType.LOB:
 			status.text = "Globo %d%% · soltar fija altura y profundidad" % roundi(controller.shot_charge * 100.0)
 		else:
 			if controller.is_smash_preparation():
@@ -86,7 +88,10 @@ func _process(_delta: float) -> void:
 			else:
 				status.text = ("Plano %d%% · suave + abajo: chiquita" if compact else "Plano %d%% · suave + abajo: chiquita · 90%%: golpe potente · soltar fija") % roundi(100.0 * controller.charge_time / controller.full_preparation)
 	elif controller.armed_time > 0.0:
-		if controller.shot_kind == controller.ShotType.LOB:
+		if controller.shot_kind == controller.ShotType.SPECIAL:
+			var choice: String = controller.special_direction()
+			status.text = "Especial %d%% · %s · cerca de red" % [roundi(controller.shot_charge * 100.0),choice if choice != "" else "lateral x3 / adelante x4"]
+		elif controller.shot_kind == controller.ShotType.LOB:
 			status.text = "Globo fijado %d%% · apuntá · E cancela" % roundi(controller.shot_charge * 100.0)
 		elif controller.is_smash_preparation():
 			status.text = "Smash fijado %d%% · apuntá · Espacio cancela" % roundi(controller.shot_charge * 100.0)

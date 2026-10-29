@@ -1,6 +1,6 @@
 # Estado y próxima sesión
 
-Actualizado: 28/10/2026, zona America/Argentina/Mendoza. Sesión 023.
+Actualizado: 28/10/2026, zona America/Argentina/Mendoza. Sesión 024.
 
 ## Dónde estamos
 
@@ -80,9 +80,15 @@ Espacio/A remata pelota alta descendente entre 2.15–2.65 m, delante y dentro d
 
 Presentación propia con pala alta y seguimiento sobre/al costado de cabeza. 54 casos, tres H reales, límites/defensa/riesgos y geometría torso/cabeza aprobados; plano, globo, chiquita, impacto, abanicazo y 18 poses previas mantienen pruebas. Capturas revisadas y video de cinco segundos; SMASH.md detalla parámetros y límites. Sin salto ni giro ni rival; smash todavía requiere valoración humana.
 
+## x3/x4 — sesión 024
+
+Usuario acepta cualitativamente smash y pide especiales. Espacio+E/A+B juntos (primeros 0.10 s de carga) arma especial, conserva carga inicial y fija al soltar. Lateral pide x3, adelante x4. Requiere smash alcanzable, jugador <=2.8 m de red, calidad >=0.85 y 86–94% de carga. Fallar condiciones o búsqueda devuelve golpe normal. H adapta profundidad cuando jugador está cerca para practicar sin recolocarlo.
+
+Búsqueda pura elige velocidad inicial para piso/vidrio/salida lateral o piso/salida fondo. No modifica materiales o fuerza después de impacto; P44 spin real sigue pendiente. 36 salidas físicas y tres H reales aprobados, con negativos y controles. Regresiones de plano/globo/smash/chiquita, pelota/superficies, poses/audio/fallo aprobadas. Capturas y videos de tres segundos revisados. SMASH_ESPECIALES.md contiene referencias, parámetros y límites. Sin rival/puntos/juego exterior ni evaluación humana de especiales.
+
 ## Próximo paso
 
-**Probar smash con el usuario (P41):** H en posición inicial, preparar Espacio y fijar ~90%; revisar alcance, claridad de postura y potencia. Después P40 volea contextual. Conservar plano/globo aceptados; segundo pique específico y rival siguen pendientes.
+**Probar combo x3/x4 con el usuario (P41):** avanzar hasta 1–2 m de red, H, preparar Espacio+E juntos, fijar ~90%; lateral x3/adelante x4. Revisar claridad de carga y oportunidad, sin alterar base aceptada. Después P40 volea contextual y rival pendiente.
 
 ## Abrir
 

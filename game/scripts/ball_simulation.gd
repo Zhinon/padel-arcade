@@ -95,18 +95,7 @@ func step(delta: float) -> void:
 			var restitution := _restitution(surface)
 			var tangent := incoming - incoming.dot(normal) * normal
 			if surface == "floor":
-				# Coulomb-style tangential impulse, capped so it cannot reverse motion.
-				# Effective grip grows for steeper landings; this is an arcade
-				# approximation, shared by every shot, not a chiquita-only brake.
-				var slope := approach / maxf(0.001, tangent.length())
-				var grip := smoothstep(floor_grip_slope_start, floor_grip_slope_end, slope)
-				var friction := lerpf(floor_impact_friction, floor_grip_friction, grip)
-				var friction_impulse := friction * (1.0 + restitution) * approach
-				# Bound added grip: high vertical impulse must not erase all forward
-				# motion. Preserve stronger losses already present in the base model.
-				var base_impulse := floor_impact_friction * (1.0 + restitution) * approach
-				friction_impulse = minf(friction_impulse, maxf(base_impulse, tangent.length() * floor_grip_max_loss))
-				tangent = tangent.move_toward(Vector3.ZERO, friction_impulse)
+				tangent = floor_tangent(tangent, approach)
 			var retention := floor_retention if surface == "floor" else 0.98
 			if surface == "glass":
 				retention = glass_retention
@@ -149,6 +138,16 @@ func step(delta: float) -> void:
 			break # Drop remaining time conservatively; do not tunnel.
 	elapsed += delta
 	stepped.emit()
+
+func floor_tangent(tangent: Vector3, approach: float) -> Vector3:
+	# Shared, unchanged floor impulse for simulation and special-shot prediction.
+	var slope := approach / maxf(0.001, tangent.length())
+	var grip := smoothstep(floor_grip_slope_start, floor_grip_slope_end, slope)
+	var friction := lerpf(floor_impact_friction, floor_grip_friction, grip)
+	var friction_impulse := friction * (1.0 + floor_bounce) * approach
+	var base_impulse := floor_impact_friction * (1.0 + floor_bounce) * approach
+	friction_impulse = minf(friction_impulse, maxf(base_impulse, tangent.length() * floor_grip_max_loss))
+	return tangent.move_toward(Vector3.ZERO, friction_impulse)
 
 func _shed_net_tape(reflected: Vector3, incoming: Vector3, normal: Vector3) -> Vector3:
 	# Arcade approximation of a yielding/rounded tape: a flat box must not
