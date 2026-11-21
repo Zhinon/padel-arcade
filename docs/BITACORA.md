@@ -312,3 +312,8 @@ Usuario valora práctica y esperaba W+D x3, S x4. Se implementa diagonal adelant
 **Implementación:** motor/controlador de golpes adaptados a identidad y mitad opuesta mediante coordenadas locales, eventos físicos en mundo. Rival con reacción 0.24 s, replan 0.12 s, forecast aproximado sin modificar física/RNG, movimiento normal, plantado/carga/contacto comunes. Busca 70%, plano contextual y globo si humano sube. Fin de jugada básico y reinicio tras 1.8 s; R manual, pausa/foco/modos y audio conjunto. No dobles, árbitro completo o puntos.
 
 **Verificación:** 60 s sintéticos con 34 devoluciones/68 contactos, quince recepciones, cinco pares espejados y negativos de alcance/reacción/reinicio aprobados. Regresiones de golpes, poses, impactos, pelota y cámara aprobadas. Constante de foco y activación de presentación de fixture corregidas. Importación final limpia. Capturas y video 6 s revisados; HUD largo corregido y ventana pequeña verificada. Documentación y punto Git. Pendiente prueba humana de tiempo para posicionar/cargar y dificultad antes de avanzar a parejas.
+
+
+## Publicación en GitHub — 20/11/2026
+
+Preparada una copia pública con historial sin la foto de referencia de licencia no establecida. README actualizado con estado jugable, tecnología y demostración del rival. Sin modificaciones de gameplay; no se ejecutó el motor para esta publicación.

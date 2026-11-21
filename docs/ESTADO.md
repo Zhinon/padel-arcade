@@ -8,7 +8,7 @@ Actualizado: 28/10/2026, zona America/Argentina/Mendoza. Sesión 029.
 
 **P42 implementado para golpe base:** preparación con pala/brazo, inclinación del cuerpo, contacto visual en la posición real y acompañamiento breve. Destello celeste normal, verde perfecto y ámbar defensa. Tres sonidos propios sintéticos provisionales, volumen -8 dB; M silencia/reactiva. No se añadieron bloqueos de control ni cambios en resolución de trayectoria.
 
-Godot 4.7.2.stable.official.ed1daf0bf portátil. Git local main, sin remoto. P06 equipo objetivo/mando sigue pendiente.
+Godot 4.7.2.stable.official.ed1daf0bf portátil. Rama main. Copia preparada para publicación en Zhinon/padel-arcade; ver nota de publicación al final. P06 equipo objetivo/mando sigue pendiente.
 
 ## Comprobado en sesión 012
 
@@ -126,3 +126,8 @@ Riesgos de volea verificados tras pedido del usuario: poca fuerza/contacto bajo 
 Usuario considera jugable lo actual y acuerda seguir con rival antes de más golpes. I/LB activa peloteo; rival comparte motor/controlador desde mitad opuesta, reacción 0.24 s, forecast aproximado y carga buscada 70%. Plano contextual y globo cuando humano sube; alcance/velocidad sin ventajas. Tras devolución recupera posición. Fin de jugada básico y reinicio a 1.8 s, R manual; sin marcador reglamentario.
 
 60 s automáticos: 34 devoluciones del rival/68 contactos consecutivos. Quince recepciones y cinco pares espejados, pelota imposible, pausa/foco/modos y reinicios verificados; no equivale a prueba humana. Ver RIVAL.md e informe. Controles/golpes anteriores preservados en regresiones; pendiente valorar dificultad con usuario.
+
+
+## Publicación en GitHub
+
+20/11/2026: copia para Zhinon/padel-arcade, público. Se conserva el historial de desarrollo excluyendo la foto interna docs/references/camera-reference.png de todos los commits. La carpeta original del desarrollo conserva su historial y referencia local; los hashes de esta copia son distintos. Publicación documental, sin cambios de gameplay ni nuevas pruebas del motor.

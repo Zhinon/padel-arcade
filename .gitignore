@@ -11,3 +11,6 @@ Thumbs.db
 
 # Portable tool data managed by run-godot.sh
 .local/
+
+# Referencia interna sin licencia de publicación
+docs/references/camera-reference.png

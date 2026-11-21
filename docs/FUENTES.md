@@ -22,7 +22,7 @@ No se declara conformidad reglamentaria del prototipo. Registrar por separado ca
 
 | Archivo/elemento | Procedencia | Uso y permisos |
 | --- | --- | --- |
-| `references/camera-reference.png` | Imagen adjunta por el usuario en este chat | Referencia interna de cámara; autor/licencia de publicación no establecidos; no se incluye en el runtime |
+| `references/camera-reference.png` | Imagen adjunta por el usuario en el chat de desarrollo | Referencia interna de cámara; autor/licencia de publicación no establecidos; excluida de este repositorio público y de su historial |
 | Piso y red provisionales de `main.tscn` | Geometría creada en el proyecto | Marcadores de escala; no son assets definitivos |
 
 Virtua Tennis es una referencia declarada por el usuario de ritmo y controles. No se copiaron código, personajes, sonidos, interfaces ni assets de ese juego.

@@ -150,3 +150,8 @@ Depende de validar el MVP de PC, salvo la prueba temprana P81.
 ## Calendario
 
 Tras P05/P06 y una primera iteración de E1 registrar horas reales y disponibilidad semanal. Estimar de una a dos etapas por vez con margen para aprender. Todavía no hay base para prometer fecha del juego completo.
+
+
+## Publicación — 20/11/2026
+
+Copia pública preparada para Zhinon/padel-arcade con historial de desarrollo y sin la foto interna de referencia. No cambia el alcance de las etapas de gameplay.
